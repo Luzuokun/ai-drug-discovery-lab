@@ -1,0 +1,45 @@
+:root {
+  --adl-hero-bg: linear-gradient(135deg, #1a237e 0%, #0d47a1 50%, #00695c 100%);
+}
+
+.md-typeset .adl-hero {
+  background: var(--adl-hero-bg);
+  border-radius: 8px;
+  color: #fff;
+  margin: 0 0 2rem;
+  padding: 2rem 2.5rem;
+}
+
+.md-typeset .adl-hero h1 {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.md-typeset .adl-hero p {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.1rem;
+  margin: 0.25rem 0;
+}
+
+.md-typeset .adl-tagline {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.md-typeset .adl-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.md-typeset .adl-tools li {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+}

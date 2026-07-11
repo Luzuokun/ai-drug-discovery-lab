@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/cheat-sheets/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/cheat-sheets/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/cheat-sheets/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/docking/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/docking/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/docking/autodock-vina/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/docking/autodock-vina/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/autodock-vina/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/docking/gnina/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/docking/gnina/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/gnina/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/docking/smina/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/docking/smina/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/smina/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/conda/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/conda/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/conda/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/cuda/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/cuda/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/cuda/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/docker/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/docker/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/docker/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/linux/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/linux/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/linux/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-dynamics/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-dynamics/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-dynamics/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-dynamics/amber/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-dynamics/amber/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-dynamics/amber/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-dynamics/gromacs/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-dynamics/gromacs/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-dynamics/gromacs/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/diffusion/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/diffusion/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/diffusion/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/drugex/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/drugex/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/drugex/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/graphga/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/graphga/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/graphga/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/molgpt/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/molgpt/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/molgpt/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/01-installation-first-molecule/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/01-installation-first-molecule/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/01-installation-first-molecule/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/02-prior-model/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/02-prior-model/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/02-prior-model/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/03-scoring-function/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/03-scoring-function/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/03-scoring-function/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/04-reinforcement-learning/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/04-reinforcement-learning/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/04-reinforcement-learning/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/05-curriculum-learning/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/05-curriculum-learning/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/05-curriculum-learning/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/06-diversity-filter/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/06-diversity-filter/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/06-diversity-filter/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/07-transfer-learning/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/07-transfer-learning/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/07-transfer-learning/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/08-custom-vocabulary/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/08-custom-vocabulary/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/08-custom-vocabulary/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/09-docking-integration/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/09-docking-integration/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/09-docking-integration/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/10-rdkit-integration/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/10-rdkit-integration/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/10-rdkit-integration/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/11-parallel-sampling/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/11-parallel-sampling/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/11-parallel-sampling/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/12-gpu-training/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/12-gpu-training/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/12-gpu-training/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/13-logging/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/13-logging/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/13-logging/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/14-tensorboard/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/14-tensorboard/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/14-tensorboard/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/15-hyperparameters/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/15-hyperparameters/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/15-hyperparameters/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/16-case-study-braf/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/16-case-study-braf/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/16-case-study-braf/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/17-troubleshooting/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/17-troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/17-troubleshooting/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/18-common-errors/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/18-common-errors/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/18-common-errors/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/19-faq/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/19-faq/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/19-faq/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/20-appendix/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/20-appendix/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/20-appendix/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/papers/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/papers/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/papers/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/papers/braf-project/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/papers/braf-project/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/papers/braf-project/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/papers/cdk1-project/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/papers/cdk1-project/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/papers/cdk1-project/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/esm2/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/esm2/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/esm2/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/esmfold/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/esmfold/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/esmfold/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/ligandmpnn/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/ligandmpnn/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/ligandmpnn/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/proteinmpnn/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/proteinmpnn/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/proteinmpnn/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/rfdiffusion/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/rfdiffusion/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/rfdiffusion/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/python-workflow/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/python-workflow/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/python-workflow/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/python-workflow/automation/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/python-workflow/automation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/python-workflow/automation/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/python-workflow/scripts/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/python-workflow/scripts/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/python-workflow/scripts/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/descriptor/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/descriptor/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/descriptor/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/fingerprint/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/fingerprint/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/fingerprint/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/scaffold/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/scaffold/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/scaffold/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/resources/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/resources/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/resources/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/cheat-sheets/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/cheat-sheets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/cheat-sheets/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/docking/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/autodock-vina/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/autodock-vina/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/docking/autodock-vina/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/gnina/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/gnina/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/docking/gnina/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/smina/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/docking/smina/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/docking/smina/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/conda/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/conda/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/conda/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/cuda/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/cuda/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/cuda/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/docker/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/docker/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/docker/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/linux/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/getting-started/linux/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/getting-started/linux/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-dynamics/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-dynamics/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-dynamics/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-dynamics/amber/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-dynamics/amber/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-dynamics/amber/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-dynamics/gromacs/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-dynamics/gromacs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-dynamics/gromacs/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/diffusion/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/diffusion/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/diffusion/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/drugex/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/drugex/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/drugex/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/graphga/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/graphga/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/graphga/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/molgpt/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/molgpt/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/molgpt/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/01-installation-first-molecule/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/01-installation-first-molecule/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/01-installation-first-molecule/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/02-prior-model/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/02-prior-model/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/02-prior-model/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/03-scoring-function/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/03-scoring-function/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/03-scoring-function/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/04-reinforcement-learning/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/04-reinforcement-learning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/04-reinforcement-learning/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/05-curriculum-learning/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/05-curriculum-learning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/05-curriculum-learning/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/06-diversity-filter/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/06-diversity-filter/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/06-diversity-filter/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/07-transfer-learning/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/07-transfer-learning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/07-transfer-learning/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/08-custom-vocabulary/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/08-custom-vocabulary/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/08-custom-vocabulary/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/09-docking-integration/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/09-docking-integration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/09-docking-integration/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/10-rdkit-integration/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/10-rdkit-integration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/10-rdkit-integration/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/11-parallel-sampling/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/11-parallel-sampling/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/11-parallel-sampling/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/12-gpu-training/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/12-gpu-training/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/12-gpu-training/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/13-logging/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/13-logging/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/13-logging/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/14-tensorboard/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/14-tensorboard/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/14-tensorboard/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/15-hyperparameters/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/15-hyperparameters/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/15-hyperparameters/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/16-case-study-braf/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/16-case-study-braf/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/16-case-study-braf/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/17-troubleshooting/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/17-troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/17-troubleshooting/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/18-common-errors/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/18-common-errors/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/18-common-errors/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/19-faq/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/19-faq/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/19-faq/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/20-appendix/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/20-appendix/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/20-appendix/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/papers/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/papers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/papers/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/papers/braf-project/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/papers/braf-project/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/papers/braf-project/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/papers/cdk1-project/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/papers/cdk1-project/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/papers/cdk1-project/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/esm2/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/esm2/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/esm2/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/esmfold/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/esmfold/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/esmfold/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/ligandmpnn/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/ligandmpnn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/ligandmpnn/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/proteinmpnn/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/proteinmpnn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/proteinmpnn/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/rfdiffusion/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/protein-ai/rfdiffusion/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/protein-ai/rfdiffusion/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/python-workflow/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/python-workflow/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/python-workflow/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/python-workflow/automation/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/python-workflow/automation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/python-workflow/automation/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/python-workflow/scripts/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/python-workflow/scripts/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/python-workflow/scripts/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/descriptor/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/descriptor/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/descriptor/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/fingerprint/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/fingerprint/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/fingerprint/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/scaffold/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/rdkit/scaffold/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/rdkit/scaffold/"/>
+    </url>
+    <url>
+        <loc>https://luzuokun.github.io/ai-drug-discovery-lab/zh/resources/</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://luzuokun.github.io/ai-drug-discovery-lab/zh/resources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://luzuokun.github.io/ai-drug-discovery-lab/resources/"/>
+    </url>
+</urlset>
