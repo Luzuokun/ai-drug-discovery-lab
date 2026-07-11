@@ -1,0 +1,222 @@
+site_name: AI Drug Discovery Lab
+site_url: https://luzuokun.github.io/ai-drug-discovery-lab/
+site_description: Practical tutorials for AI-driven molecular design. Real workflows. Real code. Real papers.
+site_author: Luzuokun
+
+repo_name: Luzuokun/ai-drug-discovery-lab
+repo_url: https://github.com/Luzuokun/ai-drug-discovery-lab
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; 2026 AI Drug Discovery Lab
+
+theme:
+  name: material
+  language: en
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: zh
+          name: 中文
+          build: true
+          site_name: AI 药物发现实验室
+          nav:
+            - 首页: index.md
+            - 入门指南:
+                - getting-started/index.md
+                - Linux: getting-started/linux.md
+                - Conda: getting-started/conda.md
+                - CUDA: getting-started/cuda.md
+                - Docker: getting-started/docker.md
+            - 分子生成:
+                - molecular-generation/index.md
+                - REINVENT4:
+                    - molecular-generation/reinvent4/index.md
+                    - "01 安装与首个分子": molecular-generation/reinvent4/01-installation-first-molecule.md
+                    - "02 Prior 模型": molecular-generation/reinvent4/02-prior-model.md
+                    - "03 评分函数": molecular-generation/reinvent4/03-scoring-function.md
+                    - "04 强化学习": molecular-generation/reinvent4/04-reinforcement-learning.md
+                    - "05 课程学习": molecular-generation/reinvent4/05-curriculum-learning.md
+                    - "06 多样性过滤器": molecular-generation/reinvent4/06-diversity-filter.md
+                    - "07 迁移学习": molecular-generation/reinvent4/07-transfer-learning.md
+                    - "08 自定义词表": molecular-generation/reinvent4/08-custom-vocabulary.md
+                    - "09 对接集成": molecular-generation/reinvent4/09-docking-integration.md
+                    - "10 RDKit 集成": molecular-generation/reinvent4/10-rdkit-integration.md
+                    - "11 并行采样": molecular-generation/reinvent4/11-parallel-sampling.md
+                    - "12 GPU 训练": molecular-generation/reinvent4/12-gpu-training.md
+                    - "13 日志": molecular-generation/reinvent4/13-logging.md
+                    - "14 TensorBoard": molecular-generation/reinvent4/14-tensorboard.md
+                    - "15 超参数": molecular-generation/reinvent4/15-hyperparameters.md
+                    - "16 案例 BRAF": molecular-generation/reinvent4/16-case-study-braf.md
+                    - "17 故障排查": molecular-generation/reinvent4/17-troubleshooting.md
+                    - "18 常见错误": molecular-generation/reinvent4/18-common-errors.md
+                    - "19 FAQ": molecular-generation/reinvent4/19-faq.md
+                    - "20 附录": molecular-generation/reinvent4/20-appendix.md
+                - DrugEx: molecular-generation/drugex.md
+                - MolGPT: molecular-generation/molgpt.md
+                - GraphGA: molecular-generation/graphga.md
+                - 扩散模型: molecular-generation/diffusion.md
+            - 蛋白质 AI:
+                - protein-ai/index.md
+                - ESM2: protein-ai/esm2.md
+                - ESMFold: protein-ai/esmfold.md
+                - ProteinMPNN: protein-ai/proteinmpnn.md
+                - LigandMPNN: protein-ai/ligandmpnn.md
+                - RFdiffusion: protein-ai/rfdiffusion.md
+            - 分子对接:
+                - docking/index.md
+                - AutoDock Vina: docking/autodock-vina.md
+                - Smina: docking/smina.md
+                - Gnina: docking/gnina.md
+            - 分子动力学:
+                - molecular-dynamics/index.md
+                - GROMACS: molecular-dynamics/gromacs.md
+                - Amber: molecular-dynamics/amber.md
+            - RDKit:
+                - rdkit/index.md
+                - 指纹: rdkit/fingerprint.md
+                - 描述符: rdkit/descriptor.md
+                - 骨架: rdkit/scaffold.md
+            - Python 工作流:
+                - python-workflow/index.md
+                - 脚本: python-workflow/scripts.md
+                - 自动化: python-workflow/automation.md
+            - 论文项目:
+                - papers/index.md
+                - BRAF 项目: papers/braf-project.md
+                - CDK1 项目: papers/cdk1-project.md
+            - 速查表:
+                - cheat-sheets/index.md
+            - 资源:
+                - resources/index.md
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - getting-started/index.md
+      - Linux: getting-started/linux.md
+      - Conda: getting-started/conda.md
+      - CUDA: getting-started/cuda.md
+      - Docker: getting-started/docker.md
+  - Molecular Generation:
+      - molecular-generation/index.md
+      - REINVENT4:
+          - molecular-generation/reinvent4/index.md
+          - "01 Installation & First Molecule": molecular-generation/reinvent4/01-installation-first-molecule.md
+          - "02 Prior Model": molecular-generation/reinvent4/02-prior-model.md
+          - "03 Scoring Function": molecular-generation/reinvent4/03-scoring-function.md
+          - "04 Reinforcement Learning": molecular-generation/reinvent4/04-reinforcement-learning.md
+          - "05 Curriculum Learning": molecular-generation/reinvent4/05-curriculum-learning.md
+          - "06 Diversity Filter": molecular-generation/reinvent4/06-diversity-filter.md
+          - "07 Transfer Learning": molecular-generation/reinvent4/07-transfer-learning.md
+          - "08 Custom Vocabulary": molecular-generation/reinvent4/08-custom-vocabulary.md
+          - "09 Docking Integration": molecular-generation/reinvent4/09-docking-integration.md
+          - "10 RDKit Integration": molecular-generation/reinvent4/10-rdkit-integration.md
+          - "11 Parallel Sampling": molecular-generation/reinvent4/11-parallel-sampling.md
+          - "12 GPU Training": molecular-generation/reinvent4/12-gpu-training.md
+          - "13 Logging": molecular-generation/reinvent4/13-logging.md
+          - "14 TensorBoard": molecular-generation/reinvent4/14-tensorboard.md
+          - "15 Hyperparameters": molecular-generation/reinvent4/15-hyperparameters.md
+          - "16 Case Study BRAF": molecular-generation/reinvent4/16-case-study-braf.md
+          - "17 Troubleshooting": molecular-generation/reinvent4/17-troubleshooting.md
+          - "18 Common Errors": molecular-generation/reinvent4/18-common-errors.md
+          - "19 FAQ": molecular-generation/reinvent4/19-faq.md
+          - "20 Appendix": molecular-generation/reinvent4/20-appendix.md
+      - DrugEx: molecular-generation/drugex.md
+      - MolGPT: molecular-generation/molgpt.md
+      - GraphGA: molecular-generation/graphga.md
+      - Diffusion Models: molecular-generation/diffusion.md
+  - Protein AI:
+      - protein-ai/index.md
+      - ESM2: protein-ai/esm2.md
+      - ESMFold: protein-ai/esmfold.md
+      - ProteinMPNN: protein-ai/proteinmpnn.md
+      - LigandMPNN: protein-ai/ligandmpnn.md
+      - RFdiffusion: protein-ai/rfdiffusion.md
+  - Docking:
+      - docking/index.md
+      - AutoDock Vina: docking/autodock-vina.md
+      - Smina: docking/smina.md
+      - Gnina: docking/gnina.md
+  - Molecular Dynamics:
+      - molecular-dynamics/index.md
+      - GROMACS: molecular-dynamics/gromacs.md
+      - Amber: molecular-dynamics/amber.md
+  - RDKit:
+      - rdkit/index.md
+      - Fingerprint: rdkit/fingerprint.md
+      - Descriptor: rdkit/descriptor.md
+      - Scaffold: rdkit/scaffold.md
+  - Python Workflow:
+      - python-workflow/index.md
+      - Scripts: python-workflow/scripts.md
+      - Automation: python-workflow/automation.md
+  - Papers:
+      - papers/index.md
+      - BRAF Project: papers/braf-project.md
+      - CDK1 Project: papers/cdk1-project.md
+  - Cheat Sheets:
+      - cheat-sheets/index.md
+  - Resources:
+      - resources/index.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Luzuokun/ai-drug-discovery-lab

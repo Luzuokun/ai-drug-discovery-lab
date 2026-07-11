@@ -1,0 +1,11 @@
+# CDK1 Project
+
+!!! note "Coming Soon"
+    This chapter is part of the *Open Handbook of AI Drug Discovery*.
+    Content is under development.
+
+CDK1 inhibitor design case study.
+
+**Tools:** CDK1 Project
+
+Follow the [chapter template](https://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/templates/chapter-template.md) when contributing.
