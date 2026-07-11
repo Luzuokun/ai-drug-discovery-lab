@@ -34,6 +34,21 @@ Build for production:
 mkdocs build --strict
 ```
 
+## Publish to GitHub Pages
+
+The repo includes [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). After pushing to `main`, GitHub Actions builds and deploys the site.
+
+```bash
+git push -u origin main
+```
+
+Then in GitHub: **Settings → Pages → Source: GitHub Actions**.
+
+Live URLs:
+
+- English: [https://luzuokun.github.io/ai-drug-discovery-lab/](https://luzuokun.github.io/ai-drug-discovery-lab/)
+- 中文: [https://luzuokun.github.io/ai-drug-discovery-lab/zh/](https://luzuokun.github.io/ai-drug-discovery-lab/zh/)
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the chapter template and writing standards.
