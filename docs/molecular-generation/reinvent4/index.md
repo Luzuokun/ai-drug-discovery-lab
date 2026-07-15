@@ -2,7 +2,7 @@
 
 | # | Chapter | Status |
 |---|---------|--------|
-| 01 | [Installation & First Molecule](01-installation-first-molecule.md) | Coming Soon |
+| 01 | [Installation & First Molecule](01-installation-first-molecule.md) | Available |
 | 02 | [Prior Model](02-prior-model.md) | Coming Soon |
 | 03 | [Scoring Function](03-scoring-function.md) | Coming Soon |
 | 04 | [Reinforcement Learning](04-reinforcement-learning.md) | Coming Soon |
