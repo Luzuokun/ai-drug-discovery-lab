@@ -4,7 +4,7 @@
 |---|---------|--------|
 | 01 | [Installation & First Molecule](01-installation-first-molecule.md) | Available |
 | 02 | [Prior Model](02-prior-model.md) | Coming Soon |
-| 03 | [Scoring Function](03-scoring-function.md) | Coming Soon |
+| 03 | [Scoring Function](03-scoring-function.md) | Available |
 | 04 | [Reinforcement Learning](04-reinforcement-learning.md) | Coming Soon |
 | 05 | [Curriculum Learning](05-curriculum-learning.md) | Coming Soon |
 | 06 | [Diversity Filter](06-diversity-filter.md) | Coming Soon |
