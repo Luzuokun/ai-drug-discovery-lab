@@ -1,29 +1,25 @@
-# REINVENT4 Tutorial 07: Transfer Learning
+# REINVENT4 Tutorial 12: Troubleshooting Appendix
 
 !!! note "Coming Soon — research practice outline"
     This chapter is part of the *Open Handbook of AI Drug Discovery*.
     Full hands-on text will follow the [chapter template](https://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/templates/chapter-template.md).
     Until then, the outline below is the acceptance bar.
 
-!!! abstract "Chapter 7 of the REINVENT4 course"
-    Adapt the prior to project-specific chemistry before or beside long RL.
+!!! abstract "Chapter 12 of the REINVENT4 course"
+    Cross-cutting failures, demoted edge topics, and FAQ — one appendix, not three duplicate chapters.
 
 ## What this chapter must deliver
 
-1. Fine-tune on a small, documented SMILES set; report sample NLL / validity before vs after.
-1. Decide TL→RL vs RL-only with the same scoring function and seed budget.
-1. Call out overfitting symptoms (collapsed diversity, memorized training SMILES).
+1. Index errors already covered in 01/03/04 and add only *new* cross-cutting cases.
+1. Short notes: custom vocabulary, parallel sampling, RDKit usage pointers to the RDKit section.
+1. Link official PARAMS/SCORING with a one-line 'use this when…'.
 
 ## Out of scope (API-doc trap)
 
-Epoch/batch flag lists without a before/after figure lose to official TL examples.
+Do not resurrect separate FAQ / Common Errors / Appendix nav entries.
 
 ## Status
 
 **Coming Soon.** Prerequisites: earlier Available chapters in the
 [course syllabus](index.md). Follow CONTRIBUTING: research practice, not API docs;
 every tutorial is reproducible.
-
----
-
-**Next chapter:** [Tutorial 08 — Docking-Guided Design](08-docking-guided-design.md)

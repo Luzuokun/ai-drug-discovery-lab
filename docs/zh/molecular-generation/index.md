@@ -9,4 +9,4 @@ AI 驱动的从头分子设计框架。
 
 ## 特色课程
 
-- [REINVENT4](reinvent4/index.md) — 20 章教程系列
+- [REINVENT4](reinvent4/index.md) — 12 章科研实践课程

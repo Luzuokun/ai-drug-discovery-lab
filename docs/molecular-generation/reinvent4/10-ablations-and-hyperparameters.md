@@ -1,22 +1,22 @@
-# REINVENT4 Tutorial 07: Transfer Learning
+# REINVENT4 Tutorial 10: Ablations & Hyperparameters
 
 !!! note "Coming Soon — research practice outline"
     This chapter is part of the *Open Handbook of AI Drug Discovery*.
     Full hands-on text will follow the [chapter template](https://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/templates/chapter-template.md).
     Until then, the outline below is the acceptance bar.
 
-!!! abstract "Chapter 7 of the REINVENT4 course"
-    Adapt the prior to project-specific chemistry before or beside long RL.
+!!! abstract "Chapter 10 of the REINVENT4 course"
+    Change one variable at a time — σ, batch size, steps — and publish *your* tables.
 
 ## What this chapter must deliver
 
-1. Fine-tune on a small, documented SMILES set; report sample NLL / validity before vs after.
-1. Decide TL→RL vs RL-only with the same scoring function and seed budget.
-1. Call out overfitting symptoms (collapsed diversity, memorized training SMILES).
+1. Define a base RL config from Tutorial 04; ablate ≥3 values of `sigma` (or `batch_size`) at fixed seed budget.
+1. Table mean Score, validity, unique scaffolds; recommend a default for learners.
+1. State what you would *not* tune next (and why).
 
 ## Out of scope (API-doc trap)
 
-Epoch/batch flag lists without a before/after figure lose to official TL examples.
+A restatement of PARAMS.md defaults without measured outcomes is out of scope.
 
 ## Status
 
@@ -26,4 +26,4 @@ every tutorial is reproducible.
 
 ---
 
-**Next chapter:** [Tutorial 08 — Docking-Guided Design](08-docking-guided-design.md)
+**Next chapter:** [Tutorial 11 — Case Study: BRAF](11-case-study-braf.md)

@@ -1,22 +1,22 @@
-# REINVENT4 Tutorial 07: Transfer Learning
+# REINVENT4 Tutorial 06: Curriculum Learning
 
 !!! note "Coming Soon — research practice outline"
     This chapter is part of the *Open Handbook of AI Drug Discovery*.
     Full hands-on text will follow the [chapter template](https://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/templates/chapter-template.md).
     Until then, the outline below is the acceptance bar.
 
-!!! abstract "Chapter 7 of the REINVENT4 course"
-    Adapt the prior to project-specific chemistry before or beside long RL.
+!!! abstract "Chapter 6 of the REINVENT4 course"
+    Escalate objectives across stages or checkpoint hand-offs — multi-stage RL as a research design.
 
 ## What this chapter must deliver
 
-1. Fine-tune on a small, documented SMILES set; report sample NLL / validity before vs after.
-1. Decide TL→RL vs RL-only with the same scoring function and seed budget.
-1. Call out overfitting symptoms (collapsed diversity, memorized training SMILES).
+1. Run ≥2 `[[stage]]` blocks (or manual checkpoint resume) with a harder score in stage 2.
+1. Show Score / validity curves per stage; justify early-stop thresholds.
+1. Contrast auto multi-stage vs continuing from `chkpt_file` (manual curriculum).
 
 ## Out of scope (API-doc trap)
 
-Epoch/batch flag lists without a before/after figure lose to official TL examples.
+A TOML dump of three empty stages without interpreted curves is not enough.
 
 ## Status
 
@@ -26,4 +26,4 @@ every tutorial is reproducible.
 
 ---
 
-**Next chapter:** [Tutorial 08 — Docking-Guided Design](08-docking-guided-design.md)
+**Next chapter:** [Tutorial 07 — Transfer Learning](07-transfer-learning.md)

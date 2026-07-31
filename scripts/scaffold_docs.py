@@ -8,26 +8,20 @@ DOCS = ROOT / "docs"
 TEMPLATE_LINK = "https://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/templates/chapter-template.md"
 
 REINVENT4_CHAPTERS = [
-    ("01-installation-first-molecule", "From Installation to Your First AI-generated Molecule", "从环境搭建到生成第一个分子"),
-    ("02-scoring-function", "Scoring Function", "评分函数"),
-    ("03-first-molecule", "First Molecule Deep Dive", "第一个分子深入解析"),
-    ("04-prior-model", "Prior Model", "Prior 模型"),
-    ("05-reinforcement-learning", "Reinforcement Learning", "强化学习"),
+    # Keep in sync with docs/molecular-generation/reinvent4/ and mkdocs.yml.
+    # Do NOT re-run this script against Available chapters (01/03/04) — it overwrites.
+    ("01-installation-first-molecule", "Installation & First Molecule", "安装与首个分子"),
+    ("02-priors-in-practice", "Priors in Practice", "Prior 实践"),
+    ("03-scoring-function", "Scoring Function", "评分函数"),
+    ("04-reinforcement-learning", "Reinforcement Learning", "强化学习"),
+    ("05-diversity-filter", "Diversity Filter", "多样性过滤器"),
     ("06-curriculum-learning", "Curriculum Learning", "课程学习"),
-    ("07-diversity-filter", "Diversity Filter", "多样性过滤器"),
-    ("08-transfer-learning", "Transfer Learning", "迁移学习"),
-    ("09-custom-vocabulary", "Custom Vocabulary", "自定义词表"),
-    ("10-docking-integration", "Docking Integration", "对接集成"),
-    ("11-rdkit-integration", "RDKit Integration", "RDKit 集成"),
-    ("12-parallel-sampling", "Parallel Sampling", "并行采样"),
-    ("13-gpu-training", "GPU Training", "GPU 训练"),
-    ("14-logging", "Logging", "日志记录"),
-    ("15-tensorboard", "TensorBoard", "TensorBoard 可视化"),
-    ("16-hyperparameters", "Hyperparameters", "超参数调优"),
-    ("17-case-study-braf", "Case Study: BRAF", "案例研究：BRAF"),
-    ("18-common-errors", "Common Errors", "常见错误"),
-    ("19-faq", "FAQ", "常见问题"),
-    ("20-next-steps", "Next Steps", "下一步"),
+    ("07-transfer-learning", "Transfer Learning", "迁移学习"),
+    ("08-docking-guided-design", "Docking-Guided Design", "对接引导设计"),
+    ("09-scaling-and-monitoring", "Scaling & Monitoring", "扩规模与监控"),
+    ("10-ablations-and-hyperparameters", "Ablations & Hyperparameters", "消融与超参数"),
+    ("11-case-study-braf", "Case Study: BRAF", "案例：BRAF"),
+    ("12-troubleshooting-appendix", "Troubleshooting Appendix", "故障排查附录"),
 ]
 
 SECTIONS = {
@@ -152,8 +146,8 @@ def main() -> None:
     reinvent_index_en = """# REINVENT4
 
 !!! note "Course Overview"
-    A 20-chapter hands-on course covering REINVENT4 from installation to production workflows.
-    Every chapter is reproducible.
+    A 12-chapter research practice course: sample → score → optimize → control
+    failure modes → adapt → scale → prove on a target. Every chapter is reproducible.
 
 | # | Chapter | Status |
 |---|---------|--------|
@@ -161,47 +155,61 @@ def main() -> None:
     reinvent_index_zh = """# REINVENT4
 
 !!! note "课程概览"
-    共 20 章的 REINVENT4 实战课程，从安装到生产级工作流。每章均可复现。
+    共 12 章科研实践课程：采样 → 评分 → 优化 → 控制失败模式 → 适配 → 扩规模 → 靶点验证。每章均可复现。
 
 | # | 章节 | 状态 |
 |---|------|------|
 """
+    # Never overwrite hand-authored Available chapters when re-scaffolding.
+    PROTECTED = {
+        "01-installation-first-molecule.md",
+        "03-scoring-function.md",
+        "04-reinforcement-learning.md",
+        "index.md",
+    }
     for i, (slug, en_title, zh_title) in enumerate(REINVENT4_CHAPTERS, 1):
         num = f"{i:02d}"
-        write(
-            DOCS / "molecular-generation" / "reinvent4" / f"{slug}.md",
-            placeholder_en(
-                f"REINVENT4 Tutorial {num}: {en_title}",
-                f"Chapter {num} of the REINVENT4 course.",
-                "REINVENT4",
-            ),
-        )
-        write(
-            DOCS / "zh" / "molecular-generation" / "reinvent4" / f"{slug}.md",
-            placeholder_zh(
-                f"REINVENT4 教程（{num}）：{zh_title}",
-                f"REINVENT4 课程第 {num} 章。",
-                "REINVENT4",
-            ),
-        )
+        en_path = DOCS / "molecular-generation" / "reinvent4" / f"{slug}.md"
+        zh_path = DOCS / "zh" / "molecular-generation" / "reinvent4" / f"{slug}.md"
+        if en_path.name not in PROTECTED:
+            write(
+                en_path,
+                placeholder_en(
+                    f"REINVENT4 Tutorial {num}: {en_title}",
+                    f"Chapter {num} of the REINVENT4 course.",
+                    "REINVENT4",
+                ),
+            )
+        if zh_path.name not in PROTECTED:
+            write(
+                zh_path,
+                placeholder_zh(
+                    f"REINVENT4 教程（{num}）：{zh_title}",
+                    f"REINVENT4 课程第 {num} 章。",
+                    "REINVENT4",
+                ),
+            )
         reinvent_index_en += f"| {num} | [{en_title}]({slug}.md) | Coming Soon |\n"
         reinvent_index_zh += f"| {num} | [{zh_title}]({slug}.md) | 即将推出 |\n"
 
-    write(DOCS / "molecular-generation" / "reinvent4" / "index.md", reinvent_index_en)
-    write(DOCS / "zh" / "molecular-generation" / "reinvent4" / "index.md", reinvent_index_zh)
+    # Index pages are hand-authored — do not overwrite.
+    # write(DOCS / "molecular-generation" / "reinvent4" / "index.md", reinvent_index_en)
+    # write(DOCS / "zh" / "molecular-generation" / "reinvent4" / "index.md", reinvent_index_zh)
 
     mg_en = placeholder_en(
         "Molecular Generation",
         "AI-driven de novo molecular design frameworks.",
-    ) + "\n## Featured course\n\n- [REINVENT4](reinvent4/index.md) — 20-chapter tutorial series\n"
+    ) + "\n## Featured course\n\n- [REINVENT4](reinvent4/index.md) — 12-chapter research practice course\n"
     mg_zh = placeholder_zh(
         "分子生成",
         "AI 驱动的从头分子设计框架。",
-    ) + "\n## 特色课程\n\n- [REINVENT4](reinvent4/index.md) — 20 章教程系列\n"
-    write(DOCS / "molecular-generation" / "index.md", mg_en)
-    write(DOCS / "zh" / "molecular-generation" / "index.md", mg_zh)
+    ) + "\n## 特色课程\n\n- [REINVENT4](reinvent4/index.md) — 12 章科研实践课程\n"
+    # Molecular Generation index is hand-authored — do not overwrite.
+    # write(DOCS / "molecular-generation" / "index.md", mg_en)
+    # write(DOCS / "zh" / "molecular-generation" / "index.md", mg_zh)
 
     print(f"Scaffold complete under {DOCS}")
+    print("Note: REINVENT4 and molecular-generation index pages are hand-authored and were not overwritten.")
 
 
 if __name__ == "__main__":
