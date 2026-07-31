@@ -1,0 +1,24 @@
+slug: 02-priors-in-practice
+title_en: 'REINVENT4 Tutorial 02: Don''t Trust a Prior You Haven''t Stress-Tested'
+title_zh: REINVENT4 教程 02：别信任你没压测过的 Prior
+source_md: docs/molecular-generation/reinvent4/02-priors-in-practice.md
+is_outline: true
+generator: agent-seed-outline
+model: n/a
+target_duration_seconds: 480
+generated_at: '2026-07-31T11:33:06.065025+00:00'
+site_url_en: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/02-priors-in-practice/
+site_url_zh: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/02-priors-in-practice/
+github_repo_url: https://github.com/Luzuokun/ai-drug-discovery-lab
+verify_flags:
+- '[VERIFY] Exact second prior / TL checkpoint filenames once Tutorial 02 hands-on
+  is written'
+- '[VERIFY] Recommended n (sample count) and seed values for the comparison table'
+- '[VERIFY] Whether Bemis-Murcko + MW/logP/HBD/HBA/QED is the chapter''s official
+  metric set'
+- '[VERIFY] Site chapter is still Coming Soon — CTA should not promise finished step-by-step
+  commands until published'
+- '[VERIFY] Zenodo prior filename reinvent_pubchem.prior matches current Tutorial
+  01 download URL'
+note: Chapter 02 source is Coming Soon; pack seeded for human review. Re-run with
+  OPENAI_API_KEY after full chapter ships.

@@ -55,3 +55,16 @@ Chapters 01–05 (*Installation*, *Priors*, *Scoring*, *Reinforcement Learning*,
 syllabus is a **12-chapter research practice path** (see
 `docs/molecular-generation/reinvent4/index.md`) — not a 20-topic API feature tour.
 Later chapters must match that standard and stay aligned with `mkdocs.yml`.
+
+## Video pack (optional)
+
+After a chapter is Available (or you intentionally ship an outline teaser), generate
+a **YouTube text pack** for human review via the Cursor skill
+[`.cursor/skills/youtube-text-pack`](.cursor/skills/youtube-text-pack) (no OpenAI
+API key required). After text approval, use
+[`.cursor/skills/youtube-produce`](.cursor/skills/youtube-produce) for the
+TTS / screencast / upload checklist.
+
+Outputs land in `youtube/packs/<slug>/`. Review `REVIEW.md` before any TTS / edit /
+upload. See [scripts/youtube/README.md](scripts/youtube/README.md). Do not embed
+YouTube iframes in MkDocs until a real video URL exists.

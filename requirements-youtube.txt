@@ -1,0 +1,5 @@
+# Optional deps for Markdown → YouTube text-pack pipeline.
+# Do NOT add these to requirements.txt (MkDocs CI must stay lean).
+openai>=1.40.0
+PyYAML>=6.0.1
+python-dotenv>=1.0.1

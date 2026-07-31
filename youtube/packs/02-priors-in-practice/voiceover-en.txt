@@ -1,0 +1,13 @@
+You downloaded reinvent_pubchem.prior. Congrats — that is not the same as choosing a prior for your chemotype.
+
+Tutorial 01 got you a working environment and a real sampled.csv. That prior was trained on a broad chemical distribution — think PubChem-scale grammar. Your project is not PubChem. Kinase hinges, macrocycles, covalent warheads, natural-product-like scaffolds — if your chemotype is rare in the pretraining soup, the model will still smile and emit SMILES. Validity is not relevance.
+
+Three words every README skips. The prior is the frozen pretrained brain — chemical grammar. The agent starts as a copy you will later train with rewards. The vocabulary is the alphabet inside the prior file. In this chapter we are not training yet. We are asking: which frozen brain should we even start from?
+
+Rule one: same protocol, different brains. Fix the seed, the number of samples n, and the device. Sample from at least two priors — or one public prior versus a transfer-learning checkpoint. If you change seed and model at once, you learned nothing. Reuse the Tutorial 01 sampling config shape. Only swap model_file.
+
+Then measure like an experimentalist. Validity percent. Unique Bemis-Murcko scaffolds — not just unique SMILES. Simple property histograms: molecular weight, logP, hydrogen-bond donors and acceptors, maybe QED. You want coverage of your region without collapsing into one scaffold family. Pretty molecules from the wrong neighborhood lose later — in scoring and in reinforcement learning.
+
+Write this down: when should you not start from a PubChem-style prior? Domain shift. Rare chemotypes. Project libraries that live far from drug-like averages. In those cases, a smaller in-domain prior — or a transfer-learning warm start — can beat a famous public file. Popularity is not a control experiment.
+
+So the research practice is simple. Compare. Measure. Decide with evidence. Then lock the prior before you burn GPU on reinforcement learning. Full hands-on for this chapter is landing on the AI Drug Discovery Lab site. Sampling basics are already live in Tutorial 01. Code and configs live on GitHub. Link in the description — pick a prior on purpose, not by default.

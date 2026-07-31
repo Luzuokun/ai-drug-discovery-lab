@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:15,000
+You downloaded reinvent_pubchem.prior — that is not choosing a prior.
+
+2
+00:00:15,000 --> 00:00:45,000
+Tutorial 01 gave you a working env and a real sampled.csv.
+
+3
+00:00:45,000 --> 00:01:10,000
+Your project is not PubChem. Validity is not relevance.
+
+4
+00:01:10,000 --> 00:01:45,000
+Prior: frozen pretrained brain. Agent: trainable copy.
+
+5
+00:01:45,000 --> 00:02:20,000
+Vocabulary lives inside the prior file. We are not training yet.
+
+6
+00:02:20,000 --> 00:03:05,000
+Same seed, same n, same device — swap only the brain.
+
+7
+00:03:05,000 --> 00:03:50,000
+Compare ≥2 priors, or prior vs a TL checkpoint.
+
+8
+00:03:50,000 --> 00:04:35,000
+Measure validity, unique scaffolds, property histograms.
+
+9
+00:04:35,000 --> 00:05:20,000
+Avoid scaffold collapse. Wrong neighborhood loses later.
+
+10
+00:05:20,000 --> 00:06:00,000
+Skip PubChem-style priors under domain shift or rare chemotypes.
+
+11
+00:06:00,000 --> 00:06:30,000
+Prefer in-domain priors or a transfer-learning warm start.
+
+12
+00:06:30,000 --> 00:07:20,000
+Compare, measure, decide — lock the prior before RL.
+
+13
+00:07:20,000 --> 00:08:00,000
+Full tutorial on the site. Code on GitHub. Link below.

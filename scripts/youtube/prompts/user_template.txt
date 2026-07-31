@@ -1,0 +1,20 @@
+Build a YouTube text pack for this chapter.
+
+SITE_BASE_URL: {{SITE_BASE_URL}}
+GITHUB_REPO_URL: {{GITHUB_REPO_URL}}
+GITHUB_CHAPTER_PATH: {{GITHUB_CHAPTER_PATH}}
+PLAYLIST_PLACEHOLDER: {{PLAYLIST_PLACEHOLDER}}
+
+CHAPTER_BRIEF_JSON:
+{{CHAPTER_BRIEF_JSON}}
+
+Output requirements reminder:
+- Fill every schema field.
+- script_en / script_zh: readable shooting scripts with beat headers like [0:00–0:15 Hook].
+- voiceover_en / voiceover_zh: concatenation of narration suitable for ElevenLabs (plain text, blank line between beats).
+- storyboard: one row per major shot; asset_type from the allowed enum.
+- thumbnail_prompt: detailed image-gen prompt; leave safe text area for title; no logos of other brands.
+- broll: concrete checklist items (screencast terminal, molecule grid, histogram sketch, etc.).
+- youtube_description_*: include links using SITE_BASE_URL + site paths from the brief, GitHub chapter path, and PLAYLIST_PLACEHOLDER.
+- subtitles_* : cue list aligned to beats (estimate timings from start_sec/end_sec).
+- tags: bilingual-friendly SEO tags for AI drug discovery / REINVENT4 / molecular generation.
