@@ -83,8 +83,8 @@ REINVENT 4.8.24 (C) AstraZeneca 2017, 2023 using PyTorch 2.12.0+cpu.
 ```
 
 !!! info "Tutorial 02 is optional here"
-    [Tutorial 02 — Prior Model](02-prior-model.md) goes deeper into how the
-    prior was trained. For RL you only need the prior *file* from Tutorial 01
+    [Tutorial 02 — Priors in Practice](02-priors-in-practice.md) is for choosing
+    and validating priors. For RL you only need the prior *file* from Tutorial 01
     and the scoring ideas from Tutorial 03.
 
 #### Why these design choices? (read before training)
@@ -117,8 +117,8 @@ REINVENT 4.8.24 (C) AstraZeneca 2017, 2023 using PyTorch 2.12.0+cpu.
 
     Diversity filters (scaffold buckets, SMILES penalties) change the effective
     reward and deserve their own chapter. Omitting `[diversity_filter]` keeps
-    this tutorial focused on the RL loop. Tutorial 06 covers filters in depth;
-    Tutorial 05 covers multi-stage curriculum learning.
+    this tutorial focused on the RL loop. Tutorial 05 covers filters in depth;
+    Tutorial 06 covers multi-stage curriculum learning.
 
 ### Step 1: Confirm the environment
 
@@ -406,6 +406,6 @@ How to read the trend:
 
 ---
 
-**Next chapter:** [Tutorial 05 — Curriculum Learning](05-curriculum-learning.md),
-where multiple `[[stage]]` blocks (or checkpoint hand-offs) escalate objectives
-over the course of training.
+**Next chapter:** [Tutorial 05 — Diversity Filter](05-diversity-filter.md),
+where scaffold buckets and related penalties stop mode collapse once RL starts
+working.

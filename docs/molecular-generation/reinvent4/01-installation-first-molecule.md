@@ -333,6 +333,7 @@ The parts other tutorials skip — these are exactly what you'll Google later.
 
 ---
 
-**Next chapter:** [Tutorial 02 — Prior Model](02-prior-model.md), where we look
-inside the prior and learn how the model was trained before we start scoring
-molecules.
+**Next chapter:** [Tutorial 02 — Priors in Practice](02-priors-in-practice.md)
+(optional deep dive on choosing/validating priors), or jump to
+[Tutorial 03 — Scoring Function](03-scoring-function.md) if you already have a
+prior you trust.

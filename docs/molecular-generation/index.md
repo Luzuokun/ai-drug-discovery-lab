@@ -10,4 +10,4 @@ Follow the [chapter template](https://github.com/Luzuokun/ai-drug-discovery-lab/
 
 ## Featured course
 
-- [REINVENT4](reinvent4/index.md) — 20-chapter tutorial series
+- [REINVENT4](reinvent4/index.md) — 12-chapter research practice course

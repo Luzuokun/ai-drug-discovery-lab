@@ -50,4 +50,8 @@ mkdocs build --strict
 
 ## REINVENT4 series
 
-Chapter 01 (*From Installation to Your First AI-generated Molecule*) is the reference implementation. Later chapters should match its tone and depth.
+Chapters 01, 03, and 04 (*Installation*, *Scoring*, *Reinforcement Learning*) are
+the reference implementation for tone and depth. The live syllabus is a
+**12-chapter research practice path** (see `docs/molecular-generation/reinvent4/index.md`) —
+not a 20-topic API feature tour. Later chapters must match that standard and stay
+aligned with `mkdocs.yml`.

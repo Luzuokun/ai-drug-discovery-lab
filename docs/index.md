@@ -49,7 +49,7 @@ New here? Start with [Getting Started](getting-started/index.md).
 | Chapter | Status |
 |---------|--------|
 | [REINVENT4 Tutorial 01 — Installation & First Molecule](molecular-generation/reinvent4/01-installation-first-molecule.md) | Available |
-| [REINVENT4 Course Syllabus](molecular-generation/reinvent4/index.md) | 20-chapter roadmap |
+| [REINVENT4 Course Syllabus](molecular-generation/reinvent4/index.md) | 12-chapter research practice path |
 | [Getting Started — Conda](getting-started/conda.md) | Coming soon |
 
 ---

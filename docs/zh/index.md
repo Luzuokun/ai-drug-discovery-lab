@@ -48,7 +48,7 @@
 | 章节 | 状态 |
 |------|------|
 | [REINVENT4 教程 01 — 安装与首个分子](molecular-generation/reinvent4/01-installation-first-molecule.md) | 即将推出 |
-| [REINVENT4 课程目录](molecular-generation/reinvent4/index.md) | 20 章路线图 |
+| [REINVENT4 课程大纲](molecular-generation/reinvent4/index.md) | 12 章科研实践路径 |
 | [入门 — Conda](getting-started/conda.md) | 即将推出 |
 
 ---
