@@ -12,10 +12,10 @@ downloadable artifacts).
 | # | Chapter | Role in the campaign | Status |
 |---|---------|----------------------|--------|
 | 01 | [Installation & First Molecule](01-installation-first-molecule.md) | Get a working env and a real `sampled.csv` | Available |
-| 02 | [Priors in Practice](02-priors-in-practice.md) | Choose and validate a generative prior for your chemotype | Coming Soon |
+| 02 | [Priors in Practice](02-priors-in-practice.md) | Choose and validate a generative prior for your chemotype | Available |
 | 03 | [Scoring Function](03-scoring-function.md) | Debug the reward *before* spending RL steps | Available |
 | 04 | [Reinforcement Learning](04-reinforcement-learning.md) | Train an agent so high scores become more probable | Available |
-| 05 | [Diversity Filter](05-diversity-filter.md) | Stop scaffold collapse once RL starts working | Coming Soon |
+| 05 | [Diversity Filter](05-diversity-filter.md) | Stop scaffold collapse once RL starts working | Available |
 | 06 | [Curriculum Learning](06-curriculum-learning.md) | Escalate objectives across stages / checkpoints | Coming Soon |
 | 07 | [Transfer Learning](07-transfer-learning.md) | Adapt the prior to project-specific chemistry | Coming Soon |
 | 08 | [Docking-Guided Design](08-docking-guided-design.md) | Put a structure-based oracle into the generation loop | Coming Soon |
