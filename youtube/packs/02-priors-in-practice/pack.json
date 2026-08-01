@@ -1,206 +1,206 @@
 {
-  "title_en": "REINVENT4 Tutorial 02: Don't Trust a Prior You Haven't Stress-Tested",
-  "title_zh": "REINVENT4 教程 02：别信任你没压测过的 Prior",
+  "title_en": "REINVENT4 Tutorial 02: Your Prior Is an Experiment — Prove It",
+  "title_zh": "REINVENT4 教程 02：Prior 是实验选择——用数据证明",
   "target_duration_seconds": 480,
-  "hook_en": "You downloaded reinvent_pubchem.prior. Congrats — that is not the same as choosing a prior for your chemotype.",
-  "hook_zh": "你下载了 reinvent_pubchem.prior。恭喜——这不等于你已经为你的化学型选对了 prior。",
+  "hook_en": "Tutorial 01 gave you reinvent_pubchem.prior. Downloading it was not a research decision. This episode is.",
+  "hook_zh": "教程 01 给了你 reinvent_pubchem.prior。下载它不是研究决策。这一期才是。",
   "beats": [
     {
       "id": "hook",
       "start_sec": 0,
       "end_sec": 15,
       "label_en": "Hook",
-      "label_zh": "开场钩子",
-      "narration_en": "You downloaded reinvent_pubchem.prior. Congrats — that is not the same as choosing a prior for your chemotype.",
-      "narration_zh": "你下载了 reinvent_pubchem.prior。恭喜——这不等于你已经为你的化学型选对了 prior。",
-      "visual": "Title card: 'Prior ≠ Download'. Flash Zenodo file name then a red question mark over a molecule cloud."
+      "label_zh": "开场",
+      "narration_en": "Tutorial 01 gave you reinvent_pubchem.prior. Downloading it was not a research decision. This episode is.",
+      "narration_zh": "教程 01 给了你 reinvent_pubchem.prior。下载它不是研究决策。这一期才是。",
+      "visual": "Title: Prior = experiment. Flash prior filename then a question mark over a sulfonamide motif."
     },
     {
       "id": "problem",
       "start_sec": 15,
-      "end_sec": 70,
-      "label_en": "The hidden assumption",
-      "label_zh": "隐藏假设",
-      "narration_en": "Tutorial 01 got you a working environment and a real sampled.csv. That prior was trained on a broad chemical distribution — think PubChem-scale grammar. Your project is not PubChem. Kinase hinges, macrocycles, covalent warheads, natural-product-like scaffolds — if your chemotype is rare in the pretraining soup, the model will still smile and emit SMILES. Validity is not relevance.",
-      "narration_zh": "教程 01 让你有了可用环境和真正的 sampled.csv。那个 prior 学的是宽分布化学语法，接近 PubChem 量级。但你的项目不是 PubChem。激酶铰链区、大环、共价 warhead、类天然产物骨架——如果这些在预训练里很稀，模型仍会开心地吐出 SMILES。有效，不等于相关。",
-      "visual": "Split screen: PubChem cloud vs project chemotype island. Arrow labeled domain shift."
+      "end_sec": 75,
+      "label_en": "Will it cover your chemistry?",
+      "label_zh": "它覆盖你的化学吗？",
+      "narration_en": "Official docs list prior filenames. Lab work asks: will this generative starting point cover the chemistry you care about? If your project is sulfonamide-rich — or macrocycles, peptides, covalent warheads — and the prior almost never emits that motif, reinforcement learning burns its first hours rediscovering it. Or never finds it.",
+      "narration_zh": "官方文档列 prior 文件名。实验室要问：这个生成起点，覆盖你关心的化学吗？若项目富含磺酰胺——或大环、肽、共价 warhead——而 prior 几乎从不吐出该基序，强化学习会把最初几小时浪费在重新发现上，甚至永远找不到。",
+      "visual": "Quote card: Will this starting point cover the chemistry I care about?"
     },
     {
-      "id": "mental_model",
-      "start_sec": 70,
+      "id": "fair_ab",
+      "start_sec": 75,
       "end_sec": 140,
-      "label_en": "Prior vs Agent vs Vocabulary",
-      "label_zh": "Prior / Agent / Vocabulary",
-      "narration_en": "Three words every README skips. The prior is the frozen pretrained brain — chemical grammar. The agent starts as a copy you will later train with rewards. The vocabulary is the alphabet inside the prior file. In this chapter we are not training yet. We are asking: which frozen brain should we even start from?",
-      "narration_zh": "三个 README 常跳过的词。Prior 是冻结的预训练大脑——化学语法。Agent 是它的副本，后面才用奖励去训。Vocabulary 是塞在 prior 文件里的字母表。本章还不训练。我们只问：该从哪颗冻结的大脑起步？",
-      "visual": "3Blue1Brown-style diagram: Prior (lock icon) → copy → Agent (unlocked). Vocabulary as tiles inside the prior."
+      "label_en": "Fair A/B: same generator, new weights",
+      "label_zh": "公平 A/B：同一生成器，换权重",
+      "narration_en": "Many Zenodo files are different generators — Mol2Mol, LibInvent — different tasks. A fair test keeps the Reinvent generator fixed and changes only the weights. So we compare reinvent_pubchem.prior against a short transfer-learning checkpoint: tl_sulfonamide.model, fine-tuned eight epochs on sulfonamides. Same architecture. New distribution.",
+      "narration_zh": "许多 Zenodo 文件是不同生成器——Mol2Mol、LibInvent——任务本就不同。公平对比要固定 Reinvent 生成器，只改权重。于是我们对比 reinvent_pubchem.prior 与短迁移学习检查点 tl_sulfonamide.model：在磺酰胺上微调 8 个 epoch。同一架构，新的分布。",
+      "visual": "Diagram: Zenodo mix of generators (X) vs prior → TL weights (check)."
     },
     {
       "id": "protocol",
       "start_sec": 140,
       "end_sec": 230,
-      "label_en": "Fair comparison protocol",
-      "label_zh": "公平对比协议",
-      "narration_en": "Rule one: same protocol, different brains. Fix the seed, the number of samples n, and the device. Sample from at least two priors — or one public prior versus a transfer-learning checkpoint from your series. If you change seed and model at once, you learned nothing. [VERIFY] Use the same sampling config shape you already ran in Tutorial 01, only swap model_file.",
-      "narration_zh": "第一条：同一协议，不同大脑。固定 seed、采样数 n、device。至少从两个 prior 采样——或一个公开 prior 对比你后续迁移学习得到的 checkpoint。seed 和模型一起改，等于什么都没学到。[VERIFY] 采样配置沿用教程 01，只换 model_file。",
-      "visual": "Terminal screencast mock: two toml/toml-like configs side by side; only model_file differs; seed highlighted."
+      "label_en": "Identical sampling protocol",
+      "label_zh": "同一采样协议",
+      "narration_en": "Protocol is the science. CPU. Seed 42. About two hundred SMILES each. unique_molecules on. Two TOMLs that differ only in model_file and output_file — compare_prior.csv versus compare_tl.csv. Transfer learning on this demo set finished in about thirteen seconds and peaked near 871 megabytes of RAM. You get slightly fewer than 200 rows after uniqueness — 191 versus 196 in the handbook run. That is expected.",
+      "narration_zh": "协议才是科学。CPU。Seed 42。各约 200 条 SMILES。打开 unique_molecules。两份 TOML 只改 model_file 与 output_file——compare_prior.csv 对 compare_tl.csv。演示集上的迁移学习约 13 秒完成，峰值内存约 871 MiB。去重后略少于 200 行——手册运行是 191 对 196。这是预期现象。",
+      "visual": "Screencast: sample_prior.toml vs sample_tl.toml side by side; seed 42 highlighted."
     },
     {
-      "id": "metrics",
+      "id": "numbers",
       "start_sec": 230,
-      "end_sec": 320,
-      "label_en": "What to measure",
-      "label_zh": "量什么",
-      "narration_en": "Then measure like an experimentalist. Validity percent. Unique Bemis-Murcko scaffolds — not just unique SMILES. Simple property histograms: molecular weight, logP, H-bond donors and acceptors, maybe QED. You are looking for a prior that covers your desired region without collapsing into one scaffold family. Pretty molecules from the wrong neighborhood lose later — in scoring and in RL.",
-      "narration_zh": "然后像实验科学家一样度量：有效率；独特 Bemis-Murcko 骨架——不只是独特 SMILES；简单性质直方图：分子量、logP、氢键供体/受体，或许再加 QED。你要找的是：能覆盖目标化学空间、又不塌成单一骨架家族的 prior。漂亮但走错街区的分子，后面在评分和强化学习里会输。",
-      "visual": "Animated histograms + scaffold treemap comparing Prior A vs Prior B."
+      "end_sec": 330,
+      "label_en": "The numbers that decide",
+      "label_zh": "拍板的数字",
+      "narration_en": "Score the decision with RDKit. SMARTS S(=O)(=O)N. PubChem prior: 8.4 percent sulfonamide hits. After short TL: 64.3 percent. Unique Murcko scaffolds stay high — 168 versus 172. Mean QED moves from 0.59 to 0.65 as a side effect, not the goal. Short TL shifted token preference toward SO2N without collapsing scaffold diversity in this seed-42 draw.",
+      "narration_zh": "用 RDKit 给决策打分。SMARTS：S(=O)(=O)N。PubChem prior：磺酰胺命中 8.4%。短 TL 之后：64.3%。独特 Murcko 骨架仍然很高——168 对 172。平均 QED 从 0.59 到 0.65，这是副作用，不是目标。短 TL 把 token 偏好推向 SO2N，在本次 seed-42 抽样里没有压垮骨架多样性。",
+      "visual": "Show prior-vs-tl-compare.png metrics + MW histograms from the chapter."
     },
     {
-      "id": "when_not",
-      "start_sec": 320,
-      "end_sec": 390,
-      "label_en": "When NOT to start from PubChem",
-      "label_zh": "何时别从 PubChem 起步",
-      "narration_en": "Write this down: when should you not start from a PubChem-style prior? Domain shift. Rare chemotypes. Project libraries that live far from drug-like averages. In those cases, a smaller in-domain prior — or a transfer-learning warm start from Tutorial 07 — can beat a famous public file. Popularity is not a control experiment.",
-      "narration_zh": "请记下来：什么时候不该从类 PubChem prior 起步？分布偏移。稀有化学型。远离类药均值的项目库。这些情况下，更小的域内 prior——或教程 07 的迁移学习热启动——可能打赢那个有名的公开文件。流行，不是对照实验。",
-      "visual": "Decision tree graphic: PubChem OK? → yes/no → TL checkpoint / in-domain prior."
+      "id": "decision",
+      "start_sec": 330,
+      "end_sec": 405,
+      "label_en": "Decision table",
+      "label_zh": "决策表",
+      "narration_en": "What next? If the prior already hits your SMARTS at an acceptable rate, stay on PubChem and go score in Tutorial 03. If the prior rarely hits and TL enriches without killing scaffolds, use the TL checkpoint as your starting agent or prior for RL. Need linkers, R-groups, or analogue-by-seed? Wrong generator — LibInvent, LinkInvent, Mol2Mol — not more PubChem epochs. Peptides or exotic elements: check token support; Pepinvent or a custom prior.",
+      "narration_zh": "下一步？若 prior 已以可接受频率命中你的 SMARTS，留下 PubChem，去做教程 03 的评分。若 prior 很少命中、而 TL 富集且不毁骨架，就把 TL 检查点当作 RL 的起始 agent 或 prior。需要连接子、R 基团或按种子找类似物？生成器选错了——LibInvent、LinkInvent、Mol2Mol——不是再训更多 PubChem epoch。肽或奇特元素：检查 token 支持；Pepinvent 或自定义 prior。",
+      "visual": "Animated decision table from the chapter."
     },
     {
       "id": "cta",
-      "start_sec": 390,
+      "start_sec": 405,
       "end_sec": 480,
       "label_en": "CTA",
       "label_zh": "行动号召",
-      "narration_en": "So the research practice is simple: compare, measure, decide with evidence — then lock the prior before you burn GPU on reinforcement learning. Full hands-on commands for this chapter are landing on the AI Drug Discovery Lab site. Sampling basics are already live in Tutorial 01. Code and configs live on GitHub. Link in the description — pick a prior on purpose, not by default.",
-      "narration_zh": "研究实践其实很简单：对比、度量、用证据决策——在强化学习烧 GPU 之前先锁定 prior。本章完整动手步骤会发布在 AI Drug Discovery Lab 网站；采样基础已在教程 01。代码与配置在 GitHub。描述栏有链接——有意识地选 prior，而不是用默认值。",
-      "visual": "CTA card: Website → GitHub. Series badge Tutorial 02 / 12. End slate."
+      "narration_en": "Priors are experimental choices. Compare under one protocol. Measure chemotype hit rate and scaffolds. Decide with evidence before you burn RL compute. Full commands, configs, and CSVs are on the AI Drug Discovery Lab site. Code lives on GitHub. Link in the description — pick a prior on purpose.",
+      "narration_zh": "Prior 是实验选择。同一协议下对比。度量化学型命中率与骨架。在烧掉 RL 算力前用证据决策。完整命令、配置与 CSV 在 AI Drug Discovery Lab 网站。代码在 GitHub。描述栏有链接——有意识地选 prior。",
+      "visual": "CTA card: site → GitHub. Series badge Tutorial 02 / 12."
     }
   ],
-  "script_en": "# REINVENT4 Tutorial 02 — Don't Trust a Prior You Haven't Stress-Tested\n\nTarget: ~8:00\n\n## [0:00–0:15 Hook]\nYou downloaded reinvent_pubchem.prior. Congrats — that is not the same as choosing a prior for your chemotype.\n\n## [0:15–1:10 The hidden assumption]\nTutorial 01 got you a working environment and a real sampled.csv. That prior was trained on a broad chemical distribution — think PubChem-scale grammar. Your project is not PubChem. Kinase hinges, macrocycles, covalent warheads, natural-product-like scaffolds — if your chemotype is rare in the pretraining soup, the model will still smile and emit SMILES. Validity is not relevance.\n\n## [1:10–2:20 Prior vs Agent vs Vocabulary]\nThree words every README skips. The prior is the frozen pretrained brain — chemical grammar. The agent starts as a copy you will later train with rewards. The vocabulary is the alphabet inside the prior file. In this chapter we are not training yet. We are asking: which frozen brain should we even start from?\n\n## [2:20–3:50 Fair comparison protocol]\nRule one: same protocol, different brains. Fix the seed, the number of samples n, and the device. Sample from at least two priors — or one public prior versus a transfer-learning checkpoint. If you change seed and model at once, you learned nothing. [VERIFY] Reuse the Tutorial 01 sampling config shape; only swap model_file.\n\n## [3:50–5:20 What to measure]\nMeasure like an experimentalist: validity %, unique Bemis-Murcko scaffolds (not just unique SMILES), and simple property histograms — MW, logP, HBD/HBA, maybe QED. Look for coverage of your region without scaffold collapse. Pretty molecules from the wrong neighborhood lose later in scoring and RL.\n\n## [5:20–6:30 When NOT to start from PubChem]\nWrite this down. Domain shift. Rare chemotypes. Libraries far from drug-like averages. Then prefer an in-domain prior or a TL warm start (Tutorial 07). Popularity is not a control experiment.\n\n## [6:30–8:00 CTA]\nCompare → measure → decide with evidence → lock the prior before RL burns GPU. Full chapter on the site (Coming Soon hands-on); Tutorial 01 already live; code on GitHub. Link in the description.",
-  "script_zh": "# REINVENT4 教程 02 — 别信任你没压测过的 Prior\n\n目标时长：约 8:00\n\n## [0:00–0:15 开场]\n你下载了 reinvent_pubchem.prior。恭喜——这不等于你已经为你的化学型选对了 prior。\n\n## [0:15–1:10 隐藏假设]\n教程 01 给了你可用环境和真正的 sampled.csv。那个 prior 学的是宽分布化学语法。你的项目不是 PubChem。稀有化学型上，模型仍会吐出“有效”SMILES——有效 ≠ 相关。\n\n## [1:10–2:20 Prior / Agent / Vocabulary]\nPrior：冻结的预训练大脑。Agent：可训练副本。Vocabulary：prior 内的字母表。本章不训练，只决定从哪颗大脑起步。\n\n## [2:20–3:50 公平对比]\n固定 seed、n、device；至少两个 prior（或 prior vs TL checkpoint）。[VERIFY] 配置沿用教程 01，只换 model_file。\n\n## [3:50–5:20 度量]\n有效率、独特骨架、性质直方图。要覆盖目标区域，避免骨架塌缩。\n\n## [5:20–6:30 何时别用 PubChem]\n分布偏移 / 稀有化学型 / 远离类药均值 → 域内 prior 或教程 07 热启动。\n\n## [6:30–8:00 CTA]\n对比→度量→证据决策→再上 RL。网站完整教程 + GitHub 代码。",
-  "voiceover_en": "You downloaded reinvent_pubchem.prior. Congrats — that is not the same as choosing a prior for your chemotype.\n\nTutorial 01 got you a working environment and a real sampled.csv. That prior was trained on a broad chemical distribution — think PubChem-scale grammar. Your project is not PubChem. Kinase hinges, macrocycles, covalent warheads, natural-product-like scaffolds — if your chemotype is rare in the pretraining soup, the model will still smile and emit SMILES. Validity is not relevance.\n\nThree words every README skips. The prior is the frozen pretrained brain — chemical grammar. The agent starts as a copy you will later train with rewards. The vocabulary is the alphabet inside the prior file. In this chapter we are not training yet. We are asking: which frozen brain should we even start from?\n\nRule one: same protocol, different brains. Fix the seed, the number of samples n, and the device. Sample from at least two priors — or one public prior versus a transfer-learning checkpoint. If you change seed and model at once, you learned nothing. Reuse the Tutorial 01 sampling config shape. Only swap model_file.\n\nThen measure like an experimentalist. Validity percent. Unique Bemis-Murcko scaffolds — not just unique SMILES. Simple property histograms: molecular weight, logP, hydrogen-bond donors and acceptors, maybe QED. You want coverage of your region without collapsing into one scaffold family. Pretty molecules from the wrong neighborhood lose later — in scoring and in reinforcement learning.\n\nWrite this down: when should you not start from a PubChem-style prior? Domain shift. Rare chemotypes. Project libraries that live far from drug-like averages. In those cases, a smaller in-domain prior — or a transfer-learning warm start — can beat a famous public file. Popularity is not a control experiment.\n\nSo the research practice is simple. Compare. Measure. Decide with evidence. Then lock the prior before you burn GPU on reinforcement learning. Full hands-on for this chapter is landing on the AI Drug Discovery Lab site. Sampling basics are already live in Tutorial 01. Code and configs live on GitHub. Link in the description — pick a prior on purpose, not by default.",
-  "voiceover_zh": "你下载了 reinvent_pubchem.prior。恭喜——这不等于你已经为你的化学型选对了 prior。\n\n教程 01 让你有了可用环境和真正的 sampled.csv。那个 prior 学的是宽分布化学语法，接近 PubChem 量级。但你的项目不是 PubChem。激酶铰链区、大环、共价 warhead、类天然产物骨架——如果这些在预训练里很稀，模型仍会开心地吐出 SMILES。有效，不等于相关。\n\n三个 README 常跳过的词。Prior 是冻结的预训练大脑，也就是化学语法。Agent 是它的副本，后面才用奖励去训。Vocabulary 是塞在 prior 文件里的字母表。本章还不训练。我们只问：该从哪颗冻结的大脑起步？\n\n第一条：同一协议，不同大脑。固定 seed、采样数 n、还有 device。至少从两个 prior 采样，或者拿一个公开 prior 对比迁移学习得到的 checkpoint。seed 和模型一起改，等于什么都没学到。采样配置沿用教程 01，只换 model_file。\n\n然后像实验科学家一样度量。有效率。独特的 Bemis-Murcko 骨架，不只是独特 SMILES。简单性质直方图：分子量、logP、氢键供体和受体，或许再加 QED。你要找的是能覆盖目标化学空间、又不塌成单一骨架家族的 prior。漂亮但走错街区的分子，后面在评分和强化学习里会输。\n\n请记下来：什么时候不该从类 PubChem prior 起步？分布偏移。稀有化学型。远离类药均值的项目库。这些情况下，更小的域内 prior，或迁移学习热启动，可能打赢那个有名的公开文件。流行，不是对照实验。\n\n研究实践其实很简单。对比。度量。用证据决策。然后在强化学习烧 GPU 之前，先锁定 prior。本章完整动手步骤会发布在 AI Drug Discovery Lab 网站。采样基础已经在教程 01。代码与配置在 GitHub。描述栏有链接。有意识地选 prior，而不是用默认值。",
+  "script_en": "# REINVENT4 Tutorial 02 — Your Prior Is an Experiment — Prove It\n\nTarget: ~8:00\n\n## [0:00–0:15 Hook]\nTutorial 01 gave you reinvent_pubchem.prior. Downloading it was not a research decision. This episode is.\n\n## [0:15–1:15 Will it cover your chemistry?]\nOfficial docs list prior filenames. Lab work asks: will this generative starting point cover the chemistry you care about? If your project is sulfonamide-rich — or macrocycles, peptides, covalent warheads — and the prior almost never emits that motif, RL burns its first hours rediscovering it. Or never finds it.\n\n## [1:15–2:20 Fair A/B]\nMany Zenodo files are different generators (Mol2Mol, LibInvent) — different tasks. Keep the Reinvent generator fixed; change only weights. Compare reinvent_pubchem.prior vs tl_sulfonamide.model (8 TL epochs on sulfonamides).\n\n## [2:20–3:50 Identical protocol]\nCPU. Seed 42. ~200 SMILES. unique_molecules on. TOMLs differ only in model_file / output_file. Demo TL: ~13 s, ~871 MiB peak. After uniqueness: 191 vs 196 rows — expected.\n\n## [3:50–5:30 The numbers]\nSMARTS S(=O)(=O)N. Sulfonamide %: 8.4% → 64.3%. Murcko scaffolds: 168 vs 172. Mean QED 0.59 → 0.65 (side effect). Short TL enriched the motif without scaffold collapse in this seed-42 draw.\n\n## [5:30–6:45 Decision table]\nPrior OK → Tutorial 03. TL helps → use checkpoint for RL. Need linkers/R-groups/seed analogues → wrong generator. Peptides/exotics → check tokens / Pepinvent.\n\n## [6:45–8:00 CTA]\nCompare → measure → decide → then RL. Full tutorial on the site. Code on GitHub.",
+  "script_zh": "# REINVENT4 教程 02 — Prior 是实验选择——用数据证明\n\n目标时长：约 8:00\n\n## [0:00–0:15 开场]\n教程 01 给了你 reinvent_pubchem.prior。下载它不是研究决策。这一期才是。\n\n## [0:15–1:15 覆盖你的化学吗？]\n实验室要问：生成起点覆盖你关心的化学吗？磺酰胺 / 大环 / 肽 / 共价 warhead 若在 prior 里极稀，RL 会浪费前期算力。\n\n## [1:15–2:20 公平 A/B]\n不同 Zenodo 文件可能是不同生成器。固定 Reinvent，只换权重：prior vs tl_sulfonamide.model（磺酰胺上 8 epoch TL）。\n\n## [2:20–3:50 同一协议]\nCPU、seed 42、约 200 SMILES、unique_molecules。只改 model_file。演示 TL ≈13 s / ~871 MiB。去重后 191 vs 196 行。\n\n## [3:50–5:30 数字]\nS(=O)(=O)N：8.4% → 64.3%。Murcko：168 vs 172。QED 0.59 → 0.65（副作用）。\n\n## [5:30–6:45 决策表]\nPrior 够用 → 教程 03；TL 有效 → 用作 RL 起点；要连接子/R 基/种子类似物 → 换生成器。\n\n## [6:45–8:00 CTA]\n对比→度量→决策→再 RL。网站完整教程 + GitHub 代码。",
+  "voiceover_en": "Tutorial 01 gave you reinvent_pubchem.prior. Downloading it was not a research decision. This episode is.\n\nOfficial docs list prior filenames. Lab work asks: will this generative starting point cover the chemistry you care about? If your project is sulfonamide-rich — or macrocycles, peptides, covalent warheads — and the prior almost never emits that motif, reinforcement learning burns its first hours rediscovering it. Or never finds it.\n\nMany Zenodo files are different generators — Mol2Mol, LibInvent — different tasks. A fair test keeps the Reinvent generator fixed and changes only the weights. So we compare reinvent_pubchem.prior against a short transfer-learning checkpoint: tl_sulfonamide.model, fine-tuned eight epochs on sulfonamides. Same architecture. New distribution.\n\nProtocol is the science. CPU. Seed 42. About two hundred SMILES each. Unique molecules on. Two config files that differ only in model file and output file. Transfer learning on this demo set finished in about thirteen seconds and peaked near 871 megabytes of RAM. After uniqueness you get slightly fewer than 200 rows — 191 versus 196 in the handbook run. That is expected.\n\nScore the decision with RDKit. SMARTS: S equals O twice N. PubChem prior: 8.4 percent sulfonamide hits. After short transfer learning: 64.3 percent. Unique Murcko scaffolds stay high — 168 versus 172. Mean QED moves from 0.59 to 0.65 as a side effect, not the goal. Short transfer learning shifted token preference toward the sulfonamide motif without collapsing scaffold diversity in this seed-42 draw.\n\nWhat next? If the prior already hits your SMARTS at an acceptable rate, stay on PubChem and go score in Tutorial 03. If the prior rarely hits and transfer learning enriches without killing scaffolds, use that checkpoint as your starting agent or prior for reinforcement learning. Need linkers, R-groups, or analogue-by-seed? Wrong generator — not more PubChem epochs. Peptides or exotic elements: check token support.\n\nPriors are experimental choices. Compare under one protocol. Measure chemotype hit rate and scaffolds. Decide with evidence before you burn reinforcement-learning compute. Full commands, configs, and CSVs are on the AI Drug Discovery Lab site. Code lives on GitHub. Link in the description — pick a prior on purpose.",
+  "voiceover_zh": "教程 01 给了你 reinvent_pubchem.prior。下载它不是研究决策。这一期才是。\n\n官方文档列 prior 文件名。实验室要问：这个生成起点，覆盖你关心的化学吗？若项目富含磺酰胺，或大环、肽、共价 warhead，而 prior 几乎从不吐出该基序，强化学习会把最初几小时浪费在重新发现上，甚至永远找不到。\n\n许多 Zenodo 文件是不同生成器，Mol2Mol、LibInvent，任务本就不同。公平对比要固定 Reinvent 生成器，只改权重。于是我们对比 reinvent_pubchem.prior 与短迁移学习检查点 tl_sulfonamide.model：在磺酰胺上微调 8 个 epoch。同一架构，新的分布。\n\n协议才是科学。CPU。Seed 42。各约 200 条 SMILES。打开 unique molecules。两份配置只改模型文件与输出文件。演示集上的迁移学习约 13 秒完成，峰值内存约 871 兆。去重后略少于 200 行，手册运行是 191 对 196。这是预期现象。\n\n用 RDKit 给决策打分。SMARTS：S(=O)(=O)N。PubChem prior：磺酰胺命中 8.4%。短迁移学习之后：64.3%。独特 Murcko 骨架仍然很高，168 对 172。平均 QED 从 0.59 到 0.65，这是副作用，不是目标。短迁移学习把偏好推向磺酰胺基序，在本次 seed 42 抽样里没有压垮骨架多样性。\n\n下一步？若 prior 已以可接受频率命中你的 SMARTS，留下 PubChem，去做教程 03 的评分。若 prior 很少命中、而迁移学习富集且不毁骨架，就把该检查点当作强化学习的起始 agent 或 prior。需要连接子、R 基团或按种子找类似物？生成器选错了，不是再训更多 PubChem epoch。肽或奇特元素：检查 token 支持。\n\nPrior 是实验选择。同一协议下对比。度量化学型命中率与骨架。在烧掉强化学习算力前用证据决策。完整命令、配置与 CSV 在 AI Drug Discovery Lab 网站。代码在 GitHub。描述栏有链接。有意识地选 prior。",
   "storyboard": [
     {
       "timecode": "0:00–0:15",
-      "shot": "Hard cut title: Prior ≠ Download; Zenodo filename glitch",
-      "on_screen_text": "Prior ≠ Download",
-      "voice_beat": "Hook — download ≠ choose",
+      "shot": "Title card: Prior = experiment; flash reinvent_pubchem.prior",
+      "on_screen_text": "Download ≠ Decision",
+      "voice_beat": "Hook",
       "asset_type": "title_card"
     },
     {
-      "timecode": "0:15–1:10",
-      "shot": "PubChem cloud vs project chemotype island; domain-shift arrow",
-      "on_screen_text": "Validity ≠ Relevance",
-      "voice_beat": "Hidden assumption / domain shift",
+      "timecode": "0:15–1:15",
+      "shot": "Quote card + chemotype icons (sulfonamide, macrocycle, peptide)",
+      "on_screen_text": "Cover YOUR chemistry?",
+      "voice_beat": "Problem framing",
       "asset_type": "diagram"
     },
     {
-      "timecode": "1:10–2:20",
-      "shot": "Lock icon on Prior; unlocked Agent copy; vocabulary tiles",
-      "on_screen_text": "Prior · Agent · Vocabulary",
-      "voice_beat": "Three-word mental model",
+      "timecode": "1:15–2:20",
+      "shot": "Reject mixed-generator Zenodo compare; show prior → TL weights",
+      "on_screen_text": "Same generator · new weights",
+      "voice_beat": "Fair A/B",
       "asset_type": "diagram"
     },
     {
       "timecode": "2:20–3:50",
-      "shot": "Side-by-side sampling configs; highlight seed + n + model_file",
-      "on_screen_text": "Same protocol · swap model_file",
-      "voice_beat": "Fair comparison protocol",
+      "shot": "Side-by-side TOMLs; terminal reinvent -s 42",
+      "on_screen_text": "seed 42 · n≈200 · CPU",
+      "voice_beat": "Identical protocol",
       "asset_type": "screencast"
     },
     {
-      "timecode": "3:50–5:20",
-      "shot": "Histograms + scaffold treemap Prior A vs B",
-      "on_screen_text": "Validity · Scaffolds · Properties",
-      "voice_beat": "What to measure",
+      "timecode": "3:50–5:30",
+      "shot": "Chapter figure prior-vs-tl-compare.png + metric callouts",
+      "on_screen_text": "8.4% → 64.3% · scaffolds 168/172",
+      "voice_beat": "Decision numbers",
       "asset_type": "diagram"
     },
     {
-      "timecode": "3:50–5:20",
-      "shot": "Optional: RDKit grid of molecules colored by scaffold",
-      "on_screen_text": "Unique scaffolds",
-      "voice_beat": "Scaffold diversity beat",
+      "timecode": "3:50–5:30",
+      "shot": "Molecule grids: prior-sample vs tl-sample PNGs",
+      "on_screen_text": "Preferential sulfonamides after TL",
+      "voice_beat": "Visual enrichment",
       "asset_type": "molecule_anim"
     },
     {
-      "timecode": "5:20–6:30",
-      "shot": "Decision tree: PubChem? → TL / in-domain",
-      "on_screen_text": "When NOT PubChem",
-      "voice_beat": "When not to start from PubChem",
+      "timecode": "5:30–6:45",
+      "shot": "Decision table animation from chapter",
+      "on_screen_text": "Stay · TL · Switch generator",
+      "voice_beat": "Decision table",
       "asset_type": "diagram"
     },
     {
-      "timecode": "6:30–8:00",
-      "shot": "CTA slate with site + GitHub URLs",
+      "timecode": "6:45–8:00",
+      "shot": "CTA slate with site + GitHub",
       "on_screen_text": "Site → GitHub · Tutorial 02/12",
       "voice_beat": "CTA",
       "asset_type": "cta_card"
     }
   ],
-  "thumbnail_title": "Your Prior Is Lying To You",
-  "thumbnail_prompt": "Bold educational science thumbnail, 1280x720. Dark teal laboratory atmosphere with subtle molecular structure wireframes in the background (not purple neon). Center-left: a stylized neural 'brain' icon stamped on a file labeled PRIOR, with a cracked glass effect. Center-right: leave a clean empty safe zone for large white title text. No logos, no watermarks, no readable fake UI. High contrast, cinematic lighting, flat graphic clarity suitable for mobile YouTube thumbnails. Mood: urgent curiosity, research-practice, not hype crypto aesthetic.",
+  "thumbnail_title": "8% → 64% Sulfonamides",
+  "thumbnail_prompt": "Bold educational science thumbnail 1280x720. Dark teal lab atmosphere with subtle molecular wireframes (avoid purple neon). Left: a cracked file icon labeled PRIOR. Right: a clean upward arrow and the motif SO2N. Large empty safe zone in the upper third for white title text reading 8% to 64%. No logos, no watermarks, no fake UI. High contrast, mobile-readable, research-practice mood.",
   "broll": [
     {
-      "item": "Zenodo / priors/ folder screencast showing reinvent_pubchem.prior",
-      "why": "Ground the hook in the real Tutorial 01 artifact",
-      "source_hint": "docs/molecular-generation/reinvent4/01 + local priors/"
+      "item": "Terminal: reinvent --version and ls priors/reinvent_pubchem.prior",
+      "why": "Bridge from Tutorial 01 artifact",
+      "source_hint": "Tutorial 01 env; docs/molecular-generation/reinvent4/01"
     },
     {
-      "item": "Terminal: run sampling twice with only model_file changed",
-      "why": "Show fair comparison protocol",
-      "source_hint": "Reuse Tutorial 01 sampling TOML; [VERIFY] second prior path when chapter is written"
+      "item": "Screencast editing tl_sulfonamide.toml and running reinvent -s 42",
+      "why": "Show short TL is cheap on CPU",
+      "source_hint": "Chapter Step 2; ~13 s / ~871 MiB"
     },
     {
-      "item": "Property histogram animation (MW, logP) Prior A vs B",
-      "why": "Visual payoff for 'measure like an experimentalist'",
-      "source_hint": "Generate from two sampled.csv via RDKit/matplotlib"
+      "item": "Side-by-side sample_prior.toml vs sample_tl.toml",
+      "why": "Prove only model_file/output_file change",
+      "source_hint": "Chapter Step 3"
     },
     {
-      "item": "Scaffold treemap or top-10 scaffold bar chart",
-      "why": "Unique SMILES can hide scaffold collapse",
-      "source_hint": "Bemis-Murcko via RDKit"
+      "item": "Animate or show prior-vs-tl-compare.png",
+      "why": "Core visual payoff for 8.4% → 64.3%",
+      "source_hint": "docs/assets/reinvent4/02/prior-vs-tl-compare.png"
     },
     {
-      "item": "Molecule grid from Tutorial 01 first-molecules.png as B-roll",
-      "why": "Reuse existing site asset",
-      "source_hint": "docs/assets/reinvent4/01/first-molecules.png"
+      "item": "Cut between prior-sample-molecules.png and tl-sample-molecules.png",
+      "why": "Viewer sees preferential sulfonamides",
+      "source_hint": "docs/assets/reinvent4/02/"
     },
     {
-      "item": "Decision-tree motion graphic: when NOT PubChem",
-      "why": "Memorable takeaway card",
-      "source_hint": "Animate from storyboard diagram"
+      "item": "Decision table graphic (Stay / TL / Switch generator)",
+      "why": "Memorable takeaway before CTA",
+      "source_hint": "Chapter Decision table section"
     }
   ],
-  "youtube_description_en": "REINVENT4 Tutorial 02 — Priors in Practice\n\nDownloading a public prior is not the same as choosing a prior for YOUR chemotype. This episode teaches the research-practice loop: fair sampling protocol → validity / scaffold / property metrics → decide with evidence → lock the prior before RL.\n\n🔗 Full tutorial (site)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/02-priors-in-practice/\n中文: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/02-priors-in-practice/\n\n🧪 Tutorial 01 (sampling basics — live)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/01-installation-first-molecule/\n\n💻 GitHub (reproducible configs & docs)\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/02-priors-in-practice.md\n\n📺 Series playlist\nTODO_PLAYLIST_URL\n\nChapters:\n0:00 Hook — download ≠ choose\n0:15 Domain shift\n1:10 Prior vs Agent vs Vocabulary\n2:20 Fair comparison protocol\n3:50 What to measure\n5:20 When NOT to start from PubChem\n6:30 CTA — site & GitHub\n\n#REINVENT4 #DrugDiscovery #GenerativeAI #Cheminformatics",
-  "youtube_description_zh": "REINVENT4 教程 02 — Prior 实践\n\n下载公开 prior ≠ 为你的化学型选对 prior。本期讲研究实践闭环：公平采样协议 → 有效率/骨架/性质指标 → 用证据决策 → 在 RL 前锁定 prior。\n\n🔗 完整教程（网站）\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/02-priors-in-practice/\nEnglish: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/02-priors-in-practice/\n\n🧪 教程 01（采样基础，已上线）\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/01-installation-first-molecule/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/02-priors-in-practice.md\n\n📺 系列播放列表\nTODO_PLAYLIST_URL\n\n章节：\n0:00 钩子\n0:15 分布偏移\n1:10 Prior / Agent / Vocabulary\n2:20 公平对比\n3:50 量什么\n5:20 何时别用 PubChem\n6:30 行动号召",
+  "youtube_description_en": "REINVENT4 Tutorial 02 — Priors in Practice\n\nDownloading reinvent_pubchem.prior is not a research decision. This episode runs a fair A/B: same Reinvent generator, PubChem prior vs a short sulfonamide transfer-learning checkpoint (seed 42, CPU). Chemotype hit rate jumps from 8.4% to 64.3% while Murcko scaffolds stay high — then we use a decision table before RL.\n\n🔗 Full tutorial (site)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/02-priors-in-practice/\n中文: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/02-priors-in-practice/\n\n🧪 Tutorial 01 (install + first sample)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/01-installation-first-molecule/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/02-priors-in-practice.md\n\n📺 Series playlist\nTODO_PLAYLIST_URL\n\nChapters:\n0:00 Hook — download ≠ decision\n0:15 Will it cover your chemistry?\n1:15 Fair A/B — same generator, new weights\n2:20 Identical sampling protocol\n3:50 The numbers that decide\n5:30 Decision table\n6:45 CTA — site & GitHub\n\n#REINVENT4 #DrugDiscovery #GenerativeAI #TransferLearning #Cheminformatics",
+  "youtube_description_zh": "REINVENT4 教程 02 — Prior 实践\n\n下载 reinvent_pubchem.prior 不是研究决策。本期做公平 A/B：同一 Reinvent 生成器，PubChem prior 对比短磺酰胺迁移学习检查点（seed 42，CPU）。化学型命中率从 8.4% 升到 64.3%，Murcko 骨架仍高——然后用决策表决定要不要上 RL。\n\n🔗 完整教程（网站）\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/02-priors-in-practice/\nEnglish: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/02-priors-in-practice/\n\n🧪 教程 01\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/01-installation-first-molecule/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/02-priors-in-practice.md\n\n📺 系列播放列表\nTODO_PLAYLIST_URL\n\n章节：\n0:00 钩子\n0:15 覆盖你的化学吗？\n1:15 公平 A/B\n2:20 同一采样协议\n3:50 拍板的数字\n5:30 决策表\n6:45 行动号召",
   "chapters": [
     {
       "timecode": "0:00",
-      "title": "Hook — download ≠ choose"
+      "title": "Hook — download ≠ decision"
     },
     {
       "timecode": "0:15",
-      "title": "Domain shift: validity ≠ relevance"
+      "title": "Will it cover your chemistry?"
     },
     {
-      "timecode": "1:10",
-      "title": "Prior vs Agent vs Vocabulary"
+      "timecode": "1:15",
+      "title": "Fair A/B — same generator, new weights"
     },
     {
       "timecode": "2:20",
-      "title": "Fair comparison protocol"
+      "title": "Identical sampling protocol"
     },
     {
       "timecode": "3:50",
-      "title": "What to measure"
+      "title": "The numbers that decide"
     },
     {
-      "timecode": "5:20",
-      "title": "When NOT to start from PubChem"
+      "timecode": "5:30",
+      "title": "Decision table"
     },
     {
-      "timecode": "6:30",
+      "timecode": "6:45",
       "title": "CTA — site & GitHub"
     }
   ],
@@ -208,82 +208,82 @@
     "REINVENT4",
     "AI drug discovery",
     "molecular generation",
-    "generative chemistry",
+    "transfer learning",
     "prior model",
+    "sulfonamide",
     "cheminformatics",
     "de novo design",
+    "generative chemistry",
     "PubChem",
-    "transfer learning",
-    "SMILES",
     "drug design",
-    "machine learning chemistry",
     "AI Drug Discovery Lab",
     "分子生成",
+    "迁移学习",
     "药物发现"
   ],
   "subtitles_en": [
     {
       "start_sec": 0,
       "end_sec": 15,
-      "text": "You downloaded reinvent_pubchem.prior — that is not choosing a prior."
+      "text": "Downloading reinvent_pubchem.prior was not a research decision."
     },
     {
       "start_sec": 15,
       "end_sec": 45,
-      "text": "Tutorial 01 gave you a working env and a real sampled.csv."
+      "text": "Will this generative starting point cover the chemistry you care about?"
     },
     {
       "start_sec": 45,
-      "end_sec": 70,
-      "text": "Your project is not PubChem. Validity is not relevance."
+      "end_sec": 75,
+      "text": "If the prior rarely emits your motif, RL wastes its first hours."
     },
     {
-      "start_sec": 70,
-      "end_sec": 105,
-      "text": "Prior: frozen pretrained brain. Agent: trainable copy."
+      "start_sec": 75,
+      "end_sec": 110,
+      "text": "Fair test: same Reinvent generator — change only the weights."
     },
     {
-      "start_sec": 105,
+      "start_sec": 110,
       "end_sec": 140,
-      "text": "Vocabulary lives inside the prior file. We are not training yet."
+      "text": "PubChem prior versus tl_sulfonamide.model after 8 TL epochs."
     },
     {
       "start_sec": 140,
       "end_sec": 185,
-      "text": "Same seed, same n, same device — swap only the brain."
+      "text": "CPU, seed 42, about 200 SMILES, unique molecules on."
     },
     {
       "start_sec": 185,
       "end_sec": 230,
-      "text": "Compare ≥2 priors, or prior vs a TL checkpoint."
+      "text": "Demo TL: about 13 seconds, peak RAM near 871 MiB."
     },
     {
       "start_sec": 230,
       "end_sec": 275,
-      "text": "Measure validity, unique scaffolds, property histograms."
+      "text": "Sulfonamide hit rate: 8.4% on the prior, 64.3% after TL."
     },
     {
       "start_sec": 275,
-      "end_sec": 320,
-      "text": "Avoid scaffold collapse. Wrong neighborhood loses later."
+      "end_sec": 330,
+      "text": "Murcko scaffolds stay high: 168 versus 172. QED is a side effect."
     },
     {
-      "start_sec": 320,
-      "end_sec": 360,
-      "text": "Skip PubChem-style priors under domain shift or rare chemotypes."
+      "start_sec": 330,
+      "end_sec": 370,
+      "text": "Prior OK? Go to scoring. TL helps? Use it for RL."
     },
     {
-      "start_sec": 360,
-      "end_sec": 390,
-      "text": "Prefer in-domain priors or a transfer-learning warm start."
+      "start_sec": 370,
+      "end_sec": 405,
+      "text": "Need linkers or seed analogues? Switch generator — not more epochs."
     },
     {
-      "start_sec": 390,
-      "end_sec": 440,
-      "text": "Compare, measure, decide — lock the prior before RL."
+      "start_sec": 405,
+      "end_sec": 450,
+      "text": "Compare, measure, decide — before you burn RL compute."
     },
     {
-      "start_sec": 440,
+      "start_sec": 450,
       "end_sec": 480,
       "text": "Full tutorial on the site. Code on GitHub. Link below."
     }
@@ -292,74 +292,72 @@
     {
       "start_sec": 0,
       "end_sec": 15,
-      "text": "下载 reinvent_pubchem.prior ≠ 为你的化学型选对 prior。"
+      "text": "下载 reinvent_pubchem.prior 不是研究决策。"
     },
     {
       "start_sec": 15,
       "end_sec": 45,
-      "text": "教程 01：可用环境 + 真正的 sampled.csv。"
+      "text": "这个生成起点，覆盖你关心的化学吗？"
     },
     {
       "start_sec": 45,
-      "end_sec": 70,
-      "text": "你的项目不是 PubChem。有效 ≠ 相关。"
+      "end_sec": 75,
+      "text": "若 prior 很少吐出目标基序，RL 会浪费前期算力。"
     },
     {
-      "start_sec": 70,
-      "end_sec": 105,
-      "text": "Prior：冻结大脑。Agent：可训练副本。"
+      "start_sec": 75,
+      "end_sec": 110,
+      "text": "公平对比：同一 Reinvent 生成器，只换权重。"
     },
     {
-      "start_sec": 105,
+      "start_sec": 110,
       "end_sec": 140,
-      "text": "Vocabulary 在 prior 文件内。本章还不训练。"
+      "text": "PubChem prior 对 tl_sulfonamide.model（8 epoch TL）。"
     },
     {
       "start_sec": 140,
       "end_sec": 185,
-      "text": "同一 seed、n、device——只换大脑。"
+      "text": "CPU、seed 42、约 200 SMILES、打开 unique molecules。"
     },
     {
       "start_sec": 185,
       "end_sec": 230,
-      "text": "至少对比两个 prior，或 prior vs TL checkpoint。"
+      "text": "演示 TL：约 13 秒，峰值内存约 871 MiB。"
     },
     {
       "start_sec": 230,
       "end_sec": 275,
-      "text": "度量：有效率、独特骨架、性质直方图。"
+      "text": "磺酰胺命中率：prior 8.4%，TL 后 64.3%。"
     },
     {
       "start_sec": 275,
-      "end_sec": 320,
-      "text": "避免骨架塌缩；走错化学街区后面会输。"
+      "end_sec": 330,
+      "text": "Murcko 骨架仍高：168 对 172。QED 是副作用。"
     },
     {
-      "start_sec": 320,
-      "end_sec": 360,
-      "text": "分布偏移或稀有化学型时，别盲目用 PubChem prior。"
+      "start_sec": 330,
+      "end_sec": 370,
+      "text": "Prior 够用就去评分；TL 有效就用作 RL 起点。"
     },
     {
-      "start_sec": 360,
-      "end_sec": 390,
-      "text": "优先域内 prior，或迁移学习热启动。"
+      "start_sec": 370,
+      "end_sec": 405,
+      "text": "要连接子或种子类似物？换生成器，不是加 epoch。"
     },
     {
-      "start_sec": 390,
-      "end_sec": 440,
-      "text": "对比、度量、决策——RL 前先锁定 prior。"
+      "start_sec": 405,
+      "end_sec": 450,
+      "text": "对比、度量、决策——再烧掉 RL 算力。"
     },
     {
-      "start_sec": 440,
+      "start_sec": 450,
       "end_sec": 480,
       "text": "完整教程见网站，代码在 GitHub，链接在描述栏。"
     }
   ],
   "verify_flags": [
-    "[VERIFY] Exact second prior / TL checkpoint filenames once Tutorial 02 hands-on is written",
-    "[VERIFY] Recommended n (sample count) and seed values for the comparison table",
-    "[VERIFY] Whether Bemis-Murcko + MW/logP/HBD/HBA/QED is the chapter's official metric set",
-    "[VERIFY] Site chapter is still Coming Soon — CTA should not promise finished step-by-step commands until published",
-    "[VERIFY] Zenodo prior filename reinvent_pubchem.prior matches current Tutorial 01 download URL"
+    "[VERIFY] Thumbnail title '8% → 64%' is readable on mobile mockup",
+    "[VERIFY] Playlist URL still TODO_PLAYLIST_URL until series exists",
+    "[VERIFY] ZH site page may still be a stub — description ZH link is fine but note translation status if needed"
   ]
 }

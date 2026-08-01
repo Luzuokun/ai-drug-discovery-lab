@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Markdown → YouTube text-pack CLI (V1).
+"""Optional helpers for YouTube text packs.
+
+Preferred path (no OpenAI key): Cursor skill `.cursor/skills/youtube-text-pack`.
+
+This CLI is for:
+  - materializing files from pack.json (--from-json)
+  - optional OpenAI generation (--openai)
+  - inspecting the OpenAI prompt brief (--dry-run)
 
 Examples:
-  python scripts/youtube/publish.py 02
-  python scripts/youtube/publish.py docs/molecular-generation/reinvent4/02-priors-in-practice.md
+  python scripts/youtube/publish.py 02 --from-json youtube/packs/02-priors-in-practice/pack.json
+  python scripts/youtube/publish.py 02 --openai
   python scripts/youtube/publish.py 02 --dry-run
-  python scripts/youtube/publish.py 02 --from-json path/to/pack.json
 """
 
 from __future__ import annotations
@@ -29,6 +35,10 @@ from youtube.writer import write_pack
 DEFAULT_SITE = "https://luzuokun.github.io/ai-drug-discovery-lab"
 DEFAULT_REPO = "https://github.com/Luzuokun/ai-drug-discovery-lab"
 MIN_WORDS_FULL = 200
+SKILL_HINT = (
+    "Preferred path: invoke the Cursor skill `youtube-text-pack` "
+    "(no OPENAI_API_KEY required). See .cursor/skills/youtube-text-pack/SKILL.md"
+)
 
 
 def _load_dotenv() -> None:
@@ -38,7 +48,6 @@ def _load_dotenv() -> None:
     try:
         from dotenv import load_dotenv
     except ImportError:
-        # Minimal fallback
         for line in env_path.read_text(encoding="utf-8").splitlines():
             line = line.strip()
             if not line or line.startswith("#") or "=" not in line:
@@ -51,16 +60,26 @@ def _load_dotenv() -> None:
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        description="Generate a YouTube text pack from a MkDocs chapter."
+        description=(
+            "YouTube text-pack helpers. Prefer Cursor skill youtube-text-pack; "
+            "use --from-json to materialize, or --openai for API generation."
+        ),
+        epilog=SKILL_HINT,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     p.add_argument(
         "chapter",
         help="Chapter path, slug, or number (e.g. 02, 02-priors-in-practice, path.md)",
     )
     p.add_argument(
+        "--openai",
+        action="store_true",
+        help="Call OpenAI to generate the pack (requires OPENAI_API_KEY).",
+    )
+    p.add_argument(
         "--model",
         default=os.environ.get("YOUTUBE_OPENAI_MODEL", "gpt-4o"),
-        help="OpenAI model (default: gpt-4o or YOUTUBE_OPENAI_MODEL)",
+        help="OpenAI model when using --openai (default: gpt-4o)",
     )
     p.add_argument(
         "--site-base-url",
@@ -82,12 +101,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--dry-run",
         action="store_true",
-        help="Print prompts / brief only; do not call the API or write packs.",
+        help="Print OpenAI prompt brief only; do not call the API or write packs.",
     )
     p.add_argument(
         "--from-json",
         type=Path,
-        help="Skip OpenAI; write pack files from an existing pack.json",
+        help="Skip LLM; write pack files from an existing pack.json",
     )
     p.add_argument(
         "--out-dir",
@@ -150,13 +169,21 @@ def main(argv: list[str] | None = None) -> int:
         if len(user) > 4000:
             print(f"\n…[{len(user) - 4000} more chars]")
         print("\nDry-run complete (no API call, no files written).")
+        print(SKILL_HINT)
         return 0
 
     if args.from_json:
         data = json.loads(args.from_json.read_text(encoding="utf-8"))
         generator = "from-json"
-        model = data.get("_model") or args.model
-    else:
+        model = data.get("_model") or "n/a"
+    elif args.openai:
+        if not os.environ.get("OPENAI_API_KEY"):
+            print(
+                "ERROR: --openai requires OPENAI_API_KEY.\n"
+                f"{SKILL_HINT}\n",
+                file=sys.stderr,
+            )
+            return 2
         data = generate_pack_json(
             brief_dict,
             model=args.model,
@@ -167,6 +194,16 @@ def main(argv: list[str] | None = None) -> int:
         )
         generator = "openai"
         model = args.model
+    else:
+        print(
+            "ERROR: No action selected.\n"
+            "  Prefer: Cursor skill `youtube-text-pack` (writes the pack directly).\n"
+            "  Or:     --from-json path/to/pack.json\n"
+            "  Or:     --openai   (requires OPENAI_API_KEY)\n"
+            "  Or:     --dry-run  (print prompt brief only)\n",
+            file=sys.stderr,
+        )
+        return 2
 
     dest = write_pack(
         data,

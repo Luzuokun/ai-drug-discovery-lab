@@ -1,24 +1,24 @@
-# REINVENT4 Tutorial 02 — Don't Trust a Prior You Haven't Stress-Tested
+# REINVENT4 Tutorial 02 — Your Prior Is an Experiment — Prove It
 
 Target: ~8:00
 
 ## [0:00–0:15 Hook]
-You downloaded reinvent_pubchem.prior. Congrats — that is not the same as choosing a prior for your chemotype.
+Tutorial 01 gave you reinvent_pubchem.prior. Downloading it was not a research decision. This episode is.
 
-## [0:15–1:10 The hidden assumption]
-Tutorial 01 got you a working environment and a real sampled.csv. That prior was trained on a broad chemical distribution — think PubChem-scale grammar. Your project is not PubChem. Kinase hinges, macrocycles, covalent warheads, natural-product-like scaffolds — if your chemotype is rare in the pretraining soup, the model will still smile and emit SMILES. Validity is not relevance.
+## [0:15–1:15 Will it cover your chemistry?]
+Official docs list prior filenames. Lab work asks: will this generative starting point cover the chemistry you care about? If your project is sulfonamide-rich — or macrocycles, peptides, covalent warheads — and the prior almost never emits that motif, RL burns its first hours rediscovering it. Or never finds it.
 
-## [1:10–2:20 Prior vs Agent vs Vocabulary]
-Three words every README skips. The prior is the frozen pretrained brain — chemical grammar. The agent starts as a copy you will later train with rewards. The vocabulary is the alphabet inside the prior file. In this chapter we are not training yet. We are asking: which frozen brain should we even start from?
+## [1:15–2:20 Fair A/B]
+Many Zenodo files are different generators (Mol2Mol, LibInvent) — different tasks. Keep the Reinvent generator fixed; change only weights. Compare reinvent_pubchem.prior vs tl_sulfonamide.model (8 TL epochs on sulfonamides).
 
-## [2:20–3:50 Fair comparison protocol]
-Rule one: same protocol, different brains. Fix the seed, the number of samples n, and the device. Sample from at least two priors — or one public prior versus a transfer-learning checkpoint. If you change seed and model at once, you learned nothing. [VERIFY] Reuse the Tutorial 01 sampling config shape; only swap model_file.
+## [2:20–3:50 Identical protocol]
+CPU. Seed 42. ~200 SMILES. unique_molecules on. TOMLs differ only in model_file / output_file. Demo TL: ~13 s, ~871 MiB peak. After uniqueness: 191 vs 196 rows — expected.
 
-## [3:50–5:20 What to measure]
-Measure like an experimentalist: validity %, unique Bemis-Murcko scaffolds (not just unique SMILES), and simple property histograms — MW, logP, HBD/HBA, maybe QED. Look for coverage of your region without scaffold collapse. Pretty molecules from the wrong neighborhood lose later in scoring and RL.
+## [3:50–5:30 The numbers]
+SMARTS S(=O)(=O)N. Sulfonamide %: 8.4% → 64.3%. Murcko scaffolds: 168 vs 172. Mean QED 0.59 → 0.65 (side effect). Short TL enriched the motif without scaffold collapse in this seed-42 draw.
 
-## [5:20–6:30 When NOT to start from PubChem]
-Write this down. Domain shift. Rare chemotypes. Libraries far from drug-like averages. Then prefer an in-domain prior or a TL warm start (Tutorial 07). Popularity is not a control experiment.
+## [5:30–6:45 Decision table]
+Prior OK → Tutorial 03. TL helps → use checkpoint for RL. Need linkers/R-groups/seed analogues → wrong generator. Peptides/exotics → check tokens / Pepinvent.
 
-## [6:30–8:00 CTA]
-Compare → measure → decide with evidence → lock the prior before RL burns GPU. Full chapter on the site (Coming Soon hands-on); Tutorial 01 already live; code on GitHub. Link in the description.
+## [6:45–8:00 CTA]
+Compare → measure → decide → then RL. Full tutorial on the site. Code on GitHub.

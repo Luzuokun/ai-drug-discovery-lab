@@ -1,4 +1,5 @@
-# Optional deps for Markdown → YouTube text-pack pipeline.
+# Optional deps for scripts/youtube/publish.py --openai / --from-json helpers.
+# Preferred path is Cursor skill .cursor/skills/youtube-text-pack (no these deps).
 # Do NOT add these to requirements.txt (MkDocs CI must stay lean).
 openai>=1.40.0
 PyYAML>=6.0.1

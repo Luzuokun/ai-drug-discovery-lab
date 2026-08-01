@@ -1,9 +1,7 @@
-# REVIEW — REINVENT4 Tutorial 02: Don't Trust a Prior You Haven't Stress-Tested
+# REVIEW — REINVENT4 Tutorial 02: Your Prior Is an Experiment — Prove It
 
 Slug: `02-priors-in-practice`  
-Generator: `agent-seed-outline` (Chapter 02 source is Coming Soon; re-generate with OpenAI after full chapter ships)  
-
-> **Source chapter is Coming Soon / outline-only.** Treat protocol details as provisional until the full MkDocs chapter ships.
+Generator: `cursor-skill`  
 
 ## Checklist
 
@@ -17,15 +15,14 @@ Generator: `agent-seed-outline` (Chapter 02 source is Coming Soon; re-generate w
 
 ## verify_flags
 
-- [VERIFY] Exact second prior / TL checkpoint filenames once Tutorial 02 hands-on is written
-- [VERIFY] Recommended n (sample count) and seed values for the comparison table
-- [VERIFY] Whether Bemis-Murcko + MW/logP/HBD/HBA/QED is the chapter's official metric set
-- [VERIFY] Site chapter is still Coming Soon — CTA should not promise finished step-by-step commands until published
-- [VERIFY] Zenodo prior filename reinvent_pubchem.prior matches current Tutorial 01 download URL
+- [VERIFY] Thumbnail title '8% → 64%' is readable on mobile mockup
+- [VERIFY] Playlist URL still TODO_PLAYLIST_URL until series exists
+- [VERIFY] ZH site page may still be a stub — description ZH link is fine but note translation status if needed
 
-## Next step (V2 — after you approve this pack)
+## Next step (after you approve this pack)
 
-1. ElevenLabs TTS from `voiceover-en.txt` / `voiceover-zh.txt`
-2. Record screencast items in `broll-checklist.md`
-3. Edit to `storyboard.md` + burn `subtitles-*.srt`
-4. Upload; paste real URL back into the MkDocs chapter
+1. Invoke Cursor skill `/youtube-produce` to write `PRODUCE.md`
+2. ElevenLabs TTS from `voiceover-en.txt` / `voiceover-zh.txt` (local)
+3. Record screencast items in `broll-checklist.md`
+4. Edit to `storyboard.md` + burn `subtitles-*.srt`
+5. Upload; only then consider linking the URL from MkDocs

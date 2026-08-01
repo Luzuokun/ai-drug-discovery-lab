@@ -1,7 +1,7 @@
-0:00 Hook — download ≠ choose
-0:15 Domain shift: validity ≠ relevance
-1:10 Prior vs Agent vs Vocabulary
-2:20 Fair comparison protocol
-3:50 What to measure
-5:20 When NOT to start from PubChem
-6:30 CTA — site & GitHub
+0:00 Hook — download ≠ decision
+0:15 Will it cover your chemistry?
+1:15 Fair A/B — same generator, new weights
+2:20 Identical sampling protocol
+3:50 The numbers that decide
+5:30 Decision table
+6:45 CTA — site & GitHub

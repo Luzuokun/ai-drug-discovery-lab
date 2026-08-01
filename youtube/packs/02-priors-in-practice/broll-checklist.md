@@ -1,25 +1,25 @@
 # B-roll checklist
 
-- [ ] **Zenodo / priors/ folder screencast showing reinvent_pubchem.prior**
-  - Why: Ground the hook in the real Tutorial 01 artifact
-  - Source hint: docs/molecular-generation/reinvent4/01 + local priors/
+- [ ] **Terminal: reinvent --version and ls priors/reinvent_pubchem.prior**
+  - Why: Bridge from Tutorial 01 artifact
+  - Source hint: Tutorial 01 env; docs/molecular-generation/reinvent4/01
 
-- [ ] **Terminal: run sampling twice with only model_file changed**
-  - Why: Show fair comparison protocol
-  - Source hint: Reuse Tutorial 01 sampling TOML; [VERIFY] second prior path when chapter is written
+- [ ] **Screencast editing tl_sulfonamide.toml and running reinvent -s 42**
+  - Why: Show short TL is cheap on CPU
+  - Source hint: Chapter Step 2; ~13 s / ~871 MiB
 
-- [ ] **Property histogram animation (MW, logP) Prior A vs B**
-  - Why: Visual payoff for 'measure like an experimentalist'
-  - Source hint: Generate from two sampled.csv via RDKit/matplotlib
+- [ ] **Side-by-side sample_prior.toml vs sample_tl.toml**
+  - Why: Prove only model_file/output_file change
+  - Source hint: Chapter Step 3
 
-- [ ] **Scaffold treemap or top-10 scaffold bar chart**
-  - Why: Unique SMILES can hide scaffold collapse
-  - Source hint: Bemis-Murcko via RDKit
+- [ ] **Animate or show prior-vs-tl-compare.png**
+  - Why: Core visual payoff for 8.4% → 64.3%
+  - Source hint: docs/assets/reinvent4/02/prior-vs-tl-compare.png
 
-- [ ] **Molecule grid from Tutorial 01 first-molecules.png as B-roll**
-  - Why: Reuse existing site asset
-  - Source hint: docs/assets/reinvent4/01/first-molecules.png
+- [ ] **Cut between prior-sample-molecules.png and tl-sample-molecules.png**
+  - Why: Viewer sees preferential sulfonamides
+  - Source hint: docs/assets/reinvent4/02/
 
-- [ ] **Decision-tree motion graphic: when NOT PubChem**
-  - Why: Memorable takeaway card
-  - Source hint: Animate from storyboard diagram
+- [ ] **Decision table graphic (Stay / TL / Switch generator)**
+  - Why: Memorable takeaway before CTA
+  - Source hint: Chapter Decision table section
