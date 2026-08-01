@@ -42,13 +42,13 @@ Turn an approved `youtube/packs/<slug>/` text pack into a **production checklist
    reference template, filled with pack-specific content.
 5. Summarize for the user: next manual actions in order (TTS → record → edit → upload → optional MkDocs link).
 
-## Optional later automation (out of scope here)
+## Optional later automation (out of scope for auto-run here)
 
-Document command stubs only, e.g.:
+Document command stubs in `PRODUCE.md`. Prefer the repo helper:
 
 ```bash
-# Example — user runs locally when ready
-# elevenlabs TTS using voiceover-en.txt → youtube/audio/<slug>/en.mp3
+# ELEVENLABS_API_KEY in repo-root .env (see .env.example)
+python scripts/youtube/tts_elevenlabs.py <slug> --lang en
 ```
 
 Do not execute network TTS/upload unless the user explicitly requests it **and**

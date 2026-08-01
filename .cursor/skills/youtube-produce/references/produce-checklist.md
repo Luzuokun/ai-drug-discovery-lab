@@ -26,12 +26,17 @@ Suggested settings (adjust to your voice library):
 | EN | voiceover-en.txt | Clear science explainer; moderate pace; pause on blank lines |
 | ZH | voiceover-zh.txt | Same beat timing intent as EN |
 
-Local command stubs (user fills voice id / key):
+Local command stubs:
 
 ```bash
-# export ELEVENLABS_API_KEY=...
-# mkdir -p youtube/audio/<slug>
-# # run your preferred ElevenLabs CLI/SDK against voiceover-en.txt
+# 1) Put the key in repo-root .env (gitignored) — see .env.example
+#    ELEVENLABS_API_KEY=...
+# 2) Install optional deps once
+pip install -r requirements-youtube.txt
+# 3) Dry-run, then synthesize
+python scripts/youtube/tts_elevenlabs.py <slug> --lang both --dry-run
+python scripts/youtube/tts_elevenlabs.py <slug> --lang en
+python scripts/youtube/tts_elevenlabs.py <slug> --lang zh
 ```
 
 Output target: `youtube/audio/<slug>/en.mp3` and/or `zh.mp3` (gitignored).

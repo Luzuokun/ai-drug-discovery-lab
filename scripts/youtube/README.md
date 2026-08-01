@@ -57,10 +57,17 @@ youtube/packs/<slug>/
   PRODUCE.md          # after /youtube-produce
 ```
 
-Human next step: check `REVIEW.md`. After approval, run `/youtube-produce`.
+Human next step: check `REVIEW.md`. After approval, run `/youtube-produce`
+(writes `PRODUCE.md`). Then optionally:
+
+```bash
+# ELEVENLABS_API_KEY in repo-root .env (see .env.example)
+python scripts/youtube/tts_elevenlabs.py 02 --lang en
+```
 
 ## Design notes
 
 - One chapter = one ~6–9 minute video (discovery). Site keeps the full tutorial.
 - Keep youtube Python deps in `requirements-youtube.txt` (not MkDocs CI).
 - `.env`, `youtube/audio/`, and `youtube/renders/` are gitignored.
+- Pack-local ready media: `youtube/packs/<slug>/assets/` (figures, CSV samples, config text, SVG cards).

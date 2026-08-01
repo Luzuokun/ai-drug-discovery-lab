@@ -1,0 +1,9 @@
+run_type = "sampling"
+device = "cpu"
+
+[parameters]
+model_file = "tl_sulfonamide.model"
+output_file = "compare_tl.csv"
+num_smiles = 200
+unique_molecules = true
+randomize_smiles = true

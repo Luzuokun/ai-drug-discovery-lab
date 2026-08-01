@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#0f2a2e"/>
+  <text x="640" y="72" text-anchor="middle" fill="#e8f4f3" font-family="Georgia, serif" font-size="36" font-weight="700">Decision table  what to do next</text>
+  <text x="640" y="112" text-anchor="middle" fill="#8fb8b4" font-family="Helvetica, Arial, sans-serif" font-size="18">REINVENT4 Tutorial 02 · Priors in Practice</text>
+
+  <!-- headers -->
+  <rect x="80" y="160" width="520" height="64" rx="8" fill="#1a3f44"/>
+  <rect x="620" y="160" width="580" height="64" rx="8" fill="#1a3f44"/>
+  <text x="340" y="200" text-anchor="middle" fill="#9fd4cf" font-family="Helvetica, Arial, sans-serif" font-size="22">Observation</text>
+  <text x="910" y="200" text-anchor="middle" fill="#9fd4cf" font-family="Helvetica, Arial, sans-serif" font-size="22">Practical move</text>
+
+  <!-- row 1 -->
+  <rect x="80" y="240" width="520" height="90" rx="8" fill="#14363a"/>
+  <rect x="620" y="240" width="580" height="90" rx="8" fill="#1b4a3a"/>
+  <text x="100" y="275" fill="#e8f4f3" font-family="Helvetica, Arial, sans-serif" font-size="18">Prior already hits your SMARTS</text>
+  <text x="100" y="305" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="16">at an acceptable rate</text>
+  <text x="640" y="275" fill="#d4f5e4" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Stay on PubChem prior</text>
+  <text x="640" y="305" fill="#b7e0cc" font-family="Helvetica, Arial, sans-serif" font-size="16">’ Tutorial 03 Scoring</text>
+
+  <!-- row 2 -->
+  <rect x="80" y="350" width="520" height="90" rx="8" fill="#14363a"/>
+  <rect x="620" y="350" width="580" height="90" rx="8" fill="#1b4a3a"/>
+  <text x="100" y="385" fill="#e8f4f3" font-family="Helvetica, Arial, sans-serif" font-size="18">Prior rarely hits; TL enriches</text>
+  <text x="100" y="415" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="16">without killing scaffolds</text>
+  <text x="640" y="385" fill="#d4f5e4" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Use TL checkpoint</text>
+  <text x="640" y="415" fill="#b7e0cc" font-family="Helvetica, Arial, sans-serif" font-size="16">as starting agent/prior for RL</text>
+
+  <!-- row 3 -->
+  <rect x="80" y="460" width="520" height="90" rx="8" fill="#14363a"/>
+  <rect x="620" y="460" width="580" height="90" rx="8" fill="#4a3a1b"/>
+  <text x="100" y="495" fill="#e8f4f3" font-family="Helvetica, Arial, sans-serif" font-size="18">Need linkers / R-groups /</text>
+  <text x="100" y="525" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="16">analogue-by-seed</text>
+  <text x="640" y="495" fill="#f5e9d4" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Wrong generator</text>
+  <text x="640" y="525" fill="#e0d0b7" font-family="Helvetica, Arial, sans-serif" font-size="16">LibInvent / LinkInvent / Mol2Mol</text>
+
+  <!-- row 4 -->
+  <rect x="80" y="570" width="520" height="90" rx="8" fill="#14363a"/>
+  <rect x="620" y="570" width="580" height="90" rx="8" fill="#3a1b2a"/>
+  <text x="100" y="605" fill="#e8f4f3" font-family="Helvetica, Arial, sans-serif" font-size="18">Peptides / exotic elements</text>
+  <text x="100" y="635" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="16">token / element support?</text>
+  <text x="640" y="605" fill="#f5d4e4" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700">Check prior support</text>
+  <text x="640" y="635" fill="#e0b7cc" font-family="Helvetica, Arial, sans-serif" font-size="16">Pepinvent or custom prior</text>
+</svg>

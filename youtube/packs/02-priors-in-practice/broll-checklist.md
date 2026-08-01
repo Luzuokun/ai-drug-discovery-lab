@@ -1,25 +1,31 @@
 # B-roll checklist
 
+Ready-to-import media lives in [`assets/`](assets/ASSETS.md).
+
 - [ ] **Terminal: reinvent --version and ls priors/reinvent_pubchem.prior**
   - Why: Bridge from Tutorial 01 artifact
-  - Source hint: Tutorial 01 env; docs/molecular-generation/reinvent4/01
+  - Source hint: live screencast; cutaway `assets/01-first-molecules.png`
 
-- [ ] **Screencast editing tl_sulfonamide.toml and running reinvent -s 42**
-  - Why: Show short TL is cheap on CPU
-  - Source hint: Chapter Step 2; ~13 s / ~871 MiB
+- [ ] **Screencast editing TL config and running reinvent -s 42**
+  - Why: Show short TL is cheap on CPU (~13 s / ~871 MiB)
+  - Source hint: `assets/tl_sulfonamide.toml.txt` + live run; data files `assets/sulfonamide_tl_*.smi`
 
-- [ ] **Side-by-side sample_prior.toml vs sample_tl.toml**
-  - Why: Prove only model_file/output_file change
-  - Source hint: Chapter Step 3
+- [ ] **Side-by-side sampling configs**
+  - Why: Prove only `model_file` / `output_file` change
+  - Source hint: `assets/sample_prior.toml.txt` vs `assets/sample_tl.toml.txt`
 
-- [ ] **Animate or show prior-vs-tl-compare.png**
+- [ ] **Show prior-vs-tl-compare + metrics callout**
   - Why: Core visual payoff for 8.4% → 64.3%
-  - Source hint: docs/assets/reinvent4/02/prior-vs-tl-compare.png
+  - Source hint: `assets/prior-vs-tl-compare.png`, `assets/metrics-callout.svg`
 
-- [ ] **Cut between prior-sample-molecules.png and tl-sample-molecules.png**
+- [ ] **Cut between prior and TL molecule grids**
   - Why: Viewer sees preferential sulfonamides
-  - Source hint: docs/assets/reinvent4/02/
+  - Source hint: `assets/prior-sample-molecules.png`, `assets/tl-sample-molecules.png`
 
-- [ ] **Decision table graphic (Stay / TL / Switch generator)**
+- [ ] **Decision table graphic**
   - Why: Memorable takeaway before CTA
-  - Source hint: Chapter Decision table section
+  - Source hint: `assets/decision-table.svg` (Stay / TL / Switch generator)
+
+- [ ] **Optional: flash CSV samples in editor**
+  - Why: Reproducibility beat
+  - Source hint: `assets/compare-prior-sample.csv`, `assets/compare-tl-sample.csv`
