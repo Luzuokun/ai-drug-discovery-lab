@@ -28,7 +28,8 @@ PACKS_DIR = _ROOT / "youtube" / "packs"
 AUDIO_DIR = _ROOT / "youtube" / "audio"
 
 # Defaults — override with env or CLI.
-DEFAULT_VOICE_EN = os.environ.get("ELEVENLABS_VOICE_ID_EN", "21m00Tcm4TlvDq8ikWAM")
+# Premade "Adam" — works on free API keys. Library voices often return 402.
+DEFAULT_VOICE_EN = os.environ.get("ELEVENLABS_VOICE_ID_EN", "pNInz6obpgDQGcFmaJgB")
 DEFAULT_VOICE_ZH = os.environ.get("ELEVENLABS_VOICE_ID_ZH", DEFAULT_VOICE_EN)
 DEFAULT_MODEL = os.environ.get("ELEVENLABS_MODEL_ID", "eleven_multilingual_v2")
 

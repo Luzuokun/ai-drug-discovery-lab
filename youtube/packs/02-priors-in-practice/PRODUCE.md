@@ -2,9 +2,9 @@
 
 Slug: `02-priors-in-practice`  
 Text pack generator: `cursor-skill`  
-Status: **human-approved checklist** — next: TTS → screencast → edit → upload  
+Status: **EN TTS done** — next: screencast → edit → upload  
 Ready media: [`assets/ASSETS.md`](assets/ASSETS.md)  
-`.env`: `ELEVENLABS_API_KEY` detected (value not logged)
+EN audio (local, gitignored): `youtube/audio/02-priors-in-practice/en.mp3` (~2.6 MB, voice Adam `pNInz6obpgDQGcFmaJgB`)
 
 ## 0. Preconditions
 
