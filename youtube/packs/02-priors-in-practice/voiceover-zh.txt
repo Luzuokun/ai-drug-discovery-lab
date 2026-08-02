@@ -1,0 +1,13 @@
+教程 01 给了你 reinvent_pubchem.prior。下载它不是研究决策。这一期才是。
+
+官方文档列 prior 文件名。实验室要问：这个生成起点，覆盖你关心的化学吗？若项目富含磺酰胺，或大环、肽、共价 warhead，而 prior 几乎从不吐出该基序，强化学习会把最初几小时浪费在重新发现上，甚至永远找不到。
+
+许多 Zenodo 文件是不同生成器，Mol2Mol、LibInvent，任务本就不同。公平对比要固定 Reinvent 生成器，只改权重。于是我们对比 reinvent_pubchem.prior 与短迁移学习检查点 tl_sulfonamide.model：在磺酰胺上微调 8 个 epoch。同一架构，新的分布。
+
+协议才是科学。CPU。Seed 42。各约 200 条 SMILES。打开 unique molecules。两份配置只改模型文件与输出文件。演示集上的迁移学习约 13 秒完成，峰值内存约 871 兆。去重后略少于 200 行，手册运行是 191 对 196。这是预期现象。
+
+用 RDKit 给决策打分。SMARTS：S(=O)(=O)N。PubChem prior：磺酰胺命中 8.4%。短迁移学习之后：64.3%。独特 Murcko 骨架仍然很高，168 对 172。平均 QED 从 0.59 到 0.65，这是副作用，不是目标。短迁移学习把偏好推向磺酰胺基序，在本次 seed 42 抽样里没有压垮骨架多样性。
+
+下一步？若 prior 已以可接受频率命中你的 SMARTS，留下 PubChem，去做教程 03 的评分。若 prior 很少命中、而迁移学习富集且不毁骨架，就把该检查点当作强化学习的起始 agent 或 prior。需要连接子、R 基团或按种子找类似物？生成器选错了，不是再训更多 PubChem epoch。肽或奇特元素：检查 token 支持。
+
+Prior 是实验选择。同一协议下对比。度量化学型命中率与骨架。在烧掉强化学习算力前用证据决策。完整命令、配置与 CSV 在 AI Drug Discovery Lab 网站。代码在 GitHub。描述栏有链接。有意识地选 prior。

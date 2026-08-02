@@ -1,0 +1,18 @@
+slug: 02-priors-in-practice
+title_en: 'REINVENT4 Tutorial 02: Your Prior Is an Experiment — Prove It'
+title_zh: REINVENT4 教程 02：Prior 是实验选择——用数据证明
+source_md: docs/molecular-generation/reinvent4/02-priors-in-practice.md
+is_outline: false
+generator: cursor-skill
+model: n/a
+target_duration_seconds: 480
+generated_at: '2026-08-01T00:39:55.186635+00:00'
+site_url_en: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/02-priors-in-practice/
+site_url_zh: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/02-priors-in-practice/
+github_repo_url: https://github.com/Luzuokun/ai-drug-discovery-lab
+verify_flags:
+- '[VERIFY] Thumbnail title ''8% → 64%'' is readable on mobile mockup'
+- '[VERIFY] Playlist URL still TODO_PLAYLIST_URL until series exists'
+- '[VERIFY] ZH site page may still be a stub — description ZH link is fine but note
+  translation status if needed'
+note: Regenerated from full Tutorial 02 on main via youtube-text-pack skill workflow.

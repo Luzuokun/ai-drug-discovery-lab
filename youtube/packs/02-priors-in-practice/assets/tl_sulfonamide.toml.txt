@@ -1,0 +1,17 @@
+run_type = "transfer_learning"
+device = "cpu"
+json_out_config = "_tl.json"
+
+[parameters]
+num_epochs = 8
+save_every_n_epochs = 8
+batch_size = 32
+num_refs = 0
+sample_batch_size = 100
+input_model_file = "priors/reinvent_pubchem.prior"
+smiles_file = "sulfonamide_tl_train.smi"
+output_model_file = "tl_sulfonamide.model"
+validation_smiles_file = "sulfonamide_tl_val.smi"
+shuffle_each_epoch = true
+randomize_smiles = true
+standardize_smiles = true

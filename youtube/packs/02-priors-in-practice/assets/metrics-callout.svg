@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#0f2a2e"/>
+  <text x="640" y="70" text-anchor="middle" fill="#e8f4f3" font-family="Georgia, serif" font-size="34" font-weight="700">Fair A/B  same generator, new weights</text>
+
+  <rect x="90" y="140" width="480" height="420" rx="16" fill="#14363a" stroke="#3d6b70" stroke-width="2"/>
+  <text x="330" y="190" text-anchor="middle" fill="#9fd4cf" font-family="Helvetica, Arial, sans-serif" font-size="22">PubChem prior</text>
+  <text x="330" y="250" text-anchor="middle" fill="#e8f4f3" font-family="Menlo, monospace" font-size="18">reinvent_pubchem.prior</text>
+  <text x="330" y="320" text-anchor="middle" fill="#f0c674" font-family="Helvetica, Arial, sans-serif" font-size="48" font-weight="700">8.4%</text>
+  <text x="330" y="370" text-anchor="middle" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="20">S(=O)(=O)N hit rate</text>
+  <text x="330" y="430" text-anchor="middle" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="18">Murcko scaffolds: 168</text>
+  <text x="330" y="470" text-anchor="middle" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="18">Mean QED: 0.59</text>
+  <text x="330" y="520" text-anchor="middle" fill="#708a87" font-family="Helvetica, Arial, sans-serif" font-size="16">seed 42 · nH200 · CPU</text>
+
+  <text x="640" y="360" text-anchor="middle" fill="#7fd4b8" font-family="Helvetica, Arial, sans-serif" font-size="42">’</text>
+  <text x="640" y="410" text-anchor="middle" fill="#7fd4b8" font-family="Helvetica, Arial, sans-serif" font-size="18">8 epoch TL</text>
+
+  <rect x="710" y="140" width="480" height="420" rx="16" fill="#1b4a3a" stroke="#4a9b78" stroke-width="2"/>
+  <text x="950" y="190" text-anchor="middle" fill="#9fd4cf" font-family="Helvetica, Arial, sans-serif" font-size="22">TL sulfonamide</text>
+  <text x="950" y="250" text-anchor="middle" fill="#e8f4f3" font-family="Menlo, monospace" font-size="18">tl_sulfonamide.model</text>
+  <text x="950" y="320" text-anchor="middle" fill="#7fd4b8" font-family="Helvetica, Arial, sans-serif" font-size="48" font-weight="700">64.3%</text>
+  <text x="950" y="370" text-anchor="middle" fill="#b7e0cc" font-family="Helvetica, Arial, sans-serif" font-size="20">S(=O)(=O)N hit rate</text>
+  <text x="950" y="430" text-anchor="middle" fill="#b7e0cc" font-family="Helvetica, Arial, sans-serif" font-size="18">Murcko scaffolds: 172</text>
+  <text x="950" y="470" text-anchor="middle" fill="#b7e0cc" font-family="Helvetica, Arial, sans-serif" font-size="18">Mean QED: 0.65</text>
+  <text x="950" y="520" text-anchor="middle" fill="#708a87" font-family="Helvetica, Arial, sans-serif" font-size="16">same protocol</text>
+
+  <text x="640" y="640" text-anchor="middle" fill="#8fb8b4" font-family="Helvetica, Arial, sans-serif" font-size="18">Numbers from handbook Tutorial 02 Expected Output (seed 42)</text>
+  <text x="640" y="680" text-anchor="middle" fill="#5f7f7c" font-family="Helvetica, Arial, sans-serif" font-size="14">Full figure: prior-vs-tl-compare.png · molecule grids in this assets/ folder</text>
+</svg>

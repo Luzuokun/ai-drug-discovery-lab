@@ -1,0 +1,7 @@
+0:00 Hook — download ≠ decision
+0:15 Will it cover your chemistry?
+1:15 Fair A/B — same generator, new weights
+2:20 Identical sampling protocol
+3:50 The numbers that decide
+5:30 Decision table
+6:45 CTA — site & GitHub

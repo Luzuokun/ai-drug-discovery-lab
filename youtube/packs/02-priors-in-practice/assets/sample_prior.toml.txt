@@ -1,0 +1,9 @@
+run_type = "sampling"
+device = "cpu"
+
+[parameters]
+model_file = "priors/reinvent_pubchem.prior"
+output_file = "compare_prior.csv"
+num_smiles = 200
+unique_molecules = true
+randomize_smiles = true
