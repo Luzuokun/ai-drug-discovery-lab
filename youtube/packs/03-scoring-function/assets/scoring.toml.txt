@@ -1,0 +1,41 @@
+run_type = "scoring"
+device = "cpu"
+json_out_config = "_scoring.json"
+
+[parameters]
+smiles_file = "compounds.smi"
+output_csv = "scoring.csv"
+
+[scoring]
+type = "geometric_mean"
+parallel = 1
+
+[[scoring.component]]
+[scoring.component.custom_alerts]
+[[scoring.component.custom_alerts.endpoint]]
+name = "Alerts"
+params.smarts = [
+  "[*;r{8-17}]",
+  "[#8][#8]",
+  "[#6;+]",
+  "[#16][#16]",
+  "C#C"
+]
+
+[[scoring.component]]
+[scoring.component.QED]
+[[scoring.component.QED.endpoint]]
+name = "QED"
+weight = 1.0
+
+[[scoring.component]]
+[scoring.component.MolecularWeight]
+[[scoring.component.MolecularWeight.endpoint]]
+name = "MW"
+weight = 1.0
+transform.type = "double_sigmoid"
+transform.low = 200.0
+transform.high = 500.0
+transform.coef_div = 500.0
+transform.coef_si = 20.0
+transform.coef_se = 20.0

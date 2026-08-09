@@ -42,14 +42,15 @@ Turn an approved `youtube/packs/<slug>/` text pack into a **production checklist
    reference template, filled with pack-specific content.
 5. Summarize for the user: next manual actions in order (TTS → record → edit → upload → optional MkDocs link).
 
-## Optional later automation (out of scope for auto-run here)
-
-Document command stubs in `PRODUCE.md`. Prefer the repo helper:
+## Full pipeline helpers (document in PRODUCE.md)
 
 ```bash
-# ELEVENLABS_API_KEY in repo-root .env (see .env.example)
-python scripts/youtube/tts_elevenlabs.py <slug> --lang en
+# After text pack + assets exist:
+python scripts/youtube/images_openai.py <slug>       # OPENAI_API_KEY + credits
+python scripts/youtube/tts_elevenlabs.py <slug> --lang en   # ELEVENLABS_API_KEY=sk_…
+python scripts/youtube/render_slideshow.py <slug>    # → youtube/renders/<slug>/draft.mp4
 ```
 
-Do not execute network TTS/upload unless the user explicitly requests it **and**
-credentials are available in a follow-up task.
+Do not execute network TTS/image/upload unless the user explicitly requests it
+**and** credentials are available. `render_slideshow.py` may run when local
+audio + images already exist.

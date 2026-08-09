@@ -1,0 +1,7 @@
+0:00 Hook — debug the reward first
+0:15 Worth making?
+0:55 Components, transforms, filters
+2:00 Score before RL
+2:45 The function we ran
+4:05 How to read the scores
+5:20 CTA — site, GitHub, Tutorial 04

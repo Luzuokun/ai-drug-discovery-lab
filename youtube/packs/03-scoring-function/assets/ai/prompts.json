@@ -1,0 +1,31 @@
+{
+  "model_preference": ["gpt-image-1", "dall-e-3"],
+  "size": "1536x1024",
+  "images": [
+    {
+      "id": "hook",
+      "filename": "hook.png",
+      "prompt": "Cinematic educational still, 16:9, dark teal lab atmosphere with subtle molecular wireframes. A cracked digital reward gauge labeled SCORE, suggesting a buggy reinforcement-learning reward. No readable fake numbers, no logos, no purple neon glow. High contrast, serious research mood, space at top for title text."
+    },
+    {
+      "id": "mental-model",
+      "filename": "mental-model.png",
+      "prompt": "Clean educational diagram style illustration, dark teal background: three connected modules labeled loosely as Properties, Normalize, Filter — abstract chemistry icons (hexagon molecule, slider to 0-1, shield). Flat graphic clarity like 3Blue1Brown slides, no photoreal faces, no logos, no invented data charts."
+    },
+    {
+      "id": "score-before-rl",
+      "filename": "score-before-rl.png",
+      "prompt": "Educational tech illustration: a checklist with a scoring spreadsheet on the left and a dimmed GPU cluster on the right, arrow saying debug first. Dark teal palette, minimal text shapes not real words if possible, no logos, no purple neon."
+    },
+    {
+      "id": "cta",
+      "filename": "cta.png",
+      "prompt": "Wide cinematic end-card background for a science YouTube channel about AI drug discovery. Dark teal gradient, soft molecular network, empty center safe zone for white text Site and GitHub. No logos, no watermarks, no fake UI."
+    },
+    {
+      "id": "thumbnail",
+      "filename": "thumbnail.png",
+      "prompt": "YouTube thumbnail 16:9, bold educational science style. Dark teal lab mood, reward dial with caution motif, large empty upper third for title text Debug the Reward First. No logos, no watermarks, no fake numeric axes, high contrast mobile-readable."
+    }
+  ]
+}

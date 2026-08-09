@@ -96,7 +96,7 @@ Generator: `{generator}`
 ## Checklist
 
 - [ ] Hook lands in ≤15s and states a concrete curiosity gap
-- [ ] Runtime feels 6–9 minutes (read script aloud once)
+- [ ] Runtime feels 5–8 minutes (read script aloud once)
 - [ ] No invented metrics/commands without `[VERIFY]`
 - [ ] CTA includes site deep-link + GitHub path
 - [ ] EN/ZH beats stay aligned
