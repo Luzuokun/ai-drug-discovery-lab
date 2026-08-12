@@ -51,6 +51,38 @@ def _ffprobe_duration(path: Path) -> float:
     return float(out)
 
 
+def _srt_ts_to_sec(ts: str) -> float:
+    # HH:MM:SS,mmm
+    hms, ms = ts.strip().split(",")
+    h, m, s = hms.split(":")
+    return int(h) * 3600 + int(m) * 60 + int(s) + int(ms) / 1000.0
+
+
+def _sec_to_srt_ts(sec: float) -> str:
+    if sec < 0:
+        sec = 0.0
+    ms_total = int(round(sec * 1000))
+    h, rem = divmod(ms_total, 3_600_000)
+    m, rem = divmod(rem, 60_000)
+    s, ms = divmod(rem, 1000)
+    return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
+
+
+def _scale_srt(src: Path, dest: Path, scale: float) -> None:
+    """Scale subtitle cue times by factor (storyboard → actual audio)."""
+    lines = src.read_text(encoding="utf-8").splitlines()
+    out: list[str] = []
+    for line in lines:
+        if "-->" in line:
+            left, right = line.split("-->", 1)
+            start = _sec_to_srt_ts(_srt_ts_to_sec(left) * scale)
+            end = _sec_to_srt_ts(_srt_ts_to_sec(right) * scale)
+            out.append(f"{start} --> {end}")
+        else:
+            out.append(line)
+    dest.write_text("\n".join(out) + "\n", encoding="utf-8")
+
+
 def _resolve_image(pack: Path, rel: str, fallback: str) -> Path:
     primary = (pack / rel).resolve() if not Path(rel).is_absolute() else Path(rel)
     # slideshow.json paths are relative to pack/
@@ -97,8 +129,16 @@ def main(argv: list[str] | None = None) -> int:
             return 2
 
     audio_dur = _ffprobe_duration(audio)
+    planned_end = max(float(s["end_sec"]) for s in segments)
+    # Fit all slides into the real voiceover length (storyboard times are targets).
+    scale = (audio_dur / planned_end) if planned_end > 0 else 1.0
     print(f"Pack: {pack}")
     print(f"Audio: {audio} ({audio_dur:.1f}s)")
+    if abs(scale - 1.0) > 0.02:
+        print(
+            f"  scaling slideshow {planned_end:.1f}s → {audio_dur:.1f}s "
+            f"(factor {scale:.3f})"
+        )
 
     out_dir = RENDERS_DIR / pack.name
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -107,14 +147,17 @@ def main(argv: list[str] | None = None) -> int:
     with tempfile.TemporaryDirectory(prefix="yt-slide-") as tmp:
         tmp_path = Path(tmp)
         clip_paths: list[Path] = []
+        scaled_ends: list[float] = []
 
         for i, seg in enumerate(segments):
-            start = float(seg["start_sec"])
-            end = float(seg["end_sec"])
-            # stretch/clamp last segment to audio end if needed
+            start = float(seg["start_sec"]) * scale
+            end = float(seg["end_sec"]) * scale
             if i == len(segments) - 1:
-                end = max(end, audio_dur)
+                end = audio_dur
+            if i > 0:
+                start = scaled_ends[-1]
             dur = max(0.5, end - start)
+            scaled_ends.append(start + dur)
             img = _resolve_image(pack, seg["image"], seg.get("fallback") or seg["image"])
             clip = tmp_path / f"clip_{i:02d}.mp4"
             # scale/pad to 1080p, hold still, optional fade-in
@@ -171,29 +214,20 @@ def main(argv: list[str] | None = None) -> int:
 
         subs = pack / "subtitles-en.srt"
         muxed = tmp_path / "with_audio.mp4"
-        cmd_mux = [
-            "ffmpeg",
-            "-y",
-            "-i",
-            str(silent),
-            "-i",
-            str(audio),
-            "-c:v",
-            "libx264",
-            "-pix_fmt",
-            "yuv420p",
-            "-c:a",
-            "aac",
-            "-b:a",
-            "192k",
-            "-shortest",
-            "-movflags",
-            "+faststart",
-        ]
+        subs_for_burn = None
         if not args.no_subs and subs.is_file():
-            # burn-in subtitles
+            if abs(scale - 1.0) > 0.02:
+                scaled_subs = tmp_path / "subtitles-scaled.srt"
+                _scale_srt(subs, scaled_subs, scale)
+                subs_for_burn = scaled_subs
+            else:
+                subs_for_burn = subs
+
+        if subs_for_burn is not None:
             # Escape path for ffmpeg subtitles filter
-            subs_esc = str(subs).replace("\\", "\\\\").replace(":", "\\:").replace("'", "\\'")
+            subs_esc = (
+                str(subs_for_burn).replace("\\", "\\\\").replace(":", "\\:").replace("'", "\\'")
+            )
             cmd_mux = [
                 "ffmpeg",
                 "-y",
@@ -217,9 +251,28 @@ def main(argv: list[str] | None = None) -> int:
                 str(muxed),
             ]
         else:
-            cmd_mux.append(str(muxed))
+            cmd_mux = [
+                "ffmpeg",
+                "-y",
+                "-i",
+                str(silent),
+                "-i",
+                str(audio),
+                "-c:v",
+                "libx264",
+                "-pix_fmt",
+                "yuv420p",
+                "-c:a",
+                "aac",
+                "-b:a",
+                "192k",
+                "-shortest",
+                "-movflags",
+                "+faststart",
+                str(muxed),
+            ]
 
-        print("  muxing audio" + (" + burned subs" if not args.no_subs and subs.is_file() else ""))
+        print("  muxing audio" + (" + burned subs" if subs_for_burn is not None else ""))
         subprocess.run(cmd_mux, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
         shutil.copy2(muxed, out_mp4)
 

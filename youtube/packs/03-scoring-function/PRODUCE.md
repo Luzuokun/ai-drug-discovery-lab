@@ -10,9 +10,11 @@ Target: ~6:30 (5–8 min Discovery)
 |------|--------|
 | Text pack | Done |
 | Chapter + SVG assets | Done (`assets/`) |
-| xAI AI stills | Prefer `images_xai.py` (`XAI_API_KEY`) |
-| xAI EN TTS | Prefer `tts_xai.py` (`XAI_API_KEY`) |
-| Slideshow draft MP4 | `render_slideshow.py` → `youtube/renders/…/draft.mp4` |
+| xAI AI stills | **Done** — `assets/ai/*.png` via `images_xai.py` / `grok-imagine-image-quality` |
+| xAI EN TTS | **Done** — `youtube/audio/…/en.mp3` via `tts_xai.py` (voice `eve`, ~163 s) |
+| Slideshow draft MP4 | **Done** — `youtube/renders/…/draft.mp4` (~163 s; slides+subs scaled to audio) |
+
+Note: current EN voiceover is ~2:43 at natural pace (~340 words). Storyboard still targets 5–8 min; expand `voiceover-*.txt` if you want a longer cut.
 
 ### Regenerate (xAI)
 
@@ -22,7 +24,7 @@ Target: ~6:30 (5–8 min Discovery)
 # XAI_TTS_VOICE_ID=eve
 # XAI_IMAGE_MODEL=grok-imagine-image-quality
 
-python scripts/youtube/images_xai.py 03
+python scripts/youtube/images_xai.py 03 --force
 python scripts/youtube/tts_xai.py 03 --lang en
 python scripts/youtube/render_slideshow.py 03
 ```
@@ -30,8 +32,8 @@ python scripts/youtube/render_slideshow.py 03
 ## 0. Preconditions
 
 - [x] Text pack written
-- [ ] xAI stills under `assets/ai/`
-- [ ] EN voiceover `youtube/audio/03-scoring-function/en.mp3`
+- [x] xAI stills under `assets/ai/`
+- [x] EN voiceover `youtube/audio/03-scoring-function/en.mp3`
 - [ ] Preview `draft.mp4`
 
 ## 1. Your remaining work (short)
