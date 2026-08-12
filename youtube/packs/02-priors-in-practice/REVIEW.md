@@ -22,7 +22,7 @@ Generator: `cursor-skill`
 ## Next step (after you approve this pack)
 
 1. Invoke Cursor skill `/youtube-produce` to write `PRODUCE.md`
-2. ElevenLabs TTS from `voiceover-en.txt` / `voiceover-zh.txt` (local)
+2. xAI TTS from `voiceover-en.txt` / `voiceover-zh.txt` (`tts_xai.py`)
 3. Record screencast items in `broll-checklist.md`
 4. Edit to `storyboard.md` + burn `subtitles-*.srt`
 5. Upload; only then consider linking the URL from MkDocs

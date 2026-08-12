@@ -4,46 +4,39 @@ Slug: `03-scoring-function`
 Generator: `cursor-skill`  
 Target: ~6:30 (5–8 min Discovery)  
 
-## Status (this Cloud run)
+## Status
 
 | Step | Status |
 |------|--------|
 | Text pack | Done |
 | Chapter + SVG assets | Done (`assets/`) |
-| OpenAI AI stills | **Blocked** — `OPENAI_API_KEY` returned `credit_balance_exhausted` |
-| ElevenLabs EN TTS | **Blocked** — key looks like an API *key ID*, not a secret starting with `sk_` |
-| Slideshow draft MP4 | Done with **silent audio + burned EN subs** (watchable structure) |
+| xAI AI stills | Prefer `images_xai.py` (`XAI_API_KEY`) |
+| xAI EN TTS | Prefer `tts_xai.py` (`XAI_API_KEY`) |
+| Slideshow draft MP4 | `render_slideshow.py` → `youtube/renders/…/draft.mp4` |
 
-### Local artifacts (gitignored)
-
-- `youtube/renders/03-scoring-function/draft.mp4` (~5 MB, 390 s, hard subs)
-- `youtube/audio/03-scoring-function/en.mp3` — currently **silence placeholder** (390 s)
-
-### Fix keys, then regenerate (minimal work)
+### Regenerate (xAI)
 
 ```bash
-# .env — use a real ElevenLabs secret (sk_...) and fund OpenAI credits
-# OPENAI_API_KEY=sk-...
-# ELEVENLABS_API_KEY=sk_...
+# .env — see .env.example
+# XAI_API_KEY=...
+# XAI_TTS_VOICE_ID=eve
+# XAI_IMAGE_MODEL=grok-imagine-image-quality
 
-pip install -r requirements-youtube.txt
-python scripts/youtube/images_openai.py 03
-python scripts/youtube/tts_elevenlabs.py 03 --lang en
+python scripts/youtube/images_xai.py 03
+python scripts/youtube/tts_xai.py 03 --lang en
 python scripts/youtube/render_slideshow.py 03
 ```
-
-Then replace the silent draft with a voiced one.
 
 ## 0. Preconditions
 
 - [x] Text pack written
-- [ ] OpenAI credits available → AI stills
-- [ ] Valid ElevenLabs `sk_` key → EN voiceover
+- [ ] xAI stills under `assets/ai/`
+- [ ] EN voiceover `youtube/audio/03-scoring-function/en.mp3`
 - [ ] Preview `draft.mp4`
 
 ## 1. Your remaining work (short)
 
-1. Fix `.env` keys / billing as above and re-run the three commands.
+1. Run the three commands above (or ask the agent to run them).
 2. Optional: in CapCut, replace the 2:45–4:05 segment with a live `scoring.toml` screencast.
 3. Upload to YouTube using paste blocks below.
 4. Do **not** commit `youtube/audio/` or `youtube/renders/`.
@@ -116,4 +109,4 @@ REINVENT4, scoring function, QED, AI drug discovery, molecular generation, reinf
 
 ### Thumbnail
 
-Prefer `assets/ai/thumbnail.png` after OpenAI generation; until then use `assets/metrics-callout.png` + title **Debug the Reward First**.
+Prefer `assets/ai/thumbnail.png` after xAI generation; until then use `assets/metrics-callout.png` + title **Debug the Reward First**.

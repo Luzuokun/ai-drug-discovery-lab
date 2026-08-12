@@ -2,11 +2,10 @@
 
 Prompts: `prompts.json`
 
-Generate / regenerate with OpenAI credits:
+Generate / regenerate with xAI (Grok Imagine):
 
 ```bash
-python scripts/youtube/images_openai.py 03
+python scripts/youtube/images_xai.py 03
 ```
 
 If generation fails (quota), slideshow render falls back to `pipeline.png` / `metrics-callout.png`.
-Current `*.png` files may be temporary placeholders until OpenAI credits are available.

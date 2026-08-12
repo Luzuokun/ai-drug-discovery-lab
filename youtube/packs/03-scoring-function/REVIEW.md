@@ -20,7 +20,7 @@ Generator: `cursor-skill`
 
 ## Next step (V2 — after you approve this pack)
 
-1. ElevenLabs TTS from `voiceover-en.txt` / `voiceover-zh.txt`
+1. xAI TTS from `voiceover-en.txt` / `voiceover-zh.txt`
 2. Record screencast items in `broll-checklist.md`
 3. Edit to `storyboard.md` + burn `subtitles-*.srt`
 4. Upload; paste real URL back into the MkDocs chapter

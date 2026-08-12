@@ -38,4 +38,4 @@ Each storyboard row should note where the picture comes from for slideshow rende
 
 - `chapter` — real handbook figure / CSV screenshot
 - `svg` — generated diagram card (metrics, pipeline)
-- `ai` — OpenAI-generated mood / concept / thumbnail / CTA art
+- `ai` — xAI (Grok Imagine) mood / concept / thumbnail / CTA art

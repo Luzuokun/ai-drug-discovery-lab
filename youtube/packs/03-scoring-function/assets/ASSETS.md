@@ -8,6 +8,6 @@
 | `top-scored-molecules.png` | Top-scoring molecule grid |
 | `scoring-sample.csv` | Sample scoring.csv rows |
 | `scoring.toml.txt` | Config for screencast / still |
-| `ai/` | OpenAI-generated mood / thumbnail / CTA |
+| `ai/` | xAI (Grok Imagine) mood / thumbnail / CTA |
 
 Slideshow map: see `../slideshow.json`.

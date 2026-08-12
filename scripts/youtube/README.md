@@ -8,16 +8,16 @@ GitHub = reproducibility.
 1. **Text pack** — Cursor skill [`youtube-text-pack`](../../.cursor/skills/youtube-text-pack)  
    → `youtube/packs/<slug>/` (5–8 min script, storyboard, subs, Description…)
 2. **Assets** — chapter figures + SVG cards under `assets/`
-3. **AI stills** (needs `OPENAI_API_KEY` with credits):
+3. **AI stills** (needs `XAI_API_KEY` — Grok Imagine):
 
    ```bash
-   python scripts/youtube/images_openai.py <slug>
+   python scripts/youtube/images_xai.py <slug>
    ```
 
-4. **TTS** (needs real ElevenLabs secret `sk_…`):
+4. **TTS** (needs `XAI_API_KEY` — Grok TTS):
 
    ```bash
-   python scripts/youtube/tts_elevenlabs.py <slug> --lang en
+   python scripts/youtube/tts_xai.py <slug> --lang en
    ```
 
 5. **Slideshow draft** (ffmpeg):
@@ -36,16 +36,22 @@ GitHub = reproducibility.
 
 ```bash
 source .venv/bin/activate
-pip install -r requirements-youtube.txt   # openai, elevenlabs, pyyaml, dotenv
+# xAI helpers use stdlib urllib only; optional deps for legacy OpenAI/ElevenLabs:
+pip install -r requirements-youtube.txt
 # system: ffmpeg, librsvg2-bin (rsvg-convert) recommended
 ```
 
 Repo-root `.env` (gitignored; see `.env.example`):
 
 ```bash
-OPENAI_API_KEY=sk-...
-ELEVENLABS_API_KEY=sk_...    # must be the secret, not the key ID
+XAI_API_KEY=...
+# Optional:
+# XAI_TTS_VOICE_ID=eve
+# XAI_IMAGE_MODEL=grok-imagine-image-quality
 ```
+
+Legacy backends (`images_openai.py`, `tts_elevenlabs.py`) remain available if you
+prefer OpenAI / ElevenLabs keys.
 
 ## Other helpers
 

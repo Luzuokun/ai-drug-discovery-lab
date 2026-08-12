@@ -93,7 +93,7 @@ def main(argv: list[str] | None = None) -> int:
         if alt.is_file():
             audio = alt
         else:
-            print(f"ERROR: missing audio {audio}. Run tts_elevenlabs.py first.", file=sys.stderr)
+            print(f"ERROR: missing audio {audio}. Run tts_xai.py first.", file=sys.stderr)
             return 2
 
     audio_dur = _ffprobe_duration(audio)

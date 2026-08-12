@@ -2,10 +2,10 @@
 name: youtube-text-pack
 description: >-
   Generate a reviewable YouTube text pack (5–8 min script, storyboard,
-  ElevenLabs voiceover text, thumbnail prompt, B-roll, description, chapters,
+  TTS voiceover text, thumbnail prompt, B-roll, description, chapters,
   tags, EN/ZH subtitles) from one MkDocs chapter. Use when the user asks for
   YouTube script, video text pack, Markdown→YouTube, or /youtube-text-pack.
-  Does NOT require an OpenAI API key — the Cursor agent writes the pack files.
+  Does NOT require an API key for text — the Cursor agent writes the pack files.
 ---
 
 # YouTube text pack (Skill A)

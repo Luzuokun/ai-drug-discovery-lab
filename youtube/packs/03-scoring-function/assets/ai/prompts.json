@@ -1,6 +1,6 @@
 {
-  "model_preference": ["gpt-image-1", "dall-e-3"],
-  "size": "1536x1024",
+  "model_preference": ["grok-imagine-image-quality"],
+  "aspect_ratio": "16:9",
   "images": [
     {
       "id": "hook",
