@@ -50,8 +50,8 @@ mkdocs build --strict
 
 ## REINVENT4 series
 
-Chapters 01–05 (*Installation*, *Priors*, *Scoring*, *Reinforcement Learning*,
-*Diversity Filter*) are the reference implementation for tone and depth. The live
+Chapters 01–06 (*Installation* through *Curriculum Learning*) are the reference
+implementation for tone and depth. The live
 syllabus is a **12-chapter research practice path** (see
 `docs/molecular-generation/reinvent4/index.md`) — not a 20-topic API feature tour.
 Later chapters must match that standard and stay aligned with `mkdocs.yml`.
