@@ -1,11 +1,11 @@
 ---
 name: youtube-text-pack
 description: >-
-  Generate a reviewable YouTube text pack (6–9 min script, storyboard,
-  ElevenLabs voiceover text, thumbnail prompt, B-roll, description, chapters,
+  Generate a reviewable YouTube text pack (5–8 min script, storyboard,
+  TTS voiceover text, thumbnail prompt, B-roll, description, chapters,
   tags, EN/ZH subtitles) from one MkDocs chapter. Use when the user asks for
   YouTube script, video text pack, Markdown→YouTube, or /youtube-text-pack.
-  Does NOT require an OpenAI API key — the Cursor agent writes the pack files.
+  Does NOT require an API key for text — the Cursor agent writes the pack files.
 ---
 
 # YouTube text pack (Skill A)
@@ -33,7 +33,7 @@ Read [references/style-guide.md](references/style-guide.md) before writing.
 2. **Do not invent** metrics, filenames, or command outputs absent from the chapter.
    Speculative lines get `[VERIFY]` and must appear in `REVIEW.md` / `verify_flags`.
 3. Video is **not** a read-aloud of the tutorial. Teach the decision frame.
-4. Target **6–9 minutes** (360–540 s). EN primary; ZH mirrors the same beats.
+4. Target **5–8 minutes** (300–480 s). EN primary; ZH mirrors the same beats.
 5. One chapter = one pack under `youtube/packs/<slug>/`.
 6. Set `meta.yaml` → `generator: cursor-skill`.
 

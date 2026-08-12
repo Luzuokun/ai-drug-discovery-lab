@@ -16,7 +16,7 @@ downloadable artifacts).
 | 03 | [Scoring Function](03-scoring-function.md) | Debug the reward *before* spending RL steps | Available |
 | 04 | [Reinforcement Learning](04-reinforcement-learning.md) | Train an agent so high scores become more probable | Available |
 | 05 | [Diversity Filter](05-diversity-filter.md) | Stop scaffold collapse once RL starts working | Available |
-| 06 | [Curriculum Learning](06-curriculum-learning.md) | Escalate objectives across stages / checkpoints | Coming Soon |
+| 06 | [Curriculum Learning](06-curriculum-learning.md) | Escalate objectives across stages / checkpoints | Available |
 | 07 | [Transfer Learning](07-transfer-learning.md) | Adapt the prior to project-specific chemistry | Coming Soon |
 | 08 | [Docking-Guided Design](08-docking-guided-design.md) | Put a structure-based oracle into the generation loop | Coming Soon |
 | 09 | [Scaling & Monitoring](09-scaling-and-monitoring.md) | GPU runs, logs, and TensorBoard for long campaigns | Coming Soon |

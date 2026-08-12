@@ -36,8 +36,8 @@ PACK_JSON_SCHEMA: dict[str, Any] = {
         "title_zh": {"type": "string"},
         "target_duration_seconds": {
             "type": "integer",
-            "minimum": 360,
-            "maximum": 540,
+            "minimum": 300,
+            "maximum": 480,
         },
         "hook_en": {"type": "string"},
         "hook_zh": {"type": "string"},
@@ -187,9 +187,9 @@ def validate_pack(data: dict[str, Any]) -> list[str]:
         if key not in data:
             errors.append(f"missing key: {key}")
     duration = data.get("target_duration_seconds")
-    if isinstance(duration, int) and not (360 <= duration <= 540):
+    if isinstance(duration, int) and not (300 <= duration <= 480):
         errors.append(
-            f"target_duration_seconds={duration} outside 360–540 (6–9 min)"
+            f"target_duration_seconds={duration} outside 300–480 (5–8 min)"
         )
     beats = data.get("beats")
     if isinstance(beats, list) and len(beats) < 5:

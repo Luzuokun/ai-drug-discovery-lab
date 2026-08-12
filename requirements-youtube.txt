@@ -1,5 +1,5 @@
-# Optional deps for scripts/youtube helpers (--openai, --from-json, TTS).
-# Preferred text-pack path is Cursor skill .cursor/skills/youtube-text-pack (no these deps).
+# Optional deps for scripts/youtube helpers (--openai, --from-json, legacy TTS).
+# Preferred path: Cursor skill youtube-text-pack + xAI scripts (stdlib urllib; no pip deps).
 # Do NOT add these to requirements.txt (MkDocs CI must stay lean).
 openai>=1.40.0
 PyYAML>=6.0.1

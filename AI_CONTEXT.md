@@ -1,7 +1,7 @@
 # AI_CONTEXT.md
 
 > 给后续 Cursor / Cloud Agent 与人类协作者的**项目状态备忘**。  
-> 最后更新：2026-08-08（基于 `main` @ `702ad00`）
+> 最后更新：2026-08-12（合并 `main`；Tutorial 06 已合入 #9；下一步 Tutorial 07）
 
 ---
 
@@ -51,26 +51,29 @@
 | **03** Scoring Function | QED+MW+alerts，先 score 再 RL | #3 |
 | **04** Reinforcement Learning | 单阶段 `staged_learning`，Score↑ / NLL↓ | #4 |
 | **05** Diversity Filter | 有/无 Murcko DF 的 RL A/B | #6 |
+| **06** Curriculum Learning | 双阶段 auto CL（`max_score` early-stop）+ 手动 chkpt 续跑 | #9 |
 
-产物目录：`docs/assets/reinvent4/{01,02,03,04,05}/`。
+产物目录：`docs/assets/reinvent4/{01,02,03,04,05,06}/`。
 
 ### 其他已合入
 
 - **#7** YouTube Cursor skills + Tutorial 02 制片包（`youtube/packs/02-priors-in-practice/`，`.cursor/skills/youtube-*`）。
+- **#9** REINVENT4 Tutorial 06 Curriculum Learning。
+- **#10** Markdown → YouTube 流水线（xAI TTS / Imagine）+ Tutorial 03 制片包。
 
 ### 尚未写成正文的章
 
-06–12 仍为带验收大纲的 Coming Soon（中文 01–05 亦未翻译，索引标「已发布（英文）」）。
+07–12 仍为带验收大纲的 Coming Soon（中文 01–06 亦未翻译，索引标「已发布（英文）」）。
 
 ---
 
 ## 3. 当前遇到的问题
 
 1. **中英不同步**  
-   01–05 仅有英文正文；`docs/zh/...` 多为占位/大纲。双语手册承诺未兑现。
+   01–06 仅有英文正文；`docs/zh/...` 多为占位/大纲。双语手册承诺未兑现。
 
-2. **战役中段未写**  
-   06 Curriculum → 11 BRAF 是引用价值最高的后半程，目前只有验收大纲，主线在 05 处暂停。
+2. **战役后半程未写**  
+   07 TL → 11 BRAF 仍是引用价值最高的后半程；主线已推进到 06 Curriculum。
 
 3. **Tutorial 02 与 07 的边界**  
    02 已含短 TL 对照（为公平比较 prior）。07 需写得更深（epoch、过拟合、与 RL 衔接），避免重复成第二遍 02。
@@ -111,26 +114,23 @@
 
 按优先级（仍服从「可复现实操 > 扩目录」）：
 
-1. **Tutorial 06 — Curriculum Learning**  
-   多 `[[stage]]` 或 checkpoint 交接；升级评分；每阶段曲线与 early-stop 论证。
-
-2. **Tutorial 07 — Transfer Learning**  
+1. **Tutorial 07 — Transfer Learning**  
    在 02 的短 TL 之上：更长训练、过拟合症状、TL→RL vs 纯 RL 对照（避免复述 02）。
 
-3. **Tutorial 08 — Docking-Guided Design**  
+2. **Tutorial 08 — Docking-Guided Design**  
    设计循环（口袋→评分组件→构象审查），交叉链接 Docking 栏目，不是 Vina 说明书。
 
-4. **09 Scaling & Monitoring → 10 Ablations → 11 BRAF**  
+3. **09 Scaling & Monitoring → 10 Ablations → 11 BRAF**  
    合并 GPU/日志/TB；消融出*本站*对照表；BRAF 端到端战役作引用高潮。
 
-5. **12 Troubleshooting Appendix**  
+4. **12 Troubleshooting Appendix**  
    汇总跨章错误 + 降级边缘话题（词表/并行采样等短注）。
 
-6. **中文翻译**  
-   优先 01–05（已 Available 的英文），再跟进新章。
+5. **中文翻译**  
+   优先 01–06（已 Available 的英文），再跟进新章。
 
-7. **YouTube**  
-   随新 Available 章补 `youtube/packs/...`（已有 02 包与 skills 可复用）。
+6. **YouTube**  
+   随新 Available 章补 `youtube/packs/...`（已有 02 包与 skills；可加 06 包）。
 
 ### 写下一章时的硬标准（勿降级）
 
@@ -146,10 +146,17 @@
 
 ```bash
 git checkout main && git pull origin main
-git checkout -b cursor/reinvent4-tutorial-06-curriculum-<suffix>
-# 参考：docs/molecular-generation/reinvent4/04-*.md、05-*.md、06 验收大纲
+git checkout -b cursor/reinvent4-tutorial-07-transfer-<suffix>
+# 参考：docs/molecular-generation/reinvent4/02-priors-in-practice.md、07 验收大纲
 # 验收：.venv/bin/mkdocs build --strict
 ```
+
+### Tutorial 06 关键实现笔记
+
+- Auto CL：stage1 `max_score=0.72` / `min_steps=10` → seed 42 在 **step 12** early-stop；stage2 (+SlogP) 跑满 20 step（Score 0.46→0.59）。
+- 若 stage1 触达 `max_steps` 会 **中止后续 stage**（上游 `run_staged_learning.py`）。
+- 手动 CL：`agent_file=manual_s1.chkpt`，`prior_file` 仍为原 prior。
+
 
 ---
 

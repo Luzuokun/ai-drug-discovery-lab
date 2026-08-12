@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#0f2a2e"/>
+  <text x="640" y="70" text-anchor="middle" fill="#e8f4f3" font-family="Georgia, serif" font-size="34" font-weight="700">Sampling -&gt; Scoring -&gt; RL</text>
+  <text x="640" y="110" text-anchor="middle" fill="#8fb8b4" font-family="Helvetica, Arial, sans-serif" font-size="18">Debug the reward before you burn compute</text>
+  <rect x="70" y="220" width="320" height="280" rx="16" fill="#14363a" stroke="#3d6b70" stroke-width="2"/>
+  <text x="230" y="290" text-anchor="middle" fill="#9fd4cf" font-family="Helvetica, Arial, sans-serif" font-size="26">01 Sampling</text>
+  <text x="230" y="340" text-anchor="middle" fill="#e8f4f3" font-family="Helvetica, Arial, sans-serif" font-size="18">drug-like SMILES</text>
+  <text x="230" y="380" text-anchor="middle" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="16">no Score column yet</text>
+  <text x="430" y="360" text-anchor="middle" fill="#7fd4b8" font-family="Helvetica, Arial, sans-serif" font-size="42">&gt;</text>
+  <rect x="480" y="220" width="320" height="280" rx="16" fill="#1b4a3a" stroke="#4a9b78" stroke-width="3"/>
+  <text x="640" y="290" text-anchor="middle" fill="#d4f5e4" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700">03 Scoring</text>
+  <text x="640" y="340" text-anchor="middle" fill="#e8f4f3" font-family="Helvetica, Arial, sans-serif" font-size="18">reward in [0, 1]</text>
+  <text x="640" y="380" text-anchor="middle" fill="#b7e0cc" font-family="Helvetica, Arial, sans-serif" font-size="16">THIS EPISODE</text>
+  <text x="640" y="430" text-anchor="middle" fill="#b7e0cc" font-family="Helvetica, Arial, sans-serif" font-size="16">no prior required</text>
+  <text x="850" y="360" text-anchor="middle" fill="#7fd4b8" font-family="Helvetica, Arial, sans-serif" font-size="42">&gt;</text>
+  <rect x="890" y="220" width="320" height="280" rx="16" fill="#14363a" stroke="#3d6b70" stroke-width="2"/>
+  <text x="1050" y="290" text-anchor="middle" fill="#9fd4cf" font-family="Helvetica, Arial, sans-serif" font-size="26">04 RL</text>
+  <text x="1050" y="340" text-anchor="middle" fill="#e8f4f3" font-family="Helvetica, Arial, sans-serif" font-size="18">maximize Score</text>
+  <text x="1050" y="380" text-anchor="middle" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="16">calls scorer x1000s</text>
+  <text x="640" y="600" text-anchor="middle" fill="#f0c674" font-family="Helvetica, Arial, sans-serif" font-size="22">Broken reward here -&gt; wasted GPU there</text>
+</svg>

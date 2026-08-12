@@ -1,73 +1,75 @@
-# Markdown → YouTube text pack
+# Markdown → YouTube pipeline
 
-Turn one MkDocs chapter into a **reviewable YouTube text pack** (script, storyboard,
-ElevenLabs voiceover text, thumbnail prompt, B-roll list, description, chapters,
-tags, EN/ZH subtitles). No TTS, editing, or upload here.
+Discovery videos for handbook chapters. Website = docs, YouTube = discovery,
+GitHub = reproducibility.
 
-## Recommended path (no OpenAI API key)
+## Recommended flow (minimize manual work)
 
-Use the Cursor Agent skill:
+1. **Text pack** — Cursor skill [`youtube-text-pack`](../../.cursor/skills/youtube-text-pack)  
+   → `youtube/packs/<slug>/` (5–8 min script, storyboard, subs, Description…)
+2. **Assets** — chapter figures + SVG cards under `assets/`
+3. **AI stills** (needs `XAI_API_KEY` — Grok Imagine):
 
-- **Text pack:** [`.cursor/skills/youtube-text-pack`](../../.cursor/skills/youtube-text-pack)  
-  Invoke with `/youtube-text-pack` or ask the agent to generate a video text pack.
-- **After text approval — production checklist:**  
-  [`.cursor/skills/youtube-produce`](../../.cursor/skills/youtube-produce)  
-  (`/youtube-produce` → writes `PRODUCE.md`; does not call ElevenLabs).
+   ```bash
+   python scripts/youtube/images_xai.py <slug>
+   ```
 
-The agent writes files under `youtube/packs/<slug>/` directly.
+4. **TTS** (needs `XAI_API_KEY` — Grok TTS):
 
-## Optional CLI helpers
+   ```bash
+   python scripts/youtube/tts_xai.py <slug> --lang en
+   ```
+
+5. **Slideshow draft** (ffmpeg):
+
+   ```bash
+   python scripts/youtube/render_slideshow.py <slug>
+   # → youtube/renders/<slug>/draft.mp4  (gitignored)
+   ```
+
+6. **Produce checklist** — skill [`youtube-produce`](../../.cursor/skills/youtube-produce)  
+   → `PRODUCE.md` (YouTube paste blocks; CapCut insert-screencast notes)
+
+7. **You** — preview draft → optional CapCut screencast insert → upload.
+
+## Setup
 
 ```bash
 source .venv/bin/activate
-# only needed for --openai
+# xAI helpers use stdlib urllib only; optional deps for legacy OpenAI/ElevenLabs:
 pip install -r requirements-youtube.txt
+# system: ffmpeg, librsvg2-bin (rsvg-convert) recommended
 ```
+
+Repo-root `.env` (gitignored; see `.env.example`):
 
 ```bash
-# Materialize files from an existing pack.json (no LLM)
-python scripts/youtube/publish.py 02 --from-json youtube/packs/02-priors-in-practice/pack.json
-
-# Inspect the legacy OpenAI prompt brief
-python scripts/youtube/publish.py 02 --dry-run
-
-# Optional API path (explicit)
-export OPENAI_API_KEY=sk-...
-python scripts/youtube/publish.py 02 --openai
+XAI_API_KEY=...
+# Optional:
+# XAI_TTS_VOICE_ID=eve
+# XAI_IMAGE_MODEL=grok-imagine-image-quality
 ```
 
-Coming Soon / outline chapters still need `--allow-outline` when using `--openai`.
+Legacy backends (`images_openai.py`, `tts_elevenlabs.py`) remain available if you
+prefer OpenAI / ElevenLabs keys.
 
-## Output layout
+## Other helpers
+
+```bash
+python scripts/youtube/publish.py 03 --from-json youtube/packs/03-scoring-function/pack.json
+python scripts/youtube/publish.py 03 --dry-run
+python scripts/youtube/publish.py 03 --openai   # optional API text generation
+```
+
+## Layout
 
 ```text
 youtube/packs/<slug>/
-  meta.yaml
-  script.md / script-zh.md
-  voiceover-en.txt / voiceover-zh.txt
-  storyboard.md
-  thumbnail-prompt.md
-  broll-checklist.md
-  youtube-description.md
-  chapters.txt
-  tags.txt
-  subtitles-en.srt / subtitles-zh.srt
-  pack.json
-  REVIEW.md
-  PRODUCE.md          # after /youtube-produce
+  … text pack files …
+  slideshow.json
+  assets/           # chapter + SVG PNG + scoring.toml.txt
+  assets/ai/        # prompts.json + generated stills
+  PRODUCE.md
+youtube/audio/<slug>/en.mp3      # gitignored
+youtube/renders/<slug>/draft.mp4 # gitignored
 ```
-
-Human next step: check `REVIEW.md`. After approval, run `/youtube-produce`
-(writes `PRODUCE.md`). Then optionally:
-
-```bash
-# ELEVENLABS_API_KEY in repo-root .env (see .env.example)
-python scripts/youtube/tts_elevenlabs.py 02 --lang en
-```
-
-## Design notes
-
-- One chapter = one ~6–9 minute video (discovery). Site keeps the full tutorial.
-- Keep youtube Python deps in `requirements-youtube.txt` (not MkDocs CI).
-- `.env`, `youtube/audio/`, and `youtube/renders/` are gitignored.
-- Pack-local ready media: `youtube/packs/<slug>/assets/` (figures, CSV samples, config text, SVG cards).

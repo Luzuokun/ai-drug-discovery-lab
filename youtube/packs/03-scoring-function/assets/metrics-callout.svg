@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#0f2a2e"/>
+  <text x="640" y="70" text-anchor="middle" fill="#e8f4f3" font-family="Georgia, serif" font-size="34" font-weight="700">Tutorial 03 - scoring run (seed 42)</text>
+  <rect x="80" y="140" width="360" height="200" rx="14" fill="#14363a"/>
+  <text x="260" y="210" text-anchor="middle" fill="#9fd4cf" font-family="Helvetica, Arial, sans-serif" font-size="20">Molecules</text>
+  <text x="260" y="280" text-anchor="middle" fill="#7fd4b8" font-family="Helvetica, Arial, sans-serif" font-size="56" font-weight="700">96</text>
+  <rect x="460" y="140" width="360" height="200" rx="14" fill="#14363a"/>
+  <text x="640" y="210" text-anchor="middle" fill="#9fd4cf" font-family="Helvetica, Arial, sans-serif" font-size="20">Wall-clock</text>
+  <text x="640" y="280" text-anchor="middle" fill="#7fd4b8" font-family="Helvetica, Arial, sans-serif" font-size="56" font-weight="700">~2s</text>
+  <rect x="840" y="140" width="360" height="200" rx="14" fill="#14363a"/>
+  <text x="1020" y="210" text-anchor="middle" fill="#9fd4cf" font-family="Helvetica, Arial, sans-serif" font-size="20">Peak RAM</text>
+  <text x="1020" y="280" text-anchor="middle" fill="#7fd4b8" font-family="Helvetica, Arial, sans-serif" font-size="48" font-weight="700">614 MiB</text>
+  <rect x="80" y="380" width="540" height="240" rx="14" fill="#1b4a3a"/>
+  <text x="350" y="450" text-anchor="middle" fill="#d4f5e4" font-family="Helvetica, Arial, sans-serif" font-size="22">Score</text>
+  <text x="350" y="520" text-anchor="middle" fill="#e8f4f3" font-family="Helvetica, Arial, sans-serif" font-size="28">mean 0.66 | median 0.79</text>
+  <text x="350" y="570" text-anchor="middle" fill="#b7e0cc" font-family="Helvetica, Arial, sans-serif" font-size="28">max 0.97 | 44 above 0.8</text>
+  <rect x="660" y="380" width="540" height="240" rx="14" fill="#14363a"/>
+  <text x="930" y="450" text-anchor="middle" fill="#9fd4cf" font-family="Helvetica, Arial, sans-serif" font-size="22">Function</text>
+  <text x="930" y="510" text-anchor="middle" fill="#e8f4f3" font-family="Helvetica, Arial, sans-serif" font-size="22">geometric_mean</text>
+  <text x="930" y="555" text-anchor="middle" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="20">QED + MW 200-500</text>
+  <text x="930" y="595" text-anchor="middle" fill="#a8c9c5" font-family="Helvetica, Arial, sans-serif" font-size="20">+ CustomAlerts</text>
+</svg>

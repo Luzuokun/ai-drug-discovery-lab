@@ -1,0 +1,13 @@
+Tutorial 01 gave you molecules. Tutorial 04 will train an agent. Skip this chapter and you may spend GPU hours optimizing a broken reward.
+
+Sampling only asks the prior: give me drug-like molecules. Drug discovery asks harder: which of these are worth making? The scoring function is REINVENT4's answer — chemistry objectives turned into one number in zero to one that reinforcement learning can maximize.
+
+Three ideas. Components compute properties — QED, molecular weight, alerts. Transforms squash raw values into zero to one so a molecular weight of 300 does not crush a QED of 0.8. Filters like CustomAlerts zero a molecule globally when a SMARTS matches — they are not soft weights. Aggregation — here geometric mean — combines the soft scores. Arithmetic mean forgives a weak objective. Geometric mean does not.
+
+run_type scoring evaluates molecules you already have. No prior download. No agent training. Reinforcement learning will call your scoring function thousands of times. Misconfigured SMARTS, missing transform, weight typo — RL will optimize garbage. Scoring once on a fixed list is the cheapest debug.
+
+From Tutorial 01 we took 96 unique valid molecules. Scoring config: geometric mean. QED weight one. Molecular weight with a double sigmoid preferring roughly 200 to 500 daltons. CustomAlerts for a few unwanted SMARTS — large rings, peroxides, charged carbon, and an illustrative alkyne. On CPU the scoring job finished in about two seconds. Peak RAM about 614 megabytes. Output: scoring.csv with a Score column.
+
+Mean score 0.66. Median 0.79. Max 0.97. Forty-four molecules above 0.8. One molecule hit the large-ring alert and scored zero. A tiny molecule at 151 daltons kept a mediocre QED but its MW transform collapsed near zero — geometric mean dragged the Score to 0.08. That is the transform doing its job.
+
+Debug the reward on a fixed list before reinforcement learning burns compute. Full commands, the scoring config, and scoring.csv live on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 04 — train an agent so high scores become more probable. Link in the description.
