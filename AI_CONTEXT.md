@@ -1,7 +1,7 @@
 # AI_CONTEXT.md
 
 > 给后续 Cursor / Cloud Agent 与人类协作者的**项目状态备忘**。  
-> 最后更新：2026-08-08（Tutorial 06 Curriculum Learning 完稿；基于 `main` @ `702ad00` + 本章）
+> 最后更新：2026-08-12（合并 `main`；Tutorial 06 已合入 #9；下一步 Tutorial 07）
 
 ---
 
@@ -51,13 +51,15 @@
 | **03** Scoring Function | QED+MW+alerts，先 score 再 RL | #3 |
 | **04** Reinforcement Learning | 单阶段 `staged_learning`，Score↑ / NLL↓ | #4 |
 | **05** Diversity Filter | 有/无 Murcko DF 的 RL A/B | #6 |
-| **06** Curriculum Learning | 双阶段 auto CL（`max_score` early-stop）+ 手动 chkpt 续跑 | （本分支） |
+| **06** Curriculum Learning | 双阶段 auto CL（`max_score` early-stop）+ 手动 chkpt 续跑 | #9 |
 
 产物目录：`docs/assets/reinvent4/{01,02,03,04,05,06}/`。
 
 ### 其他已合入
 
 - **#7** YouTube Cursor skills + Tutorial 02 制片包（`youtube/packs/02-priors-in-practice/`，`.cursor/skills/youtube-*`）。
+- **#9** REINVENT4 Tutorial 06 Curriculum Learning。
+- **#10** Markdown → YouTube 流水线（xAI TTS / Imagine）+ Tutorial 03 制片包。
 
 ### 尚未写成正文的章
 
@@ -68,7 +70,7 @@
 ## 3. 当前遇到的问题
 
 1. **中英不同步**  
-   01–05 仅有英文正文；`docs/zh/...` 多为占位/大纲。双语手册承诺未兑现。
+   01–06 仅有英文正文；`docs/zh/...` 多为占位/大纲。双语手册承诺未兑现。
 
 2. **战役后半程未写**  
    07 TL → 11 BRAF 仍是引用价值最高的后半程；主线已推进到 06 Curriculum。
