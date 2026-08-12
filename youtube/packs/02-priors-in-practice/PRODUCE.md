@@ -2,18 +2,17 @@
 
 Slug: `02-priors-in-practice`  
 Text pack generator: `cursor-skill`  
-Status: **EN TTS done** — next: screencast → edit → upload  
+Status: next: xAI TTS (or keep prior EN) → screencast → edit → upload  
 Ready media: [`assets/ASSETS.md`](assets/ASSETS.md)  
-EN audio (local, gitignored): `youtube/audio/02-priors-in-practice/en.mp3` (~2.6 MB, voice Adam `pNInz6obpgDQGcFmaJgB`)
 
 ## 0. Preconditions
 
 - [x] `PRODUCE.md` reviewed by human (this run)
-- [x] `ELEVENLABS_API_KEY` present in repo-root `.env`
+- [ ] `XAI_API_KEY` in repo-root `.env` (preferred TTS/images)
 - [ ] `REVIEW.md` checklist items / `verify_flags` accepted (or waived)
 - [ ] Voice language track(s) chosen: EN / ZH / both
 
-## 1. ElevenLabs (TTS) — Skill B does not auto-run
+## 1. xAI TTS — Skill B does not auto-run
 
 **Inputs:** `voiceover-en.txt` (~2301 chars), `voiceover-zh.txt`
 
@@ -22,28 +21,16 @@ Suggested settings:
 | Track | File | Style notes |
 |-------|------|-------------|
 | EN | voiceover-en.txt | Clear science explainer; moderate pace; pause on blank lines |
-| ZH | voiceover-zh.txt | Same beat timing intent as EN; multilingual model |
-
-Dry-run (verified this session — no API call):
+| ZH | voiceover-zh.txt | Same beat timing intent as EN |
 
 ```bash
-python scripts/youtube/tts_elevenlabs.py 02 --lang both --dry-run
-# → youtube/audio/02-priors-in-practice/en.mp3
-# → youtube/audio/02-priors-in-practice/zh.mp3
+# .env: XAI_API_KEY=...  (optional XAI_TTS_VOICE_ID=eve)
+python scripts/youtube/tts_xai.py 02 --lang both --dry-run
+python scripts/youtube/tts_xai.py 02 --lang en
+python scripts/youtube/tts_xai.py 02 --lang zh
 ```
 
-When you want audio generated (charges ElevenLabs quota), run locally or ask the agent explicitly to **run TTS**:
-
-```bash
-pip install -r requirements-youtube.txt
-python scripts/youtube/tts_elevenlabs.py 02 --lang en
-python scripts/youtube/tts_elevenlabs.py 02 --lang zh
-# or: --lang both
-```
-
-Optional voice overrides in `.env`: `ELEVENLABS_VOICE_ID_EN`, `ELEVENLABS_VOICE_ID_ZH`, `ELEVENLABS_MODEL_ID`.
-
-Output: `youtube/audio/02-priors-in-practice/` (gitignored).
+Output: `youtube/audio/02-priors-in-practice/` (gitignored). Legacy: `tts_elevenlabs.py`.
 
 ## 2. Screencast / B-roll order
 
@@ -146,7 +133,7 @@ Generate from `thumbnail-prompt.md`; keep **8% → 64% Sulfonamides** readable o
 ## Next manual actions (order)
 
 1. ~~Review PRODUCE.md~~ (done)
-2. **Run TTS** (say「运行 TTS」to the agent, or run `tts_elevenlabs.py` locally) — EN and/or ZH
+2. **Run TTS** (say「运行 TTS」to the agent, or run `tts_xai.py` locally) — EN and/or ZH
 3. Record remaining live terminal clips; import `assets/*`
 4. Edit to the timeline above + subtitles
 5. Upload with paste blocks → share URL for optional MkDocs link

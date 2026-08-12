@@ -1,9 +1,9 @@
-# Style guide (6–9 min discovery video)
+# Style guide (5–8 min discovery video)
 
 ## References (pace, not plagiarism)
 
 - **Fireship** — dense beats, on-screen keywords, no fluff
-- **3Blue1Brown** — one clear mental model + visual metaphor
+- **3Blue1Brown** — one clear mental model with visual metaphors
 - **Two Minute Papers** — curious hook → insight → what it enables next
 
 ## Narrative arc
@@ -17,8 +17,8 @@
 
 ## Length
 
-- `target_duration_seconds` between **360 and 540**
-- EN voiceover roughly 900–1350 words; ZH should cover the same beats (not a loose summary)
+- `target_duration_seconds` between **300 and 480** (5–8 minutes)
+- EN voiceover roughly 750–1100 words; ZH should cover the same beats (not a loose summary)
 
 ## Voiceover rules
 
@@ -31,3 +31,11 @@
 - Skip long `pip` / install laundry lists; point to the site for full steps
 - Every hard number must appear in the source chapter (or be tagged `[VERIFY]`)
 - End CTA must name the handbook site and the GitHub repo/path
+
+## Storyboard visual_source
+
+Each storyboard row should note where the picture comes from for slideshow render:
+
+- `chapter` — real handbook figure / CSV screenshot
+- `svg` — generated diagram card (metrics, pipeline)
+- `ai` — xAI (Grok Imagine) mood / concept / thumbnail / CTA art

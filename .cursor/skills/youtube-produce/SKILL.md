@@ -2,10 +2,11 @@
 name: youtube-produce
 description: >-
   After a YouTube text pack is human-approved, prepare the production checklist
-  (ElevenLabs TTS guidance, screencast order, edit timeline, YouTube upload
+  (xAI TTS guidance, screencast order, edit timeline, YouTube upload
   paste blocks, MkDocs URL write-back). Use when the user asks for voiceover
   production, B-roll recording plan, editing prep, upload checklist, or
-  /youtube-produce. Does not call ElevenLabs or upload videos in this skill.
+  /youtube-produce. Does not call xAI TTS/images or upload videos in this skill
+  unless the user explicitly requests a production run.
 ---
 
 # YouTube produce (Skill B)
@@ -16,7 +17,7 @@ Turn an approved `youtube/packs/<slug>/` text pack into a **production checklist
 ## When to use
 
 - Text pack `REVIEW.md` checklist is mostly done / user approved the script
-- User asks for ElevenLabs prep, screencast order, edit timeline, or upload paste
+- User asks for TTS prep, screencast order, edit timeline, or upload paste
 - User invokes `/youtube-produce`
 
 ## When not to use
@@ -26,7 +27,8 @@ Turn an approved `youtube/packs/<slug>/` text pack into a **production checklist
 
 ## Hard boundaries (this skill)
 
-1. **Do not** call the ElevenLabs API or write audio binaries.
+1. **Do not** call TTS/image APIs or write audio binaries unless the user
+   explicitly asks to run production **and** `XAI_API_KEY` is available.
 2. **Do not** auto-upload to YouTube.
 3. **Do not** embed YouTube iframes into MkDocs until the user provides a real URL.
 4. If API keys are missing, still write `PRODUCE.md` with copy-pasteable local command templates.
@@ -42,14 +44,15 @@ Turn an approved `youtube/packs/<slug>/` text pack into a **production checklist
    reference template, filled with pack-specific content.
 5. Summarize for the user: next manual actions in order (TTS → record → edit → upload → optional MkDocs link).
 
-## Optional later automation (out of scope for auto-run here)
-
-Document command stubs in `PRODUCE.md`. Prefer the repo helper:
+## Full pipeline helpers (document in PRODUCE.md)
 
 ```bash
-# ELEVENLABS_API_KEY in repo-root .env (see .env.example)
-python scripts/youtube/tts_elevenlabs.py <slug> --lang en
+# After text pack + assets exist (preferred: xAI):
+python scripts/youtube/images_xai.py <slug>          # XAI_API_KEY
+python scripts/youtube/tts_xai.py <slug> --lang en   # XAI_API_KEY
+python scripts/youtube/render_slideshow.py <slug>    # → youtube/renders/<slug>/draft.mp4
 ```
 
-Do not execute network TTS/upload unless the user explicitly requests it **and**
-credentials are available in a follow-up task.
+Do not execute network TTS/image/upload unless the user explicitly requests it
+**and** credentials are available. `render_slideshow.py` may run when local
+audio + images already exist.

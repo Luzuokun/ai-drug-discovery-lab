@@ -1,0 +1,74 @@
+{
+  "slug": "03-scoring-function",
+  "audio": "youtube/audio/03-scoring-function/en.mp3",
+  "subtitles": "youtube/packs/03-scoring-function/subtitles-en.srt",
+  "width": 1920,
+  "height": 1080,
+  "fade_sec": 0.3,
+  "segments": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 15,
+      "image": "assets/ai/hook.png",
+      "fallback": "assets/pipeline.png",
+      "title": "Debug the reward first"
+    },
+    {
+      "id": "problem",
+      "start_sec": 15,
+      "end_sec": 55,
+      "image": "assets/pipeline.png",
+      "fallback": "assets/pipeline.png",
+      "title": "Worth making?"
+    },
+    {
+      "id": "mental_model",
+      "start_sec": 55,
+      "end_sec": 120,
+      "image": "assets/ai/mental-model.png",
+      "fallback": "assets/metrics-callout.png",
+      "title": "Components · transforms · filters"
+    },
+    {
+      "id": "why_before_rl",
+      "start_sec": 120,
+      "end_sec": 165,
+      "image": "assets/ai/score-before-rl.png",
+      "fallback": "assets/pipeline.png",
+      "title": "run_type = scoring"
+    },
+    {
+      "id": "protocol",
+      "start_sec": 165,
+      "end_sec": 245,
+      "image": "assets/metrics-callout.png",
+      "fallback": "assets/metrics-callout.png",
+      "title": "96 molecules · ~2s CPU"
+    },
+    {
+      "id": "numbers_dist",
+      "start_sec": 245,
+      "end_sec": 285,
+      "image": "assets/score-distribution.png",
+      "fallback": "assets/score-distribution.png",
+      "title": "How to read the scores"
+    },
+    {
+      "id": "numbers_mols",
+      "start_sec": 285,
+      "end_sec": 320,
+      "image": "assets/top-scored-molecules.png",
+      "fallback": "assets/top-scored-molecules.png",
+      "title": "Top scored molecules"
+    },
+    {
+      "id": "cta",
+      "start_sec": 320,
+      "end_sec": 390,
+      "image": "assets/ai/cta.png",
+      "fallback": "assets/pipeline.png",
+      "title": "Site → GitHub → Tutorial 04"
+    }
+  ]
+}

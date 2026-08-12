@@ -11,7 +11,7 @@ CHAPTER_BRIEF_JSON:
 Output requirements reminder:
 - Fill every schema field.
 - script_en / script_zh: readable shooting scripts with beat headers like [0:00–0:15 Hook].
-- voiceover_en / voiceover_zh: concatenation of narration suitable for ElevenLabs (plain text, blank line between beats).
+- voiceover_en / voiceover_zh: concatenation of narration suitable for TTS (plain text, blank line between beats).
 - storyboard: one row per major shot; asset_type from the allowed enum.
 - thumbnail_prompt: detailed image-gen prompt; leave safe text area for title; no logos of other brands.
 - broll: concrete checklist items (screencast terminal, molecule grid, histogram sketch, etc.).

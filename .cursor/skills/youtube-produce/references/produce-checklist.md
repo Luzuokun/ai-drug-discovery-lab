@@ -15,11 +15,11 @@ Status: awaiting TTS / screencast / edit / upload
 - [ ] `verify_flags` resolved or accepted
 - [ ] Voice language track(s): EN / ZH / both
 
-## 1. ElevenLabs (TTS) — do not auto-run in Skill B
+## 1. xAI TTS — do not auto-run in Skill B
 
 **Inputs:** `voiceover-en.txt`, `voiceover-zh.txt`
 
-Suggested settings (adjust to your voice library):
+Suggested settings (adjust voice in `.env`):
 
 | Track | File | Style notes |
 |-------|------|-------------|
@@ -30,13 +30,12 @@ Local command stubs:
 
 ```bash
 # 1) Put the key in repo-root .env (gitignored) — see .env.example
-#    ELEVENLABS_API_KEY=...
-# 2) Install optional deps once
-pip install -r requirements-youtube.txt
-# 3) Dry-run, then synthesize
-python scripts/youtube/tts_elevenlabs.py <slug> --lang both --dry-run
-python scripts/youtube/tts_elevenlabs.py <slug> --lang en
-python scripts/youtube/tts_elevenlabs.py <slug> --lang zh
+#    XAI_API_KEY=...
+#    XAI_TTS_VOICE_ID=eve   # optional
+# 2) Dry-run, then synthesize
+python scripts/youtube/tts_xai.py <slug> --lang both --dry-run
+python scripts/youtube/tts_xai.py <slug> --lang en
+python scripts/youtube/tts_xai.py <slug> --lang zh
 ```
 
 Output target: `youtube/audio/<slug>/en.mp3` and/or `zh.mp3` (gitignored).

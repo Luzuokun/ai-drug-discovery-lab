@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:15,000
+Skip scoring and you may optimize a broken reward.
+
+2
+00:00:15,000 --> 00:00:40,000
+Sampling asks for drug-like molecules. Discovery asks: worth making?
+
+3
+00:00:40,000 --> 00:00:55,000
+Scoring turns objectives into one number in zero to one.
+
+4
+00:00:55,000 --> 00:01:25,000
+Components compute. Transforms map into zero to one.
+
+5
+00:01:25,000 --> 00:02:00,000
+Filters zero globally. Geometric mean is harsh on weak scores.
+
+6
+00:02:00,000 --> 00:02:25,000
+run_type scoring needs no prior — evaluate molecules you have.
+
+7
+00:02:25,000 --> 00:02:45,000
+Debug the reward once before RL calls it thousands of times.
+
+8
+00:02:45,000 --> 00:03:20,000
+96 molecules. QED plus MW double sigmoid 200 to 500.
+
+9
+00:03:20,000 --> 00:04:05,000
+CustomAlerts. About two seconds on CPU. scoring.csv.
+
+10
+00:04:05,000 --> 00:04:40,000
+Mean 0.66. Max 0.97. Forty-four molecules above 0.8.
+
+11
+00:04:40,000 --> 00:05:20,000
+One alert scored zero. MW 151 collapsed via the transform.
+
+12
+00:05:20,000 --> 00:06:00,000
+Full tutorial on the site. Code on GitHub.
+
+13
+00:06:00,000 --> 00:06:30,000
+Next: Tutorial 04 — reinforcement learning.

@@ -1,0 +1,354 @@
+{
+  "title_en": "REINVENT4 Tutorial 03: Debug the Reward Before You Burn RL",
+  "title_zh": "REINVENT4 教程 03：烧 RL 之前先调试奖励",
+  "target_duration_seconds": 390,
+  "hook_en": "Tutorial 01 gave you molecules. Tutorial 04 will train an agent. Skip this chapter and you may spend GPU hours optimizing a broken reward.",
+  "hook_zh": "教程 01 给了你分子。教程 04 会训练 agent。跳过这一章，你可能用 GPU 小时去优化一个坏掉的奖励。",
+  "beats": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 15,
+      "label_en": "Hook",
+      "label_zh": "开场",
+      "narration_en": "Tutorial 01 gave you molecules. Tutorial 04 will train an agent. Skip this chapter and you may spend GPU hours optimizing a broken reward.",
+      "narration_zh": "教程 01 给了你分子。教程 04 会训练 agent。跳过这一章，你可能用 GPU 小时去优化一个坏掉的奖励。",
+      "visual": "Title: Debug the reward first. visual_source=ai"
+    },
+    {
+      "id": "problem",
+      "start_sec": 15,
+      "end_sec": 55,
+      "label_en": "Sampling vs worth making",
+      "label_zh": "采样 vs 值得做",
+      "narration_en": "Sampling only asks the prior: give me drug-like molecules. Drug discovery asks harder: which of these are worth making? The scoring function is REINVENT4's answer — chemistry objectives turned into one number in zero to one that reinforcement learning can maximize.",
+      "narration_zh": "采样只问 prior：给我类药分子。药物发现问得更狠：哪些值得做？评分函数是 REINVENT4 的答案——把化学目标变成零到一的一个数，供强化学习最大化。",
+      "visual": "Quote card + pipeline sampling→scoring→RL. visual_source=svg"
+    },
+    {
+      "id": "mental_model",
+      "start_sec": 55,
+      "end_sec": 120,
+      "label_en": "Components, transforms, filters",
+      "label_zh": "组件、变换、过滤器",
+      "narration_en": "Three ideas. Components compute properties — QED, molecular weight, alerts. Transforms squash raw values into zero to one so a molecular weight of 300 does not crush a QED of 0.8. Filters like CustomAlerts zero a molecule globally when a SMARTS matches — they are not soft weights. Aggregation — here geometric mean — combines the soft scores. Arithmetic mean forgives a weak objective. Geometric mean does not.",
+      "narration_zh": "三个概念。组件算性质——QED、分子量、警报。变换把原始值压到零到一，免得分子量 300 压垮 QED 0.8。CustomAlerts 这类过滤器一旦命中 SMARTS 就全局置零——不是软权重。聚合这里用几何平均。算术平均原谅弱项，几何平均不原谅。",
+      "visual": "Mental model diagram. visual_source=svg+ai"
+    },
+    {
+      "id": "why_before_rl",
+      "start_sec": 120,
+      "end_sec": 165,
+      "label_en": "Score before RL",
+      "label_zh": "RL 前先评分",
+      "narration_en": "run_type scoring evaluates molecules you already have. No prior download. No agent training. Reinforcement learning will call your scoring function thousands of times. Misconfigured SMARTS, missing transform, weight typo — RL will optimize garbage. Scoring once on a fixed list is the cheapest debug.",
+      "narration_zh": "run_type scoring 只评估已有分子。不用下载 prior，不训练 agent。强化学习会调用评分函数成千上万次。SMARTS 配错、忘了 transform、权重笔误——RL 就会优化垃圾。在固定列表上先跑一次 scoring，是最便宜的调试。",
+      "visual": "No prior needed callout. visual_source=ai"
+    },
+    {
+      "id": "protocol",
+      "start_sec": 165,
+      "end_sec": 245,
+      "label_en": "The scoring function we ran",
+      "label_zh": "我们跑的评分函数",
+      "narration_en": "From Tutorial 01 we took 96 unique valid molecules. Scoring toml: geometric mean. QED weight one. Molecular weight with a double sigmoid preferring roughly 200 to 500 daltons. CustomAlerts for a few unwanted SMARTS — large rings, peroxides, charged carbon, and an illustrative alkyne. On CPU the scoring job finished in about two seconds. Peak RAM about 614 megabytes. Output: scoring.csv with a Score column.",
+      "narration_zh": "从教程 01 取出 96 个独特有效分子。scoring toml：几何平均。QED 权重一。分子量用双 sigmoid，偏好大约 200 到 500 道尔顿。CustomAlerts 挡掉大环、过氧化物、带电碳，以及示例性的炔。CPU 上评分约两秒，峰值内存约 614 兆。输出：带 Score 列的 scoring.csv。",
+      "visual": "scoring.toml highlight + wall-clock. visual_source=chapter"
+    },
+    {
+      "id": "numbers",
+      "start_sec": 245,
+      "end_sec": 320,
+      "label_en": "How to read the scores",
+      "label_zh": "怎么读分数",
+      "narration_en": "Mean score 0.66. Median 0.79. Max 0.97. Forty-four molecules above 0.8. One molecule hit the large-ring alert and scored zero. A tiny molecule at 151 daltons kept a mediocre QED but its MW transform collapsed near zero — geometric mean dragged the Score to 0.08. That is the transform doing its job.",
+      "narration_zh": "平均分 0.66，中位数 0.79，最高 0.97。四十四个分子高于 0.8。一个分子命中大环警报，得分为零。151 道尔顿的小分子 QED 尚可，但 MW 变换接近零——几何平均把 Score 拉到 0.08。这正是 transform 在起作用。",
+      "visual": "score-distribution + top molecules. visual_source=chapter"
+    },
+    {
+      "id": "cta",
+      "start_sec": 320,
+      "end_sec": 390,
+      "label_en": "CTA",
+      "label_zh": "行动号召",
+      "narration_en": "Debug the reward on a fixed list before reinforcement learning burns compute. Full commands, the scoring toml, and scoring.csv live on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 04 — train an agent so high scores become more probable. Link in the description.",
+      "narration_zh": "在强化学习烧掉算力之前，先在固定列表上调试奖励。完整命令、scoring toml 和 scoring.csv 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一章教程 04——训练 agent，让高分分子更可能出现。链接在描述栏。",
+      "visual": "CTA site + GitHub. visual_source=ai"
+    }
+  ],
+  "script_en": "# REINVENT4 Tutorial 03 — Debug the Reward Before You Burn RL\n\nTarget: ~6:30\n\n## [0:00–0:15 Hook]\nTutorial 01 gave you molecules. Tutorial 04 will train an agent. Skip this chapter and you may spend GPU hours optimizing a broken reward.\n\n## [0:15–0:55 Sampling vs worth making]\nSampling asks: give me drug-like molecules. Discovery asks: which are worth making? Scoring turns objectives into one number in [0,1] for RL.\n\n## [0:55–2:00 Mental model]\nComponents → transforms → aggregation → filters. CustomAlerts zeros globally. Geometric mean is harsh on weak objectives; arithmetic mean forgives.\n\n## [2:00–2:45 Score before RL]\nrun_type=scoring needs no prior. RL calls the scorer thousands of times — debug once on a fixed list first.\n\n## [2:45–4:05 Protocol]\n96 molecules. geometric_mean. QED + MW double_sigmoid 200–500. CustomAlerts. ~2 s CPU. scoring.csv.\n\n## [4:05–5:20 Numbers]\nMean 0.66, max 0.97, 44 above 0.8, one alert zero, MW=151 collapses via transform.\n\n## [5:20–6:30 CTA]\nSite + GitHub. Next: Tutorial 04 RL.",
+  "script_zh": "# REINVENT4 教程 03 — 烧 RL 之前先调试奖励\n\n目标：约 6:30\n\n## [0:00–0:15 开场]\n跳过评分，RL 可能优化坏奖励。\n\n## [0:15–0:55 问题]\n采样 ≠ 值得做。Score ∈ [0,1]。\n\n## [0:55–2:00 心智模型]\n组件→变换→聚合→过滤器。几何平均严厉。\n\n## [2:00–2:45 为何先评分]\nscoring 不需 prior。先在固定列表调试。\n\n## [2:45–4:05 协议]\n96 分子；QED+MW；~2 秒；scoring.csv。\n\n## [4:05–5:20 数字]\n均值 0.66；警报置零；小分子被 transform 拉低。\n\n## [5:20–6:30 CTA]\n网站 + GitHub → 教程 04。",
+  "voiceover_en": "Tutorial 01 gave you molecules. Tutorial 04 will train an agent. Skip this chapter and you may spend GPU hours optimizing a broken reward.\n\nSampling only asks the prior: give me drug-like molecules. Drug discovery asks harder: which of these are worth making? The scoring function is REINVENT4's answer — chemistry objectives turned into one number in zero to one that reinforcement learning can maximize.\n\nThree ideas. Components compute properties — QED, molecular weight, alerts. Transforms squash raw values into zero to one so a molecular weight of 300 does not crush a QED of 0.8. Filters like CustomAlerts zero a molecule globally when a SMARTS matches — they are not soft weights. Aggregation — here geometric mean — combines the soft scores. Arithmetic mean forgives a weak objective. Geometric mean does not.\n\nrun_type scoring evaluates molecules you already have. No prior download. No agent training. Reinforcement learning will call your scoring function thousands of times. Misconfigured SMARTS, missing transform, weight typo — RL will optimize garbage. Scoring once on a fixed list is the cheapest debug.\n\nFrom Tutorial 01 we took 96 unique valid molecules. Scoring config: geometric mean. QED weight one. Molecular weight with a double sigmoid preferring roughly 200 to 500 daltons. CustomAlerts for a few unwanted SMARTS — large rings, peroxides, charged carbon, and an illustrative alkyne. On CPU the scoring job finished in about two seconds. Peak RAM about 614 megabytes. Output: scoring.csv with a Score column.\n\nMean score 0.66. Median 0.79. Max 0.97. Forty-four molecules above 0.8. One molecule hit the large-ring alert and scored zero. A tiny molecule at 151 daltons kept a mediocre QED but its MW transform collapsed near zero — geometric mean dragged the Score to 0.08. That is the transform doing its job.\n\nDebug the reward on a fixed list before reinforcement learning burns compute. Full commands, the scoring config, and scoring.csv live on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 04 — train an agent so high scores become more probable. Link in the description.",
+  "voiceover_zh": "教程 01 给了你分子。教程 04 会训练 agent。跳过这一章，你可能用 GPU 小时去优化一个坏掉的奖励。\n\n采样只问 prior：给我类药分子。药物发现问得更狠：哪些值得做？评分函数是 REINVENT4 的答案——把化学目标变成零到一的一个数，供强化学习最大化。\n\n三个概念。组件算性质——QED、分子量、警报。变换把原始值压到零到一，免得分子量 300 压垮 QED 0.8。CustomAlerts 这类过滤器一旦命中 SMARTS 就全局置零——不是软权重。聚合这里用几何平均。算术平均原谅弱项，几何平均不原谅。\n\nrun_type scoring 只评估已有分子。不用下载 prior，不训练 agent。强化学习会调用评分函数成千上万次。SMARTS 配错、忘了 transform、权重笔误——RL 就会优化垃圾。在固定列表上先跑一次 scoring，是最便宜的调试。\n\n从教程 01 取出 96 个独特有效分子。配置：几何平均。QED 权重一。分子量用双 sigmoid，偏好大约 200 到 500 道尔顿。CustomAlerts 挡掉大环、过氧化物、带电碳，以及示例性的炔。CPU 上评分约两秒，峰值内存约 614 兆。输出：带 Score 列的 scoring.csv。\n\n平均分 0.66，中位数 0.79，最高 0.97。四十四个分子高于 0.8。一个分子命中大环警报，得分为零。151 道尔顿的小分子 QED 尚可，但 MW 变换接近零——几何平均把 Score 拉到 0.08。这正是 transform 在起作用。\n\n在强化学习烧掉算力之前，先在固定列表上调试奖励。完整命令、评分配置和 scoring.csv 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一章教程 04——训练 agent，让高分分子更可能出现。链接在描述栏。",
+  "storyboard": [
+    {
+      "timecode": "0:00–0:15",
+      "shot": "Title: Debug the reward before RL",
+      "on_screen_text": "Broken reward → wasted GPU",
+      "voice_beat": "Hook",
+      "asset_type": "title_card"
+    },
+    {
+      "timecode": "0:15–0:55",
+      "shot": "Pipeline sampling → scoring → RL",
+      "on_screen_text": "Worth making?",
+      "voice_beat": "Problem",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "0:55–2:00",
+      "shot": "Components / transforms / filters diagram",
+      "on_screen_text": "Transform → [0,1] · Filters zero",
+      "voice_beat": "Mental model",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "2:00–2:45",
+      "shot": "No prior needed for scoring",
+      "on_screen_text": "run_type = scoring",
+      "voice_beat": "Why before RL",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "2:45–4:05",
+      "shot": "scoring.toml + 96 molecules callout",
+      "on_screen_text": "QED + MW 200–500 · ~2s",
+      "voice_beat": "Protocol",
+      "asset_type": "screencast"
+    },
+    {
+      "timecode": "4:05–5:20",
+      "shot": "score-distribution.png + top-scored-molecules.png",
+      "on_screen_text": "Mean 0.66 · Max 0.97",
+      "voice_beat": "Numbers",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "5:20–6:30",
+      "shot": "CTA site + GitHub + Tutorial 04",
+      "on_screen_text": "Site → GitHub · Next: RL",
+      "voice_beat": "CTA",
+      "asset_type": "cta_card"
+    }
+  ],
+  "thumbnail_title": "Debug the Reward First",
+  "thumbnail_prompt": "Bold educational science thumbnail 1280x720. Dark teal laboratory mood, subtle molecular wireframes, no purple neon. Center: a reward dial or Score gauge at high value with a warning crack motif suggesting a buggy reward. Large empty upper safe zone for white title text Debug the Reward First. No logos, no watermarks, no fake charts with invented numbers. High contrast, mobile-readable.",
+  "broll": [
+    {
+      "item": "pipeline.svg / pipeline.png — sampling → scoring → RL",
+      "why": "Mental model for the series",
+      "source_hint": "assets/pipeline.svg"
+    },
+    {
+      "item": "metrics-callout — 96 mols, ~2s, mean/max Score",
+      "why": "Proof beat without reading CSV aloud",
+      "source_hint": "assets/metrics-callout.svg"
+    },
+    {
+      "item": "score-distribution.png from handbook",
+      "why": "Real experimental figure",
+      "source_hint": "assets/score-distribution.png"
+    },
+    {
+      "item": "top-scored-molecules.png",
+      "why": "Visual payoff of high Score",
+      "source_hint": "assets/top-scored-molecules.png"
+    },
+    {
+      "item": "scoring.toml.txt side panel",
+      "why": "Show QED + MW transform + alerts",
+      "source_hint": "assets/scoring.toml.txt"
+    },
+    {
+      "item": "AI mood/CTA/thumbnail images",
+      "why": "Fill hook and ending without screencast",
+      "source_hint": "assets/ai/"
+    }
+  ],
+  "youtube_description_en": "REINVENT4 Tutorial 03 — Scoring Function\n\nSampling gives you molecules. Reinforcement learning optimizes a reward. This episode is the missing step: debug the scoring function on a fixed list before you burn RL compute. We score 96 molecules from Tutorial 01 with QED + molecular weight (double sigmoid 200–500 Da) + CustomAlerts — geometric mean, ~2 seconds on CPU — and read scoring.csv like an experimentalist.\n\n🔗 Full tutorial (site)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/03-scoring-function/\n中文: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/03-scoring-function/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/03-scoring-function.md\n\n📺 Series playlist\nTODO_PLAYLIST_URL\n\nChapters:\n0:00 Hook — debug the reward first\n0:15 Worth making?\n0:55 Components, transforms, filters\n2:00 Score before RL\n2:45 The function we ran\n4:05 How to read the scores\n5:20 CTA — site, GitHub, Tutorial 04\n\n#REINVENT4 #DrugDiscovery #QED #GenerativeAI #Cheminformatics",
+  "youtube_description_zh": "REINVENT4 教程 03 — 评分函数\n\n采样给你分子，强化学习优化奖励。中间缺的一步：在固定列表上调试评分函数。本期用教程 01 的 96 个分子，QED + 分子量（双 sigmoid 200–500）+ CustomAlerts，几何平均，CPU 约 2 秒，并读懂 scoring.csv。\n\n🔗 完整教程\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/03-scoring-function/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/03-scoring-function.md\n\n📺 播放列表\nTODO_PLAYLIST_URL",
+  "chapters": [
+    {
+      "timecode": "0:00",
+      "title": "Hook — debug the reward first"
+    },
+    {
+      "timecode": "0:15",
+      "title": "Worth making?"
+    },
+    {
+      "timecode": "0:55",
+      "title": "Components, transforms, filters"
+    },
+    {
+      "timecode": "2:00",
+      "title": "Score before RL"
+    },
+    {
+      "timecode": "2:45",
+      "title": "The function we ran"
+    },
+    {
+      "timecode": "4:05",
+      "title": "How to read the scores"
+    },
+    {
+      "timecode": "5:20",
+      "title": "CTA — site, GitHub, Tutorial 04"
+    }
+  ],
+  "tags": [
+    "REINVENT4",
+    "scoring function",
+    "QED",
+    "AI drug discovery",
+    "molecular generation",
+    "reinforcement learning",
+    "cheminformatics",
+    "drug-likeness",
+    "CustomAlerts",
+    "geometric mean",
+    "AI Drug Discovery Lab",
+    "分子生成",
+    "评分函数",
+    "药物发现"
+  ],
+  "subtitles_en": [
+    {
+      "start_sec": 0,
+      "end_sec": 15,
+      "text": "Skip scoring and you may optimize a broken reward."
+    },
+    {
+      "start_sec": 15,
+      "end_sec": 40,
+      "text": "Sampling asks for drug-like molecules. Discovery asks: worth making?"
+    },
+    {
+      "start_sec": 40,
+      "end_sec": 55,
+      "text": "Scoring turns objectives into one number in zero to one."
+    },
+    {
+      "start_sec": 55,
+      "end_sec": 85,
+      "text": "Components compute. Transforms map into zero to one."
+    },
+    {
+      "start_sec": 85,
+      "end_sec": 120,
+      "text": "Filters zero globally. Geometric mean is harsh on weak scores."
+    },
+    {
+      "start_sec": 120,
+      "end_sec": 145,
+      "text": "run_type scoring needs no prior — evaluate molecules you have."
+    },
+    {
+      "start_sec": 145,
+      "end_sec": 165,
+      "text": "Debug the reward once before RL calls it thousands of times."
+    },
+    {
+      "start_sec": 165,
+      "end_sec": 200,
+      "text": "96 molecules. QED plus MW double sigmoid 200 to 500."
+    },
+    {
+      "start_sec": 200,
+      "end_sec": 245,
+      "text": "CustomAlerts. About two seconds on CPU. scoring.csv."
+    },
+    {
+      "start_sec": 245,
+      "end_sec": 280,
+      "text": "Mean 0.66. Max 0.97. Forty-four molecules above 0.8."
+    },
+    {
+      "start_sec": 280,
+      "end_sec": 320,
+      "text": "One alert scored zero. MW 151 collapsed via the transform."
+    },
+    {
+      "start_sec": 320,
+      "end_sec": 360,
+      "text": "Full tutorial on the site. Code on GitHub."
+    },
+    {
+      "start_sec": 360,
+      "end_sec": 390,
+      "text": "Next: Tutorial 04 — reinforcement learning."
+    }
+  ],
+  "subtitles_zh": [
+    {
+      "start_sec": 0,
+      "end_sec": 15,
+      "text": "跳过评分，可能优化坏掉的奖励。"
+    },
+    {
+      "start_sec": 15,
+      "end_sec": 40,
+      "text": "采样要类药分子；发现要问：值得做吗？"
+    },
+    {
+      "start_sec": 40,
+      "end_sec": 55,
+      "text": "评分把目标变成零到一的一个数。"
+    },
+    {
+      "start_sec": 55,
+      "end_sec": 85,
+      "text": "组件计算；变换映射到零到一。"
+    },
+    {
+      "start_sec": 85,
+      "end_sec": 120,
+      "text": "过滤器全局置零；几何平均很严厉。"
+    },
+    {
+      "start_sec": 120,
+      "end_sec": 145,
+      "text": "scoring 不需要 prior——评估已有分子。"
+    },
+    {
+      "start_sec": 145,
+      "end_sec": 165,
+      "text": "在 RL 调用成千上万次之前，先调试一次。"
+    },
+    {
+      "start_sec": 165,
+      "end_sec": 200,
+      "text": "96 个分子。QED 加 MW 双 sigmoid 200 到 500。"
+    },
+    {
+      "start_sec": 200,
+      "end_sec": 245,
+      "text": "CustomAlerts。CPU 约两秒。scoring.csv。"
+    },
+    {
+      "start_sec": 245,
+      "end_sec": 280,
+      "text": "均值 0.66，最高 0.97，四十四个高于 0.8。"
+    },
+    {
+      "start_sec": 280,
+      "end_sec": 320,
+      "text": "一次警报得零分；MW 151 被变换拉崩。"
+    },
+    {
+      "start_sec": 320,
+      "end_sec": 360,
+      "text": "完整教程在网站，代码在 GitHub。"
+    },
+    {
+      "start_sec": 360,
+      "end_sec": 390,
+      "text": "下一章：教程 04 强化学习。"
+    }
+  ],
+  "verify_flags": [
+    "[VERIFY] Playlist URL still TODO_PLAYLIST_URL until series playlist is pasted",
+    "[VERIFY] Thumbnail AI art does not invent numeric axes that look like real results"
+  ]
+}

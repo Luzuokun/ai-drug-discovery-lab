@@ -1,0 +1,16 @@
+slug: 03-scoring-function
+title_en: 'REINVENT4 Tutorial 03: Debug the Reward Before You Burn RL'
+title_zh: REINVENT4 教程 03：烧 RL 之前先调试奖励
+source_md: docs/molecular-generation/reinvent4/03-scoring-function.md
+is_outline: false
+generator: cursor-skill
+model: n/a
+target_duration_seconds: 390
+generated_at: '2026-08-09T02:41:59.072545+00:00'
+site_url_en: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/03-scoring-function/
+site_url_zh: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/03-scoring-function/
+github_repo_url: https://github.com/Luzuokun/ai-drug-discovery-lab
+verify_flags:
+- '[VERIFY] Playlist URL still TODO_PLAYLIST_URL until series playlist is pasted'
+- '[VERIFY] Thumbnail AI art does not invent numeric axes that look like real results'
+note: 'Tutorial 03 Discovery pack: 5–8 min + AI images + slideshow draft.'
