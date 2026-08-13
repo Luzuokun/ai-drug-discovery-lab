@@ -1,0 +1,17 @@
+# Abl kinase pocket (PDB 1IEP)
+
+Public crystal structure of Abl kinase bound to STI (imatinib).
+
+## Reproduce receptor + box
+
+```bash
+curl -L -o 1iep.pdb https://files.rcsb.org/download/1IEP.pdb
+# Chain A protein only
+awk '/^ATOM/ && substr($0,22,1)=="A"' 1iep.pdb > receptor_A.pdb
+obabel receptor_A.pdb -O receptor.pdbqt -xr
+# Cognate ligand STI, chain A
+awk '/^HETATM/ && $4=="STI" && $5=="A"' 1iep.pdb > ligand_sti_A.pdb
+# Box: ligand centroid + ~30 Å cube (see box.txt)
+```
+
+`box.txt` fields: `center_x center_y center_z size_x size_y size_z`

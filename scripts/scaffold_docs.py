@@ -168,6 +168,8 @@ def main() -> None:
         "04-reinforcement-learning.md",
         "05-diversity-filter.md",
         "06-curriculum-learning.md",
+        "07-transfer-learning.md",
+        "08-docking-guided-design.md",
         "index.md",
     }
     for i, (slug, en_title, zh_title) in enumerate(REINVENT4_CHAPTERS, 1):

@@ -1,7 +1,7 @@
 # AI_CONTEXT.md
 
 > 给后续 Cursor / Cloud Agent 与人类协作者的**项目状态备忘**。  
-> 最后更新：2026-08-12（合并 `main`；Tutorial 06 已合入 #9；下一步 Tutorial 07）
+> 最后更新：2026-08-13（Tutorial 07 TL + Tutorial 08 Docking-Guided Design 已写成 Available）
 
 ---
 
@@ -52,8 +52,10 @@
 | **04** Reinforcement Learning | 单阶段 `staged_learning`，Score↑ / NLL↓ | #4 |
 | **05** Diversity Filter | 有/无 Murcko DF 的 RL A/B | #6 |
 | **06** Curriculum Learning | 双阶段 auto CL（`max_score` early-stop）+ 手动 chkpt 续跑 | #9 |
+| **07** Transfer Learning | 40-epoch TL 过拟合曲线；TL→RL vs RL-only（同评分） | （本 PR） |
+| **08** Docking-Guided Design | 1IEP 口袋 + ExternalProcess Vina；scoring + 短 RL + 构象审查 | （本 PR） |
 
-产物目录：`docs/assets/reinvent4/{01,02,03,04,05,06}/`。
+产物目录：`docs/assets/reinvent4/{01,…,08}/`。
 
 ### 其他已合入
 
@@ -63,30 +65,33 @@
 
 ### 尚未写成正文的章
 
-07–12 仍为带验收大纲的 Coming Soon（中文 01–06 亦未翻译，索引标「已发布（英文）」）。
+09–12 仍为带验收大纲的 Coming Soon（中文 01–08 亦未翻译，索引标「已发布（英文）」）。
 
 ---
 
 ## 3. 当前遇到的问题
 
 1. **中英不同步**  
-   01–06 仅有英文正文；`docs/zh/...` 多为占位/大纲。双语手册承诺未兑现。
+   01–08 仅有英文正文；`docs/zh/...` 多为占位/大纲。双语手册承诺未兑现。
 
-2. **战役后半程未写**  
-   07 TL → 11 BRAF 仍是引用价值最高的后半程；主线已推进到 06 Curriculum。
+2. **战役后半程**  
+   09 Scaling → 11 BRAF 仍是引用价值最高的后半程高潮未写。
 
-3. **Tutorial 02 与 07 的边界**  
-   02 已含短 TL 对照（为公平比较 prior）。07 需写得更深（epoch、过拟合、与 RL 衔接），避免重复成第二遍 02。
+3. **Tutorial 02 与 07 的边界（已处理）**  
+   02 = 短 TL 对照 prior；07 = 更长训练、过拟合、TL→RL A/B。勿再写成第二遍 02。
 
 4. **环境/脚手架摩擦（Agent 侧）**  
-   - 文档 venv 依赖系统 `python3.12-venv`（见 `AGENTS.md`）。  
+   - 文档 venv 依赖系统 `python3-venv` / `python3.12-venv`（见 `AGENTS.md`）。  
    - REINVENT4 教程实验在独立 venv 中跑（非站点 `.venv`）；Cloud 镜像未必预装。  
+   - 对接章另需 `autodock-vina`、`openbabel`、`meeko`(+`gemmi`)。  
    - **禁止**对 Available 章盲目重跑 `scaffold_docs.py`。
 
 5. **REINVENT 配置陷阱（写章时反复踩到）**  
    - staged learning 必须用 `[stage.scoring]`，不能抄 top-level `[scoring]`。  
    - 4.8.24 RL schema **不接受** `unique_sequences`；TL 要求 `sample_batch_size ≥ 100`。  
-   - Zenodo 上不同 `.prior` 对应不同 generator；不能拿 Mol2Mol prior 和 Reinvent de novo 做「公平 A/B」。
+   - Zenodo 上不同 `.prior` 对应不同 generator；不能拿 Mol2Mol prior 和 Reinvent de novo 做「公平 A/B」。  
+   - TL 每个 epoch 会覆盖裸 `output_model_file`；中间档为 `*.N.chkpt`。  
+   - DockStream 已标 superseded；教学对接用 ExternalProcess + Vina 更透明。
 
 6. **本地分支滞后**  
    历史 feature 分支可能已落后于 `main`；新工作应从最新 `main` 开 `cursor/<name>-****` 分支。
@@ -105,6 +110,10 @@
 | **05 紧接 04，DF 先于 Curriculum** | RL 一生效就要控骨架塌缩；多样性是实验变量不是勾选。 |
 | **04/05 短跑（约 25 step、CPU）** | 可复现、可在笔记本跑完；诚实写「演示长度 ≠ 生产战役」。 |
 | **04 主配置暂不加 DF/Inception** | 单变量教学；DF 专章对照。 |
+| **07 故意 40 epoch 过拟合** | 在同一小集上展示 mem%/scaffold 塌缩；最佳 val NLL = ep 8。 |
+| **07 TL→RL 用 ep24 + 两边都指 TL chkpt** | 同评分隔离 TL 效应；DAP prior 必须是适配后的分布。 |
+| **08 ExternalProcess+Vina，不用 DockStream** | 教学可调试；DockStream superseded；交叉链接 Docking 栏目。 |
+| **08 短 RL 诚实写噪声** | 5×8@exh=1 只证明回路通，不宣称优化成功。 |
 | **Coming Soon 写验收大纲** | 空壳标题会被当成 API 索引；大纲即「完稿标准」。 |
 | **Scaffold 保护 Available + 手写 index** | 防止再生孤儿文件/覆盖正文。 |
 
@@ -114,23 +123,20 @@
 
 按优先级（仍服从「可复现实操 > 扩目录」）：
 
-1. **Tutorial 07 — Transfer Learning**  
-   在 02 的短 TL 之上：更长训练、过拟合症状、TL→RL vs 纯 RL 对照（避免复述 02）。
+1. **Tutorial 09 — Scaling & Monitoring**  
+   GPU / 日志 / TensorBoard；服务长战役与贵 oracle（对接）。
 
-2. **Tutorial 08 — Docking-Guided Design**  
-   设计循环（口袋→评分组件→构象审查），交叉链接 Docking 栏目，不是 Vina 说明书。
+2. **10 Ablations → 11 BRAF**  
+   消融出*本站*对照表；BRAF 端到端战役作引用高潮。
 
-3. **09 Scaling & Monitoring → 10 Ablations → 11 BRAF**  
-   合并 GPU/日志/TB；消融出*本站*对照表；BRAF 端到端战役作引用高潮。
-
-4. **12 Troubleshooting Appendix**  
+3. **12 Troubleshooting Appendix**  
    汇总跨章错误 + 降级边缘话题（词表/并行采样等短注）。
 
-5. **中文翻译**  
-   优先 01–06（已 Available 的英文），再跟进新章。
+4. **中文翻译**  
+   优先 01–08（已 Available 的英文），再跟进新章。
 
-6. **YouTube**  
-   随新 Available 章补 `youtube/packs/...`（已有 02 包与 skills；可加 06 包）。
+5. **YouTube**  
+   随新 Available 章补 `youtube/packs/...`（可加 07/08 包）。
 
 ### 写下一章时的硬标准（勿降级）
 
@@ -146,17 +152,24 @@
 
 ```bash
 git checkout main && git pull origin main
-git checkout -b cursor/reinvent4-tutorial-07-transfer-<suffix>
-# 参考：docs/molecular-generation/reinvent4/02-priors-in-practice.md、07 验收大纲
+git checkout -b cursor/reinvent4-tutorial-09-scaling-<suffix>
+# 参考：docs/molecular-generation/reinvent4/08-docking-guided-design.md、09 验收大纲
 # 验收：.venv/bin/mkdocs build --strict
 ```
 
-### Tutorial 06 关键实现笔记
+### Tutorial 07 关键实现笔记
 
-- Auto CL：stage1 `max_score=0.72` / `min_steps=10` → seed 42 在 **step 12** early-stop；stage2 (+SlogP) 跑满 20 step（Score 0.46→0.59）。
-- 若 stage1 触达 `max_steps` 会 **中止后续 stage**（上游 `run_staged_learning.py`）。
-- 手动 CL：`agent_file=manual_s1.chkpt`，`prior_file` 仍为原 prior。
+- 同 Tutorial 02 sulfonamide 集；40 epoch，`save_every_n_epochs=8`。
+- Best validation loss **39.395 @ epoch 8**。
+- Mem %：ep8=0 → ep24=12 → ep40=40；scaffolds 168→139；unique rows 191→165。
+- TL→RL（ep24 作 prior+agent）last5 Score **0.847** / sulfa **66.6%** vs RL-only **0.775** / **4.4%**。
 
+### Tutorial 08 关键实现笔记
+
+- 口袋：PDB **1IEP** chain A + STI；`box.txt` 约 30 Å。
+- Oracle：`ExternalProcess` → `vina_external.py`（meeko 配体 PDBQT）。
+- Pool scoring n=37：Vina raw **−12.1…−4.6**；~199 s。
+- RL：batch 8 × 5 step，exh=1；~123 s；曲线噪声大 —— 正文如实写。
 
 ---
 
