@@ -1,0 +1,9 @@
+SMILES,SMILES_state,NLL
+Cc1ccc(S(=O)(=O)NC2(C#N)CCCCC2)cc1Cl,1,7.18
+Cc1cc(S(=O)(=O)NCCC#N)ccc1C#CCN,1,17.8
+O=C(O)CNS(=O)(=O)c1ccc2c(c1)CCCS2,1,14.77
+CN1C(=O)CCC2CCCCC21CS(=O)(=O)Nc1ccc(F)cc1F,1,10.03
+COc1ccc(OCC(=O)NNS(=O)(=O)c2ccccc2)cc1,1,14.83
+Cc1cc(NS(C)(=O)=O)c(S(=O)(=O)NCC(=O)OC(C)C)cc1C,1,14.69
+CCCNC(=O)C(CC)N(Cc1ccc(F)cc1)C(=O)CN(c1ccccc1Cl)S(=O)(=O)c1ccccc1,1,11.06
+O=C(Nc1ccc(S(=O)(=O)Nc2cccc(C(F)(F)F)c2)cc1)C1COCCO1,1,18.63

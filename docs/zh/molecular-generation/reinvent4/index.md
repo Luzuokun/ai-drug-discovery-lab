@@ -15,8 +15,8 @@
 | 04 | [强化学习](04-reinforcement-learning.md) | 训练 agent，使高分分子更易被采样 | 已发布（英文） |
 | 05 | [多样性过滤器](05-diversity-filter.md) | RL 一旦生效就防止骨架塌缩 | 已发布（英文） |
 | 06 | [课程学习](06-curriculum-learning.md) | 分阶段 / checkpoint 升级目标 | 已发布（英文） |
-| 07 | [迁移学习](07-transfer-learning.md) | 把 prior 适配到项目化学空间 | 即将推出 |
-| 08 | [对接引导设计](08-docking-guided-design.md) | 把基于结构的 oracle 接入生成循环 | 即将推出 |
+| 07 | [迁移学习](07-transfer-learning.md) | 把 prior 适配到项目化学空间 | 已发布（英文） |
+| 08 | [对接引导设计](08-docking-guided-design.md) | 把基于结构的 oracle 接入生成循环 | 已发布（英文） |
 | 09 | [扩规模与监控](09-scaling-and-monitoring.md) | GPU、日志与 TensorBoard | 即将推出 |
 | 10 | [消融与超参数](10-ablations-and-hyperparameters.md) | 单变量实验 + 你们自己的对照表 | 即将推出 |
 | 11 | [案例：BRAF](11-case-study-braf.md) | 端到端、论文风格靶点战役 | 即将推出 |

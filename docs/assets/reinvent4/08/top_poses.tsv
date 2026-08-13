@@ -1,0 +1,7 @@
+rank	smiles	vina_raw	affinity_redock
+1	O=C(Nc1cc(-c2ccc(C(F)(F)F)cc2)n(CC(F)(F)F)n1)c1cncc(-c2cc(F)c(I)cn2)c1	-12.07	-12.07
+2	O=C(Nc1cccc(-c2ccc3nncn3n2)c1)N1CC(C(F)(F)F)C1	-10.89	-10.93
+3	C1=CC2C(C=C1)n1c(cc3ccccc31)C1=c3ccccc3=C(c3ccccc3)c3cc4c(cc3N12)c1ccccc1n4-c1ccccc1	-9.93	-9.93
+4	O=C1Nc2ccc(C(O)c3ccc4ccccc4c3)cc2C1C1=NC(=S)N(c2ccc(Br)cc2)C12CCCCC2	-9.56	-9.566
+5	O=C(Nc1ccc2[nH]c(=O)[nH]c2c1)C(Cc1ccccc1)NS(=O)(=O)c1ccc(F)cc1	-8.681	-9.272
+6	COc1cc(SC)ccc1C(=O)NCC(=O)Nc1ccc(-c2nnc3n2CCCC3)cc1	-8.419	-8.419
