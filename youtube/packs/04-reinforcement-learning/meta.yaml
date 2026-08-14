@@ -1,0 +1,14 @@
+slug: 04-reinforcement-learning
+title_en: 'REINVENT4 Tutorial 04: RL Makes High Scores More Probable'
+title_zh: REINVENT4 教程 04：强化学习让高分更可能出现
+source_md: docs/molecular-generation/reinvent4/04-reinforcement-learning.md
+is_outline: false
+generator: cursor-skill
+model: n/a
+target_duration_seconds: 240
+generated_at: '2026-08-14T08:15:12.914894+00:00'
+site_url_en: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/04-reinforcement-learning/
+site_url_zh: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/04-reinforcement-learning/
+github_repo_url: https://github.com/Luzuokun/ai-drug-discovery-lab
+verify_flags:
+- '[VERIFY] Playlist URL still TODO_PLAYLIST_URL'

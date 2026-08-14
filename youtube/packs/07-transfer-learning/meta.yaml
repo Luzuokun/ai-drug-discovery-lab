@@ -1,0 +1,14 @@
+slug: 07-transfer-learning
+title_en: 'REINVENT4 Tutorial 07: Stop TL Before It Memorizes'
+title_zh: REINVENT4 教程 07：在背诵训练集之前停下 TL
+source_md: docs/molecular-generation/reinvent4/07-transfer-learning.md
+is_outline: false
+generator: cursor-skill
+model: n/a
+target_duration_seconds: 240
+generated_at: '2026-08-14T08:15:13.339667+00:00'
+site_url_en: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/07-transfer-learning/
+site_url_zh: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/07-transfer-learning/
+github_repo_url: https://github.com/Luzuokun/ai-drug-discovery-lab
+verify_flags:
+- '[VERIFY] Playlist URL still TODO_PLAYLIST_URL'

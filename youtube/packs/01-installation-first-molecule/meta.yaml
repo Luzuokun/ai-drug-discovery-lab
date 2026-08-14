@@ -1,0 +1,14 @@
+slug: 01-installation-first-molecule
+title_en: 'REINVENT4 Tutorial 01: Your First AI Molecules in 4 Minutes'
+title_zh: REINVENT4 教程 01：四分钟拿到第一批 AI 分子
+source_md: docs/molecular-generation/reinvent4/01-installation-first-molecule.md
+is_outline: false
+generator: cursor-skill
+model: n/a
+target_duration_seconds: 240
+generated_at: '2026-08-14T08:15:12.751446+00:00'
+site_url_en: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/01-installation-first-molecule/
+site_url_zh: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/01-installation-first-molecule/
+github_repo_url: https://github.com/Luzuokun/ai-drug-discovery-lab
+verify_flags:
+- '[VERIFY] Playlist URL still TODO_PLAYLIST_URL'

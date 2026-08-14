@@ -1,0 +1,240 @@
+{
+  "title_en": "REINVENT4 Tutorial 05: High Score Can Still Be Collapse",
+  "title_zh": "REINVENT4 教程 05：高分仍可能是骨架塌缩",
+  "target_duration_seconds": 240,
+  "hook_en": "A high Score can be twenty near-copies of benzene. Tutorial 04 made RL work. This episode treats diversity as the experimental control.",
+  "hook_zh": "很高的 Score 可能只是二十个苯环近亲。教程 04 让 RL 生效。这一集把多样性当成实验对照。",
+  "beats": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 12,
+      "label_en": "Hook",
+      "label_zh": "开场",
+      "narration_en": "A high Score can be twenty near-copies of benzene. Tutorial 04 made RL work. This episode treats diversity as the experimental control.",
+      "narration_zh": "很高的 Score 可能只是二十个苯环近亲。教程 04 让 RL 生效。这一集把多样性当成实验对照。",
+      "visual": "Benzene pile vs diverse cores"
+    },
+    {
+      "id": "problem",
+      "start_sec": 12,
+      "end_sec": 50,
+      "label_en": "Problem",
+      "label_zh": "问题",
+      "narration_en": "Without diversity pressure, RL rediscovers the same easy Murcko core with tiny side-chain edits. The CSV looks great. Chemistry gets duplicates. A diversity filter memorizes scaffolds that already scored well and down-weights further hits in that bucket.",
+      "narration_zh": "没有多样性压力，RL 会反复发现同一个好挖的 Murcko 核心，只改一点点侧链。CSV 很好看，化学上全是重复。多样性过滤器会记住已经高分的骨架，并压低同一桶里的后续命中。",
+      "visual": "Bucket memory diagram"
+    },
+    {
+      "id": "model",
+      "start_sec": 50,
+      "end_sec": 95,
+      "label_en": "Mental model",
+      "label_zh": "心智模型",
+      "narration_en": "We rerun the Tutorial 04 campaign twice. Same seed 42, same 25 steps, same scoring. One arm has no filter. The other adds a global IdenticalMurckoScaffold diversity filter with bucket_size 25 and minscore 0.4. One variable. Other filter types exist — pick one hypothesis per experiment.",
+      "narration_zh": "教程 04 的战役跑两遍。同样种子 42、同样 25 步、同样评分。一臂无过滤器，另一臂加上全局 IdenticalMurckoScaffold，bucket_size 25，minscore 0.4。只改一个变量。其他过滤器类型也有——一次实验只验证一个假设。",
+      "visual": "A/B protocol card"
+    },
+    {
+      "id": "proof",
+      "start_sec": 95,
+      "end_sec": 175,
+      "label_en": "Proof",
+      "label_zh": "证据",
+      "narration_en": "Mean Score at step 25: 0.79 without the filter, 0.74 with it. Unique Murcko scaffolds: 1165 versus 1238. Count of the top scaffold, benzene: 120 versus 101. Step 1 Scores matched at 0.66. Each leg about 27 to 28 seconds on CPU. You trade a little mean Score for a wider library.",
+      "narration_zh": "第 25 步平均 Score：无过滤器 0.79，有过滤器 0.74。唯一 Murcko 骨架：1165 对 1238。第一骨架苯环计数：120 对 101。第 1 步 Score 都是 0.66。每臂大约 27 到 28 秒。你用一点平均分，换更宽的库。",
+      "visual": "df-ab-compare.png"
+    },
+    {
+      "id": "failures",
+      "start_sec": 175,
+      "end_sec": 215,
+      "label_en": "Decision",
+      "label_zh": "决策",
+      "narration_en": "If top-scaffold occupancy barely moves, the bucket is too large or minscore never fires. If Score collapses, the filter is starving the agent — loosen bucket_size. Diversity is an experimental knob, not a checkbox you forget after Tutorial 04.",
+      "narration_zh": "如果第一骨架占用几乎不变，桶太大或 minscore 从未触发。如果 Score 崩了，过滤器把 agent 饿死了——放宽 bucket_size。多样性是实验旋钮，不是教程 04 之后忘掉的勾选。",
+      "visual": "Trade-off card"
+    },
+    {
+      "id": "cta",
+      "start_sec": 215,
+      "end_sec": 240,
+      "label_en": "CTA",
+      "label_zh": "结尾",
+      "narration_en": "A/B CSVs and figures are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 06 — escalate objectives across stages.",
+      "narration_zh": "A/B 的 CSV 和图在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 06：分阶段升级目标。",
+      "visual": "CTA"
+    }
+  ],
+  "script_en": "# REINVENT4 Tutorial 05: High Score Can Still Be Collapse\n\n## [0:00–0:12] Hook\n\nA high Score can be twenty near-copies of benzene. Tutorial 04 made RL work. This episode treats diversity as the experimental control.\n\n## [0:12–0:50] Problem\n\nWithout diversity pressure, RL rediscovers the same easy Murcko core with tiny side-chain edits. The CSV looks great. Chemistry gets duplicates. A diversity filter memorizes scaffolds that already scored well and down-weights further hits in that bucket.\n\n## [0:50–1:35] Mental model\n\nWe rerun the Tutorial 04 campaign twice. Same seed 42, same 25 steps, same scoring. One arm has no filter. The other adds a global IdenticalMurckoScaffold diversity filter with bucket_size 25 and minscore 0.4. One variable. Other filter types exist — pick one hypothesis per experiment.\n\n## [1:35–2:55] Proof\n\nMean Score at step 25: 0.79 without the filter, 0.74 with it. Unique Murcko scaffolds: 1165 versus 1238. Count of the top scaffold, benzene: 120 versus 101. Step 1 Scores matched at 0.66. Each leg about 27 to 28 seconds on CPU. You trade a little mean Score for a wider library.\n\n## [2:55–3:35] Decision\n\nIf top-scaffold occupancy barely moves, the bucket is too large or minscore never fires. If Score collapses, the filter is starving the agent — loosen bucket_size. Diversity is an experimental knob, not a checkbox you forget after Tutorial 04.\n\n## [3:35–4:00] CTA\n\nA/B CSVs and figures are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 06 — escalate objectives across stages.\n",
+  "script_zh": "# REINVENT4 教程 05：高分仍可能是骨架塌缩\n\n## [0:00–0:12] 开场\n\n很高的 Score 可能只是二十个苯环近亲。教程 04 让 RL 生效。这一集把多样性当成实验对照。\n\n## [0:12–0:50] 问题\n\n没有多样性压力，RL 会反复发现同一个好挖的 Murcko 核心，只改一点点侧链。CSV 很好看，化学上全是重复。多样性过滤器会记住已经高分的骨架，并压低同一桶里的后续命中。\n\n## [0:50–1:35] 心智模型\n\n教程 04 的战役跑两遍。同样种子 42、同样 25 步、同样评分。一臂无过滤器，另一臂加上全局 IdenticalMurckoScaffold，bucket_size 25，minscore 0.4。只改一个变量。其他过滤器类型也有——一次实验只验证一个假设。\n\n## [1:35–2:55] 证据\n\n第 25 步平均 Score：无过滤器 0.79，有过滤器 0.74。唯一 Murcko 骨架：1165 对 1238。第一骨架苯环计数：120 对 101。第 1 步 Score 都是 0.66。每臂大约 27 到 28 秒。你用一点平均分，换更宽的库。\n\n## [2:55–3:35] 决策\n\n如果第一骨架占用几乎不变，桶太大或 minscore 从未触发。如果 Score 崩了，过滤器把 agent 饿死了——放宽 bucket_size。多样性是实验旋钮，不是教程 04 之后忘掉的勾选。\n\n## [3:35–4:00] 结尾\n\nA/B 的 CSV 和图在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 06：分阶段升级目标。\n",
+  "voiceover_en": "A high Score can be twenty near-copies of benzene. Tutorial 04 made RL work. This episode treats diversity as the experimental control.\n\nWithout diversity pressure, RL rediscovers the same easy Murcko core with tiny side-chain edits. The CSV looks great. Chemistry gets duplicates. A diversity filter memorizes scaffolds that already scored well and down-weights further hits in that bucket.\n\nWe rerun the Tutorial 04 campaign twice. Same seed 42, same 25 steps, same scoring. One arm has no filter. The other adds a global IdenticalMurckoScaffold diversity filter with bucket_size 25 and minscore 0.4. One variable. Other filter types exist — pick one hypothesis per experiment.\n\nMean Score at step 25: 0.79 without the filter, 0.74 with it. Unique Murcko scaffolds: 1165 versus 1238. Count of the top scaffold, benzene: 120 versus 101. Step 1 Scores matched at 0.66. Each leg about 27 to 28 seconds on CPU. You trade a little mean Score for a wider library.\n\nIf top-scaffold occupancy barely moves, the bucket is too large or minscore never fires. If Score collapses, the filter is starving the agent — loosen bucket_size. Diversity is an experimental knob, not a checkbox you forget after Tutorial 04.\n\nA/B CSVs and figures are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 06 — escalate objectives across stages.\n",
+  "voiceover_zh": "很高的 Score 可能只是二十个苯环近亲。教程 04 让 RL 生效。这一集把多样性当成实验对照。\n\n没有多样性压力，RL 会反复发现同一个好挖的 Murcko 核心，只改一点点侧链。CSV 很好看，化学上全是重复。多样性过滤器会记住已经高分的骨架，并压低同一桶里的后续命中。\n\n教程 04 的战役跑两遍。同样种子 42、同样 25 步、同样评分。一臂无过滤器，另一臂加上全局 IdenticalMurckoScaffold，bucket_size 25，minscore 0.4。只改一个变量。其他过滤器类型也有——一次实验只验证一个假设。\n\n第 25 步平均 Score：无过滤器 0.79，有过滤器 0.74。唯一 Murcko 骨架：1165 对 1238。第一骨架苯环计数：120 对 101。第 1 步 Score 都是 0.66。每臂大约 27 到 28 秒。你用一点平均分，换更宽的库。\n\n如果第一骨架占用几乎不变，桶太大或 minscore 从未触发。如果 Score 崩了，过滤器把 agent 饿死了——放宽 bucket_size。多样性是实验旋钮，不是教程 04 之后忘掉的勾选。\n\nA/B 的 CSV 和图在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 06：分阶段升级目标。\n",
+  "storyboard": [
+    {
+      "timecode": "0:00–0:12",
+      "shot": "Benzene pile vs diverse cores",
+      "on_screen_text": "Score ≠ library",
+      "voice_beat": "Hook",
+      "asset_type": "title_card"
+    },
+    {
+      "timecode": "0:12–0:50",
+      "shot": "Bucket memory diagram",
+      "on_screen_text": "IdenticalMurckoScaffold",
+      "voice_beat": "Problem",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "0:50–1:35",
+      "shot": "A/B protocol card",
+      "on_screen_text": "same seed · ± DF",
+      "voice_beat": "Mental model",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "1:35–2:55",
+      "shot": "df-ab-compare.png",
+      "on_screen_text": "Score vs scaffolds",
+      "voice_beat": "Proof",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "2:55–3:35",
+      "shot": "Trade-off card",
+      "on_screen_text": "bucket_size · minscore",
+      "voice_beat": "Decision",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "3:35–4:00",
+      "shot": "CTA",
+      "on_screen_text": "Site → GitHub → Tutorial 06",
+      "voice_beat": "CTA",
+      "asset_type": "cta_card"
+    }
+  ],
+  "thumbnail_title": "Stop scaffold collapse",
+  "thumbnail_prompt": "A collapsing stack of identical benzene rings versus a spread of different scaffolds, dark teal, empty top for title.",
+  "broll": [
+    {
+      "item": "df-ab-compare.png",
+      "why": "A/B proof",
+      "source_hint": "chapter figure"
+    },
+    {
+      "item": "TOML diversity_filter block",
+      "why": "Show the knob",
+      "source_hint": "optional screencast"
+    }
+  ],
+  "youtube_description_en": "REINVENT4 Tutorial 05: High Score Can Still Be Collapse\n\nSame 25-step RL with and without IdenticalMurckoScaffold: Score 0.79 vs 0.74, scaffolds 1165 vs 1238.\n\nThis is a Discovery cut. The handbook is the knowledge base. GitHub is the reproducible configs and artifacts.\n\n🔗 Full tutorial (site)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/05-diversity-filter/\n中文: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/05-diversity-filter/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/05-diversity-filter.md\n\n📺 Series playlist\nTODO_PLAYLIST_URL\n\nChapters\n0:00 Score is not a library\n0:12 Why filters exist\n0:50 A/B protocol\n1:35 0.79 vs 0.74\n2:55 Tune the knob\n3:35 Site and GitHub\n\n#REINVENT4 #DrugDiscovery #GenerativeAI #Cheminformatics #OpenScience\n",
+  "youtube_description_zh": "REINVENT4 Tutorial 05: High Score Can Still Be Collapse\n\n同样 25 步 RL，有无 Murcko 多样性过滤器：Score 0.79 对 0.74，骨架 1165 对 1238。\n\n视频负责发现；完整命令与产物在网站；可复现配置在 GitHub。\n\n🔗 完整教程\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/05-diversity-filter/\nEnglish: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/05-diversity-filter/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/05-diversity-filter.md\n\n📺 系列播放列表\nTODO_PLAYLIST_URL\n\n章节\n0:00 Score is not a library\n0:12 Why filters exist\n0:50 A/B protocol\n1:35 0.79 vs 0.74\n2:55 Tune the knob\n3:35 Site and GitHub\n\n#REINVENT4 #药物发现 #生成式AI\n",
+  "chapters": [
+    {
+      "timecode": "0:00",
+      "title": "Score is not a library"
+    },
+    {
+      "timecode": "0:12",
+      "title": "Why filters exist"
+    },
+    {
+      "timecode": "0:50",
+      "title": "A/B protocol"
+    },
+    {
+      "timecode": "1:35",
+      "title": "0.79 vs 0.74"
+    },
+    {
+      "timecode": "2:55",
+      "title": "Tune the knob"
+    },
+    {
+      "timecode": "3:35",
+      "title": "Site and GitHub"
+    }
+  ],
+  "tags": [
+    "REINVENT4",
+    "drug discovery",
+    "generative chemistry",
+    "AI drug design",
+    "cheminformatics",
+    "molecular generation",
+    "open science",
+    "AstraZeneca REINVENT",
+    "tutorial",
+    "machine learning",
+    "diversity filter",
+    "Murcko scaffold"
+  ],
+  "subtitles_en": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "High Score can still be scaffold collapse."
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 50,
+      "text": "Filter memorizes high-scoring scaffolds."
+    },
+    {
+      "start_sec": 50,
+      "end_sec": 95,
+      "text": "A/B at seed 42. One variable: the filter."
+    },
+    {
+      "start_sec": 95,
+      "end_sec": 175,
+      "text": "Score 0.79 vs 0.74. Scaffolds 1165 vs 1238."
+    },
+    {
+      "start_sec": 175,
+      "end_sec": 215,
+      "text": "Diversity is a knob, not a checkbox."
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "Site and GitHub. Next: curriculum."
+    }
+  ],
+  "subtitles_zh": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "高分也可能是骨架塌缩。"
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 50,
+      "text": "过滤器记住已高分的骨架。"
+    },
+    {
+      "start_sec": 50,
+      "end_sec": 95,
+      "text": "种子 42 做 A/B。只改过滤器。"
+    },
+    {
+      "start_sec": 95,
+      "end_sec": 175,
+      "text": "Score 0.79 对 0.74。骨架 1165 对 1238。"
+    },
+    {
+      "start_sec": 175,
+      "end_sec": 215,
+      "text": "多样性是旋钮，不是勾选。"
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "网站与 GitHub。下一集：课程学习。"
+    }
+  ],
+  "verify_flags": [
+    "[VERIFY] Playlist URL still TODO_PLAYLIST_URL"
+  ]
+}

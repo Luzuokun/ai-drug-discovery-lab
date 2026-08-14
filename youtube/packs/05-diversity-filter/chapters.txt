@@ -1,0 +1,6 @@
+0:00 Score is not a library
+0:12 Why filters exist
+0:50 A/B protocol
+1:35 0.79 vs 0.74
+2:55 Tune the knob
+3:35 Site and GitHub

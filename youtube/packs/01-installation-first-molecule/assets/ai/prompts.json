@@ -1,0 +1,33 @@
+{
+  "model_preference": [
+    "grok-imagine-image-quality"
+  ],
+  "aspect_ratio": "16:9",
+  "images": [
+    {
+      "id": "hook",
+      "filename": "hook.png",
+      "prompt": "Cinematic educational still, 16:9, dark teal lab atmosphere, 3Blue1Brown-like graphic clarity, no logos, no watermarks, no fake numeric axes, no purple neon, high contrast, space for title text. A CSV file named sampled.csv materializing molecules in a dark teal lab."
+    },
+    {
+      "id": "mental-model",
+      "filename": "mental-model.png",
+      "prompt": "Cinematic educational still, 16:9, dark teal lab atmosphere, 3Blue1Brown-like graphic clarity, no logos, no watermarks, no fake numeric axes, no purple neon, high contrast, space for title text. Three panels: a frozen brain labeled prior, a trainable copy labeled agent, token tiles for SMILES vocabulary. Abstract, no readable fake numbers."
+    },
+    {
+      "id": "failures",
+      "filename": "failures.png",
+      "prompt": "Cinematic educational still, 16:9, dark teal lab atmosphere, 3Blue1Brown-like graphic clarity, no logos, no watermarks, no fake numeric axes, no purple neon, high contrast, space for title text. Warning cards about duplicates, invalid SMILES, and a missing Score column. Educational infographic."
+    },
+    {
+      "id": "cta",
+      "filename": "cta.png",
+      "prompt": "Cinematic educational still, 16:9, dark teal lab atmosphere, 3Blue1Brown-like graphic clarity, no logos, no watermarks, no fake numeric axes, no purple neon, high contrast, space for title text. End-card background, molecular network, empty center for Site and GitHub text."
+    },
+    {
+      "id": "thumbnail",
+      "filename": "thumbnail.png",
+      "prompt": "Cinematic educational still, 16:9, dark teal lab atmosphere, 3Blue1Brown-like graphic clarity, no logos, no watermarks, no fake numeric axes, no purple neon, high contrast, space for title text. YouTube thumbnail, first AI molecules bursting from a terminal, empty top for title."
+    }
+  ]
+}

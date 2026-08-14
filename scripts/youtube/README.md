@@ -6,7 +6,7 @@ GitHub = reproducibility.
 ## Recommended flow (minimize manual work)
 
 1. **Text pack** — Cursor skill [`youtube-text-pack`](../../.cursor/skills/youtube-text-pack)  
-   → `youtube/packs/<slug>/` (5–8 min script, storyboard, subs, Description…)
+   → `youtube/packs/<slug>/` (3–5 min script, storyboard, subs, Description…)
 2. **Assets** — chapter figures + SVG cards under `assets/`
 3. **AI stills** (needs `XAI_API_KEY` — Grok Imagine):
 

@@ -10,4 +10,8 @@ Score the decision with RDKit. SMARTS: S equals O twice N. PubChem prior: 8.4 pe
 
 What next? If the prior already hits your SMARTS at an acceptable rate, stay on PubChem and go score in Tutorial 03. If the prior rarely hits and transfer learning enriches without killing scaffolds, use that checkpoint as your starting agent or prior for reinforcement learning. Need linkers, R-groups, or analogue-by-seed? Wrong generator — not more PubChem epochs. Peptides or exotic elements: check token support.
 
+How was the sulfonamide set built? Two sampling jobs on the PubChem prior, SMARTS match, deduplicate, then a train-validation split: 145 train, 10 hold-out. You can rebuild it. Using the shipped files keeps this episode aligned with the published figure. sample_batch_size must be at least 100 or transfer learning fails validation before it starts. An invalid-hash warning on the prior is informational in current builds — training still proceeds.
+
+Mean NLL fell from 35.95 to 29.48 after short TL. Validity stayed 100 percent in both unique samples. Higher QED after TL is a side effect, not a goal. Separate the chemotype you wanted from properties that moved along for the ride. Keep randomize_smiles true on both legs so the comparison is not confounded by SMILES augmentation.
+
 Priors are experimental choices. Compare under one protocol. Measure chemotype hit rate and scaffolds. Decide with evidence before you burn reinforcement-learning compute. Full commands, configs, and CSVs are on the AI Drug Discovery Lab site. Code lives on GitHub. Link in the description — pick a prior on purpose.

@@ -1,0 +1,59 @@
+{
+  "slug": "04-reinforcement-learning",
+  "audio": "youtube/audio/04-reinforcement-learning/en.mp3",
+  "subtitles": "youtube/packs/04-reinforcement-learning/subtitles-en.srt",
+  "width": 1920,
+  "height": 1080,
+  "fade_sec": 0.25,
+  "segments": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 12,
+      "image": "assets/ai/hook.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "problem",
+      "start_sec": 12,
+      "end_sec": 48,
+      "image": "assets/pipeline.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "model",
+      "start_sec": 48,
+      "end_sec": 95,
+      "image": "assets/ai/mental-model.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "proof",
+      "start_sec": 95,
+      "end_sec": 145,
+      "image": "assets/score-vs-step.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "mols",
+      "start_sec": 145,
+      "end_sec": 175,
+      "image": "assets/top-rl-molecules.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "fail",
+      "start_sec": 175,
+      "end_sec": 215,
+      "image": "assets/metrics-callout.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "cta",
+      "start_sec": 215,
+      "end_sec": 240,
+      "image": "assets/ai/cta.png",
+      "fallback": "assets/pipeline.png"
+    }
+  ]
+}

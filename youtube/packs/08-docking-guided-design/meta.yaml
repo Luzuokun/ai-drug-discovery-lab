@@ -1,0 +1,14 @@
+slug: 08-docking-guided-design
+title_en: 'REINVENT4 Tutorial 08: Docking in the Loop — Not a Vina Class'
+title_zh: REINVENT4 教程 08：把对接放进循环，而不是上一堂 Vina 课
+source_md: docs/molecular-generation/reinvent4/08-docking-guided-design.md
+is_outline: false
+generator: cursor-skill
+model: n/a
+target_duration_seconds: 240
+generated_at: '2026-08-14T08:15:13.479182+00:00'
+site_url_en: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/08-docking-guided-design/
+site_url_zh: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/08-docking-guided-design/
+github_repo_url: https://github.com/Luzuokun/ai-drug-discovery-lab
+verify_flags:
+- '[VERIFY] Playlist URL still TODO_PLAYLIST_URL'

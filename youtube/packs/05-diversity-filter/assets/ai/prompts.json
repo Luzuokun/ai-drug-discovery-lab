@@ -1,0 +1,28 @@
+{
+  "model_preference": [
+    "grok-imagine-image-quality"
+  ],
+  "aspect_ratio": "16:9",
+  "images": [
+    {
+      "id": "hook",
+      "filename": "hook.png",
+      "prompt": "Cinematic educational still, 16:9, dark teal lab atmosphere, 3Blue1Brown-like graphic clarity, no logos, no watermarks, no fake numeric axes, no purple neon, high contrast, space for title text. A tower of identical benzene rings cracking, diverse scaffolds escaping to the side."
+    },
+    {
+      "id": "mental-model",
+      "filename": "mental-model.png",
+      "prompt": "Cinematic educational still, 16:9, dark teal lab atmosphere, 3Blue1Brown-like graphic clarity, no logos, no watermarks, no fake numeric axes, no purple neon, high contrast, space for title text. Two lab notebooks labeled no DF and Murcko DF, one variable highlighted."
+    },
+    {
+      "id": "cta",
+      "filename": "cta.png",
+      "prompt": "Cinematic educational still, 16:9, dark teal lab atmosphere, 3Blue1Brown-like graphic clarity, no logos, no watermarks, no fake numeric axes, no purple neon, high contrast, space for title text. End-card molecular network, empty center for Site and GitHub."
+    },
+    {
+      "id": "thumbnail",
+      "filename": "thumbnail.png",
+      "prompt": "Cinematic educational still, 16:9, dark teal lab atmosphere, 3Blue1Brown-like graphic clarity, no logos, no watermarks, no fake numeric axes, no purple neon, high contrast, space for title text. YouTube thumbnail, collapsed vs diverse molecule clouds, empty top for title."
+    }
+  ]
+}

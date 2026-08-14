@@ -1,0 +1,59 @@
+{
+  "slug": "07-transfer-learning",
+  "audio": "youtube/audio/07-transfer-learning/en.mp3",
+  "subtitles": "youtube/packs/07-transfer-learning/subtitles-en.srt",
+  "width": 1920,
+  "height": 1080,
+  "fade_sec": 0.25,
+  "segments": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 12,
+      "image": "assets/ai/hook.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "problem",
+      "start_sec": 12,
+      "end_sec": 50,
+      "image": "assets/pipeline.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "proof_tl",
+      "start_sec": 50,
+      "end_sec": 130,
+      "image": "assets/tl-overfit-curve.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "proof_rl",
+      "start_sec": 130,
+      "end_sec": 175,
+      "image": "assets/tl-vs-rl-compare.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "mols",
+      "start_sec": 175,
+      "end_sec": 190,
+      "image": "assets/tl-ep24-molecules.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "decision",
+      "start_sec": 190,
+      "end_sec": 215,
+      "image": "assets/metrics-callout.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "cta",
+      "start_sec": 215,
+      "end_sec": 240,
+      "image": "assets/ai/cta.png",
+      "fallback": "assets/pipeline.png"
+    }
+  ]
+}

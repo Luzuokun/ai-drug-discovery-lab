@@ -1,0 +1,240 @@
+{
+  "title_en": "REINVENT4 Tutorial 07: Stop TL Before It Memorizes",
+  "title_zh": "REINVENT4 教程 07：在背诵训练集之前停下 TL",
+  "target_duration_seconds": 240,
+  "hook_en": "Tutorial 02 was eight epochs of transfer learning. This episode asks when to stop — and whether TL actually changes the RL campaign.",
+  "hook_zh": "教程 02 只做了 8 个 epoch 的迁移学习。这一集问：何时该停，以及 TL 会不会真的改变 RL 战役。",
+  "beats": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 12,
+      "label_en": "Hook",
+      "label_zh": "开场",
+      "narration_en": "Tutorial 02 was eight epochs of transfer learning. This episode asks when to stop — and whether TL actually changes the RL campaign.",
+      "narration_zh": "教程 02 只做了 8 个 epoch 的迁移学习。这一集问：何时该停，以及 TL 会不会真的改变 RL 战役。",
+      "visual": "Overfit curve hook"
+    },
+    {
+      "id": "problem",
+      "start_sec": 12,
+      "end_sec": 50,
+      "label_en": "Problem",
+      "label_zh": "问题",
+      "narration_en": "A tiny sulfonamide set keeps enriching if you train long enough — and then it memorizes. Official docs list flags. Lab work needs a stop rule, an overfitting checklist, and a TL-then-RL versus RL-only A/B under the same scoring function.",
+      "narration_zh": "很小的磺酰胺集，训得够久命中率还会涨，然后就开始背诵。官方文档列开关。实验室需要停训规则、过拟合清单，以及同一评分下 TL 再 RL 对纯 RL 的对照。",
+      "visual": "Memorization vs invention"
+    },
+    {
+      "id": "proof_tl",
+      "start_sec": 50,
+      "end_sec": 130,
+      "label_en": "Overfit curve",
+      "label_zh": "过拟合曲线",
+      "narration_en": "Same Tutorial 02 SMILES. Forty epochs, checkpoints every eight, CPU, seed 42, about 62 seconds. Epoch 0: 8.4 percent sulfonamide, 168 scaffolds, zero exact train SMILES. Epoch 8: 64.3 percent, still zero memorized — and best validation NLL. Epoch 24: 83 percent hits but 12 percent exact train SMILES. Epoch 40: 86 percent hits, 40 percent memorized, unique rows fall from 191 to 165. Last epoch is not the winner.",
+      "narration_zh": "还是教程 02 那套 SMILES。40 个 epoch，每 8 个存盘，CPU，种子 42，大约 62 秒。第 0 轮：磺酰胺 8.4%，168 个骨架，0 条背出训练集。第 8 轮：64.3%，仍未背诵——验证 NLL 也最好。第 24 轮：命中 83%，但 12% 是训练集原样。第 40 轮：命中 86%，背诵 40%，唯一行从 191 掉到 165。最后一个 epoch 不是赢家。",
+      "visual": "tl-overfit-curve.png"
+    },
+    {
+      "id": "proof_rl",
+      "start_sec": 130,
+      "end_sec": 190,
+      "label_en": "TL then RL",
+      "label_zh": "TL 再 RL",
+      "narration_en": "Same QED, molecular weight, alerts as Tutorial 04. Twenty-five steps. RL-only last-five mean Score 0.775 and 4.4 percent sulfonamide. TL-then-RL from the epoch-24 checkpoint: Score 0.847 and 66.6 percent sulfonamide — even though the reward does not pay for the motif. Set both prior_file and agent_file to the TL checkpoint so DAP anchors to the adapted distribution.",
+      "narration_zh": "评分仍是教程 04 的 QED、分子量、alerts。25 步。纯 RL 最后五步平均 Score 0.775，磺酰胺 4.4%。用第 24 轮检查点做 TL 再 RL：Score 0.847，磺酰胺 66.6%——尽管奖励并不给这个结构付钱。prior_file 和 agent_file 都要指向 TL 检查点，让 DAP 锚在适配后的分布上。",
+      "visual": "tl-vs-rl-compare.png"
+    },
+    {
+      "id": "decision",
+      "start_sec": 190,
+      "end_sec": 215,
+      "label_en": "Decision",
+      "label_zh": "决策",
+      "narration_en": "Keep the checkpoint where validation NLL bottoms and mem percent is still near zero. Need linkers or R-groups? Wrong generator — not more epochs. Curriculum changes the reward schedule. TL changes the starting distribution. They compose.",
+      "narration_zh": "留在验证 NLL 最低、背诵率仍接近零的检查点。需要连接子或 R 基团？换生成器，而不是再加 epoch。课程学习改的是奖励日程，TL 改的是起始分布。两者可以组合。",
+      "visual": "Decision table"
+    },
+    {
+      "id": "cta",
+      "start_sec": 215,
+      "end_sec": 240,
+      "label_en": "CTA",
+      "label_zh": "结尾",
+      "narration_en": "Curves, CSVs, and configs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 08 — put a docking oracle in the loop.",
+      "narration_zh": "曲线、CSV 和配置在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 08：把对接 oracle 放进循环。",
+      "visual": "CTA"
+    }
+  ],
+  "script_en": "# REINVENT4 Tutorial 07: Stop TL Before It Memorizes\n\n## [0:00–0:12] Hook\n\nTutorial 02 was eight epochs of transfer learning. This episode asks when to stop — and whether TL actually changes the RL campaign.\n\n## [0:12–0:50] Problem\n\nA tiny sulfonamide set keeps enriching if you train long enough — and then it memorizes. Official docs list flags. Lab work needs a stop rule, an overfitting checklist, and a TL-then-RL versus RL-only A/B under the same scoring function.\n\n## [0:50–2:10] Overfit curve\n\nSame Tutorial 02 SMILES. Forty epochs, checkpoints every eight, CPU, seed 42, about 62 seconds. Epoch 0: 8.4 percent sulfonamide, 168 scaffolds, zero exact train SMILES. Epoch 8: 64.3 percent, still zero memorized — and best validation NLL. Epoch 24: 83 percent hits but 12 percent exact train SMILES. Epoch 40: 86 percent hits, 40 percent memorized, unique rows fall from 191 to 165. Last epoch is not the winner.\n\n## [2:10–3:10] TL then RL\n\nSame QED, molecular weight, alerts as Tutorial 04. Twenty-five steps. RL-only last-five mean Score 0.775 and 4.4 percent sulfonamide. TL-then-RL from the epoch-24 checkpoint: Score 0.847 and 66.6 percent sulfonamide — even though the reward does not pay for the motif. Set both prior_file and agent_file to the TL checkpoint so DAP anchors to the adapted distribution.\n\n## [3:10–3:35] Decision\n\nKeep the checkpoint where validation NLL bottoms and mem percent is still near zero. Need linkers or R-groups? Wrong generator — not more epochs. Curriculum changes the reward schedule. TL changes the starting distribution. They compose.\n\n## [3:35–4:00] CTA\n\nCurves, CSVs, and configs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 08 — put a docking oracle in the loop.\n",
+  "script_zh": "# REINVENT4 教程 07：在背诵训练集之前停下 TL\n\n## [0:00–0:12] 开场\n\n教程 02 只做了 8 个 epoch 的迁移学习。这一集问：何时该停，以及 TL 会不会真的改变 RL 战役。\n\n## [0:12–0:50] 问题\n\n很小的磺酰胺集，训得够久命中率还会涨，然后就开始背诵。官方文档列开关。实验室需要停训规则、过拟合清单，以及同一评分下 TL 再 RL 对纯 RL 的对照。\n\n## [0:50–2:10] 过拟合曲线\n\n还是教程 02 那套 SMILES。40 个 epoch，每 8 个存盘，CPU，种子 42，大约 62 秒。第 0 轮：磺酰胺 8.4%，168 个骨架，0 条背出训练集。第 8 轮：64.3%，仍未背诵——验证 NLL 也最好。第 24 轮：命中 83%，但 12% 是训练集原样。第 40 轮：命中 86%，背诵 40%，唯一行从 191 掉到 165。最后一个 epoch 不是赢家。\n\n## [2:10–3:10] TL 再 RL\n\n评分仍是教程 04 的 QED、分子量、alerts。25 步。纯 RL 最后五步平均 Score 0.775，磺酰胺 4.4%。用第 24 轮检查点做 TL 再 RL：Score 0.847，磺酰胺 66.6%——尽管奖励并不给这个结构付钱。prior_file 和 agent_file 都要指向 TL 检查点，让 DAP 锚在适配后的分布上。\n\n## [3:10–3:35] 决策\n\n留在验证 NLL 最低、背诵率仍接近零的检查点。需要连接子或 R 基团？换生成器，而不是再加 epoch。课程学习改的是奖励日程，TL 改的是起始分布。两者可以组合。\n\n## [3:35–4:00] 结尾\n\n曲线、CSV 和配置在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 08：把对接 oracle 放进循环。\n",
+  "voiceover_en": "Tutorial 02 was eight epochs of transfer learning. This episode asks when to stop — and whether TL actually changes the RL campaign.\n\nA tiny sulfonamide set keeps enriching if you train long enough — and then it memorizes. Official docs list flags. Lab work needs a stop rule, an overfitting checklist, and a TL-then-RL versus RL-only A/B under the same scoring function.\n\nSame Tutorial 02 SMILES. Forty epochs, checkpoints every eight, CPU, seed 42, about 62 seconds. Epoch 0: 8.4 percent sulfonamide, 168 scaffolds, zero exact train SMILES. Epoch 8: 64.3 percent, still zero memorized — and best validation NLL. Epoch 24: 83 percent hits but 12 percent exact train SMILES. Epoch 40: 86 percent hits, 40 percent memorized, unique rows fall from 191 to 165. Last epoch is not the winner.\n\nSame QED, molecular weight, alerts as Tutorial 04. Twenty-five steps. RL-only last-five mean Score 0.775 and 4.4 percent sulfonamide. TL-then-RL from the epoch-24 checkpoint: Score 0.847 and 66.6 percent sulfonamide — even though the reward does not pay for the motif. Set both prior_file and agent_file to the TL checkpoint so DAP anchors to the adapted distribution.\n\nKeep the checkpoint where validation NLL bottoms and mem percent is still near zero. Need linkers or R-groups? Wrong generator — not more epochs. Curriculum changes the reward schedule. TL changes the starting distribution. They compose.\n\nCurves, CSVs, and configs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 08 — put a docking oracle in the loop.\n",
+  "voiceover_zh": "教程 02 只做了 8 个 epoch 的迁移学习。这一集问：何时该停，以及 TL 会不会真的改变 RL 战役。\n\n很小的磺酰胺集，训得够久命中率还会涨，然后就开始背诵。官方文档列开关。实验室需要停训规则、过拟合清单，以及同一评分下 TL 再 RL 对纯 RL 的对照。\n\n还是教程 02 那套 SMILES。40 个 epoch，每 8 个存盘，CPU，种子 42，大约 62 秒。第 0 轮：磺酰胺 8.4%，168 个骨架，0 条背出训练集。第 8 轮：64.3%，仍未背诵——验证 NLL 也最好。第 24 轮：命中 83%，但 12% 是训练集原样。第 40 轮：命中 86%，背诵 40%，唯一行从 191 掉到 165。最后一个 epoch 不是赢家。\n\n评分仍是教程 04 的 QED、分子量、alerts。25 步。纯 RL 最后五步平均 Score 0.775，磺酰胺 4.4%。用第 24 轮检查点做 TL 再 RL：Score 0.847，磺酰胺 66.6%——尽管奖励并不给这个结构付钱。prior_file 和 agent_file 都要指向 TL 检查点，让 DAP 锚在适配后的分布上。\n\n留在验证 NLL 最低、背诵率仍接近零的检查点。需要连接子或 R 基团？换生成器，而不是再加 epoch。课程学习改的是奖励日程，TL 改的是起始分布。两者可以组合。\n\n曲线、CSV 和配置在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 08：把对接 oracle 放进循环。\n",
+  "storyboard": [
+    {
+      "timecode": "0:00–0:12",
+      "shot": "Overfit curve hook",
+      "on_screen_text": "When do you stop TL?",
+      "voice_beat": "Hook",
+      "asset_type": "title_card"
+    },
+    {
+      "timecode": "0:12–0:50",
+      "shot": "Memorization vs invention",
+      "on_screen_text": "val NLL · mem % · scaffolds",
+      "voice_beat": "Problem",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "0:50–2:10",
+      "shot": "tl-overfit-curve.png",
+      "on_screen_text": "ep8 vs ep40",
+      "voice_beat": "Overfit curve",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "2:10–3:10",
+      "shot": "tl-vs-rl-compare.png",
+      "on_screen_text": "same reward · different start",
+      "voice_beat": "TL then RL",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "3:10–3:35",
+      "shot": "Decision table",
+      "on_screen_text": "keep / stop / switch generator",
+      "voice_beat": "Decision",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "3:35–4:00",
+      "shot": "CTA",
+      "on_screen_text": "Site → GitHub → Tutorial 08",
+      "voice_beat": "CTA",
+      "asset_type": "cta_card"
+    }
+  ],
+  "thumbnail_title": "Don't pick last epoch",
+  "thumbnail_prompt": "A training curve smiling then eating its own molecules, dark teal, empty top for title Don't pick last epoch.",
+  "broll": [
+    {
+      "item": "tl-overfit-curve.png",
+      "why": "Stop rule",
+      "source_hint": "chapter figure"
+    },
+    {
+      "item": "tl-vs-rl-compare.png",
+      "why": "Campaign A/B",
+      "source_hint": "chapter figure"
+    }
+  ],
+  "youtube_description_en": "REINVENT4 Tutorial 07: Stop TL Before It Memorizes\n\n40-epoch sulfonamide TL: best val NLL at epoch 8; epoch 40 memorizes 40%. TL then RL beats RL-only under the same reward.\n\nThis is a Discovery cut. The handbook is the knowledge base. GitHub is the reproducible configs and artifacts.\n\n🔗 Full tutorial (site)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/07-transfer-learning/\n中文: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/07-transfer-learning/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/07-transfer-learning.md\n\n📺 Series playlist\nTODO_PLAYLIST_URL\n\nChapters\n0:00 Eight epochs was a taste\n0:12 The stop rule\n0:50 Overfitting on 145 SMILES\n2:10 TL then RL vs RL-only\n3:10 What to keep\n3:35 Site and GitHub\n\n#REINVENT4 #DrugDiscovery #GenerativeAI #Cheminformatics #OpenScience\n",
+  "youtube_description_zh": "REINVENT4 Tutorial 07: Stop TL Before It Memorizes\n\n磺酰胺 40 epoch TL：最佳验证 NLL 在第 8 轮；第 40 轮背出 40%。同一奖励下 TL 再 RL 优于纯 RL。\n\n视频负责发现；完整命令与产物在网站；可复现配置在 GitHub。\n\n🔗 完整教程\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/07-transfer-learning/\nEnglish: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/07-transfer-learning/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/07-transfer-learning.md\n\n📺 系列播放列表\nTODO_PLAYLIST_URL\n\n章节\n0:00 Eight epochs was a taste\n0:12 The stop rule\n0:50 Overfitting on 145 SMILES\n2:10 TL then RL vs RL-only\n3:10 What to keep\n3:35 Site and GitHub\n\n#REINVENT4 #药物发现 #生成式AI\n",
+  "chapters": [
+    {
+      "timecode": "0:00",
+      "title": "Eight epochs was a taste"
+    },
+    {
+      "timecode": "0:12",
+      "title": "The stop rule"
+    },
+    {
+      "timecode": "0:50",
+      "title": "Overfitting on 145 SMILES"
+    },
+    {
+      "timecode": "2:10",
+      "title": "TL then RL vs RL-only"
+    },
+    {
+      "timecode": "3:10",
+      "title": "What to keep"
+    },
+    {
+      "timecode": "3:35",
+      "title": "Site and GitHub"
+    }
+  ],
+  "tags": [
+    "REINVENT4",
+    "drug discovery",
+    "generative chemistry",
+    "AI drug design",
+    "cheminformatics",
+    "molecular generation",
+    "open science",
+    "AstraZeneca REINVENT",
+    "tutorial",
+    "machine learning",
+    "transfer learning",
+    "overfitting"
+  ],
+  "subtitles_en": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "Short TL was a taste. Now: stop rules."
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 50,
+      "text": "Enrichment without memorizing the train set."
+    },
+    {
+      "start_sec": 50,
+      "end_sec": 130,
+      "text": "Best val NLL at epoch 8. Epoch 40 memorizes 40%."
+    },
+    {
+      "start_sec": 130,
+      "end_sec": 190,
+      "text": "TL→RL 0.847 / 66.6% vs RL-only 0.775 / 4.4%."
+    },
+    {
+      "start_sec": 190,
+      "end_sec": 215,
+      "text": "Stop on val NLL. TL ≠ curriculum."
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "Site and GitHub. Next: docking-guided design."
+    }
+  ],
+  "subtitles_zh": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "短 TL 只是尝尝。现在看停训规则。"
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 50,
+      "text": "要富集，但不要背训练集。"
+    },
+    {
+      "start_sec": 50,
+      "end_sec": 130,
+      "text": "最佳验证 NLL 在第 8 轮。第 40 轮背出 40%。"
+    },
+    {
+      "start_sec": 130,
+      "end_sec": 190,
+      "text": "TL→RL 0.847 / 66.6%，纯 RL 0.775 / 4.4%。"
+    },
+    {
+      "start_sec": 190,
+      "end_sec": 215,
+      "text": "按验证 NLL 停训。TL 不是课程学习。"
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "网站与 GitHub。下一集：对接引导设计。"
+    }
+  ],
+  "verify_flags": [
+    "[VERIFY] Playlist URL still TODO_PLAYLIST_URL"
+  ]
+}

@@ -1,0 +1,17 @@
+QED 很高的分子也可能离口袋八丈远。这一集把基于结构的 oracle 放进生成循环——不是 Vina 命令行课。
+
+先准备口袋，再接评分组件，再短生成，再审查构象。DockStream 已标过时。我们用 ExternalProcess 调 AutoDock Vina，线上每个字节都看得见。配体用 meeko，受体用 Open Babel。公开口袋：PDB 1IEP，Abl 加伊马替尼。
+
+和教程 03 一样：先 run_type scoring 再 RL。几何平均：QED 权重 0.3，Vina 权重 1。reverse sigmoid 把大约 -5 到 -12 千卡映射到 0 到 1。exhaustiveness 1 只是冒烟。生产要用更高搜索、多样性过滤和队列。
+
+种子 42 的先验池：37 个唯一 SMILES。Vina 原始分从 -12.1 到 -4.6。大约 199 秒。同一盒子里 exhaustiveness 1 的伊马替尼大约 -9.4。原始对接最好的分子 QED 可以很低——几何平均允许不同意。短 RL：5 步乘 batch 8，大约 123 秒，噪声是故意的。它证明回路通了，不证明你有苗头系列。
+
+盒子错、exhaustiveness 太低、互变异构不对、蛋白链不对——亲和力很好看，构象是胡说。一定要把顶部 PDBQT 叠在受体上看。Score 0.0 常常是 3D 嵌入或 Vina 失败。保留 QED 或 alerts，免得发明一堆油腻砖头。
+
+手册盒子大约 30 埃，中心在 A 链 STI。JSON 进 JSON 出：payload 键是 vina_score，外加 vina_ok。嵌入失败返回 0.0。池子顶部构象用 exhaustiveness 4 重对接，名次仍接近 exhaustiveness 1：-12.07、-10.93、-9.93。还是要叠在受体上看。带一点 QED 的几何平均，所以原始对接最好的分子可能输掉总分。
+
+什么时候要在对接 RL 之前做迁移学习？当 prior 很少吐出能进口袋的化学型。没被采样到的东西，对接奖励也给不了。这不是对接栏目的 Vina 教程——那在 Docking 下面。这里的单元是设计循环。
+
+健全性对接用的伊马替尼 SMILES 写在章节里。按 exhaustiveness 不同，大约 -9 到 -12。如果共晶配体重对接就很差，先修质子化和盒子，再让 RL 去优化一个谎言。永远先在固定列表上调试 oracle。
+
+口袋文件、ExternalProcess 脚本和 CSV 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 09：给昂贵 oracle 扩规模和监控。

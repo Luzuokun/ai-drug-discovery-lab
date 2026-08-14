@@ -1,0 +1,6 @@
+0:00 Not a new algorithm
+0:12 Easy then hard
+0:55 max_steps kills the rest
+1:40 Early-stop at step 12
+2:55 Auto vs manual
+3:35 Site and GitHub

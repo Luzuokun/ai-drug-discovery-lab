@@ -10,4 +10,8 @@ From Tutorial 01 we took 96 unique valid molecules. Scoring config: geometric me
 
 Mean score 0.66. Median 0.79. Max 0.97. Forty-four molecules above 0.8. One molecule hit the large-ring alert and scored zero. A tiny molecule at 151 daltons kept a mediocre QED but its MW transform collapsed near zero — geometric mean dragged the Score to 0.08. That is the transform doing its job.
 
+Read the ugly rows. One molecule hit the large-ring alert and scored zero — the filter is global, not a polite weight. A tiny molecule at 151 daltons kept a mediocre QED, but the molecular-weight transform collapsed near zero, so geometric mean dragged Score to 0.08. That is the transform doing its job. If you had started RL first, the agent would have spent steps dancing around a broken or mis-scaled objective.
+
+CustomAlerts in this demo: rings of eight to seventeen atoms, peroxide-like oxygen-oxygen, charged carbon, sulfur-sulfur, and an illustrative alkyne. Swap them for your project SMARTS. Peak RAM for scoring was about 614 mebibytes. No prior download. No agent. Just chemistry you can debug.
+
 Debug the reward on a fixed list before reinforcement learning burns compute. Full commands, the scoring config, and scoring.csv live on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 04 — train an agent so high scores become more probable. Link in the description.

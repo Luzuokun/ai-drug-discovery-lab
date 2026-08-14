@@ -1,0 +1,15 @@
+You do not have a generative model until you have a real sampled.csv. This episode installs REINVENT4 and proves it with molecules — on CPU, seed 42.
+
+pip install reinvent will not work. REINVENT4 is cloned and installed with install.py so PyTorch matches CPU or CUDA. Python must be 3.11 or newer. The prior is not a filename trophy. It is the trained distribution that emits SMILES.
+
+Three words. Prior: the frozen chemical brain from Zenodo — here reinvent_pubchem.prior. Agent: a trainable copy you will later fine-tune with reinforcement learning. Vocabulary: the SMILES tokens stored inside the prior file. Sampling asks the prior for molecules. It does not score them yet.
+
+Config: run_type sampling, device cpu, num_smiles 100, unique_molecules true, seed 42. The handbook run finished in about 3.5 seconds and peaked near 550 mebibytes. One hundred requested. Four invalid strings dropped. Ninety-six unique valid molecules written. Columns: SMILES, SMILES_state, NLL. NLL min 21.37, mean 36.44, max 76.98. Lower NLL means the model was more confident. There is no Score column — sampling has no reward.
+
+unique_molecules true is a request, not a guarantee — duplicates and invalids vanish after generation. High NLL is unusual chemistry, not a crash. If you ever see Score all zeros, that is a scoring bug in a later run_type, not a failed sample. Wrong prior file or a truncated Zenodo download is a FileNotFound or load error — check the path.
+
+The log also prints architecture: a three-layer LSTM, about 5.9 million parameters, embedding size 256, hidden size 512, vocabulary 131 tokens. You do not pick those numbers for this tutorial — they ride inside the prior. GPU is optional here. Sampling on CPU in seconds is the point. CUDA matters later for long transfer learning and RL, and the toolkit must match the driver. Conda or venv isolates RDKit and PyTorch from system Python. Download the PubChem Reinvent prior from Zenodo into priors/. Mixing a Mol2Mol file into this sampling TOML is not a fair first run — different generator, different task.
+
+Read sampled.csv like an experiment. SMILES_state 1 means valid. Repeats before dedup happen because sampling is probabilistic. The NLL outlier near 77 is a weird molecule the model barely believes. When you are ready to care about QED and molecular weight, that is Tutorial 03 — still not RL.
+
+Full install commands, the sampling TOML, and sampled.csv live on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 02 if you must choose a prior — or Tutorial 03 to attach a reward. Links in the description.

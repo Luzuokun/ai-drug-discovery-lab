@@ -1,0 +1,246 @@
+{
+  "title_en": "REINVENT4 Tutorial 01: Your First AI Molecules in 4 Minutes",
+  "title_zh": "REINVENT4 教程 01：四分钟拿到第一批 AI 分子",
+  "target_duration_seconds": 240,
+  "hook_en": "You do not have a generative model until you have a real sampled.csv. This episode installs REINVENT4 and proves it with molecules — on CPU, seed 42.",
+  "hook_zh": "在你拿到一份真实的 sampled.csv 之前，你还没有生成模型。这一集安装 REINVENT4，并在 CPU、随机种子 42 上用分子证明它能跑。",
+  "beats": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 12,
+      "label_en": "Hook",
+      "label_zh": "开场",
+      "narration_en": "You do not have a generative model until you have a real sampled.csv. This episode installs REINVENT4 and proves it with molecules — on CPU, seed 42.",
+      "narration_zh": "在你拿到一份真实的 sampled.csv 之前，你还没有生成模型。这一集安装 REINVENT4，并在 CPU、随机种子 42 上用分子证明它能跑。",
+      "visual": "Title card + first molecules"
+    },
+    {
+      "id": "problem",
+      "start_sec": 12,
+      "end_sec": 50,
+      "label_en": "Problem",
+      "label_zh": "问题",
+      "narration_en": "pip install reinvent will not work. REINVENT4 is cloned and installed with install.py so PyTorch matches CPU or CUDA. Python must be 3.11 or newer. The prior is not a filename trophy. It is the trained distribution that emits SMILES.",
+      "narration_zh": "直接 pip install reinvent 行不通。REINVENT4 要克隆仓库，用 install.py 让 PyTorch 匹配 CPU 或 CUDA。Python 需要 3.11 及以上。Prior 不是文件名奖杯，而是会吐出 SMILES 的训练分布。",
+      "visual": "Install decision cards"
+    },
+    {
+      "id": "model",
+      "start_sec": 50,
+      "end_sec": 95,
+      "label_en": "Mental model",
+      "label_zh": "心智模型",
+      "narration_en": "Three words. Prior: the frozen chemical brain from Zenodo — here reinvent_pubchem.prior. Agent: a trainable copy you will later fine-tune with reinforcement learning. Vocabulary: the SMILES tokens stored inside the prior file. Sampling asks the prior for molecules. It does not score them yet.",
+      "narration_zh": "三个词。Prior：Zenodo 上冻结的化学大脑，这里是 reinvent_pubchem.prior。Agent：稍后用强化学习微调的可训练副本。词表：写在 prior 文件里的 SMILES 记号。采样只是向 prior 要分子，还没有打分。",
+      "visual": "Prior / agent / vocab diagram"
+    },
+    {
+      "id": "proof",
+      "start_sec": 95,
+      "end_sec": 170,
+      "label_en": "Proof",
+      "label_zh": "证据",
+      "narration_en": "Config: run_type sampling, device cpu, num_smiles 100, unique_molecules true, seed 42. The handbook run finished in about 3.5 seconds and peaked near 550 mebibytes. One hundred requested. Four invalid strings dropped. Ninety-six unique valid molecules written. Columns: SMILES, SMILES_state, NLL. NLL min 21.37, mean 36.44, max 76.98. Lower NLL means the model was more confident. There is no Score column — sampling has no reward.",
+      "narration_zh": "配置：run_type sampling，CPU，num_smiles 100，unique_molecules 打开，种子 42。手册这次跑大约 3.5 秒，峰值内存约 550 MiB。请求 100 个，4 条无效被丢掉，写出 96 个唯一有效分子。列是 SMILES、SMILES_state、NLL。NLL 最小 21.37，均值 36.44，最大 76.98。NLL 越低，模型越自信。没有 Score 列——采样还没有奖励。",
+      "visual": "first-molecules.png + metrics card"
+    },
+    {
+      "id": "failures",
+      "start_sec": 170,
+      "end_sec": 215,
+      "label_en": "Failure modes",
+      "label_zh": "失败模式",
+      "narration_en": "unique_molecules true is a request, not a guarantee — duplicates and invalids vanish after generation. High NLL is unusual chemistry, not a crash. If you ever see Score all zeros, that is a scoring bug in a later run_type, not a failed sample. Wrong prior file or a truncated Zenodo download is a FileNotFound or load error — check the path.",
+      "narration_zh": "unique_molecules 为真只是请求，不是保证——重复和无效会在生成后消失。高 NLL 是少见化学，不是崩溃。如果 Score 全是零，那是后续评分配置的问题，不是采样失败。Prior 路径错了或 Zenodo 下到一半，才会找不到文件。",
+      "visual": "Common errors cards"
+    },
+    {
+      "id": "cta",
+      "start_sec": 215,
+      "end_sec": 240,
+      "label_en": "CTA",
+      "label_zh": "结尾",
+      "narration_en": "Full install commands, the sampling TOML, and sampled.csv live on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 02 if you must choose a prior — or Tutorial 03 to attach a reward. Links in the description.",
+      "narration_zh": "完整安装命令、采样 TOML 和 sampled.csv 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集：需要选 prior 看教程 02；要接奖励看教程 03。链接在简介里。",
+      "visual": "CTA end card"
+    }
+  ],
+  "script_en": "# REINVENT4 Tutorial 01: Your First AI Molecules in 4 Minutes\n\n## [0:00–0:12] Hook\n\nYou do not have a generative model until you have a real sampled.csv. This episode installs REINVENT4 and proves it with molecules — on CPU, seed 42.\n\n## [0:12–0:50] Problem\n\npip install reinvent will not work. REINVENT4 is cloned and installed with install.py so PyTorch matches CPU or CUDA. Python must be 3.11 or newer. The prior is not a filename trophy. It is the trained distribution that emits SMILES.\n\n## [0:50–1:35] Mental model\n\nThree words. Prior: the frozen chemical brain from Zenodo — here reinvent_pubchem.prior. Agent: a trainable copy you will later fine-tune with reinforcement learning. Vocabulary: the SMILES tokens stored inside the prior file. Sampling asks the prior for molecules. It does not score them yet.\n\n## [1:35–2:50] Proof\n\nConfig: run_type sampling, device cpu, num_smiles 100, unique_molecules true, seed 42. The handbook run finished in about 3.5 seconds and peaked near 550 mebibytes. One hundred requested. Four invalid strings dropped. Ninety-six unique valid molecules written. Columns: SMILES, SMILES_state, NLL. NLL min 21.37, mean 36.44, max 76.98. Lower NLL means the model was more confident. There is no Score column — sampling has no reward.\n\n## [2:50–3:35] Failure modes\n\nunique_molecules true is a request, not a guarantee — duplicates and invalids vanish after generation. High NLL is unusual chemistry, not a crash. If you ever see Score all zeros, that is a scoring bug in a later run_type, not a failed sample. Wrong prior file or a truncated Zenodo download is a FileNotFound or load error — check the path.\n\n## [3:35–4:00] CTA\n\nFull install commands, the sampling TOML, and sampled.csv live on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 02 if you must choose a prior — or Tutorial 03 to attach a reward. Links in the description.\n",
+  "script_zh": "# REINVENT4 教程 01：四分钟拿到第一批 AI 分子\n\n## [0:00–0:12] 开场\n\n在你拿到一份真实的 sampled.csv 之前，你还没有生成模型。这一集安装 REINVENT4，并在 CPU、随机种子 42 上用分子证明它能跑。\n\n## [0:12–0:50] 问题\n\n直接 pip install reinvent 行不通。REINVENT4 要克隆仓库，用 install.py 让 PyTorch 匹配 CPU 或 CUDA。Python 需要 3.11 及以上。Prior 不是文件名奖杯，而是会吐出 SMILES 的训练分布。\n\n## [0:50–1:35] 心智模型\n\n三个词。Prior：Zenodo 上冻结的化学大脑，这里是 reinvent_pubchem.prior。Agent：稍后用强化学习微调的可训练副本。词表：写在 prior 文件里的 SMILES 记号。采样只是向 prior 要分子，还没有打分。\n\n## [1:35–2:50] 证据\n\n配置：run_type sampling，CPU，num_smiles 100，unique_molecules 打开，种子 42。手册这次跑大约 3.5 秒，峰值内存约 550 MiB。请求 100 个，4 条无效被丢掉，写出 96 个唯一有效分子。列是 SMILES、SMILES_state、NLL。NLL 最小 21.37，均值 36.44，最大 76.98。NLL 越低，模型越自信。没有 Score 列——采样还没有奖励。\n\n## [2:50–3:35] 失败模式\n\nunique_molecules 为真只是请求，不是保证——重复和无效会在生成后消失。高 NLL 是少见化学，不是崩溃。如果 Score 全是零，那是后续评分配置的问题，不是采样失败。Prior 路径错了或 Zenodo 下到一半，才会找不到文件。\n\n## [3:35–4:00] 结尾\n\n完整安装命令、采样 TOML 和 sampled.csv 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集：需要选 prior 看教程 02；要接奖励看教程 03。链接在简介里。\n",
+  "voiceover_en": "You do not have a generative model until you have a real sampled.csv. This episode installs REINVENT4 and proves it with molecules — on CPU, seed 42.\n\npip install reinvent will not work. REINVENT4 is cloned and installed with install.py so PyTorch matches CPU or CUDA. Python must be 3.11 or newer. The prior is not a filename trophy. It is the trained distribution that emits SMILES.\n\nThree words. Prior: the frozen chemical brain from Zenodo — here reinvent_pubchem.prior. Agent: a trainable copy you will later fine-tune with reinforcement learning. Vocabulary: the SMILES tokens stored inside the prior file. Sampling asks the prior for molecules. It does not score them yet.\n\nConfig: run_type sampling, device cpu, num_smiles 100, unique_molecules true, seed 42. The handbook run finished in about 3.5 seconds and peaked near 550 mebibytes. One hundred requested. Four invalid strings dropped. Ninety-six unique valid molecules written. Columns: SMILES, SMILES_state, NLL. NLL min 21.37, mean 36.44, max 76.98. Lower NLL means the model was more confident. There is no Score column — sampling has no reward.\n\nunique_molecules true is a request, not a guarantee — duplicates and invalids vanish after generation. High NLL is unusual chemistry, not a crash. If you ever see Score all zeros, that is a scoring bug in a later run_type, not a failed sample. Wrong prior file or a truncated Zenodo download is a FileNotFound or load error — check the path.\n\nFull install commands, the sampling TOML, and sampled.csv live on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 02 if you must choose a prior — or Tutorial 03 to attach a reward. Links in the description.\n",
+  "voiceover_zh": "在你拿到一份真实的 sampled.csv 之前，你还没有生成模型。这一集安装 REINVENT4，并在 CPU、随机种子 42 上用分子证明它能跑。\n\n直接 pip install reinvent 行不通。REINVENT4 要克隆仓库，用 install.py 让 PyTorch 匹配 CPU 或 CUDA。Python 需要 3.11 及以上。Prior 不是文件名奖杯，而是会吐出 SMILES 的训练分布。\n\n三个词。Prior：Zenodo 上冻结的化学大脑，这里是 reinvent_pubchem.prior。Agent：稍后用强化学习微调的可训练副本。词表：写在 prior 文件里的 SMILES 记号。采样只是向 prior 要分子，还没有打分。\n\n配置：run_type sampling，CPU，num_smiles 100，unique_molecules 打开，种子 42。手册这次跑大约 3.5 秒，峰值内存约 550 MiB。请求 100 个，4 条无效被丢掉，写出 96 个唯一有效分子。列是 SMILES、SMILES_state、NLL。NLL 最小 21.37，均值 36.44，最大 76.98。NLL 越低，模型越自信。没有 Score 列——采样还没有奖励。\n\nunique_molecules 为真只是请求，不是保证——重复和无效会在生成后消失。高 NLL 是少见化学，不是崩溃。如果 Score 全是零，那是后续评分配置的问题，不是采样失败。Prior 路径错了或 Zenodo 下到一半，才会找不到文件。\n\n完整安装命令、采样 TOML 和 sampled.csv 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集：需要选 prior 看教程 02；要接奖励看教程 03。链接在简介里。\n",
+  "storyboard": [
+    {
+      "timecode": "0:00–0:12",
+      "shot": "Title card + first molecules",
+      "on_screen_text": "First molecules · seed 42",
+      "voice_beat": "Hook",
+      "asset_type": "title_card"
+    },
+    {
+      "timecode": "0:12–0:50",
+      "shot": "Install decision cards",
+      "on_screen_text": "Python 3.11+ · CPU is enough",
+      "voice_beat": "Problem",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "0:50–1:35",
+      "shot": "Prior / agent / vocab diagram",
+      "on_screen_text": "Prior · Agent · Vocabulary",
+      "voice_beat": "Mental model",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "1:35–2:50",
+      "shot": "first-molecules.png + metrics card",
+      "on_screen_text": "96 molecules · ~3.5 s · ~550 MiB",
+      "voice_beat": "Proof",
+      "asset_type": "molecule_anim"
+    },
+    {
+      "timecode": "2:50–3:35",
+      "shot": "Common errors cards",
+      "on_screen_text": "unique ≠ 100 · no Score yet",
+      "voice_beat": "Failure modes",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "3:35–4:00",
+      "shot": "CTA end card",
+      "on_screen_text": "Site → GitHub",
+      "voice_beat": "CTA",
+      "asset_type": "cta_card"
+    }
+  ],
+  "thumbnail_title": "First molecules · seed 42",
+  "thumbnail_prompt": "Dark teal lab, glowing SMILES ticker becoming 2D molecules, large empty top third for title First molecules. Laptop with terminal vibe, no logos.",
+  "broll": [
+    {
+      "item": "Terminal: reinvent --version",
+      "why": "Prove the CLI exists",
+      "source_hint": "Optional 剪映 insert"
+    },
+    {
+      "item": "sampled.csv in a spreadsheet",
+      "why": "Show three columns",
+      "source_hint": "assets CSV / handbook"
+    },
+    {
+      "item": "Molecule grid",
+      "why": "Visual payoff",
+      "source_hint": "first-molecules.png"
+    }
+  ],
+  "youtube_description_en": "REINVENT4 Tutorial 01: Your First AI Molecules in 4 Minutes\n\nInstall REINVENT4 the way the handbook does it, sample 96 molecules on CPU with seed 42, and learn why NLL is not a Score.\n\nThis is a Discovery cut. The handbook is the knowledge base. GitHub is the reproducible configs and artifacts.\n\n🔗 Full tutorial (site)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/01-installation-first-molecule/\n中文: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/01-installation-first-molecule/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/01-installation-first-molecule.md\n\n📺 Series playlist\nTODO_PLAYLIST_URL\n\nChapters\n0:00 You need sampled.csv\n0:12 Install for real\n0:50 Prior vs agent\n1:35 96 molecules, seed 42\n2:50 What NLL is not\n3:35 Site and GitHub\n\n#REINVENT4 #DrugDiscovery #GenerativeAI #Cheminformatics #OpenScience\n",
+  "youtube_description_zh": "REINVENT4 Tutorial 01: Your First AI Molecules in 4 Minutes\n\n按手册安装 REINVENT4，在 CPU、种子 42 上采样 96 个分子，并搞清 NLL 不是 Score。\n\n视频负责发现；完整命令与产物在网站；可复现配置在 GitHub。\n\n🔗 完整教程\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/01-installation-first-molecule/\nEnglish: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/01-installation-first-molecule/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/01-installation-first-molecule.md\n\n📺 系列播放列表\nTODO_PLAYLIST_URL\n\n章节\n0:00 You need sampled.csv\n0:12 Install for real\n0:50 Prior vs agent\n1:35 96 molecules, seed 42\n2:50 What NLL is not\n3:35 Site and GitHub\n\n#REINVENT4 #药物发现 #生成式AI\n",
+  "chapters": [
+    {
+      "timecode": "0:00",
+      "title": "You need sampled.csv"
+    },
+    {
+      "timecode": "0:12",
+      "title": "Install for real"
+    },
+    {
+      "timecode": "0:50",
+      "title": "Prior vs agent"
+    },
+    {
+      "timecode": "1:35",
+      "title": "96 molecules, seed 42"
+    },
+    {
+      "timecode": "2:50",
+      "title": "What NLL is not"
+    },
+    {
+      "timecode": "3:35",
+      "title": "Site and GitHub"
+    }
+  ],
+  "tags": [
+    "REINVENT4",
+    "drug discovery",
+    "generative chemistry",
+    "AI drug design",
+    "cheminformatics",
+    "molecular generation",
+    "open science",
+    "AstraZeneca REINVENT",
+    "tutorial",
+    "machine learning",
+    "installation",
+    "SMILES",
+    "sampling"
+  ],
+  "subtitles_en": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "No sampled.csv, no generative model."
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 50,
+      "text": "Clone + install.py. Python 3.11+. The prior is the distribution."
+    },
+    {
+      "start_sec": 50,
+      "end_sec": 95,
+      "text": "Prior frozen. Agent trainable. Vocab lives in the prior."
+    },
+    {
+      "start_sec": 95,
+      "end_sec": 170,
+      "text": "100 requested → 96 unique. NLL 21–77. No Score column."
+    },
+    {
+      "start_sec": 170,
+      "end_sec": 215,
+      "text": "Unique is after-the-fact. Score=0 is not sampling."
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "Site = tutorial. GitHub = reproduce. Next: 02 or 03."
+    }
+  ],
+  "subtitles_zh": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "没有 sampled.csv，就还没有生成模型。"
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 50,
+      "text": "克隆并用 install.py。Python 3.11+。Prior 才是分布。"
+    },
+    {
+      "start_sec": 50,
+      "end_sec": 95,
+      "text": "Prior 冻结。Agent 可训练。词表在 prior 里。"
+    },
+    {
+      "start_sec": 95,
+      "end_sec": 170,
+      "text": "请求 100 → 唯一 96。NLL 21–77。没有 Score。"
+    },
+    {
+      "start_sec": 170,
+      "end_sec": 215,
+      "text": "去重在事后。Score=0 不是采样失败。"
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "网站看教程。GitHub 复现。下一集 02 或 03。"
+    }
+  ],
+  "verify_flags": [
+    "[VERIFY] Playlist URL still TODO_PLAYLIST_URL"
+  ]
+}

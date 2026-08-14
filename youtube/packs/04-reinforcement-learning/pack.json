@@ -1,0 +1,245 @@
+{
+  "title_en": "REINVENT4 Tutorial 04: RL Makes High Scores More Probable",
+  "title_zh": "REINVENT4 教程 04：强化学习让高分更可能出现",
+  "target_duration_seconds": 240,
+  "hook_en": "Scoring ranks a list you already have. Reinforcement learning changes what the generator emits next. That is the jump from Tutorial 03 to 04.",
+  "hook_zh": "评分只给已有分子排队。强化学习会改变生成器接下来吐出什么。这就是教程 03 到 04 的跳跃。",
+  "beats": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 12,
+      "label_en": "Hook",
+      "label_zh": "开场",
+      "narration_en": "Scoring ranks a list you already have. Reinforcement learning changes what the generator emits next. That is the jump from Tutorial 03 to 04.",
+      "narration_zh": "评分只给已有分子排队。强化学习会改变生成器接下来吐出什么。这就是教程 03 到 04 的跳跃。",
+      "visual": "Score vs step hook"
+    },
+    {
+      "id": "problem",
+      "start_sec": 12,
+      "end_sec": 48,
+      "label_en": "Problem",
+      "label_zh": "问题",
+      "narration_en": "Drug discovery needs more molecules like the good ones — not a static spreadsheet. Each RL step samples a batch, scores it, and updates the agent so high-scoring sequences become more probable. The prior stays frozen as a chemical-grammar anchor. That is DAP — Direct Augmented Prior.",
+      "narration_zh": "药物发现需要更多像好分子的分子，而不是一张静态表。每一步 RL 采样一批、打分、更新 agent，让高分序列更可能出现。Prior 冻结，充当化学语法锚。这就是 DAP。",
+      "visual": "RL loop diagram"
+    },
+    {
+      "id": "model",
+      "start_sec": 48,
+      "end_sec": 95,
+      "label_en": "Mental model",
+      "label_zh": "心智模型",
+      "narration_en": "run_type is staged_learning even for one stage. prior_file and agent_file start as the same PubChem prior. Scoring must nest under stage.scoring — a bare scoring section fails validation. That is the number-one copy-paste trap from Tutorial 03. Unique_sequences is not accepted in REINVENT 4.8.24 RL schema. DAP sigma 128 and rate 1e-4 are the handbook defaults.",
+      "narration_zh": "即使只有一个阶段，run_type 也是 staged_learning。prior_file 和 agent_file 一开始指向同一个 PubChem prior。评分必须写在 stage.scoring 下，顶层 scoring 会校验失败。这是从教程 03 复制过来的第一陷阱。4.8.24 的 RL 模式不接受 unique_sequences。DAP 的 sigma 128、学习率 1e-4 是手册默认。",
+      "visual": "TOML nesting card"
+    },
+    {
+      "id": "proof",
+      "start_sec": 95,
+      "end_sec": 175,
+      "label_en": "Proof",
+      "label_zh": "证据",
+      "narration_en": "Twenty-five steps, batch 64, CPU, seed 42. About 27 seconds, peak RAM about 1.5 gibibytes. Mean Score 0.66 to 0.79. Agent NLL 34.79 to 27.15. Fraction above 0.8 goes 53 percent to 66 percent. Checkpoint rl_agent.chkpt is about 23 megabytes. Demo length is not a production campaign — scale max_steps when the library matters.",
+      "narration_zh": "25 步，batch 64，CPU，种子 42。大约 27 秒，峰值内存约 1.5 GiB。平均 Score 从 0.66 到 0.79。Agent NLL 从 34.79 到 27.15。高于 0.8 的比例从 53% 到 66%。检查点约 23 MB。演示长度不是生产战役——库真要出货时再加大 max_steps。",
+      "visual": "score-vs-step.png"
+    },
+    {
+      "id": "failures",
+      "start_sec": 175,
+      "end_sec": 215,
+      "label_en": "Failure modes",
+      "label_zh": "失败模式",
+      "narration_en": "Scores stuck near zero? Debug the reward with run_type scoring on a fixed list first. No diversity filter here on purpose — that is Tutorial 05. To continue later, point agent_file at the checkpoint and keep prior_file as the original prior.",
+      "narration_zh": "分数贴着零？先用 run_type scoring 在固定列表上调试奖励。本章故意不加多样性过滤器，那是教程 05。要续跑，把 agent_file 指到检查点，prior_file 仍用原来的 prior。",
+      "visual": "Checkpoint reuse card"
+    },
+    {
+      "id": "cta",
+      "start_sec": 215,
+      "end_sec": 240,
+      "label_en": "CTA",
+      "label_zh": "结尾",
+      "narration_en": "Full TOML, CSV, and the Score-versus-step figure are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 05 — stop scaffold collapse once RL starts working.",
+      "narration_zh": "完整 TOML、CSV 和 Score 曲线在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 05：RL 一生效就拦住骨架塌缩。",
+      "visual": "CTA"
+    }
+  ],
+  "script_en": "# REINVENT4 Tutorial 04: RL Makes High Scores More Probable\n\n## [0:00–0:12] Hook\n\nScoring ranks a list you already have. Reinforcement learning changes what the generator emits next. That is the jump from Tutorial 03 to 04.\n\n## [0:12–0:48] Problem\n\nDrug discovery needs more molecules like the good ones — not a static spreadsheet. Each RL step samples a batch, scores it, and updates the agent so high-scoring sequences become more probable. The prior stays frozen as a chemical-grammar anchor. That is DAP — Direct Augmented Prior.\n\n## [0:48–1:35] Mental model\n\nrun_type is staged_learning even for one stage. prior_file and agent_file start as the same PubChem prior. Scoring must nest under stage.scoring — a bare scoring section fails validation. That is the number-one copy-paste trap from Tutorial 03. Unique_sequences is not accepted in REINVENT 4.8.24 RL schema. DAP sigma 128 and rate 1e-4 are the handbook defaults.\n\n## [1:35–2:55] Proof\n\nTwenty-five steps, batch 64, CPU, seed 42. About 27 seconds, peak RAM about 1.5 gibibytes. Mean Score 0.66 to 0.79. Agent NLL 34.79 to 27.15. Fraction above 0.8 goes 53 percent to 66 percent. Checkpoint rl_agent.chkpt is about 23 megabytes. Demo length is not a production campaign — scale max_steps when the library matters.\n\n## [2:55–3:35] Failure modes\n\nScores stuck near zero? Debug the reward with run_type scoring on a fixed list first. No diversity filter here on purpose — that is Tutorial 05. To continue later, point agent_file at the checkpoint and keep prior_file as the original prior.\n\n## [3:35–4:00] CTA\n\nFull TOML, CSV, and the Score-versus-step figure are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 05 — stop scaffold collapse once RL starts working.\n",
+  "script_zh": "# REINVENT4 教程 04：强化学习让高分更可能出现\n\n## [0:00–0:12] 开场\n\n评分只给已有分子排队。强化学习会改变生成器接下来吐出什么。这就是教程 03 到 04 的跳跃。\n\n## [0:12–0:48] 问题\n\n药物发现需要更多像好分子的分子，而不是一张静态表。每一步 RL 采样一批、打分、更新 agent，让高分序列更可能出现。Prior 冻结，充当化学语法锚。这就是 DAP。\n\n## [0:48–1:35] 心智模型\n\n即使只有一个阶段，run_type 也是 staged_learning。prior_file 和 agent_file 一开始指向同一个 PubChem prior。评分必须写在 stage.scoring 下，顶层 scoring 会校验失败。这是从教程 03 复制过来的第一陷阱。4.8.24 的 RL 模式不接受 unique_sequences。DAP 的 sigma 128、学习率 1e-4 是手册默认。\n\n## [1:35–2:55] 证据\n\n25 步，batch 64，CPU，种子 42。大约 27 秒，峰值内存约 1.5 GiB。平均 Score 从 0.66 到 0.79。Agent NLL 从 34.79 到 27.15。高于 0.8 的比例从 53% 到 66%。检查点约 23 MB。演示长度不是生产战役——库真要出货时再加大 max_steps。\n\n## [2:55–3:35] 失败模式\n\n分数贴着零？先用 run_type scoring 在固定列表上调试奖励。本章故意不加多样性过滤器，那是教程 05。要续跑，把 agent_file 指到检查点，prior_file 仍用原来的 prior。\n\n## [3:35–4:00] 结尾\n\n完整 TOML、CSV 和 Score 曲线在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 05：RL 一生效就拦住骨架塌缩。\n",
+  "voiceover_en": "Scoring ranks a list you already have. Reinforcement learning changes what the generator emits next. That is the jump from Tutorial 03 to 04.\n\nDrug discovery needs more molecules like the good ones — not a static spreadsheet. Each RL step samples a batch, scores it, and updates the agent so high-scoring sequences become more probable. The prior stays frozen as a chemical-grammar anchor. That is DAP — Direct Augmented Prior.\n\nrun_type is staged_learning even for one stage. prior_file and agent_file start as the same PubChem prior. Scoring must nest under stage.scoring — a bare scoring section fails validation. That is the number-one copy-paste trap from Tutorial 03. Unique_sequences is not accepted in REINVENT 4.8.24 RL schema. DAP sigma 128 and rate 1e-4 are the handbook defaults.\n\nTwenty-five steps, batch 64, CPU, seed 42. About 27 seconds, peak RAM about 1.5 gibibytes. Mean Score 0.66 to 0.79. Agent NLL 34.79 to 27.15. Fraction above 0.8 goes 53 percent to 66 percent. Checkpoint rl_agent.chkpt is about 23 megabytes. Demo length is not a production campaign — scale max_steps when the library matters.\n\nScores stuck near zero? Debug the reward with run_type scoring on a fixed list first. No diversity filter here on purpose — that is Tutorial 05. To continue later, point agent_file at the checkpoint and keep prior_file as the original prior.\n\nFull TOML, CSV, and the Score-versus-step figure are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 05 — stop scaffold collapse once RL starts working.\n",
+  "voiceover_zh": "评分只给已有分子排队。强化学习会改变生成器接下来吐出什么。这就是教程 03 到 04 的跳跃。\n\n药物发现需要更多像好分子的分子，而不是一张静态表。每一步 RL 采样一批、打分、更新 agent，让高分序列更可能出现。Prior 冻结，充当化学语法锚。这就是 DAP。\n\n即使只有一个阶段，run_type 也是 staged_learning。prior_file 和 agent_file 一开始指向同一个 PubChem prior。评分必须写在 stage.scoring 下，顶层 scoring 会校验失败。这是从教程 03 复制过来的第一陷阱。4.8.24 的 RL 模式不接受 unique_sequences。DAP 的 sigma 128、学习率 1e-4 是手册默认。\n\n25 步，batch 64，CPU，种子 42。大约 27 秒，峰值内存约 1.5 GiB。平均 Score 从 0.66 到 0.79。Agent NLL 从 34.79 到 27.15。高于 0.8 的比例从 53% 到 66%。检查点约 23 MB。演示长度不是生产战役——库真要出货时再加大 max_steps。\n\n分数贴着零？先用 run_type scoring 在固定列表上调试奖励。本章故意不加多样性过滤器，那是教程 05。要续跑，把 agent_file 指到检查点，prior_file 仍用原来的 prior。\n\n完整 TOML、CSV 和 Score 曲线在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 05：RL 一生效就拦住骨架塌缩。\n",
+  "storyboard": [
+    {
+      "timecode": "0:00–0:12",
+      "shot": "Score vs step hook",
+      "on_screen_text": "Score up · NLL down",
+      "voice_beat": "Hook",
+      "asset_type": "title_card"
+    },
+    {
+      "timecode": "0:12–0:48",
+      "shot": "RL loop diagram",
+      "on_screen_text": "sample → score → DAP update",
+      "voice_beat": "Problem",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "0:48–1:35",
+      "shot": "TOML nesting card",
+      "on_screen_text": "[stage.scoring] required",
+      "voice_beat": "Mental model",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "1:35–2:55",
+      "shot": "score-vs-step.png",
+      "on_screen_text": "25 steps · batch 64",
+      "voice_beat": "Proof",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "2:55–3:35",
+      "shot": "Checkpoint reuse card",
+      "on_screen_text": "agent_file = rl_agent.chkpt",
+      "voice_beat": "Failure modes",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "3:35–4:00",
+      "shot": "CTA",
+      "on_screen_text": "Site → GitHub → Tutorial 05",
+      "voice_beat": "CTA",
+      "asset_type": "cta_card"
+    }
+  ],
+  "thumbnail_title": "Score ↑  NLL ↓",
+  "thumbnail_prompt": "Dark teal, rising score curve and falling NLL curve as two glowing lines, empty top for title.",
+  "broll": [
+    {
+      "item": "score-vs-step.png",
+      "why": "Core proof",
+      "source_hint": "chapter figure"
+    },
+    {
+      "item": "rl.toml nesting",
+      "why": "Show stage.scoring",
+      "source_hint": "optional screencast"
+    },
+    {
+      "item": "top-rl-molecules.png",
+      "why": "Late-step chemistry",
+      "source_hint": "chapter figure"
+    }
+  ],
+  "youtube_description_en": "REINVENT4 Tutorial 04: RL Makes High Scores More Probable\n\nSingle-stage staged_learning on CPU, seed 42: Score rises, agent NLL falls, and we show the stage.scoring trap.\n\nThis is a Discovery cut. The handbook is the knowledge base. GitHub is the reproducible configs and artifacts.\n\n🔗 Full tutorial (site)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/04-reinforcement-learning/\n中文: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/04-reinforcement-learning/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/04-reinforcement-learning.md\n\n📺 Series playlist\nTODO_PLAYLIST_URL\n\nChapters\n0:00 Rank vs generate\n0:12 The RL loop\n0:48 stage.scoring trap\n1:35 0.66 to 0.79 in 25 steps\n2:55 When Score is flat\n3:35 Site and GitHub\n\n#REINVENT4 #DrugDiscovery #GenerativeAI #Cheminformatics #OpenScience\n",
+  "youtube_description_zh": "REINVENT4 Tutorial 04: RL Makes High Scores More Probable\n\nCPU、种子 42 的单阶段 staged_learning：Score 上升、Agent NLL 下降，并讲清 stage.scoring 陷阱。\n\n视频负责发现；完整命令与产物在网站；可复现配置在 GitHub。\n\n🔗 完整教程\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/04-reinforcement-learning/\nEnglish: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/04-reinforcement-learning/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/04-reinforcement-learning.md\n\n📺 系列播放列表\nTODO_PLAYLIST_URL\n\n章节\n0:00 Rank vs generate\n0:12 The RL loop\n0:48 stage.scoring trap\n1:35 0.66 to 0.79 in 25 steps\n2:55 When Score is flat\n3:35 Site and GitHub\n\n#REINVENT4 #药物发现 #生成式AI\n",
+  "chapters": [
+    {
+      "timecode": "0:00",
+      "title": "Rank vs generate"
+    },
+    {
+      "timecode": "0:12",
+      "title": "The RL loop"
+    },
+    {
+      "timecode": "0:48",
+      "title": "stage.scoring trap"
+    },
+    {
+      "timecode": "1:35",
+      "title": "0.66 to 0.79 in 25 steps"
+    },
+    {
+      "timecode": "2:55",
+      "title": "When Score is flat"
+    },
+    {
+      "timecode": "3:35",
+      "title": "Site and GitHub"
+    }
+  ],
+  "tags": [
+    "REINVENT4",
+    "drug discovery",
+    "generative chemistry",
+    "AI drug design",
+    "cheminformatics",
+    "molecular generation",
+    "open science",
+    "AstraZeneca REINVENT",
+    "tutorial",
+    "machine learning",
+    "reinforcement learning",
+    "DAP"
+  ],
+  "subtitles_en": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "Scoring ranks. RL rewrites the generator."
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 48,
+      "text": "Sample, score, update. Prior stays frozen."
+    },
+    {
+      "start_sec": 48,
+      "end_sec": 95,
+      "text": "stage.scoring, not scoring. DAP sigma 128."
+    },
+    {
+      "start_sec": 95,
+      "end_sec": 175,
+      "text": "Score 0.66→0.79. NLL 34.79→27.15. ~27 s CPU."
+    },
+    {
+      "start_sec": 175,
+      "end_sec": 215,
+      "text": "Flat scores → fix the reward. Resume via agent_file."
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "Site and GitHub. Next: diversity filter."
+    }
+  ],
+  "subtitles_zh": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "评分是排队。RL 改写生成器。"
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 48,
+      "text": "采样、打分、更新。Prior 保持冻结。"
+    },
+    {
+      "start_sec": 48,
+      "end_sec": 95,
+      "text": "用 stage.scoring，不要用顶层 scoring。"
+    },
+    {
+      "start_sec": 95,
+      "end_sec": 175,
+      "text": "Score 0.66→0.79。NLL 34.79→27.15。约 27 秒。"
+    },
+    {
+      "start_sec": 175,
+      "end_sec": 215,
+      "text": "分数太平 → 先修奖励。用 agent_file 续跑。"
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "网站与 GitHub。下一集：多样性过滤器。"
+    }
+  ],
+  "verify_flags": [
+    "[VERIFY] Playlist URL still TODO_PLAYLIST_URL"
+  ]
+}

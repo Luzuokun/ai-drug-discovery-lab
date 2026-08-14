@@ -112,3 +112,11 @@ REINVENT4, scoring function, QED, AI drug discovery, molecular generation, reinf
 ### Thumbnail
 
 Prefer `assets/ai/thumbnail.png` after xAI generation; until then use `assets/metrics-callout.png` + title **Debug the Reward First**.
+
+## Re-render this environment
+
+```bash
+python scripts/youtube/images_xai.py 03
+python scripts/youtube/tts_xai.py 03 --lang both
+python scripts/youtube/render_slideshow.py 03
+```

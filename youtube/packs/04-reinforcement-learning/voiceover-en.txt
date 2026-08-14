@@ -1,0 +1,17 @@
+Scoring ranks a list you already have. Reinforcement learning changes what the generator emits next. That is the jump from Tutorial 03 to 04.
+
+Drug discovery needs more molecules like the good ones — not a static spreadsheet. Each RL step samples a batch, scores it, and updates the agent so high-scoring sequences become more probable. The prior stays frozen as a chemical-grammar anchor. That is DAP — Direct Augmented Prior.
+
+run_type is staged_learning even for one stage. prior_file and agent_file start as the same PubChem prior. Scoring must nest under stage.scoring — a bare scoring section fails validation. That is the number-one copy-paste trap from Tutorial 03. Unique_sequences is not accepted in REINVENT 4.8.24 RL schema. DAP sigma 128 and rate 1e-4 are the handbook defaults.
+
+Twenty-five steps, batch 64, CPU, seed 42. About 27 seconds, peak RAM about 1.5 gibibytes. Mean Score 0.66 to 0.79. Agent NLL 34.79 to 27.15. Fraction above 0.8 goes 53 percent to 66 percent. Checkpoint rl_agent.chkpt is about 23 megabytes. Demo length is not a production campaign — scale max_steps when the library matters.
+
+Scores stuck near zero? Debug the reward with run_type scoring on a fixed list first. No diversity filter here on purpose — that is Tutorial 05. To continue later, point agent_file at the checkpoint and keep prior_file as the original prior.
+
+How to read the trend. Score up means more molecules land in the QED and molecular-weight sweet spot. Agent NLL down means the policy assigns higher probability to what it now likes. The prior stays the DAP anchor so the agent cannot drift into chemically nonsense space just to chase Score. CustomAlerts failed 54 of 1600 scored molecules across the run. High-scoring late molecules in the handbook figure sit near Score 0.96 with QED above 0.9.
+
+This chapter omits a diversity filter on purpose so RL is the only new variable. Tutorial 05 puts that control back. If you copy unique_sequences from an old blog, 4.8.24 rejects it. Paths are relative to the working directory — run reinvent next to priors/.
+
+Twenty-five steps times batch 64 is 1600 scored molecules. Production campaigns often run hundreds or thousands of steps. Treat this as a learning run you can finish on a laptop. When the library matters, raise max_steps and move to a GPU in Tutorial 09.
+
+Full TOML, CSV, and the Score-versus-step figure are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 05 — stop scaffold collapse once RL starts working.

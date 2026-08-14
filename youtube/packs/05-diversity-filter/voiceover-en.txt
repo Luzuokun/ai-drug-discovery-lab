@@ -1,0 +1,17 @@
+A high Score can be twenty near-copies of benzene. Tutorial 04 made RL work. This episode treats diversity as the experimental control.
+
+Without diversity pressure, RL rediscovers the same easy Murcko core with tiny side-chain edits. The CSV looks great. Chemistry gets duplicates. A diversity filter memorizes scaffolds that already scored well and down-weights further hits in that bucket.
+
+We rerun the Tutorial 04 campaign twice. Same seed 42, same 25 steps, same scoring. One arm has no filter. The other adds a global IdenticalMurckoScaffold diversity filter with bucket_size 25 and minscore 0.4. One variable. Other filter types exist — pick one hypothesis per experiment.
+
+Mean Score at step 25: 0.79 without the filter, 0.74 with it. Unique Murcko scaffolds: 1165 versus 1238. Count of the top scaffold, benzene: 120 versus 101. Step 1 Scores matched at 0.66. Each leg about 27 to 28 seconds on CPU. You trade a little mean Score for a wider library.
+
+If top-scaffold occupancy barely moves, the bucket is too large or minscore never fires. If Score collapses, the filter is starving the agent — loosen bucket_size. Diversity is an experimental knob, not a checkbox you forget after Tutorial 04.
+
+minscore 0.4 ignores junk so the memory is not filled with failures. bucket_size 25 is the official example default — after that many high-scoring hits on one Murcko core, further copies get penalized. Other keys exist: IdenticalTopologicalScaffold, ScaffoldSimilarity, PenalizeSameSmiles. Changing the memory key is a new hypothesis, not a free upgrade.
+
+Never compare a GPU diversity-filter run to a CPU no-filter run and call it science. Seed 42 makes the first batches match; later differences are the filter plus sampling noise. If you need both curriculum and a filter, wait until both knobs are clear — Tutorial 06 discusses purge_memories between stages.
+
+Look at the top-scaffold pictures in the handbook. Without the filter, benzene occupancy dominates. With the filter, the same core still appears — it just cannot eat the whole campaign. That is the trade-off you should be able to defend in a group meeting.
+
+A/B CSVs and figures are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 06 — escalate objectives across stages.
