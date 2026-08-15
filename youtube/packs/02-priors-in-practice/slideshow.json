@@ -1,0 +1,66 @@
+{
+  "slug": "02-priors-in-practice",
+  "audio": "youtube/audio/02-priors-in-practice/en.mp3",
+  "subtitles": "youtube/packs/02-priors-in-practice/subtitles-en.srt",
+  "width": 1920,
+  "height": 1080,
+  "fade_sec": 0.25,
+  "segments": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 15,
+      "image": "assets/ai/hook.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "problem",
+      "start_sec": 15,
+      "end_sec": 55,
+      "image": "assets/ai/mental-model.png",
+      "fallback": "assets/decision-table.png"
+    },
+    {
+      "id": "protocol",
+      "start_sec": 55,
+      "end_sec": 110,
+      "image": "assets/metrics-callout.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "compare",
+      "start_sec": 110,
+      "end_sec": 150,
+      "image": "assets/prior-vs-tl-compare.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "prior_mols",
+      "start_sec": 150,
+      "end_sec": 175,
+      "image": "assets/prior-sample-molecules.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "tl_mols",
+      "start_sec": 175,
+      "end_sec": 200,
+      "image": "assets/tl-sample-molecules.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "decide",
+      "start_sec": 200,
+      "end_sec": 235,
+      "image": "assets/decision-table.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "cta",
+      "start_sec": 235,
+      "end_sec": 270,
+      "image": "assets/ai/cta.png",
+      "fallback": "assets/metrics-callout.png"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+0:00 You need sampled.csv
+0:12 Install for real
+0:50 Prior vs agent
+1:35 96 molecules, seed 42
+2:50 What NLL is not
+3:35 Site and GitHub

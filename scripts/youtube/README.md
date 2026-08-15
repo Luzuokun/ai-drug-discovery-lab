@@ -6,7 +6,7 @@ GitHub = reproducibility.
 ## Recommended flow (minimize manual work)
 
 1. **Text pack** — Cursor skill [`youtube-text-pack`](../../.cursor/skills/youtube-text-pack)  
-   → `youtube/packs/<slug>/` (5–8 min script, storyboard, subs, Description…)
+   → `youtube/packs/<slug>/` (3–5 min script, storyboard, subs, Description…)
 2. **Assets** — chapter figures + SVG cards under `assets/`
 3. **AI stills** (needs `XAI_API_KEY` — Grok Imagine):
 
@@ -30,7 +30,31 @@ GitHub = reproducibility.
 6. **Produce checklist** — skill [`youtube-produce`](../../.cursor/skills/youtube-produce)  
    → `PRODUCE.md` (YouTube paste blocks; CapCut insert-screencast notes)
 
-7. **You** — preview draft → optional CapCut screencast insert → upload.
+7. **You** — preview draft → optional CapCut / 剪映 screencast insert → upload.
+
+## REINVENT4 Discovery drafts (this branch)
+
+EN slideshow + burned subs + xAI TTS (`eve`). Audio/MP4 gitignored; regenerate locally.
+
+| # | Slug | EN duration |
+|---|------|-------------|
+| 01 | `01-installation-first-molecule` | ~3:27 |
+| 02 | `02-priors-in-practice` | ~3:48 |
+| 03 | `03-scoring-function` | ~3:33 |
+| 04 | `04-reinforcement-learning` | ~3:27 |
+| 05 | `05-diversity-filter` | ~2:51 |
+| 06 | `06-curriculum-learning` | ~3:06 |
+| 07 | `07-transfer-learning` | ~3:21 |
+| 08 | `08-docking-guided-design` | ~3:10 |
+
+```bash
+python scripts/youtube/images_xai.py 01   # skip existing
+python scripts/youtube/tts_xai.py 01 --lang both
+python scripts/youtube/render_slideshow.py 01
+```
+
+ZH TTS is in `youtube/audio/<slug>/zh.mp3` (same gitignore). Swap `audio` in `slideshow.json` to render a ZH cut.
+
 
 ## Setup
 

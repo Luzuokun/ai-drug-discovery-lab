@@ -1,0 +1,59 @@
+{
+  "slug": "06-curriculum-learning",
+  "audio": "youtube/audio/06-curriculum-learning/en.mp3",
+  "subtitles": "youtube/packs/06-curriculum-learning/subtitles-en.srt",
+  "width": 1920,
+  "height": 1080,
+  "fade_sec": 0.25,
+  "segments": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 12,
+      "image": "assets/ai/hook.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "problem",
+      "start_sec": 12,
+      "end_sec": 55,
+      "image": "assets/pipeline.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "model",
+      "start_sec": 55,
+      "end_sec": 100,
+      "image": "assets/ai/mental-model.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "proof",
+      "start_sec": 100,
+      "end_sec": 155,
+      "image": "assets/curriculum-score-stages.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "mols",
+      "start_sec": 155,
+      "end_sec": 175,
+      "image": "assets/stage2-top-molecules.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "manual",
+      "start_sec": 175,
+      "end_sec": 215,
+      "image": "assets/manual-curriculum-scores.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "cta",
+      "start_sec": 215,
+      "end_sec": 240,
+      "image": "assets/ai/cta.png",
+      "fallback": "assets/pipeline.png"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+0:00 Eight epochs was a taste
+0:12 The stop rule
+0:50 Overfitting on 145 SMILES
+2:10 TL then RL vs RL-only
+3:10 What to keep
+3:35 Site and GitHub

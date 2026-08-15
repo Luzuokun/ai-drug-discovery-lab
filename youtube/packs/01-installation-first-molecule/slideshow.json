@@ -1,0 +1,59 @@
+{
+  "slug": "01-installation-first-molecule",
+  "audio": "youtube/audio/01-installation-first-molecule/en.mp3",
+  "subtitles": "youtube/packs/01-installation-first-molecule/subtitles-en.srt",
+  "width": 1920,
+  "height": 1080,
+  "fade_sec": 0.25,
+  "segments": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 12,
+      "image": "assets/ai/hook.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "problem",
+      "start_sec": 12,
+      "end_sec": 50,
+      "image": "assets/pipeline.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "model",
+      "start_sec": 50,
+      "end_sec": 95,
+      "image": "assets/ai/mental-model.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "proof",
+      "start_sec": 95,
+      "end_sec": 140,
+      "image": "assets/metrics-callout.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "mols",
+      "start_sec": 140,
+      "end_sec": 170,
+      "image": "assets/first-molecules.png",
+      "fallback": "assets/metrics-callout.png"
+    },
+    {
+      "id": "fail",
+      "start_sec": 170,
+      "end_sec": 215,
+      "image": "assets/ai/failures.png",
+      "fallback": "assets/pipeline.png"
+    },
+    {
+      "id": "cta",
+      "start_sec": 215,
+      "end_sec": 240,
+      "image": "assets/ai/cta.png",
+      "fallback": "assets/pipeline.png"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-# Style guide (5–8 min discovery video)
+# Style guide (3–5 min discovery video)
 
 ## References (pace, not plagiarism)
 
@@ -17,8 +17,8 @@
 
 ## Length
 
-- `target_duration_seconds` between **300 and 480** (5–8 minutes)
-- EN voiceover roughly 750–1100 words; ZH should cover the same beats (not a loose summary)
+- `target_duration_seconds` between **180 and 300** (3–5 minutes)
+- EN voiceover roughly 450–750 words; ZH should cover the same beats (not a loose summary)
 
 ## Voiceover rules
 

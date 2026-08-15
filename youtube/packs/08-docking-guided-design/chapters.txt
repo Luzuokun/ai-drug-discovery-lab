@@ -1,0 +1,6 @@
+0:00 QED is not a pose
+0:12 The design loop
+0:55 Debug the oracle first
+1:40 Pool scores and honest RL
+2:55 When docking misleads
+3:35 Site and GitHub

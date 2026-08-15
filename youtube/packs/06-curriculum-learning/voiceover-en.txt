@@ -1,0 +1,17 @@
+Do not demand LogP on day one. Curriculum learning in REINVENT4 is multi-stage RL with different scoring setups — not a separate algorithm.
+
+A single hard reward from step one is noisy. Medicinal chemistry stabilizes a series, then tightens ADMET. Stage 1 uses the Tutorial 04 stack: QED, molecular weight, alerts. Stage 2 adds SlogP with a reverse sigmoid. Auto curriculum is multiple stage blocks in one TOML. Manual curriculum hands a checkpoint to a new file.
+
+If a stage ends because max_steps was reached, REINVENT terminates all remaining stages. Auto curriculum only advances when max_score fires after min_steps. Treat stage-one max_steps as a safety ceiling, not the plan.
+
+Seed 42 auto run. Stage 1 early-stops at step 12, mean Score 0.74, above max_score 0.72. Stage 2 runs 20 steps. Score drops to 0.46 on the harder reward, then climbs to 0.59. About 29 seconds, peak RAM about 1.5 gibibytes. That cliff at the boundary is evidence the objective changed — not a crash.
+
+Manual curriculum: agent_file is the stage-one checkpoint, prior_file stays the original prior. Use auto when stage 1 will early-stop. Use manual when you need to inspect CSV, retune transforms, or continue tomorrow.
+
+Why those termination numbers? Stage 1 min_steps 10, max_score 0.72, max_steps 40 as a ceiling. Stage 2 min_steps 10, max_score 1.0, max_steps 20 as the budget. On seed 42, Tutorial 04-style scoring already reaches about 0.74 by step 12, so 0.72 is deliberately achievable. If you set stage-1 max_score to 0.95, you likely hit max_steps 40 and never enter stage 2.
+
+Manual curriculum on seed 42: stage 2 recovered from 0.34 to 0.62 over 15 steps, about 15 seconds. Keep prior_file as the original prior for DAP. A lower stage-2 Score is not a failure by itself — the metric changed. Compare trends and raw SlogP, not absolute Score against stage 1.
+
+Do not concatenate stage CSVs blindly: column sets differ once SlogP appears. Label the stage. The Score cliff at stage 2 step 1 is the geometric mean including the new term. Climb inside stage 2 is the same agent weights adapting to the new target.
+
+Configs and stage CSVs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 07 — adapt the prior with transfer learning before a long RL campaign.

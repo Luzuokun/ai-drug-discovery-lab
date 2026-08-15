@@ -1,0 +1,17 @@
+A high QED molecule can sit nowhere near the pocket. This episode puts a structure-based oracle into the generation loop — not a Vina command-line class.
+
+Pocket prep, then a scoring component, then a short generation, then pose sanity checks. DockStream is marked superseded. We use AutoDock Vina through REINVENT ExternalProcess so you can see every byte on the wire. Ligands via meeko. Receptor via Open Babel. Public pocket: PDB 1IEP, Abl plus imatinib.
+
+Same discipline as Tutorial 03: run_type scoring before RL. Geometric mean of QED weight 0.3 and Vina weight 1. Reverse sigmoid maps about minus 5 to minus 12 kilocalories into zero to one. Exhaustiveness 1 is a smoke test. Production uses higher exhaustiveness, diversity filters, and queues.
+
+Seed 42 prior pool: 37 unique SMILES. Vina raw from minus 12.1 to minus 4.6. About 199 seconds. Imatinib in the same box at exhaustiveness 1 is about minus 9.4. The best raw dock can have low QED — geometric mean is allowed to disagree. Short RL, five steps times batch 8, about 123 seconds, is noisy on purpose. It proves the loop runs. It does not prove a hit series.
+
+Wrong box, low exhaustiveness, bad tautomer, wrong protein chain — affinities look great and poses are nonsense. Always open top PDBQTs on the receptor. Scoring 0.0 often means embed or Vina failed. Keep QED or alerts so you do not invent greasy bricks.
+
+The handbook box is about 30 angstroms, centered on chain-A STI. JSON in, JSON out: payload key vina_score, plus vina_ok metadata. Failed embeds return 0.0. Top pool poses redocked at exhaustiveness 4 stayed near the exhaustiveness-1 ranks — minus 12.07, minus 10.93, minus 9.93. Still open them on the receptor. Geometric mean with light QED is why the best raw dock can lose the overall Score.
+
+When would you transfer-learn before docking RL? When the prior rarely emits the chemotype that fits the pocket. Docking cannot reward what is never sampled. This is not the Docking section's Vina tutorial — that lives under Docking. Here the unit is the design loop.
+
+Imatinib SMILES for the sanity-check dock is in the chapter. Expect roughly minus 9 to minus 12 depending on exhaustiveness. If the cognate redock is poor, fix protonation and the box before you let RL optimize a lie. Debug the oracle on a fixed list, always.
+
+Pocket files, the ExternalProcess script, and CSVs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 09 — scale and monitor expensive oracles.

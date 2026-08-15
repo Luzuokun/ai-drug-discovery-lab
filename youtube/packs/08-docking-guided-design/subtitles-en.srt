@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:12,000
+QED is not a pose. Design loop, not a CLI.
+
+2
+00:00:12,000 --> 00:00:55,000
+Pocket → ExternalProcess Vina → poses.
+
+3
+00:00:55,000 --> 00:01:40,000
+Score the oracle before RL. exh=1 is a smoke test.
+
+4
+00:01:40,000 --> 00:02:55,000
+Pool −12.1 to −4.6. Short RL is loop proof only.
+
+5
+00:02:55,000 --> 00:03:35,000
+Affinity is not a pose validator.
+
+6
+00:03:35,000 --> 00:04:00,000
+Site and GitHub. Next: scale and monitor.

@@ -1,0 +1,246 @@
+{
+  "title_en": "REINVENT4 Tutorial 08: Docking in the Loop — Not a Vina Class",
+  "title_zh": "REINVENT4 教程 08：把对接放进循环，而不是上一堂 Vina 课",
+  "target_duration_seconds": 240,
+  "hook_en": "A high QED molecule can sit nowhere near the pocket. This episode puts a structure-based oracle into the generation loop — not a Vina command-line class.",
+  "hook_zh": "QED 很高的分子也可能离口袋八丈远。这一集把基于结构的 oracle 放进生成循环——不是 Vina 命令行课。",
+  "beats": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 12,
+      "label_en": "Hook",
+      "label_zh": "开场",
+      "narration_en": "A high QED molecule can sit nowhere near the pocket. This episode puts a structure-based oracle into the generation loop — not a Vina command-line class.",
+      "narration_zh": "QED 很高的分子也可能离口袋八丈远。这一集把基于结构的 oracle 放进生成循环——不是 Vina 命令行课。",
+      "visual": "Pocket vs pretty molecule"
+    },
+    {
+      "id": "loop",
+      "start_sec": 12,
+      "end_sec": 55,
+      "label_en": "Design loop",
+      "label_zh": "设计循环",
+      "narration_en": "Pocket prep, then a scoring component, then a short generation, then pose sanity checks. DockStream is marked superseded. We use AutoDock Vina through REINVENT ExternalProcess so you can see every byte on the wire. Ligands via meeko. Receptor via Open Babel. Public pocket: PDB 1IEP, Abl plus imatinib.",
+      "narration_zh": "先准备口袋，再接评分组件，再短生成，再审查构象。DockStream 已标过时。我们用 ExternalProcess 调 AutoDock Vina，线上每个字节都看得见。配体用 meeko，受体用 Open Babel。公开口袋：PDB 1IEP，Abl 加伊马替尼。",
+      "visual": "Loop diagram"
+    },
+    {
+      "id": "oracle",
+      "start_sec": 55,
+      "end_sec": 100,
+      "label_en": "Debug the oracle",
+      "label_zh": "先调试 oracle",
+      "narration_en": "Same discipline as Tutorial 03: run_type scoring before RL. Geometric mean of QED weight 0.3 and Vina weight 1. Reverse sigmoid maps about minus 5 to minus 12 kilocalories into zero to one. Exhaustiveness 1 is a smoke test. Production uses higher exhaustiveness, diversity filters, and queues.",
+      "narration_zh": "和教程 03 一样：先 run_type scoring 再 RL。几何平均：QED 权重 0.3，Vina 权重 1。reverse sigmoid 把大约 -5 到 -12 千卡映射到 0 到 1。exhaustiveness 1 只是冒烟。生产要用更高搜索、多样性过滤和队列。",
+      "visual": "Transform card"
+    },
+    {
+      "id": "proof",
+      "start_sec": 100,
+      "end_sec": 175,
+      "label_en": "Proof",
+      "label_zh": "证据",
+      "narration_en": "Seed 42 prior pool: 37 unique SMILES. Vina raw from minus 12.1 to minus 4.6. About 199 seconds. Imatinib in the same box at exhaustiveness 1 is about minus 9.4. The best raw dock can have low QED — geometric mean is allowed to disagree. Short RL, five steps times batch 8, about 123 seconds, is noisy on purpose. It proves the loop runs. It does not prove a hit series.",
+      "narration_zh": "种子 42 的先验池：37 个唯一 SMILES。Vina 原始分从 -12.1 到 -4.6。大约 199 秒。同一盒子里 exhaustiveness 1 的伊马替尼大约 -9.4。原始对接最好的分子 QED 可以很低——几何平均允许不同意。短 RL：5 步乘 batch 8，大约 123 秒，噪声是故意的。它证明回路通了，不证明你有苗头系列。",
+      "visual": "docking-score-dist.png"
+    },
+    {
+      "id": "poses",
+      "start_sec": 175,
+      "end_sec": 215,
+      "label_en": "When docking lies",
+      "label_zh": "对接何时说谎",
+      "narration_en": "Wrong box, low exhaustiveness, bad tautomer, wrong protein chain — affinities look great and poses are nonsense. Always open top PDBQTs on the receptor. Scoring 0.0 often means embed or Vina failed. Keep QED or alerts so you do not invent greasy bricks.",
+      "narration_zh": "盒子错、exhaustiveness 太低、互变异构不对、蛋白链不对——亲和力很好看，构象是胡说。一定要把顶部 PDBQT 叠在受体上看。Score 0.0 常常是 3D 嵌入或 Vina 失败。保留 QED 或 alerts，免得发明一堆油腻砖头。",
+      "visual": "top-docked-molecules.png"
+    },
+    {
+      "id": "cta",
+      "start_sec": 215,
+      "end_sec": 240,
+      "label_en": "CTA",
+      "label_zh": "结尾",
+      "narration_en": "Pocket files, the ExternalProcess script, and CSVs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 09 — scale and monitor expensive oracles.",
+      "narration_zh": "口袋文件、ExternalProcess 脚本和 CSV 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 09：给昂贵 oracle 扩规模和监控。",
+      "visual": "CTA"
+    }
+  ],
+  "script_en": "# REINVENT4 Tutorial 08: Docking in the Loop — Not a Vina Class\n\n## [0:00–0:12] Hook\n\nA high QED molecule can sit nowhere near the pocket. This episode puts a structure-based oracle into the generation loop — not a Vina command-line class.\n\n## [0:12–0:55] Design loop\n\nPocket prep, then a scoring component, then a short generation, then pose sanity checks. DockStream is marked superseded. We use AutoDock Vina through REINVENT ExternalProcess so you can see every byte on the wire. Ligands via meeko. Receptor via Open Babel. Public pocket: PDB 1IEP, Abl plus imatinib.\n\n## [0:55–1:40] Debug the oracle\n\nSame discipline as Tutorial 03: run_type scoring before RL. Geometric mean of QED weight 0.3 and Vina weight 1. Reverse sigmoid maps about minus 5 to minus 12 kilocalories into zero to one. Exhaustiveness 1 is a smoke test. Production uses higher exhaustiveness, diversity filters, and queues.\n\n## [1:40–2:55] Proof\n\nSeed 42 prior pool: 37 unique SMILES. Vina raw from minus 12.1 to minus 4.6. About 199 seconds. Imatinib in the same box at exhaustiveness 1 is about minus 9.4. The best raw dock can have low QED — geometric mean is allowed to disagree. Short RL, five steps times batch 8, about 123 seconds, is noisy on purpose. It proves the loop runs. It does not prove a hit series.\n\n## [2:55–3:35] When docking lies\n\nWrong box, low exhaustiveness, bad tautomer, wrong protein chain — affinities look great and poses are nonsense. Always open top PDBQTs on the receptor. Scoring 0.0 often means embed or Vina failed. Keep QED or alerts so you do not invent greasy bricks.\n\n## [3:35–4:00] CTA\n\nPocket files, the ExternalProcess script, and CSVs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 09 — scale and monitor expensive oracles.\n",
+  "script_zh": "# REINVENT4 教程 08：把对接放进循环，而不是上一堂 Vina 课\n\n## [0:00–0:12] 开场\n\nQED 很高的分子也可能离口袋八丈远。这一集把基于结构的 oracle 放进生成循环——不是 Vina 命令行课。\n\n## [0:12–0:55] 设计循环\n\n先准备口袋，再接评分组件，再短生成，再审查构象。DockStream 已标过时。我们用 ExternalProcess 调 AutoDock Vina，线上每个字节都看得见。配体用 meeko，受体用 Open Babel。公开口袋：PDB 1IEP，Abl 加伊马替尼。\n\n## [0:55–1:40] 先调试 oracle\n\n和教程 03 一样：先 run_type scoring 再 RL。几何平均：QED 权重 0.3，Vina 权重 1。reverse sigmoid 把大约 -5 到 -12 千卡映射到 0 到 1。exhaustiveness 1 只是冒烟。生产要用更高搜索、多样性过滤和队列。\n\n## [1:40–2:55] 证据\n\n种子 42 的先验池：37 个唯一 SMILES。Vina 原始分从 -12.1 到 -4.6。大约 199 秒。同一盒子里 exhaustiveness 1 的伊马替尼大约 -9.4。原始对接最好的分子 QED 可以很低——几何平均允许不同意。短 RL：5 步乘 batch 8，大约 123 秒，噪声是故意的。它证明回路通了，不证明你有苗头系列。\n\n## [2:55–3:35] 对接何时说谎\n\n盒子错、exhaustiveness 太低、互变异构不对、蛋白链不对——亲和力很好看，构象是胡说。一定要把顶部 PDBQT 叠在受体上看。Score 0.0 常常是 3D 嵌入或 Vina 失败。保留 QED 或 alerts，免得发明一堆油腻砖头。\n\n## [3:35–4:00] 结尾\n\n口袋文件、ExternalProcess 脚本和 CSV 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 09：给昂贵 oracle 扩规模和监控。\n",
+  "voiceover_en": "A high QED molecule can sit nowhere near the pocket. This episode puts a structure-based oracle into the generation loop — not a Vina command-line class.\n\nPocket prep, then a scoring component, then a short generation, then pose sanity checks. DockStream is marked superseded. We use AutoDock Vina through REINVENT ExternalProcess so you can see every byte on the wire. Ligands via meeko. Receptor via Open Babel. Public pocket: PDB 1IEP, Abl plus imatinib.\n\nSame discipline as Tutorial 03: run_type scoring before RL. Geometric mean of QED weight 0.3 and Vina weight 1. Reverse sigmoid maps about minus 5 to minus 12 kilocalories into zero to one. Exhaustiveness 1 is a smoke test. Production uses higher exhaustiveness, diversity filters, and queues.\n\nSeed 42 prior pool: 37 unique SMILES. Vina raw from minus 12.1 to minus 4.6. About 199 seconds. Imatinib in the same box at exhaustiveness 1 is about minus 9.4. The best raw dock can have low QED — geometric mean is allowed to disagree. Short RL, five steps times batch 8, about 123 seconds, is noisy on purpose. It proves the loop runs. It does not prove a hit series.\n\nWrong box, low exhaustiveness, bad tautomer, wrong protein chain — affinities look great and poses are nonsense. Always open top PDBQTs on the receptor. Scoring 0.0 often means embed or Vina failed. Keep QED or alerts so you do not invent greasy bricks.\n\nPocket files, the ExternalProcess script, and CSVs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 09 — scale and monitor expensive oracles.\n",
+  "voiceover_zh": "QED 很高的分子也可能离口袋八丈远。这一集把基于结构的 oracle 放进生成循环——不是 Vina 命令行课。\n\n先准备口袋，再接评分组件，再短生成，再审查构象。DockStream 已标过时。我们用 ExternalProcess 调 AutoDock Vina，线上每个字节都看得见。配体用 meeko，受体用 Open Babel。公开口袋：PDB 1IEP，Abl 加伊马替尼。\n\n和教程 03 一样：先 run_type scoring 再 RL。几何平均：QED 权重 0.3，Vina 权重 1。reverse sigmoid 把大约 -5 到 -12 千卡映射到 0 到 1。exhaustiveness 1 只是冒烟。生产要用更高搜索、多样性过滤和队列。\n\n种子 42 的先验池：37 个唯一 SMILES。Vina 原始分从 -12.1 到 -4.6。大约 199 秒。同一盒子里 exhaustiveness 1 的伊马替尼大约 -9.4。原始对接最好的分子 QED 可以很低——几何平均允许不同意。短 RL：5 步乘 batch 8，大约 123 秒，噪声是故意的。它证明回路通了，不证明你有苗头系列。\n\n盒子错、exhaustiveness 太低、互变异构不对、蛋白链不对——亲和力很好看，构象是胡说。一定要把顶部 PDBQT 叠在受体上看。Score 0.0 常常是 3D 嵌入或 Vina 失败。保留 QED 或 alerts，免得发明一堆油腻砖头。\n\n口袋文件、ExternalProcess 脚本和 CSV 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 09：给昂贵 oracle 扩规模和监控。\n",
+  "storyboard": [
+    {
+      "timecode": "0:00–0:12",
+      "shot": "Pocket vs pretty molecule",
+      "on_screen_text": "Worth docking?",
+      "voice_beat": "Hook",
+      "asset_type": "title_card"
+    },
+    {
+      "timecode": "0:12–0:55",
+      "shot": "Loop diagram",
+      "on_screen_text": "1IEP · ExternalProcess",
+      "voice_beat": "Design loop",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "0:55–1:40",
+      "shot": "Transform card",
+      "on_screen_text": "reverse_sigmoid −5 to −12",
+      "voice_beat": "Debug the oracle",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "1:40–2:55",
+      "shot": "docking-score-dist.png",
+      "on_screen_text": "n=37 · exh=1",
+      "voice_beat": "Proof",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "2:55–3:35",
+      "shot": "top-docked-molecules.png",
+      "on_screen_text": "Inspect poses",
+      "voice_beat": "When docking lies",
+      "asset_type": "molecule_anim"
+    },
+    {
+      "timecode": "3:35–4:00",
+      "shot": "CTA",
+      "on_screen_text": "Site → GitHub → Tutorial 09",
+      "voice_beat": "CTA",
+      "asset_type": "cta_card"
+    }
+  ],
+  "thumbnail_title": "Dock the generator",
+  "thumbnail_prompt": "A generative molecule being lowered into a protein pocket like a key, dark teal, empty top for title Dock the generator.",
+  "broll": [
+    {
+      "item": "docking-score-dist.png",
+      "why": "Oracle distribution",
+      "source_hint": "chapter figure"
+    },
+    {
+      "item": "vina_external.py JSON",
+      "why": "Show the contract",
+      "source_hint": "optional screencast"
+    },
+    {
+      "item": "PyMOL pose later",
+      "why": "User inserts in 剪映",
+      "source_hint": "top PDBQT"
+    }
+  ],
+  "youtube_description_en": "REINVENT4 Tutorial 08: Docking in the Loop — Not a Vina Class\n\nPDB 1IEP + ExternalProcess Vina: score a prior pool (−12.1 to −4.6), run a short docking RL smoke test, and inspect poses.\n\nThis is a Discovery cut. The handbook is the knowledge base. GitHub is the reproducible configs and artifacts.\n\n🔗 Full tutorial (site)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/08-docking-guided-design/\n中文: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/08-docking-guided-design/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/08-docking-guided-design.md\n\n📺 Series playlist\nTODO_PLAYLIST_URL\n\nChapters\n0:00 QED is not a pose\n0:12 The design loop\n0:55 Debug the oracle first\n1:40 Pool scores and honest RL\n2:55 When docking misleads\n3:35 Site and GitHub\n\n#REINVENT4 #DrugDiscovery #GenerativeAI #Cheminformatics #OpenScience\n",
+  "youtube_description_zh": "REINVENT4 Tutorial 08: Docking in the Loop — Not a Vina Class\n\nPDB 1IEP + ExternalProcess Vina：给先验池打分（-12.1 到 -4.6），跑短对接 RL 冒烟，并审查构象。\n\n视频负责发现；完整命令与产物在网站；可复现配置在 GitHub。\n\n🔗 完整教程\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/08-docking-guided-design/\nEnglish: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/08-docking-guided-design/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/08-docking-guided-design.md\n\n📺 系列播放列表\nTODO_PLAYLIST_URL\n\n章节\n0:00 QED is not a pose\n0:12 The design loop\n0:55 Debug the oracle first\n1:40 Pool scores and honest RL\n2:55 When docking misleads\n3:35 Site and GitHub\n\n#REINVENT4 #药物发现 #生成式AI\n",
+  "chapters": [
+    {
+      "timecode": "0:00",
+      "title": "QED is not a pose"
+    },
+    {
+      "timecode": "0:12",
+      "title": "The design loop"
+    },
+    {
+      "timecode": "0:55",
+      "title": "Debug the oracle first"
+    },
+    {
+      "timecode": "1:40",
+      "title": "Pool scores and honest RL"
+    },
+    {
+      "timecode": "2:55",
+      "title": "When docking misleads"
+    },
+    {
+      "timecode": "3:35",
+      "title": "Site and GitHub"
+    }
+  ],
+  "tags": [
+    "REINVENT4",
+    "drug discovery",
+    "generative chemistry",
+    "AI drug design",
+    "cheminformatics",
+    "molecular generation",
+    "open science",
+    "AstraZeneca REINVENT",
+    "tutorial",
+    "machine learning",
+    "molecular docking",
+    "AutoDock Vina",
+    "structure-based design"
+  ],
+  "subtitles_en": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "QED is not a pose. Design loop, not a CLI."
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 55,
+      "text": "Pocket → ExternalProcess Vina → poses."
+    },
+    {
+      "start_sec": 55,
+      "end_sec": 100,
+      "text": "Score the oracle before RL. exh=1 is a smoke test."
+    },
+    {
+      "start_sec": 100,
+      "end_sec": 175,
+      "text": "Pool −12.1 to −4.6. Short RL is loop proof only."
+    },
+    {
+      "start_sec": 175,
+      "end_sec": 215,
+      "text": "Affinity is not a pose validator."
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "Site and GitHub. Next: scale and monitor."
+    }
+  ],
+  "subtitles_zh": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "QED 不是构象。这是设计循环，不是命令行。"
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 55,
+      "text": "口袋 → ExternalProcess Vina → 构象。"
+    },
+    {
+      "start_sec": 55,
+      "end_sec": 100,
+      "text": "先给 oracle 打分再 RL。exh=1 只是冒烟。"
+    },
+    {
+      "start_sec": 100,
+      "end_sec": 175,
+      "text": "池子 -12.1 到 -4.6。短 RL 只证明回路。"
+    },
+    {
+      "start_sec": 175,
+      "end_sec": 215,
+      "text": "亲和力不能代替构象审查。"
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "网站与 GitHub。下一集：扩规模与监控。"
+    }
+  ],
+  "verify_flags": [
+    "[VERIFY] Playlist URL still TODO_PLAYLIST_URL"
+  ]
+}

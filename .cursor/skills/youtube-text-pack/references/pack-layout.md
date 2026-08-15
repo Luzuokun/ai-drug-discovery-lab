@@ -31,7 +31,7 @@ source_md: docs/molecular-generation/reinvent4/02-priors-in-practice.md
 is_outline: false
 generator: cursor-skill
 model: n/a
-target_duration_seconds: 480
+target_duration_seconds: 240
 generated_at: "<ISO-8601 UTC>"
 site_url_en: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/<slug>/
 site_url_zh: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/<slug>/

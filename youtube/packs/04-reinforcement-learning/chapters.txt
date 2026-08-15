@@ -1,0 +1,6 @@
+0:00 Rank vs generate
+0:12 The RL loop
+0:48 stage.scoring trap
+1:35 0.66 to 0.79 in 25 steps
+2:55 When Score is flat
+3:35 Site and GitHub

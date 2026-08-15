@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:12,000
+High Score can still be scaffold collapse.
+
+2
+00:00:12,000 --> 00:00:50,000
+Filter memorizes high-scoring scaffolds.
+
+3
+00:00:50,000 --> 00:01:35,000
+A/B at seed 42. One variable: the filter.
+
+4
+00:01:35,000 --> 00:02:55,000
+Score 0.79 vs 0.74. Scaffolds 1165 vs 1238.
+
+5
+00:02:55,000 --> 00:03:35,000
+Diversity is a knob, not a checkbox.
+
+6
+00:03:35,000 --> 00:04:00,000
+Site and GitHub. Next: curriculum.

@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:12,000
+Curriculum = staged scoring, not a new algorithm.
+
+2
+00:00:12,000 --> 00:00:55,000
+Easy MPO first. Then add SlogP.
+
+3
+00:00:55,000 --> 00:01:40,000
+Hitting max_steps aborts later stages.
+
+4
+00:01:40,000 --> 00:02:55,000
+Stage 1: 12 steps. Stage 2: 0.46 → 0.59.
+
+5
+00:02:55,000 --> 00:03:35,000
+Manual: agent_file = chkpt, prior unchanged.
+
+6
+00:03:35,000 --> 00:04:00,000
+Site and GitHub. Next: transfer learning.

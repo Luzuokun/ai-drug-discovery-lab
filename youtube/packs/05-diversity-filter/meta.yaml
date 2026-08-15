@@ -1,0 +1,14 @@
+slug: 05-diversity-filter
+title_en: 'REINVENT4 Tutorial 05: High Score Can Still Be Collapse'
+title_zh: REINVENT4 教程 05：高分仍可能是骨架塌缩
+source_md: docs/molecular-generation/reinvent4/05-diversity-filter.md
+is_outline: false
+generator: cursor-skill
+model: n/a
+target_duration_seconds: 240
+generated_at: '2026-08-14T08:15:13.058542+00:00'
+site_url_en: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/05-diversity-filter/
+site_url_zh: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/05-diversity-filter/
+github_repo_url: https://github.com/Luzuokun/ai-drug-discovery-lab
+verify_flags:
+- '[VERIFY] Playlist URL still TODO_PLAYLIST_URL'

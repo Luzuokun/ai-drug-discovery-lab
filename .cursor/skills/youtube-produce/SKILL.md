@@ -29,6 +29,8 @@ Turn an approved `youtube/packs/<slug>/` text pack into a **production checklist
 
 1. **Do not** call TTS/image APIs or write audio binaries unless the user
    explicitly asks to run production **and** `XAI_API_KEY` is available.
+   When they ask to generate near-upload drafts (TTS + Imagine + slideshow),
+   **do run** `images_xai.py`, `tts_xai.py`, and `render_slideshow.py`.
 2. **Do not** auto-upload to YouTube.
 3. **Do not** embed YouTube iframes into MkDocs until the user provides a real URL.
 4. If API keys are missing, still write `PRODUCE.md` with copy-pasteable local command templates.

@@ -1,0 +1,17 @@
+Tutorial 02 was eight epochs of transfer learning. This episode asks when to stop — and whether TL actually changes the RL campaign.
+
+A tiny sulfonamide set keeps enriching if you train long enough — and then it memorizes. Official docs list flags. Lab work needs a stop rule, an overfitting checklist, and a TL-then-RL versus RL-only A/B under the same scoring function.
+
+Same Tutorial 02 SMILES. Forty epochs, checkpoints every eight, CPU, seed 42, about 62 seconds. Epoch 0: 8.4 percent sulfonamide, 168 scaffolds, zero exact train SMILES. Epoch 8: 64.3 percent, still zero memorized — and best validation NLL. Epoch 24: 83 percent hits but 12 percent exact train SMILES. Epoch 40: 86 percent hits, 40 percent memorized, unique rows fall from 191 to 165. Last epoch is not the winner.
+
+Same QED, molecular weight, alerts as Tutorial 04. Twenty-five steps. RL-only last-five mean Score 0.775 and 4.4 percent sulfonamide. TL-then-RL from the epoch-24 checkpoint: Score 0.847 and 66.6 percent sulfonamide — even though the reward does not pay for the motif. Set both prior_file and agent_file to the TL checkpoint so DAP anchors to the adapted distribution.
+
+Keep the checkpoint where validation NLL bottoms and mem percent is still near zero. Need linkers or R-groups? Wrong generator — not more epochs. Curriculum changes the reward schedule. TL changes the starting distribution. They compose.
+
+We used epoch 24 as a stress test for TL-then-RL: strong chemotype, early memorization around 12 percent. Prefer epoch 8 to 16 for a real campaign. Unique rows at fixed num_smiles fall because unique_molecules true drops repeats as the sampler peaks. Mean sample NLL falling means a more peaked model, not a more useful one.
+
+sample_batch_size must still be at least 100. Pointing only agent_file at TL while leaving PubChem as prior_file mixes two chemistries in the DAP term. If the prior already hits your SMARTS, skip TL and go to RL. Need linkers or analogue-by-seed? That is LibInvent, LinkInvent, or Mol2Mol — not more PubChem epochs.
+
+Watch unique Murcko scaffolds and exact-match train SMILES every few epochs — not just sulfonamide percent. Chemotype enrichment with collapsing diversity is overfitting, even if the SMARTS hit rate still climbs. That is the difference between Tutorial 02 and this chapter.
+
+Curves, CSVs, and configs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 08 — put a docking oracle in the loop.

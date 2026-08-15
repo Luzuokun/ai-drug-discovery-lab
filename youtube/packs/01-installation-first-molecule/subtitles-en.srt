@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:12,000
+No sampled.csv, no generative model.
+
+2
+00:00:12,000 --> 00:00:50,000
+Clone + install.py. Python 3.11+. The prior is the distribution.
+
+3
+00:00:50,000 --> 00:01:35,000
+Prior frozen. Agent trainable. Vocab lives in the prior.
+
+4
+00:01:35,000 --> 00:02:50,000
+100 requested → 96 unique. NLL 21–77. No Score column.
+
+5
+00:02:50,000 --> 00:03:35,000
+Unique is after-the-fact. Score=0 is not sampling.
+
+6
+00:03:35,000 --> 00:04:00,000
+Site = tutorial. GitHub = reproduce. Next: 02 or 03.

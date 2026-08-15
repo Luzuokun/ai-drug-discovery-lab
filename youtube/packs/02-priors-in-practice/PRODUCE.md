@@ -137,3 +137,13 @@ Generate from `thumbnail-prompt.md`; keep **8% → 64% Sulfonamides** readable o
 3. Record remaining live terminal clips; import `assets/*`
 4. Edit to the timeline above + subtitles
 5. Upload with paste blocks → share URL for optional MkDocs link
+
+## xAI production (this run)
+
+```bash
+python scripts/youtube/images_xai.py 02
+python scripts/youtube/tts_xai.py 02 --lang both
+python scripts/youtube/render_slideshow.py 02
+```
+
+Target cut: 3–5 minutes. Insert live terminal later in 剪映 if desired.

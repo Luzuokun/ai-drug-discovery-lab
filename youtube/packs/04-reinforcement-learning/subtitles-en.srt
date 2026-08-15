@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:12,000
+Scoring ranks. RL rewrites the generator.
+
+2
+00:00:12,000 --> 00:00:48,000
+Sample, score, update. Prior stays frozen.
+
+3
+00:00:48,000 --> 00:01:35,000
+stage.scoring, not scoring. DAP sigma 128.
+
+4
+00:01:35,000 --> 00:02:55,000
+Score 0.66→0.79. NLL 34.79→27.15. ~27 s CPU.
+
+5
+00:02:55,000 --> 00:03:35,000
+Flat scores → fix the reward. Resume via agent_file.
+
+6
+00:03:35,000 --> 00:04:00,000
+Site and GitHub. Next: diversity filter.

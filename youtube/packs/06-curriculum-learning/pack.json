@@ -1,0 +1,240 @@
+{
+  "title_en": "REINVENT4 Tutorial 06: Escalate Objectives — Don't Front-Load Hardness",
+  "title_zh": "REINVENT4 教程 06：升级目标，而不是一开始就很难",
+  "target_duration_seconds": 240,
+  "hook_en": "Do not demand LogP on day one. Curriculum learning in REINVENT4 is multi-stage RL with different scoring setups — not a separate algorithm.",
+  "hook_zh": "不要第一天就要求 LogP。REINVENT4 的课程学习是多阶段、不同评分的 RL，不是另一种算法。",
+  "beats": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 12,
+      "label_en": "Hook",
+      "label_zh": "开场",
+      "narration_en": "Do not demand LogP on day one. Curriculum learning in REINVENT4 is multi-stage RL with different scoring setups — not a separate algorithm.",
+      "narration_zh": "不要第一天就要求 LogP。REINVENT4 的课程学习是多阶段、不同评分的 RL，不是另一种算法。",
+      "visual": "Easy then hard objectives"
+    },
+    {
+      "id": "problem",
+      "start_sec": 12,
+      "end_sec": 55,
+      "label_en": "Problem",
+      "label_zh": "问题",
+      "narration_en": "A single hard reward from step one is noisy. Medicinal chemistry stabilizes a series, then tightens ADMET. Stage 1 uses the Tutorial 04 stack: QED, molecular weight, alerts. Stage 2 adds SlogP with a reverse sigmoid. Auto curriculum is multiple stage blocks in one TOML. Manual curriculum hands a checkpoint to a new file.",
+      "narration_zh": "从第一步就上很难的奖励，分数会很吵。药物化学先稳住系列，再收紧 ADMET。阶段 1 用教程 04 的 QED、分子量、alerts。阶段 2 加上 reverse sigmoid 的 SlogP。自动课程是一个 TOML 里多个 stage；手动课程是把检查点交给新文件。",
+      "visual": "Two-stage diagram"
+    },
+    {
+      "id": "model",
+      "start_sec": 55,
+      "end_sec": 100,
+      "label_en": "The trap",
+      "label_zh": "陷阱",
+      "narration_en": "If a stage ends because max_steps was reached, REINVENT terminates all remaining stages. Auto curriculum only advances when max_score fires after min_steps. Treat stage-one max_steps as a safety ceiling, not the plan.",
+      "narration_zh": "如果一个阶段因为碰到 max_steps 结束，REINVENT 会终止后面所有阶段。自动课程只有在 min_steps 之后触达 max_score 才会前进。把阶段 1 的 max_steps 当成安全天花板，而不是计划本身。",
+      "visual": "Termination rules"
+    },
+    {
+      "id": "proof",
+      "start_sec": 100,
+      "end_sec": 175,
+      "label_en": "Proof",
+      "label_zh": "证据",
+      "narration_en": "Seed 42 auto run. Stage 1 early-stops at step 12, mean Score 0.74, above max_score 0.72. Stage 2 runs 20 steps. Score drops to 0.46 on the harder reward, then climbs to 0.59. About 29 seconds, peak RAM about 1.5 gibibytes. That cliff at the boundary is evidence the objective changed — not a crash.",
+      "narration_zh": "种子 42 的自动跑。阶段 1 在第 12 步提前停止，平均 Score 0.74，高于 max_score 0.72。阶段 2 跑满 20 步。更难奖励让 Score 掉到 0.46，再爬到 0.59。大约 29 秒，峰值约 1.5 GiB。边界上的悬崖说明目标变了，不是崩溃。",
+      "visual": "curriculum-score-stages.png"
+    },
+    {
+      "id": "manual",
+      "start_sec": 175,
+      "end_sec": 215,
+      "label_en": "Manual CL",
+      "label_zh": "手动课程",
+      "narration_en": "Manual curriculum: agent_file is the stage-one checkpoint, prior_file stays the original prior. Use auto when stage 1 will early-stop. Use manual when you need to inspect CSV, retune transforms, or continue tomorrow.",
+      "narration_zh": "手动课程：agent_file 是阶段 1 检查点，prior_file 仍是原来的 prior。阶段 1 能提前停就用自动；需要看 CSV、改变换、或明天再跑，就用手动。",
+      "visual": "Checkpoint hand-off"
+    },
+    {
+      "id": "cta",
+      "start_sec": 215,
+      "end_sec": 240,
+      "label_en": "CTA",
+      "label_zh": "结尾",
+      "narration_en": "Configs and stage CSVs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 07 — adapt the prior with transfer learning before a long RL campaign.",
+      "narration_zh": "配置和各阶段 CSV 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 07：在长 RL 之前用迁移学习适配 prior。",
+      "visual": "CTA"
+    }
+  ],
+  "script_en": "# REINVENT4 Tutorial 06: Escalate Objectives — Don't Front-Load Hardness\n\n## [0:00–0:12] Hook\n\nDo not demand LogP on day one. Curriculum learning in REINVENT4 is multi-stage RL with different scoring setups — not a separate algorithm.\n\n## [0:12–0:55] Problem\n\nA single hard reward from step one is noisy. Medicinal chemistry stabilizes a series, then tightens ADMET. Stage 1 uses the Tutorial 04 stack: QED, molecular weight, alerts. Stage 2 adds SlogP with a reverse sigmoid. Auto curriculum is multiple stage blocks in one TOML. Manual curriculum hands a checkpoint to a new file.\n\n## [0:55–1:40] The trap\n\nIf a stage ends because max_steps was reached, REINVENT terminates all remaining stages. Auto curriculum only advances when max_score fires after min_steps. Treat stage-one max_steps as a safety ceiling, not the plan.\n\n## [1:40–2:55] Proof\n\nSeed 42 auto run. Stage 1 early-stops at step 12, mean Score 0.74, above max_score 0.72. Stage 2 runs 20 steps. Score drops to 0.46 on the harder reward, then climbs to 0.59. About 29 seconds, peak RAM about 1.5 gibibytes. That cliff at the boundary is evidence the objective changed — not a crash.\n\n## [2:55–3:35] Manual CL\n\nManual curriculum: agent_file is the stage-one checkpoint, prior_file stays the original prior. Use auto when stage 1 will early-stop. Use manual when you need to inspect CSV, retune transforms, or continue tomorrow.\n\n## [3:35–4:00] CTA\n\nConfigs and stage CSVs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 07 — adapt the prior with transfer learning before a long RL campaign.\n",
+  "script_zh": "# REINVENT4 教程 06：升级目标，而不是一开始就很难\n\n## [0:00–0:12] 开场\n\n不要第一天就要求 LogP。REINVENT4 的课程学习是多阶段、不同评分的 RL，不是另一种算法。\n\n## [0:12–0:55] 问题\n\n从第一步就上很难的奖励，分数会很吵。药物化学先稳住系列，再收紧 ADMET。阶段 1 用教程 04 的 QED、分子量、alerts。阶段 2 加上 reverse sigmoid 的 SlogP。自动课程是一个 TOML 里多个 stage；手动课程是把检查点交给新文件。\n\n## [0:55–1:40] 陷阱\n\n如果一个阶段因为碰到 max_steps 结束，REINVENT 会终止后面所有阶段。自动课程只有在 min_steps 之后触达 max_score 才会前进。把阶段 1 的 max_steps 当成安全天花板，而不是计划本身。\n\n## [1:40–2:55] 证据\n\n种子 42 的自动跑。阶段 1 在第 12 步提前停止，平均 Score 0.74，高于 max_score 0.72。阶段 2 跑满 20 步。更难奖励让 Score 掉到 0.46，再爬到 0.59。大约 29 秒，峰值约 1.5 GiB。边界上的悬崖说明目标变了，不是崩溃。\n\n## [2:55–3:35] 手动课程\n\n手动课程：agent_file 是阶段 1 检查点，prior_file 仍是原来的 prior。阶段 1 能提前停就用自动；需要看 CSV、改变换、或明天再跑，就用手动。\n\n## [3:35–4:00] 结尾\n\n配置和各阶段 CSV 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 07：在长 RL 之前用迁移学习适配 prior。\n",
+  "voiceover_en": "Do not demand LogP on day one. Curriculum learning in REINVENT4 is multi-stage RL with different scoring setups — not a separate algorithm.\n\nA single hard reward from step one is noisy. Medicinal chemistry stabilizes a series, then tightens ADMET. Stage 1 uses the Tutorial 04 stack: QED, molecular weight, alerts. Stage 2 adds SlogP with a reverse sigmoid. Auto curriculum is multiple stage blocks in one TOML. Manual curriculum hands a checkpoint to a new file.\n\nIf a stage ends because max_steps was reached, REINVENT terminates all remaining stages. Auto curriculum only advances when max_score fires after min_steps. Treat stage-one max_steps as a safety ceiling, not the plan.\n\nSeed 42 auto run. Stage 1 early-stops at step 12, mean Score 0.74, above max_score 0.72. Stage 2 runs 20 steps. Score drops to 0.46 on the harder reward, then climbs to 0.59. About 29 seconds, peak RAM about 1.5 gibibytes. That cliff at the boundary is evidence the objective changed — not a crash.\n\nManual curriculum: agent_file is the stage-one checkpoint, prior_file stays the original prior. Use auto when stage 1 will early-stop. Use manual when you need to inspect CSV, retune transforms, or continue tomorrow.\n\nConfigs and stage CSVs are on the AI Drug Discovery Lab site. Code is on GitHub. Next: Tutorial 07 — adapt the prior with transfer learning before a long RL campaign.\n",
+  "voiceover_zh": "不要第一天就要求 LogP。REINVENT4 的课程学习是多阶段、不同评分的 RL，不是另一种算法。\n\n从第一步就上很难的奖励，分数会很吵。药物化学先稳住系列，再收紧 ADMET。阶段 1 用教程 04 的 QED、分子量、alerts。阶段 2 加上 reverse sigmoid 的 SlogP。自动课程是一个 TOML 里多个 stage；手动课程是把检查点交给新文件。\n\n如果一个阶段因为碰到 max_steps 结束，REINVENT 会终止后面所有阶段。自动课程只有在 min_steps 之后触达 max_score 才会前进。把阶段 1 的 max_steps 当成安全天花板，而不是计划本身。\n\n种子 42 的自动跑。阶段 1 在第 12 步提前停止，平均 Score 0.74，高于 max_score 0.72。阶段 2 跑满 20 步。更难奖励让 Score 掉到 0.46，再爬到 0.59。大约 29 秒，峰值约 1.5 GiB。边界上的悬崖说明目标变了，不是崩溃。\n\n手动课程：agent_file 是阶段 1 检查点，prior_file 仍是原来的 prior。阶段 1 能提前停就用自动；需要看 CSV、改变换、或明天再跑，就用手动。\n\n配置和各阶段 CSV 在 AI Drug Discovery Lab 网站。代码在 GitHub。下一集教程 07：在长 RL 之前用迁移学习适配 prior。\n",
+  "storyboard": [
+    {
+      "timecode": "0:00–0:12",
+      "shot": "Easy then hard objectives",
+      "on_screen_text": "Stage 1 then Stage 2",
+      "voice_beat": "Hook",
+      "asset_type": "title_card"
+    },
+    {
+      "timecode": "0:12–0:55",
+      "shot": "Two-stage diagram",
+      "on_screen_text": "QED+MW → +SlogP",
+      "voice_beat": "Problem",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "0:55–1:40",
+      "shot": "Termination rules",
+      "on_screen_text": "max_score advances · max_steps kills",
+      "voice_beat": "The trap",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "1:40–2:55",
+      "shot": "curriculum-score-stages.png",
+      "on_screen_text": "early-stop then climb",
+      "voice_beat": "Proof",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "2:55–3:35",
+      "shot": "Checkpoint hand-off",
+      "on_screen_text": "auto vs manual",
+      "voice_beat": "Manual CL",
+      "asset_type": "diagram"
+    },
+    {
+      "timecode": "3:35–4:00",
+      "shot": "CTA",
+      "on_screen_text": "Site → GitHub → Tutorial 07",
+      "voice_beat": "CTA",
+      "asset_type": "cta_card"
+    }
+  ],
+  "thumbnail_title": "max_score advances",
+  "thumbnail_prompt": "Two-stage staircase of objectives, a trapdoor labeled max_steps, dark teal, empty top for title.",
+  "broll": [
+    {
+      "item": "curriculum-score-stages.png",
+      "why": "Stage boundary cliff",
+      "source_hint": "chapter figure"
+    },
+    {
+      "item": "Log line: Terminating all stages",
+      "why": "Teach the trap",
+      "source_hint": "optional screencast"
+    }
+  ],
+  "youtube_description_en": "REINVENT4 Tutorial 06: Escalate Objectives — Don't Front-Load Hardness\n\nTwo-stage auto curriculum on CPU: stage 1 early-stops at step 12; stage 2 Score 0.46 to 0.59. Hitting max_steps aborts later stages.\n\nThis is a Discovery cut. The handbook is the knowledge base. GitHub is the reproducible configs and artifacts.\n\n🔗 Full tutorial (site)\nhttps://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/06-curriculum-learning/\n中文: https://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/06-curriculum-learning/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/06-curriculum-learning.md\n\n📺 Series playlist\nTODO_PLAYLIST_URL\n\nChapters\n0:00 Not a new algorithm\n0:12 Easy then hard\n0:55 max_steps kills the rest\n1:40 Early-stop at step 12\n2:55 Auto vs manual\n3:35 Site and GitHub\n\n#REINVENT4 #DrugDiscovery #GenerativeAI #Cheminformatics #OpenScience\n",
+  "youtube_description_zh": "REINVENT4 Tutorial 06: Escalate Objectives — Don't Front-Load Hardness\n\nCPU 上双阶段自动课程：阶段 1 第 12 步提前停；阶段 2 Score 从 0.46 到 0.59。碰到 max_steps 会中止后续阶段。\n\n视频负责发现；完整命令与产物在网站；可复现配置在 GitHub。\n\n🔗 完整教程\nhttps://luzuokun.github.io/ai-drug-discovery-lab/zh/molecular-generation/reinvent4/06-curriculum-learning/\nEnglish: https://luzuokun.github.io/ai-drug-discovery-lab/molecular-generation/reinvent4/06-curriculum-learning/\n\n💻 GitHub\nhttps://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/molecular-generation/reinvent4/06-curriculum-learning.md\n\n📺 系列播放列表\nTODO_PLAYLIST_URL\n\n章节\n0:00 Not a new algorithm\n0:12 Easy then hard\n0:55 max_steps kills the rest\n1:40 Early-stop at step 12\n2:55 Auto vs manual\n3:35 Site and GitHub\n\n#REINVENT4 #药物发现 #生成式AI\n",
+  "chapters": [
+    {
+      "timecode": "0:00",
+      "title": "Not a new algorithm"
+    },
+    {
+      "timecode": "0:12",
+      "title": "Easy then hard"
+    },
+    {
+      "timecode": "0:55",
+      "title": "max_steps kills the rest"
+    },
+    {
+      "timecode": "1:40",
+      "title": "Early-stop at step 12"
+    },
+    {
+      "timecode": "2:55",
+      "title": "Auto vs manual"
+    },
+    {
+      "timecode": "3:35",
+      "title": "Site and GitHub"
+    }
+  ],
+  "tags": [
+    "REINVENT4",
+    "drug discovery",
+    "generative chemistry",
+    "AI drug design",
+    "cheminformatics",
+    "molecular generation",
+    "open science",
+    "AstraZeneca REINVENT",
+    "tutorial",
+    "machine learning",
+    "curriculum learning",
+    "staged learning"
+  ],
+  "subtitles_en": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "Curriculum = staged scoring, not a new algorithm."
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 55,
+      "text": "Easy MPO first. Then add SlogP."
+    },
+    {
+      "start_sec": 55,
+      "end_sec": 100,
+      "text": "Hitting max_steps aborts later stages."
+    },
+    {
+      "start_sec": 100,
+      "end_sec": 175,
+      "text": "Stage 1: 12 steps. Stage 2: 0.46 → 0.59."
+    },
+    {
+      "start_sec": 175,
+      "end_sec": 215,
+      "text": "Manual: agent_file = chkpt, prior unchanged."
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "Site and GitHub. Next: transfer learning."
+    }
+  ],
+  "subtitles_zh": [
+    {
+      "start_sec": 0,
+      "end_sec": 12,
+      "text": "课程学习是分阶段评分，不是新算法。"
+    },
+    {
+      "start_sec": 12,
+      "end_sec": 55,
+      "text": "先简单 MPO，再加 SlogP。"
+    },
+    {
+      "start_sec": 55,
+      "end_sec": 100,
+      "text": "碰到 max_steps 会中止后续阶段。"
+    },
+    {
+      "start_sec": 100,
+      "end_sec": 175,
+      "text": "阶段 1：12 步。阶段 2：0.46 → 0.59。"
+    },
+    {
+      "start_sec": 175,
+      "end_sec": 215,
+      "text": "手动：agent 用检查点，prior 不变。"
+    },
+    {
+      "start_sec": 215,
+      "end_sec": 240,
+      "text": "网站与 GitHub。下一集：迁移学习。"
+    }
+  ],
+  "verify_flags": [
+    "[VERIFY] Playlist URL still TODO_PLAYLIST_URL"
+  ]
+}

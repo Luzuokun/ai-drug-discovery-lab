@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:12,000
+Short TL was a taste. Now: stop rules.
+
+2
+00:00:12,000 --> 00:00:50,000
+Enrichment without memorizing the train set.
+
+3
+00:00:50,000 --> 00:02:10,000
+Best val NLL at epoch 8. Epoch 40 memorizes 40%.
+
+4
+00:02:10,000 --> 00:03:10,000
+TL→RL 0.847 / 66.6% vs RL-only 0.775 / 4.4%.
+
+5
+00:03:10,000 --> 00:03:35,000
+Stop on val NLL. TL ≠ curriculum.
+
+6
+00:03:35,000 --> 00:04:00,000
+Site and GitHub. Next: docking-guided design.

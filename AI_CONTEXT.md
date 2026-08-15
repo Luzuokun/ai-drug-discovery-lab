@@ -1,7 +1,7 @@
 # AI_CONTEXT.md
 
 > 给后续 Cursor / Cloud Agent 与人类协作者的**项目状态备忘**。  
-> 最后更新：2026-08-13（Tutorial 07 TL + Tutorial 08 Docking-Guided Design 已写成 Available）
+> 最后更新：2026-08-14（Tutorial 07/08 英文实操 Available + REINVENT4 01–08 YouTube Discovery 草稿）
 
 ---
 
@@ -135,8 +135,9 @@
 4. **中文翻译**  
    优先 01–08（已 Available 的英文），再跟进新章。
 
-5. **YouTube**  
-   随新 Available 章补 `youtube/packs/...`（可加 07/08 包）。
+5. **YouTube Discovery（01–08 草稿已齐）**  
+   `youtube/packs/<slug>/` 文案 + xAI Imagine 静帧 + xAI TTS（gitignored `youtube/audio/`）+ ffmpeg `youtube/renders/<slug>/draft.mp4`（gitignored）。  
+   目标 3–5 分钟；剪映插入录屏 → 上传 → 再把 URL 写回 MkDocs。新 Available 章继续补包。
 
 ### 写下一章时的硬标准（勿降级）
 
