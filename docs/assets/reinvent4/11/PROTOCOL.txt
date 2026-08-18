@@ -1,0 +1,28 @@
+BRAF ligand-likeness campaign (Tutorial 11)
+==========================================
+
+Scientific question
+  Can a documented ligand-likeness oracle (Tanimoto to vemurafenib + QED +
+  MW 200–500 + SMARTS alerts + Murcko diversity filter) move a PubChem
+  REINVENT prior toward BRAF-inhibitor-like chemical space without a
+  docking or biochemical assay?
+
+Oracle (not a potency model)
+  Reference: vemurafenib (PLX4032)
+  SMILES: CCCS(=O)(=O)Nc1ccc(F)c(C(=O)c2c[nH]c3ncc(-c4ccc(Cl)cc4)cc23)c1
+  Fingerprint: Morgan radius 2, counts=true, features=false
+  Aggregation: geometric_mean of Tanimoto + QED + MW; CustomAlerts filter
+
+Held-out checks (not in the reward)
+  dabrafenib, sorafenib, benzene, aspirin
+  Tutorial 04 QED-RL step-25 molecules rescored with this oracle
+
+Success criteria (pre-registered)
+  1. Sanity: vemurafenib Tanimoto = 1.0; benzene / aspirin << 0.2
+  2. 25-step BRAF-RL mean Tanimoto > T04 QED-RL control (same seed, same prior)
+  3. 80-step mean Tanimoto ≥ step-1 + 0.05
+  4. Do not claim BRAF biochemical activity or a docking pose
+
+Software
+  REINVENT 4.8.24, PyTorch 2.12.0+cpu, seed 42
+  device = cpu (this recording host had no NVIDIA GPU)

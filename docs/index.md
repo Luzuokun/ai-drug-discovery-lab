@@ -48,10 +48,10 @@ New here? Start with [Getting Started](getting-started/index.md).
 
 | Chapter | Status |
 |---------|--------|
-| [REINVENT4 Tutorial 01 — Installation & First Molecule](molecular-generation/reinvent4/01-installation-first-molecule.md) | Available |
-| [REINVENT4 Tutorial 02 — Priors in Practice](molecular-generation/reinvent4/02-priors-in-practice.md) | Available |
-| [REINVENT4 Tutorial 05 — Diversity Filter](molecular-generation/reinvent4/05-diversity-filter.md) | Available |
-| [REINVENT4 Tutorial 06 — Curriculum Learning](molecular-generation/reinvent4/06-curriculum-learning.md) | Available |
+| [REINVENT4 Tutorial 09 — Scaling & Monitoring](molecular-generation/reinvent4/09-scaling-and-monitoring.md) | Available |
+| [REINVENT4 Tutorial 10 — Ablations & Hyperparameters](molecular-generation/reinvent4/10-ablations-and-hyperparameters.md) | Available |
+| [REINVENT4 Tutorial 11 — Case Study: BRAF](molecular-generation/reinvent4/11-case-study-braf.md) | Available |
+| [REINVENT4 Tutorial 12 — Troubleshooting Appendix](molecular-generation/reinvent4/12-troubleshooting-appendix.md) | Available |
 | [REINVENT4 Course Syllabus](molecular-generation/reinvent4/index.md) | 12-chapter research practice path |
 | [Getting Started — Conda](getting-started/conda.md) | Coming soon |
 

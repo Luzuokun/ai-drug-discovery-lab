@@ -47,7 +47,10 @@
 
 | 章节 | 状态 |
 |------|------|
-| [REINVENT4 教程 01 — 安装与首个分子](molecular-generation/reinvent4/01-installation-first-molecule.md) | 即将推出 |
+| [REINVENT4 教程 09 — 扩规模与监控](molecular-generation/reinvent4/09-scaling-and-monitoring.md) | 已发布（英文） |
+| [REINVENT4 教程 10 — 消融与超参数](molecular-generation/reinvent4/10-ablations-and-hyperparameters.md) | 已发布（英文） |
+| [REINVENT4 教程 11 — 案例：BRAF](molecular-generation/reinvent4/11-case-study-braf.md) | 已发布（英文） |
+| [REINVENT4 教程 12 — 故障排查附录](molecular-generation/reinvent4/12-troubleshooting-appendix.md) | 已发布（英文） |
 | [REINVENT4 课程大纲](molecular-generation/reinvent4/index.md) | 12 章科研实践路径 |
 | [入门 — Conda](getting-started/conda.md) | 即将推出 |
 

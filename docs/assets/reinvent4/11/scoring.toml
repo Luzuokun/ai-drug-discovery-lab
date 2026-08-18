@@ -1,0 +1,51 @@
+run_type = "scoring"
+device = "cpu"
+json_out_config = "_braf_score.json"
+
+[parameters]
+smiles_file = "refs.smi"
+output_csv = "braf_refs_scored.csv"
+
+[scoring]
+type = "geometric_mean"
+parallel = 1
+
+[[scoring.component]]
+[scoring.component.custom_alerts]
+[[scoring.component.custom_alerts.endpoint]]
+name = "Alerts"
+params.smarts = [
+  "[*;r{8-17}]",
+  "[#8][#8]",
+  "[#6;+]",
+  "[#16][#16]",
+  "C#C"
+]
+
+[[scoring.component]]
+[scoring.component.QED]
+[[scoring.component.QED.endpoint]]
+name = "QED"
+weight = 1.0
+
+[[scoring.component]]
+[scoring.component.MolecularWeight]
+[[scoring.component.MolecularWeight.endpoint]]
+name = "MW"
+weight = 1.0
+transform.type = "double_sigmoid"
+transform.low = 200.0
+transform.high = 500.0
+transform.coef_div = 500.0
+transform.coef_si = 20.0
+transform.coef_se = 20.0
+
+[[scoring.component]]
+[scoring.component.TanimotoSimilarity]
+[[scoring.component.TanimotoSimilarity.endpoint]]
+name = "Tanimoto"
+weight = 1.0
+params.smiles = ["CCCS(=O)(=O)Nc1ccc(F)c(C(=O)c2c[nH]c3ncc(-c4ccc(Cl)cc4)cc23)c1"]
+params.radius = 2
+params.use_counts = true
+params.use_features = false

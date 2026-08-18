@@ -19,10 +19,10 @@ downloadable artifacts).
 | 06 | [Curriculum Learning](06-curriculum-learning.md) | Escalate objectives across stages / checkpoints | Available |
 | 07 | [Transfer Learning](07-transfer-learning.md) | Adapt the prior to project-specific chemistry | Available |
 | 08 | [Docking-Guided Design](08-docking-guided-design.md) | Put a structure-based oracle into the generation loop | Available |
-| 09 | [Scaling & Monitoring](09-scaling-and-monitoring.md) | GPU runs, logs, and TensorBoard for long campaigns | Coming Soon |
-| 10 | [Ablations & Hyperparameters](10-ablations-and-hyperparameters.md) | One-variable experiments with your own tables | Coming Soon |
-| 11 | [Case Study: BRAF](11-case-study-braf.md) | End-to-end campaign on a published-style target | Coming Soon |
-| 12 | [Troubleshooting Appendix](12-troubleshooting-appendix.md) | Cross-cutting errors, demoted edge topics, FAQ | Coming Soon |
+| 09 | [Scaling & Monitoring](09-scaling-and-monitoring.md) | GPU runs, logs, and TensorBoard for long campaigns | Available |
+| 10 | [Ablations & Hyperparameters](10-ablations-and-hyperparameters.md) | One-variable experiments with your own tables | Available |
+| 11 | [Case Study: BRAF](11-case-study-braf.md) | End-to-end campaign on a published-style target | Available |
+| 12 | [Troubleshooting Appendix](12-troubleshooting-appendix.md) | Cross-cutting errors, demoted edge topics, FAQ | Available |
 
 ## Reading path
 

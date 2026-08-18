@@ -1,0 +1,7 @@
+step,SMILES,Score,Tanimoto,Tanimoto (raw),QED (raw),Scaffold
+1,NC(=O)C(CCOCc1ccccc1)c1ccccc1,0.5062,0.1654,0.1654,0.7857,c1ccc(CCCOCc2ccccc2)cc1
+1,CC(C)(C)CN1COCC1CN,0.1065,0.0252,0.0252,0.6644,C1COCN1
+1,COc1ccc(CNc2nc(-c3cccnc3)ns2)c(OC)c1,0.5047,0.1716,0.1716,0.7490,c1ccc(CNc2nc(-c3cccnc3)ns2)cc1
+25,O=C(CCc1nnc(-c2ccccc2Cl)o1)N1CCCCc2ccccc21,0.4926,0.1818,0.1818,0.6572,O=C(CCc1nnc(-c2ccccc2)o1)N1CCCCc2ccccc21
+25,CCSC1C(NC(=O)Nc2ccccc2)=C2c3ccccc3C(=O)N21,0.5692,0.2090,0.2090,0.8823,O=C(NC1=C2c3ccccc3C(=O)N2C1)Nc1ccccc1
+25,Nc1c(C(=O)Nc2cccnc2)sc2ncccc12,0.5206,0.1885,0.1885,0.7494,O=C(Nc1cccnc1)c1cc2cccnc2s1
