@@ -170,6 +170,10 @@ def main() -> None:
         "06-curriculum-learning.md",
         "07-transfer-learning.md",
         "08-docking-guided-design.md",
+        "09-scaling-and-monitoring.md",
+        "10-ablations-and-hyperparameters.md",
+        "11-case-study-braf.md",
+        "12-troubleshooting-appendix.md",
         "index.md",
     }
     for i, (slug, en_title, zh_title) in enumerate(REINVENT4_CHAPTERS, 1):

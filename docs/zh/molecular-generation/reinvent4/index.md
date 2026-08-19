@@ -17,10 +17,10 @@
 | 06 | [课程学习](06-curriculum-learning.md) | 分阶段 / checkpoint 升级目标 | 已发布（英文） |
 | 07 | [迁移学习](07-transfer-learning.md) | 把 prior 适配到项目化学空间 | 已发布（英文） |
 | 08 | [对接引导设计](08-docking-guided-design.md) | 把基于结构的 oracle 接入生成循环 | 已发布（英文） |
-| 09 | [扩规模与监控](09-scaling-and-monitoring.md) | GPU、日志与 TensorBoard | 即将推出 |
-| 10 | [消融与超参数](10-ablations-and-hyperparameters.md) | 单变量实验 + 你们自己的对照表 | 即将推出 |
-| 11 | [案例：BRAF](11-case-study-braf.md) | 端到端、论文风格靶点战役 | 即将推出 |
-| 12 | [故障排查附录](12-troubleshooting-appendix.md) | 跨章错误、降级边缘话题、FAQ | 即将推出 |
+| 09 | [扩规模与监控](09-scaling-and-monitoring.md) | GPU、日志与 TensorBoard | 已发布（英文） |
+| 10 | [消融与超参数](10-ablations-and-hyperparameters.md) | 单变量实验 + 你们自己的对照表 | 已发布（英文） |
+| 11 | [案例：BRAF](11-case-study-braf.md) | 端到端、论文风格靶点战役 | 已发布（英文） |
+| 12 | [故障排查附录](12-troubleshooting-appendix.md) | 跨章错误、降级边缘话题、FAQ | 已发布（英文） |
 
 ## 阅读路径
 

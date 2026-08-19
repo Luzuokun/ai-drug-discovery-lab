@@ -1,8 +1,9 @@
 # REINVENT4 教程（12）：故障排查附录
 
-!!! note "即将推出 — 科研实践大纲"
-    本章属于《AI 药物发现开源教材》。完整实操将遵循[章节模板](https://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/templates/chapter-template.md)。
-    在完稿前，以下大纲即验收标准。
+!!! note "英文正文已发布"
+    完整可复现实操见英文版
+    [Tutorial 12 — Troubleshooting Appendix](../../../molecular-generation/reinvent4/12-troubleshooting-appendix.md)。
+    中文翻译将随后跟进。本章验收大纲保留如下。
 
 !!! abstract "REINVENT4 课程第 12 章"
     跨章故障、降级的边缘话题与 FAQ —— 一份附录，而不是三个重复章节。
@@ -19,5 +20,5 @@
 
 ## 状态
 
-**即将推出。** 前置：见[课程大纲](index.md)中已发布章节。遵循贡献指南：科研实践，不是 API 文档；
+**已发布（英文）。** 前置：见[课程大纲](index.md)。遵循贡献指南：科研实践，不是 API 文档；
 Every tutorial is reproducible.

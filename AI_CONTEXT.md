@@ -1,7 +1,7 @@
 # AI_CONTEXT.md
 
 > 给后续 Cursor / Cloud Agent 与人类协作者的**项目状态备忘**。  
-> 最后更新：2026-08-14（Tutorial 07/08 英文实操 Available + REINVENT4 01–08 YouTube Discovery 草稿）
+> 最后更新：2026-08-18（REINVENT4 Tutorials 09–12 英文实操 Available；12 章战役英文主线写完）
 
 ---
 
@@ -18,7 +18,7 @@
 
 对 REINVENT4 系列的具体目标：
 
-1. 沿 **12 章战役主线**写满可复现英文实操（固定 seed、墙钟/内存、可下载产物、*why*、失败模式）。
+1. 沿 **12 章战役主线**写满可复现英文实操（固定 seed、墙钟/内存、可下载产物、*why*、失败模式）。**英文 01–12 已 Available。**
 2. 让模型/读者引用本站的理由是：**决策、对照实验、读图读表**；参数表仍指向官方 `PARAMS.md` / `SCORING.md`。
 3. 中文镜像跟进（EN-first，见 `CONTRIBUTING.md`）。
 4. （并行）YouTube 文案 / 制片包流水线已起步，服务同一套教程内容。
@@ -39,7 +39,6 @@
   `01 安装 → 02 Prior 实践 → 03 评分 → 04 RL → 05 多样性 → 06 课程 → 07 TL → 08 对接引导 → 09 扩规模/监控 → 10 消融 → 11 BRAF → 12 附录`
 
 - 砍掉/并入：自定义词表、RDKit 导览、并行采样、独立 Logging/TB、重复 FAQ/Common Errors。
-- Coming Soon 章带**验收大纲**（必须交付 / API 陷阱）。
 - `scripts/scaffold_docs.py` 与 12 章对齐，并保护已发布章节与手写 index。
 
 ### 已发布英文实操章（Available）
@@ -52,48 +51,54 @@
 | **04** Reinforcement Learning | 单阶段 `staged_learning`，Score↑ / NLL↓ | #4 |
 | **05** Diversity Filter | 有/无 Murcko DF 的 RL A/B | #6 |
 | **06** Curriculum Learning | 双阶段 auto CL（`max_score` early-stop）+ 手动 chkpt 续跑 | #9 |
-| **07** Transfer Learning | 40-epoch TL 过拟合曲线；TL→RL vs RL-only（同评分） | （本 PR） |
-| **08** Docking-Guided Design | 1IEP 口袋 + ExternalProcess Vina；scoring + 短 RL + 构象审查 | （本 PR） |
+| **07** Transfer Learning | 40-epoch TL 过拟合曲线；TL→RL vs RL-only（同评分） | #11 |
+| **08** Docking-Guided Design | 1IEP 口袋 + ExternalProcess Vina；scoring + 短 RL + 构象审查 | #11 |
+| **09** Scaling & Monitoring | 同 T04 协议 + TensorBoard；TB on/off 化学一致；CPU 无 GPU 诚实记录 | （本 PR） |
+| **10** Ablations | `sigma` 64/128/256 seed 42；推荐默认 128 | （本 PR） |
+| **11** Case Study: BRAF | 配体相似性战役；预注册成功标准；25 vs 80 step | （本 PR） |
+| **12** Troubleshooting Appendix | 错误索引 + 词表/并行/RDKit 短注；不另开 FAQ 导航 | （本 PR） |
 
-产物目录：`docs/assets/reinvent4/{01,…,08}/`。
+产物目录：`docs/assets/reinvent4/{01,…,12}/`（12 无实验图，索引章）。
 
 ### 其他已合入
 
-- **#7** YouTube Cursor skills + Tutorial 02 制片包（`youtube/packs/02-priors-in-practice/`，`.cursor/skills/youtube-*`）。
+- **#7** YouTube Cursor skills + Tutorial 02 制片包。
 - **#9** REINVENT4 Tutorial 06 Curriculum Learning。
-- **#10** Markdown → YouTube 流水线（xAI TTS / Imagine）+ Tutorial 03 制片包。
+- **#10** Markdown → YouTube 流水线 + Tutorial 03 制片包。
+- **#12** Tutorials 01–08 YouTube Discovery 草稿。
 
-### 尚未写成正文的章
+### 尚未写成正文的工作
 
-09–12 仍为带验收大纲的 Coming Soon（中文 01–08 亦未翻译，索引标「已发布（英文）」）。
+- **中文翻译**：01–12 英文已齐；`docs/zh/...` 对 Available 章标「已发布（英文）」。
+- **YouTube Discovery**：09–12 尚未出包。
 
 ---
 
 ## 3. 当前遇到的问题
 
 1. **中英不同步**  
-   01–08 仅有英文正文；`docs/zh/...` 多为占位/大纲。双语手册承诺未兑现。
+   01–12 仅有英文正文；`docs/zh/...` 多为占位/大纲。双语手册承诺未兑现。
 
-2. **战役后半程**  
-   09 Scaling → 11 BRAF 仍是引用价值最高的后半程高潮未写。
-
-3. **Tutorial 02 与 07 的边界（已处理）**  
+2. **Tutorial 02 与 07 的边界（已处理）**  
    02 = 短 TL 对照 prior；07 = 更长训练、过拟合、TL→RL A/B。勿再写成第二遍 02。
 
-4. **环境/脚手架摩擦（Agent 侧）**  
+3. **环境/脚手架摩擦（Agent 侧）**  
    - 文档 venv 依赖系统 `python3-venv` / `python3.12-venv`（见 `AGENTS.md`）。  
-   - REINVENT4 教程实验在独立 venv 中跑（非站点 `.venv`）；Cloud 镜像未必预装。  
+   - REINVENT4 教程实验在独立 venv 中跑（非站点 `.venv`）；Cloud 镜像未必预装 GPU。  
    - 对接章另需 `autodock-vina`、`openbabel`、`meeko`(+`gemmi`)。  
    - **禁止**对 Available 章盲目重跑 `scaffold_docs.py`。
 
-5. **REINVENT 配置陷阱（写章时反复踩到）**  
+4. **REINVENT 配置陷阱（写章时反复踩到）**  
    - staged learning 必须用 `[stage.scoring]`，不能抄 top-level `[scoring]`。  
    - 4.8.24 RL schema **不接受** `unique_sequences`；TL 要求 `sample_batch_size ≥ 100`。  
    - Zenodo 上不同 `.prior` 对应不同 generator；不能拿 Mol2Mol prior 和 Reinvent de novo 做「公平 A/B」。  
    - TL 每个 epoch 会覆盖裸 `output_model_file`；中间档为 `*.N.chkpt`。  
-   - DockStream 已标 superseded；教学对接用 ExternalProcess + Vina 更透明。
+   - DockStream 已标 superseded；教学对接用 ExternalProcess + Vina 更透明。  
+   - `tb_logdir = "tb_rl"` 实际写到 `tb_rl_0/`（staged learning 追加 `_{run}`）。  
+   - CPU wheel 上 `device = "cuda:0"` → `Torch not compiled with CUDA enabled`。  
+   - 本协议下 `scoring.parallel=4` 比 `1` **更慢**（RDKit 太便宜）。
 
-6. **本地分支滞后**  
+5. **本地分支滞后**  
    历史 feature 分支可能已落后于 `main`；新工作应从最新 `main` 开 `cursor/<name>-****` 分支。
 
 ---
@@ -114,6 +119,10 @@
 | **07 TL→RL 用 ep24 + 两边都指 TL chkpt** | 同评分隔离 TL 效应；DAP prior 必须是适配后的分布。 |
 | **08 ExternalProcess+Vina，不用 DockStream** | 教学可调试；DockStream superseded；交叉链接 Docking 栏目。 |
 | **08 短 RL 诚实写噪声** | 5×8@exh=1 只证明回路通，不宣称优化成功。 |
+| **09 无 GPU 仍写扩规模** | 同 seed TB on/off 证明化学不变；GPU 作为一行 TOML + CPU-wheel 真失败；吞吐用 mol/s。 |
+| **10 只消融 sigma** | 25 step / 1 seed 下 rate 不可辨；batch 已在 09 当吞吐变量。 |
+| **11 配体相似性而非 BRAF 对接** | 对接需另建口袋（08 是 Abl 1IEP）；预注册标准 + QED-RL 对照；诚实写 Tc 0.20 仍 analog-remote。 |
+| **12 只做索引** | 不复活独立 FAQ 导航；词表/并行/RDKit 短注。 |
 | **Coming Soon 写验收大纲** | 空壳标题会被当成 API 索引；大纲即「完稿标准」。 |
 | **Scaffold 保护 Available + 手写 index** | 防止再生孤儿文件/覆盖正文。 |
 
@@ -123,21 +132,14 @@
 
 按优先级（仍服从「可复现实操 > 扩目录」）：
 
-1. **Tutorial 09 — Scaling & Monitoring**  
-   GPU / 日志 / TensorBoard；服务长战役与贵 oracle（对接）。
+1. **中文翻译**  
+   优先 01–08，再 09–12。索引已标「已发布（英文）」。
 
-2. **10 Ablations → 11 BRAF**  
-   消融出*本站*对照表；BRAF 端到端战役作引用高潮。
+2. **YouTube Discovery（01–08 草稿已齐；09–12 未出）**  
+   `youtube/packs/<slug>/` 文案 + xAI Imagine 静帧 + xAI TTS（gitignored `youtube/audio/`）+ ffmpeg `youtube/renders/<slug>/draft.mp4`（gitignored）。
 
-3. **12 Troubleshooting Appendix**  
-   汇总跨章错误 + 降级边缘话题（词表/并行采样等短注）。
-
-4. **中文翻译**  
-   优先 01–08（已 Available 的英文），再跟进新章。
-
-5. **YouTube Discovery（01–08 草稿已齐）**  
-   `youtube/packs/<slug>/` 文案 + xAI Imagine 静帧 + xAI TTS（gitignored `youtube/audio/`）+ ffmpeg `youtube/renders/<slug>/draft.mp4`（gitignored）。  
-   目标 3–5 分钟；剪映插入录屏 → 上传 → 再把 URL 写回 MkDocs。新 Available 章继续补包。
+3. **BRAF 对接 follow-up（练习，非新章）**  
+   Tutorial 11 Challenge：对 BRAF 共晶（非 1IEP）重复 08 的 ExternalProcess+Vina 协议。
 
 ### 写下一章时的硬标准（勿降级）
 
@@ -147,16 +149,41 @@
 - Common Errors 来自真实跑通  
 - Think About It / Exercises 问科学判断或单变量消融  
 - 写清：官方文档管 X，本章管 Y  
-- 更新 EN（及 ZH）index 状态、`mkdocs.yml` 若改 slug、scaffold `PROTECTED`  
+- 更新 EN（及 ZH）index 状态、`mkdocs.yml` 若改 slug、scaffold `PROTECTED`
 
 ### 建议的下一次 Agent 起步命令
 
 ```bash
 git checkout main && git pull origin main
-git checkout -b cursor/reinvent4-tutorial-09-scaling-<suffix>
-# 参考：docs/molecular-generation/reinvent4/08-docking-guided-design.md、09 验收大纲
+git checkout -b cursor/reinvent4-zh-01-<suffix>
+# 优先翻译 docs/molecular-generation/reinvent4/01–04
 # 验收：.venv/bin/mkdocs build --strict
 ```
+
+### Tutorial 09 关键实现笔记
+
+- 主机：4-core Xeon，PyTorch **2.12.0+cpu**，无 `nvidia-smi`。
+- T04 协议 seed 42：Score **0.66→0.79**，Agent NLL **34.79→27.15**（与 T04 化学一致）。
+- TB off **61.2 s** / on **66.6 s**（+9%）；step-1 SMILES 完全相同。
+- `tb_logdir = "tb_rl"` → 目录 `tb_rl_0/`。
+- batch 32：33.4 s、800 mol、~23.9 mol/s（vs 64 的 26.1）；RAM 1.23 vs 1.51 GiB。
+- `scoring.parallel=4`（10 step）**55.7 s** vs parallel=1 **31.0 s**。
+- CUDA TOML：`AssertionError: Torch not compiled with CUDA enabled`。
+
+### Tutorial 10 关键实现笔记
+
+- `sigma` 64 / 128 / 256，同 seed、同 25×64。
+- Score@25：0.77 / **0.79** / 0.77；Valid@25：100 / 100 / **98%**。
+- Unique Murcko：1225 / 1164 / 1216。推荐默认 **128**。
+- 下一步不调：`rate`（需多种子）、与 batch 同时网格。
+
+### Tutorial 11 关键实现笔记
+
+- 参考：vemurafenib；Morgan r=2 counts；几何平均 + QED + MW 200–500 + alerts + Murcko DF。
+-  Sanity：vemurafenib Tc=1.0、QED=0.35、Score=0.69；benzene Tc=0.06；dabrafenib MW 520。
+- T04 step25 再打 BRAF 分：mean Tc **0.12**。
+- BRAF-RL 25 step：Tc 0.137→0.150；80 step：→**0.196**（Δ+0.059）。
+- 末批 7-azaindole **0/64**。不宣称 BRAF 活性。
 
 ### Tutorial 07 关键实现笔记
 

@@ -50,7 +50,7 @@ mkdocs build --strict
 
 ## REINVENT4 series
 
-Chapters 01–08 (*Installation* through *Docking-Guided Design*) are the reference
+Chapters 01–12 (*Installation* through *Troubleshooting Appendix*) are the reference
 implementation for tone and depth. The live
 syllabus is a **12-chapter research practice path** (see
 `docs/molecular-generation/reinvent4/index.md`) — not a 20-topic API feature tour.
