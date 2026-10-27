@@ -1,8 +1,5 @@
 # 分子对接
 
-!!! note "即将推出"
-    本章属于《AI 药物发现开源教材》，内容正在编写中。
+主路径：**[结构 Structure 工位](../stations/structure.md)** — 经 reinvent-agent `docking`（`--approve-dock`）使用 AutoDock Vina 与 GNINA。
 
-Structure-based virtual screening and pose prediction.
-
-贡献请参考[章节模板](https://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/templates/chapter-template.md)。
+[Smina](smina.md) 仅在附录。Vina/GNINA 章节正文仍薄；闸门以工位页与 Agent 模块为准。

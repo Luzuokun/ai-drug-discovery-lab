@@ -9,8 +9,8 @@ This repo is a **bilingual (EN/ZH) MkDocs Material documentation site** ("AI Dru
 - **Serve locally:** `.venv/bin/mkdocs serve -a 127.0.0.1:8000`. Note the site uses a base path — open `http://127.0.0.1:8000/ai-drug-discovery-lab/` (append `/zh/` for the Chinese site). The bare root `/` returns 404.
 - **Strict build (matches CI):** `.venv/bin/mkdocs build --strict`. The red boxed "Warning from the Material for MkDocs team" about MkDocs 2.0 is an upstream advisory, not a build error — a successful build still exits 0.
 - Content is authored EN-first under `docs/`, with Chinese mirrors under `docs/zh/` (the `mkdocs-static-i18n` plugin builds `/zh/`). When adding top-level pages, update both nav trees in `mkdocs.yml`.
-- Most chapter pages still include Coming Soon outlines with a **research-practice
-  acceptance bar**. Available hands-on chapters today: **01–12**.
+- **IA:** main nav is HITL **stations** (Research / Chemistry / Structure / Dynamics / Critic / You), not a model laundry list. REINVENT4 (12 chapters) is the Chemistry spine. Protein AI and unwired generator shells live under **Appendix**. Do not re-promote Coming Soon pages to top-level tabs.
+- Most legacy chapter stubs still include Coming Soon outlines. Available hands-on chapters today: **REINVENT4 01–12**.
   The live syllabus is **12 chapters** (see `docs/molecular-generation/reinvent4/index.md`).
   `scripts/scaffold_docs.py` is aligned with that list but **must not** be re-run
   against Available chapters or the hand-authored course index — edit pages directly.

@@ -1,9 +1,5 @@
-# Molecular Dynamics
+# Molecular dynamics
 
-!!! note "Coming Soon"
-    This chapter is part of the *Open Handbook of AI Drug Discovery*.
-    Content is under development.
+Primary path: **[Dynamics station](../stations/dynamics.md)** — GROMACS via reinvent-agent `md` / `md_carb`.
 
-MD simulations for binding validation.
-
-Follow the [chapter template](https://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/templates/chapter-template.md) when contributing.
+[Amber](amber.md) is appendix-only. Short MD ≠ free-energy proof; production protocols need separate PI approval.

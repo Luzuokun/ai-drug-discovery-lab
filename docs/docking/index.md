@@ -1,9 +1,5 @@
 # Docking
 
-!!! note "Coming Soon"
-    This chapter is part of the *Open Handbook of AI Drug Discovery*.
-    Content is under development.
+Primary path: **[Structure station](../stations/structure.md)** — AutoDock Vina and GNINA via reinvent-agent `docking` (`--approve-dock`).
 
-Structure-based virtual screening and pose prediction.
-
-Follow the [chapter template](https://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/templates/chapter-template.md) when contributing.
+[Smina](smina.md) is appendix-only. Chapter bodies for Vina/GNINA are still thin; use the station page and agent module as the source of truth for gates.
