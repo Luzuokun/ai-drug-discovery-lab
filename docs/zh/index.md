@@ -1,64 +1,40 @@
-# AI 药物发现实验室
-
 <div class="hero" markdown>
 
-**AI 驱动分子设计的实践教程。**
+<p class="hero-brand">AI 药物发现实验室</p>
 
-<div class="hero-tagline" markdown>
+<p class="hero-line">你是 PI（公司 CEO + 科学签字人）。系统是带闸门的虚拟课题组——不是聊天机器人，也不是工具百科。</p>
 
-真实工作流 · 真实代码 · 真实论文
+<p class="hero-support">一人 HITL 产线已在真实战役跑通：生成 → 过滤 → 对接 → 短 MD → 人批 → 再跑。</p>
 
-**Every tutorial is reproducible.（所有教程均可复现）**
-
-</div>
-</div>
-
-本手册涵盖 **分子生成**、**蛋白质建模**、**分子对接** 与 **分子动力学** 的可复现实操流程。
-
-<div class="tool-grid" markdown>
-
-<span>REINVENT4</span>
-<span>GROMACS</span>
-<span>RDKit</span>
-<span>ProteinMPNN</span>
-<span>ESM2</span>
-<span>Python</span>
+<p class="hero-cta">
+[开始战役](https://github.com/Luzuokun/reinvent-agent){ .md-button .md-button--primary }
+[打开工作台](stations/index.md){ .md-button }
+[看战役案例](campaigns/index.md){ .md-button }
+</p>
 
 </div>
 
----
+<div class="pipeline" markdown>
 
-## 我能帮你解决什么？
+文献 Research → 生成 Chemistry → 结构 Structure → 动力学 Dynamics → 批判 Critic → 你签字
 
-| 主题 | 内容 |
-|------|------|
-| [分子生成](molecular-generation/index.md) | 强化学习与生成式 de novo 设计 |
-| [蛋白质 AI](protein-ai/index.md) | 序列/结构模型与逆折叠 |
-| [分子对接](docking/index.md) | 虚拟筛选与构象预测 |
-| [分子动力学](molecular-dynamics/index.md) | 验证与自由能计算 |
-| [RDKit](rdkit/index.md) | 指纹、描述符、骨架分析 |
-| [Python 工作流](python-workflow/index.md) | 脚本与自动化 |
+</div>
 
-新手请从 [入门指南](getting-started/index.md) 开始。
+<ul class="station-strip" markdown>
+<li><strong>Research</strong><span>带出处文献</span></li>
+<li><strong>Chemistry</strong><span>REINVENT4 十二章</span></li>
+<li><strong>Structure</strong><span>Vina / GNINA</span></li>
+<li><strong>Dynamics</strong><span>GROMACS 短 MD</span></li>
+<li><strong>Critic</strong><span>只报红旗</span></li>
+<li><strong>You</strong><span>批协议、签字</span></li>
+</ul>
 
----
+## 本站是「一人 HITL 公司」操作手册
 
-## 最新教程
+| 角色 | 是什么 |
+|------|--------|
+| **你** | Principal Investigator — 科学结论签字人 |
+| **[reinvent-agent](https://github.com/Luzuokun/reinvent-agent)** | 带人批闸门的执行系统（`--approve-*`） |
+| **本 Lab** | 工作台说明书 + REINVENT4 科研实践课 + 战役案例 |
 
-| 章节 | 状态 |
-|------|------|
-| [REINVENT4 教程 09 — 扩规模与监控](molecular-generation/reinvent4/09-scaling-and-monitoring.md) | 已发布（英文） |
-| [REINVENT4 教程 10 — 消融与超参数](molecular-generation/reinvent4/10-ablations-and-hyperparameters.md) | 已发布（英文） |
-| [REINVENT4 教程 11 — 案例：BRAF](molecular-generation/reinvent4/11-case-study-braf.md) | 已发布（英文） |
-| [REINVENT4 教程 12 — 故障排查附录](molecular-generation/reinvent4/12-troubleshooting-appendix.md) | 已发布（英文） |
-| [REINVENT4 课程大纲](molecular-generation/reinvent4/index.md) | 12 章科研实践路径 |
-| [入门 — Conda](getting-started/conda.md) | 即将推出 |
-
----
-
-## 开源教材
-
-本站是 **AI 药物发现开源教材**，不是博客。每一页都是体系化课程的一章。
-
-[:octicons-arrow-right-24: 浏览完整手册](getting-started/index.md){ .md-button .md-button--primary }
-[:octicons-mark-github-16: GitHub 仓库](https://github.com/Luzuokun/ai-drug-discovery-lab){ .md-button }
+先读 [怎么工作](how-it-works.md)（HITL 宪法：人批 / 可自动 / 模型永不可做）。深度内容在 **生成 Chemistry → REINVENT4**（12 章）。空壳模型页只留在 [附录](appendix/index.md)，不占主导航权重。

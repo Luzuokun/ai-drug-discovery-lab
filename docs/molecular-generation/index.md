@@ -1,13 +1,5 @@
-# Molecular Generation
+# Molecular generation
 
-!!! note "Coming Soon"
-    This chapter is part of the *Open Handbook of AI Drug Discovery*.
-    Content is under development.
+Primary path: **[Chemistry station](../stations/chemistry.md)** → **[REINVENT4 course](reinvent4/index.md)** (12 chapters).
 
-AI-driven de novo molecular design frameworks.
-
-Follow the [chapter template](https://github.com/Luzuokun/ai-drug-discovery-lab/blob/main/docs/templates/chapter-template.md) when contributing.
-
-## Featured course
-
-- [REINVENT4](reinvent4/index.md) — 12-chapter research practice course
+Other generator stubs (DrugEx, MolGPT, GraphGA, Diffusion) are unwired and live under [Appendix](../appendix/index.md) only.

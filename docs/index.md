@@ -1,66 +1,40 @@
-# AI Drug Discovery Lab
-
 <div class="hero" markdown>
 
-**Practical tutorials for AI-driven molecular design.**
+<p class="hero-brand">AI Drug Discovery Lab</p>
 
-<div class="hero-tagline" markdown>
+<p class="hero-line">You are the PI. The system is a gated virtual lab — not a chat bot, not a tool encyclopedia.</p>
 
-Real workflows. Real code. Real papers.
+<p class="hero-support">One-person HITL pipeline already proven on real campaigns: generate → filter → dock → short MD → human approve → run again.</p>
 
-**Every tutorial is reproducible.**
-
-</div>
-</div>
-
-Learn practical AI workflows for **molecular generation**, **protein modeling**,
-**molecular docking**, and **molecular dynamics** — with commands you can rerun today.
-
-<div class="tool-grid" markdown>
-
-<span>REINVENT4</span>
-<span>GROMACS</span>
-<span>RDKit</span>
-<span>ProteinMPNN</span>
-<span>ESM2</span>
-<span>Python</span>
+<p class="hero-cta">
+[Start a campaign](https://github.com/Luzuokun/reinvent-agent){ .md-button .md-button--primary }
+[Open the workbench](stations/index.md){ .md-button }
+[See campaigns](campaigns/index.md){ .md-button }
+</p>
 
 </div>
 
----
+<div class="pipeline" markdown>
 
-## What can this handbook help you with?
+Research → Chemistry → Structure → Dynamics → Critic → You (sign)
 
-| Topic | You'll learn |
-|-------|----------------|
-| [Molecular Generation](molecular-generation/index.md) | RL and generative models for de novo design |
-| [Protein AI](protein-ai/index.md) | Sequence/structure models and inverse folding |
-| [Docking](docking/index.md) | Virtual screening and pose prediction |
-| [Molecular Dynamics](molecular-dynamics/index.md) | Validation and free-energy workflows |
-| [RDKit](rdkit/index.md) | Fingerprints, descriptors, scaffolds |
-| [Python Workflow](python-workflow/index.md) | Scripts and automation for the lab |
+</div>
 
-New here? Start with [Getting Started](getting-started/index.md).
+<ul class="station-strip" markdown>
+<li><strong>Research</strong><span>Cited literature</span></li>
+<li><strong>Chemistry</strong><span>REINVENT4 course</span></li>
+<li><strong>Structure</strong><span>Vina / GNINA</span></li>
+<li><strong>Dynamics</strong><span>GROMACS short MD</span></li>
+<li><strong>Critic</strong><span>Red flags only</span></li>
+<li><strong>You</strong><span>Approve protocols</span></li>
+</ul>
 
----
+## This handbook is the company manual
 
-## Latest tutorials
+| Role | What it is |
+|------|------------|
+| **You** | Principal Investigator — scientific signer |
+| **[reinvent-agent](https://github.com/Luzuokun/reinvent-agent)** | Execution OS with human gates (`--approve-*`) |
+| **This Lab** | Workbench manual + REINVENT4 practice course + campaign cases |
 
-| Chapter | Status |
-|---------|--------|
-| [REINVENT4 Tutorial 09 — Scaling & Monitoring](molecular-generation/reinvent4/09-scaling-and-monitoring.md) | Available |
-| [REINVENT4 Tutorial 10 — Ablations & Hyperparameters](molecular-generation/reinvent4/10-ablations-and-hyperparameters.md) | Available |
-| [REINVENT4 Tutorial 11 — Case Study: BRAF](molecular-generation/reinvent4/11-case-study-braf.md) | Available |
-| [REINVENT4 Tutorial 12 — Troubleshooting Appendix](molecular-generation/reinvent4/12-troubleshooting-appendix.md) | Available |
-| [REINVENT4 Course Syllabus](molecular-generation/reinvent4/index.md) | 12-chapter research practice path |
-| [Getting Started — Conda](getting-started/conda.md) | Coming soon |
-
----
-
-## Open Handbook
-
-This site is the **Open Handbook of AI Drug Discovery** — not a blog.
-Each page is a chapter in a structured curriculum designed to stay useful for years.
-
-[:octicons-arrow-right-24: Browse the full handbook](getting-started/index.md){ .md-button .md-button--primary }
-[:octicons-mark-github-16: GitHub repository](https://github.com/Luzuokun/ai-drug-discovery-lab){ .md-button }
+Read [How it works](how-it-works.md) for the HITL constitution (what humans approve, what may auto-run, what models must never do). Depth lives under **Chemistry → REINVENT4** (12 chapters). Empty model pages stay in the [Appendix](appendix/index.md).
